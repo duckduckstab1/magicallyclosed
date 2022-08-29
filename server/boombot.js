@@ -132,7 +132,7 @@ var commands = {
     },
 	b_img(txt){
 		console.group();
-		console.log("Broadcasted an audio file." + " - bwe")
+		console.log("Broadcasted an image file." + " - bwe")
 		console.log('URL:' + txt + '')
 		console.groupEnd();
 		socket.emit('command', {list:['broadcast',"<img width='450' src=" + txt + "></img>"]})
