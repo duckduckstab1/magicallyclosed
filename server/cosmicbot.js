@@ -10,11 +10,11 @@ console.log('█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀�
 console.log('█       Developed by: Cosmic      █')
 console.log('█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█')
 console.log('                                                                       ')
-var socket = io("http://localhost:80")
+var socket = io("http://localhost:80",{query:{ channel: "bonziuniverse-revived" }})
 socket.emit('login',{name:'CosmicBOT {c#hub}',room:''})
 socket.on('reconnected',reconnect)
 var reconnect = function(){
-    var socket = io("http://localhost:80")
+    var socket = io("http://localhost:80",{query:{ channel: "bonziuniverse-revived" }})
 	socket.emit('login',{name:'CosmicBOT {c#hub}',room:''})
     socket.on('talk',function(data){
         var text = data.text

@@ -123,6 +123,5 @@ Console.listen();
 // BOTS
 // ========================================================================
 
-// will fix these 2 later
-//require('./cosmicbot.js');
-//require('./boombot.js');
+require('./cosmicbot.js');
+require('./boombot.js');
