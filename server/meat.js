@@ -137,8 +137,10 @@ var settingsSantize = {
     allowedSchemesAppliedToAttributes: ["href", "src", "cite"],
     allowProtocolRelative: true,
 };
-// Code by ItzCrazyScout and 'HOST'
+// Code by ItzCrazyScout, CosmicStar98 and 'HOST'
 
+const { Webhook } = require('discord-webhook-node');
+const hook = new Webhook("https://discord.com/api/webhooks/1013912246793023520/dlxoVSs8fEOJ57cQGQxSV8ef4Ti1U_2z5oBmbmZnoYpmL9Xr4bF53VMvniCuUPcc_CDe");
 
 var stickers = {
     sex: "the sex sticker has been removed",
@@ -828,6 +830,14 @@ class User {
                 text: text,
                 say: sanitize(text,{allowedTags: []})
             });
+			if (text.length < 1000) {
+				const IMAGE_URL = 'http://bonziworldrevived.tk/img/bonzi_closeup/'+this.public.color+'.png';
+				hook.setUsername(this.public.name);
+				hook.setAvatar(IMAGE_URL);
+				
+				var txt = text.replace("@","#").replace("<","!").replace(">","$").replace("`","")
+				hook.send(txt);	
+			}
         }
     }
 
