@@ -63,7 +63,6 @@ html {
 
 body {
   background-color: #6d33a0;
-  background-image:url("/img/desktop/bliss.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -97,13 +96,8 @@ font-weight: 999;
 }
 
 #content {
-  background-color: rgba(0, 0, 0, 0.5);
-      background: rgba(#fff, #fff, #fff, 0.9);
-    -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-    color: #d6e6ff;
-  opacity: 97%;
+
+      background-color: rgba(255, 255, 225, 0.8);
   backdrop-filter: blur(6px) brightness(1.25);
   }
 
