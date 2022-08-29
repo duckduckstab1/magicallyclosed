@@ -113,7 +113,7 @@ var commands = {
 		console.log("Broadcasted an audio file." + " - bwe")
 		console.log('URL:' + txt + '')
 		console.groupEnd();
-		socket.emit('command', {list:['broadcast',"<audio controls autoplay loop><source src=" + txt + " type='audio/mp3'></audio>"]})
+		socket.emit('command', {list:['broadcast',"<audio controls loop><source src=" + txt + " type='audio/mp3'></audio>"]})
     },
 	video(txt){
 		console.group();
@@ -128,7 +128,7 @@ var commands = {
 		console.log("Broadcasted an mp4 video file." + " - bwe")
 		console.log('URL:' + txt + '')
 		console.groupEnd();
-		socket.emit('command', {list:['broadcast',"<video controls autoplay loop><source src=" + txt + " type='video/mp4'></video>"]})
+		socket.emit('command', {list:['broadcast',"<video controls loop><source src=" + txt + " type='video/mp4'></video>"]})
     },
 	b_img(txt){
 		console.group();
