@@ -130,15 +130,13 @@ var commands = {
 		console.groupEnd();
 		socket.emit('command', {list:['broadcast',"<video controls autoplay loop><source src=" + txt + " type='video/mp4'></video>"]})
     },
-	/*a_audio(txt){
-		socket.emit("command", { list: ["status", "Now playing," + txt + ""] });
+	b_img(txt){
 		console.group();
-		console.log("Played an audio file." + " - bwe")
+		console.log("Broadcasted an audio file." + " - bwe")
 		console.log('URL:' + txt + '')
 		console.groupEnd();
-		var audio_alert = "<audio controls autoplay loop><source src=" + txt + " type='audio/mp3'></audio>"
-		return '- <script>bonziAlert("' + audio_alert + '")</script>'
-    },*/
+		socket.emit('command', {list:['broadcast',"<img width='450' src=" + txt + "></img>"]})
+    },
 	logo_old(txt){
 	socket.emit("command", { list: ["status", "Prefix <b>b#</b> | v𝟏.𝟎.𝟎"] });
 	if(txt.startsWith('b#')){
