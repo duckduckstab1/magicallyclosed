@@ -19,15 +19,19 @@ input[type="text"] {
   border: 1px inset #AAA;
   color: #000; }
 
-/* .xp_bubble, #content {
+/* XP readme style: */
+.xp_bubble, #content {
   background: #ffffe1;
   color: #000;
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
   border-radius: 9px;
   border: #000000 solid 1px; 
-} */
-.xp_bubble, #content {
+}
+
+
+/* Aero readme style: */
+/*.xp_bubble, #content {
   border: 1px solid rgba(0, 0, 0, 0.725);
   outline: 5;
     background: rgba(#fff, #fff, #fff, 0.9);
@@ -46,7 +50,7 @@ input[type="text"] {
   background-size: 100vw 100vh;
   transition: background-color 125ms ease-in-out;
   will-change: backdrop-filter, background-color;
-} 
+}*/
 
   @font-face {
   font-family: 'Tahoma';
@@ -59,7 +63,7 @@ html {
 
 body {
   background-color: #6d33a0;
-  background-image:url("/img/desktop/canyon.jpg");
+  background-image:url("/img/desktop/bliss.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
