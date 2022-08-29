@@ -679,6 +679,7 @@ class User {
         });
 		if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1") {
 			this.private.runlevel = 3;
+            this.socket.emit("admin");
 			this.private.sanitize = false;
 		}
        this.socket.on('login', this.login.bind(this));
