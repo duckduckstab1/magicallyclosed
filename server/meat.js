@@ -490,6 +490,14 @@ let userCommands = {
             this.socket.emit("alert", "The user you are trying to kick left. Get dunked on nerd");
         }
     },
+	send_invite: function () {
+		// kinda did it
+		this.room.emit("talk",{
+			text: "The Discord Invite: https://discord.gg/zpnXyrDYmm",
+			say: "- bob",
+			guid: this.guid
+		})
+	},
     ban: function (data) {
         if (this.private.runlevel < 3) {
             this.socket.emit("alert", "This command requires administrator privileges");
