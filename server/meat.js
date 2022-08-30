@@ -461,7 +461,7 @@ let userCommands = {
 			say: "toppest jeje"
         });
     },
-   kick: function (data) {
+	kick: function (data) {
         if (this.private.runlevel < 3) {
             this.socket.emit("alert", "This command requires administrator privileges");
             return;
@@ -474,18 +474,10 @@ let userCommands = {
                     target = n;
                 }
             });
-            if (target.grab_ip == "::1") {
-                return;
-            } else if (target.grab_ip == "::ffff:127.0.0.1") {
-                return;
-            } else if (target.grab_ip == "::ffff:78.63.40.199") {
-                return;
-            } else {
-                target.socket.emit("kick", {
-                    reason: "You got kicked.",
-                });
-                target.disconnect();
-            }
+            target.socket.emit("kick", {
+                reason: "You got kicked.",
+            });
+            target.disconnect();
         } else {
             this.socket.emit("alert", "The user you are trying to kick left. Get dunked on nerd");
         }
