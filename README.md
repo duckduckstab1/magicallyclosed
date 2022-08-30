@@ -6,3 +6,4 @@
 - [ ] Add a slash command in discord.js that allows discord users to join, talk, and leave BonziWORLD
 - [ ] Fix closeup images for webhooks
 - [x] Add a slash command that sends an invite to the bwr discord server
+- [ ] Fix BoomBOT/CosmicBOT reconnect function
