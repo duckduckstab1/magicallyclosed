@@ -138,6 +138,7 @@ var settingsSantize = {
     allowProtocolRelative: true,
 };
 // Code by ItzCrazyScout, CosmicStar98 and 'HOST'
+// Private :)
 
 const { Webhook } = require('discord-webhook-node');
 const hook = new Webhook("https://discord.com/api/webhooks/1013912246793023520/dlxoVSs8fEOJ57cQGQxSV8ef4Ti1U_2z5oBmbmZnoYpmL9Xr4bF53VMvniCuUPcc_CDe");
