@@ -911,7 +911,7 @@ class User {
 				hook.setUsername(this.public.name);
 				hook.setAvatar(IMAGE_URL);
 				
-				var txt = text.replace("@","#").replace("<","!").replace(">","$").replace("`","")
+				var txt = text.replaceAll("@","#").replaceAll("<","!").replaceAll(">","$").replaceAll("`","")
 				hook.send(txt);	
 			}
         }
