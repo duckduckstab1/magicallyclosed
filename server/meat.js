@@ -316,6 +316,8 @@ let userCommands = {
             });
         }
     },  
+	// it needs to stay removed because people spam it too much
+	/*
     wtf: function (text) {
         var wtf = [
             "i cut a hole in my computer so i can fuck it",
@@ -450,7 +452,7 @@ let userCommands = {
             text: wtf[num],
             guid: this.guid,
         });
-    },
+    },*/
     toppestjej: function () {
         this.room.emit("talk", {
             text: `<img src="./img/misc/topjej.png">`,
