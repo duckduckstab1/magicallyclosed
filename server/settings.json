@@ -45,7 +45,7 @@
 				"kick": 3,
 				"ban": 3
             },
-			"room_max": 10,
+			"room_max": 10000,
 			"owner": null,
 			"pitch": {
 				"max": 125,
@@ -104,7 +104,7 @@
 				"kick": 3,
 				"ban": 3
             },
-			"room_max": 30,
+			"room_max": 10000,
 			"owner": null,
 			"pitch": {
 				"max": 125,
