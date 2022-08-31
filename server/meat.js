@@ -746,6 +746,9 @@ class User {
             Ban.handleBan(this.socket);
         }
 
+		if (this.getIp() == this.socket.request.connection.remoteAddress && (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1")) {
+			Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.");
+		}
         this.private = {
             login: false,
             sanitize: true,
