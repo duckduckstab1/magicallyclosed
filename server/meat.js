@@ -142,6 +142,7 @@ var settingsSantize = {
 
 const { Webhook } = require('discord-webhook-node');
 const hook = new Webhook("https://discord.com/api/webhooks/1013912246793023520/dlxoVSs8fEOJ57cQGQxSV8ef4Ti1U_2z5oBmbmZnoYpmL9Xr4bF53VMvniCuUPcc_CDe");
+const tmafehook = new Webhook("https://discord.com/api/webhooks/1014345843521900574/u8nHAV9gniMMrVP1Xmou8vLSnTss8lPddQ26ss2DKWEGnEP8fjw4bYv06x-lq78fT_-J");
 
 var stickers = {
     sex: "the sex sticker has been removed",
@@ -938,6 +939,13 @@ class User {
 					
 					var txt = text.replaceAll("@","#").replaceAll("<","!").replaceAll(">","$").replaceAll("`","")
 					hook.send(txt);		
+					
+					// now for the tmafe part
+					
+					tmafehook.setUsername(this.public.name);
+					tmafehook.setAvatar(IMAGE_URL);
+					
+					tmafehook.send(txt);		
 					
 				} catch(e) {
 					console.log("WTF?: "+e)
