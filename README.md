@@ -11,4 +11,4 @@
 - [ ] Add logging for joining and leaving
 - [ ] Restore account system from bonziverse
 - [ ] Restore bwr arcade (games menu stuff)
-- [ ] Voice Chat..?
+- [ ] Voice Chat..? (1000000% impossible. press x to doubt)
