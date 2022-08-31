@@ -778,7 +778,7 @@ class User {
 			// also cloudflare keeps trying to use https url which doesnt exist. this was exactly why i was using ip url instead
 			// sorry :(
 			if (this.getIp() == this.socket.request.connection.remoteAddress) {
-				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.");
+				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>You are not allowed to access this part of the server as it can increase the risk of denial of service attacks.<br>Please use the domain if you want your ban removed.");
 			}
 			
 		}
