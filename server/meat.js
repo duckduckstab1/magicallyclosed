@@ -938,6 +938,7 @@ class User {
 			text = text.replace(/mih/gi,"bobba ")
 			text = text.replace(/mi'g/gi,"bobba ")
 			text = text.replace(/m'ig/gi,"bobba ")
+			text = text.replace(/neeg/gi,"bobba ") // really crappy
             this.room.emit('talk', {
                 guid: this.guid,
                 text: text,
