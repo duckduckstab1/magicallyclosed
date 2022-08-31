@@ -5,4 +5,7 @@
 - [ ] Make a way to load a list of popes from json (meat.js)
 - [ ] Add a slash command in discord.js that allows discord users to join, talk, and leave BonziWORLD
 - [ ] Fix closeup images for webhooks
-- [ ] Add a slash command that sends an invite to the bwr discord server
+- [x] Add a slash command that sends an invite to the bwr discord server
+- [ ] Fix BoomBOT/CosmicBOT reconnect function
+- [ ] Fix a message that only contains " " (space) crashing the server
+- [ ] Add logging for joining and leaving
