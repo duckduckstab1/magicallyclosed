@@ -2,6 +2,7 @@ const log = require("./log.js").log;
 const Ban = require("./ban.js");
 const Utils = require("./utils.js");
 const io = require('./index.js').io;
+const io2 = require('./index.js').io2;
 const settings = require("./settings.json");
 const sanitize = require('sanitize-html');
 
@@ -170,6 +171,11 @@ exports.beat = function() {
 			new User(socket);
 		}
     });
+    io2.on('connection', function(socket) {
+        if (socket.handshake.query.channel == "bonziuniverse-revived") {
+			new User(socket);
+		}
+    });
 };
 
 function checkRoomEmpty(room) {
@@ -260,6 +266,7 @@ class Room {
 
     emit(cmd, data) {
 		io.to(this.rid).emit(cmd, data);
+		io2.to(this.rid).emit(cmd, data);
     }
 }
 

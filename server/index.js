@@ -50,7 +50,11 @@ if (settings.express.serveStatic)
 	app.use(express.static('../build/www'));
 var server = require('http').createServer(app);
 };
-
+var options = {
+  key: fs.readFileSync('./privkey1.pem'),
+  cert: fs.readFileSync('./cert1.pem')
+}
+var server2 = require('https').createServer(options,app);
 // Shutdown Configs
 // Options: true and false
 /* offline = false;
@@ -71,9 +75,11 @@ var server = require('http').createServer(app);
 
 // Init socket.io
 var io = require('socket.io')(server);
+var io2 = require('socket.io')(server2);
 var port = process.env.PORT || settings.port;
 
 exports.io = io;
+exports.io2 = io2;
 
 // Init sanitize-html
 var sanitize = require('sanitize-html');
@@ -94,6 +100,11 @@ server.listen(port, function () {
 		"Time to meme!\n",
 		"----------------------\n",
 		"Server listening at port " + port
+	);
+});
+server2.listen(443, function () {
+	console.log(
+		"\nServer listening at port 443"
 	);
 });
 app.use(express.static(__dirname + '/public'));

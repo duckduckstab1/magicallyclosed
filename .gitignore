@@ -5,3 +5,7 @@ server/logs/info1.log
 server/bans.json
 server/bans.json
 server/bans.json
+server/cert1.pem
+server/chain1.pem
+server/fullchain1.pem
+server/privkey1.pem
