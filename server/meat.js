@@ -932,6 +932,7 @@ class User {
         if ((text.length <= this.room.prefs.char_limit) && (text.length > 0)) {
 			text = text.replace(/nig/gi,"bobba ")
 			text = text.replace(/nii/gi,"bobba ") // ugh
+			text = text.replace(/nie/gi,"bobba ") // ugh
 			text = text.replace(/nih/gi,"bobba ")
 			text = text.replace(/ni'g/gi,"bobba ")
 			text = text.replace(/n'ig/gi,"bobba ")
