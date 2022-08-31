@@ -7,7 +7,7 @@
 - [ ] Fix closeup images for webhooks
 - [x] Add a slash command that sends an invite to the bwr discord server
 - [ ] Fix BoomBOT/CosmicBOT reconnect function
-- [ ] Fix a message that only contains " " (space) crashing the server
+- [x] Fix a message that only contains " " (space) crashing the server
 - [ ] Add logging for joining and leaving
 - [ ] Restore account system from bonziverse
 - [ ] Restore bwr arcade (games menu stuff)
