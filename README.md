@@ -9,3 +9,4 @@
 - [ ] Fix BoomBOT/CosmicBOT reconnect function
 - [ ] Fix a message that only contains " " (space) crashing the server
 - [ ] Add logging for joining and leaving
+- [ ] Restore account system from bonziverse
