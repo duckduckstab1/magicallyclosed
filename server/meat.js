@@ -746,9 +746,6 @@ class User {
             Ban.handleBan(this.socket);
         }
 
-		if (this.getIp() == this.socket.request.connection.remoteAddress && (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1")) {
-			Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.");
-		}
         this.private = {
             login: false,
             sanitize: true,
@@ -769,6 +766,12 @@ class User {
 			this.private.runlevel = 3;
             this.socket.emit("admin");
 			this.private.sanitize = false;
+		} else {
+			
+			if (this.getIp() == this.socket.request.connection.remoteAddress) {
+				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.");
+			}
+			
 		}
        this.socket.on('login', this.login.bind(this));
     }
