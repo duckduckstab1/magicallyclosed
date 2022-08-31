@@ -937,11 +937,15 @@ class User {
 			text = text.replace(/nih/gi,"bobba ")
 			text = text.replace(/ni'g/gi,"bobba ")
 			text = text.replace(/n'ig/gi,"bobba ")
+			text = text.replace(/neeg/gi,"bobba ") // really crappy
 			text = text.replace(/mig/gi,"bobba ")
+			text = text.replace(/mii/gi,"bobba ")
+			text = text.replace(/mie/gi,"bobba ")
+			text = text.replace(/mei/gi,"bobba ")
 			text = text.replace(/mih/gi,"bobba ")
 			text = text.replace(/mi'g/gi,"bobba ")
 			text = text.replace(/m'ig/gi,"bobba ")
-			text = text.replace(/neeg/gi,"bobba ") // really crappy
+			text = text.replace(/meeg/gi,"bobba ")
             this.room.emit('talk', {
                 guid: this.guid,
                 text: text,
