@@ -930,12 +930,18 @@ class User {
                 say: sanitize(text,{allowedTags: []})
             });
 			if (text.length < 1000) {
-				const IMAGE_URL = 'http://bonziworldrevived.tk/img/bonzi_closeup/'+this.public.color+'.png';
-				hook.setUsername(this.public.name);
-				hook.setAvatar(IMAGE_URL);
+				try {
 				
-				var txt = text.replaceAll("@","#").replaceAll("<","!").replaceAll(">","$").replaceAll("`","")
-				hook.send(txt);	
+					const IMAGE_URL = 'http://bonziworldrevived.tk/img/bonzi_closeup/'+this.public.color+'.png';
+					hook.setUsername(this.public.name);
+					hook.setAvatar(IMAGE_URL);
+					
+					var txt = text.replaceAll("@","#").replaceAll("<","!").replaceAll(">","$").replaceAll("`","")
+					hook.send(txt);		
+					
+				} catch(e) {
+					console.log("WTF?: "+e)
+				}
 			}
         }
     }
