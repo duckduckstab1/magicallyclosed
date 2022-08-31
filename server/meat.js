@@ -774,7 +774,8 @@ class User {
             this.socket.emit("admin");
 			this.private.sanitize = false;
 		} else {
-			
+			//pls unban me again seamus 😭😭💀 ur stupid drm got me for a second time 😂
+			// also cloudflare keeps trying to use https url which doesnt exist. this was exactly why i was using ip url instead
 			if (this.getIp() == this.socket.request.connection.remoteAddress) {
 				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.");
 			}
