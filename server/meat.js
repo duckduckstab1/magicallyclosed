@@ -651,6 +651,9 @@ let userCommands = {
 
         let name = argsString || this.room.prefs.defaultName;
         this.public.name = this.private.sanitize ? sanitize(name) : name;
+		if (this.public.name.match(/Seamus/gi) && this.private.level < 3) {
+			this.public.name = "Impersonator"
+		}
         this.room.updateUser(this);
     },
     broadcast: function (...text) {
@@ -844,6 +847,9 @@ class User {
         this.room = rooms[rid];	
 			
         // Check name
+		if (data.name.match(/Seamus/gi) && this.private.level < 3) {
+			data.name = "Impersonator"
+		}
 		this.public.name = sanitize(data.name) || this.room.prefs.defaultName;
         if (this.public.name.includes == "Cosmic") {
             this.public.name.replace("Cosmic", "Imposter");
@@ -901,6 +907,7 @@ class User {
         log.info.log('info', 'talk', {
             guid: this.guid,
             text: data.text,
+			name: this.public.name,
 			userIp: this.getIp()
         });
 
@@ -909,6 +916,14 @@ class User {
 
         let text = this.private.sanitize ? sanitize(data.text) : data.text;
         if ((text.length <= this.room.prefs.char_limit) && (text.length > 0)) {
+			text = text.replace(/nig/gi,"bobba ")
+			text = text.replace(/nih/gi,"bobba ")
+			text = text.replace(/ni'g/gi,"bobba ")
+			text = text.replace(/n'ig/gi,"bobba ")
+			text = text.replace(/mig/gi,"bobba ")
+			text = text.replace(/mih/gi,"bobba ")
+			text = text.replace(/mi'g/gi,"bobba ")
+			text = text.replace(/m'ig/gi,"bobba ")
             this.room.emit('talk', {
                 guid: this.guid,
                 text: text,
