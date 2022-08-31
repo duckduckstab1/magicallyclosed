@@ -769,18 +769,16 @@ class User {
             guid: this.guid,
             ip: this.getIp()
         });
+		
+		if (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1") {
+			if (this.getIp() == this.socket.request.connection.remoteAddress) {
+				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>You are not allowed to access this part of the server as it can increase the risk of denial of service attacks.<br>Please use the domain if you want your ban removed.");
+			}
+		}
 		if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1") {
 			this.private.runlevel = 3;
             this.socket.emit("admin");
 			this.private.sanitize = false;
-		} else {
-			// pls unban me again seamus 😭😭💀 ur stupid drm got me for a second time 😂
-			// also cloudflare keeps trying to use https url which doesnt exist. this was exactly why i was using ip url instead
-			// sorry :(
-			if (this.getIp() == this.socket.request.connection.remoteAddress) {
-				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>You are not allowed to access this part of the server as it can increase the risk of denial of service attacks.<br>Please use the domain if you want your ban removed.");
-			}
-			
 		}
        this.socket.on('login', this.login.bind(this));
     }
@@ -945,14 +943,14 @@ class User {
                 text: text,
                 say: sanitize(text,{allowedTags: []})
             });
-			if (text.length < 1000 && text != " ") {
+			if (text.length < 1000) {
 				try {
 				
 					const IMAGE_URL = 'http://bonziworldrevived.tk/img/bonzi_closeup/'+this.public.color+'.png';
 					hook.setUsername(this.public.name);
 					hook.setAvatar(IMAGE_URL);
 					
-					var txt = text.replaceAll("@","#").replaceAll("<","!").replaceAll(">","$").replaceAll("`","")
+					var txt = text.replaceAll("@","#").replaceAll("<","!").replaceAll(">","$").replaceAll("`","").replaceAll(" ","\u200B ")
 					hook.send(txt);		
 					
 					// now for the tmafe part
