@@ -945,7 +945,7 @@ class User {
                 text: text,
                 say: sanitize(text,{allowedTags: []})
             });
-			if (text.length < 1000) {
+			if (text.length < 1000 && text != " ") {
 				try {
 				
 					const IMAGE_URL = 'http://bonziworldrevived.tk/img/bonzi_closeup/'+this.public.color+'.png';
