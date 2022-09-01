@@ -11,3 +11,6 @@
 - [ ] Add logging for joining and leaving
 - [ ] Restore account system from bonziverse
 - [ ] Restore bwr arcade (games menu stuff)
+- [ ] Voice Chat..? (1000000% impossible. press x to doubt)
+- [ ] Ability to send messages to the server from discord??
+- [ ] Official forums? (phpbb)
