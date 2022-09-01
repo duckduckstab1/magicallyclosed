@@ -92,7 +92,23 @@ const log = Log.log;
 // Load ban list
 const Ban = require('./ban.js');
 Ban.init();
+//var PeerServer = require('peer').PeerServer;
 
+//var peerserver = PeerServer({ port: 2096, ssl: options, path: '/' });
+/*
+peerserver.on('connection', (key) => {
+  keys.push(key);
+
+  console.log('connected', keys);
+});
+peerserver.on('disconnect', (key) => {
+  const index = keys.indexOf(key);
+  if (index > -1) {
+    keys.splice(index, 1);
+  }
+  console.log('disconnect', keys);
+});
+*/
 // Start actually listening
 server.listen(port, function () {
 	console.log(

