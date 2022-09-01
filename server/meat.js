@@ -936,6 +936,7 @@ class User {
 			if (!text.match(/night/gi)) {
 				text = text.replace(/nig/gi,"bobba ")
 			}
+			text = text.replace(/nïg/gi, "bobba ")
 			text = text.replace(/nijg/gi,"bobba ")
 			text = text.replace(/ninj/gi,"bobba ")
 			text = text.replace(/nijj/gi,"bobba ")
