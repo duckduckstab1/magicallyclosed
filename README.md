@@ -14,3 +14,4 @@
 - [ ] Voice Chat..? (1000000% impossible. press x to doubt)
 - [ ] Ability to send messages to the server from discord??
 - [ ] Official forums? (phpbb)
+- [ ] Hide typing indicator when muted
