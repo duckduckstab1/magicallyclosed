@@ -945,6 +945,7 @@ class User {
 			text = text.replace(/n'ig/gi,"bobba ")
 			text = text.replace(/neeg/gi,"bobba ") // really crappy
 			text = text.replace(/mig/gi,"bobba ")
+			text = text.replace(/mijg/gi,"bobba ")
 			text = text.replace(/mii/gi,"bobba ")
 			text = text.replace(/mie/gi,"bobba ")
 			text = text.replace(/mei/gi,"bobba ")
