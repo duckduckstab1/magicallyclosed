@@ -1,4 +1,7 @@
 # BonziWORLD Revived+ Official Repository
+
+Also known as "BonziWORLD Revived Codename 'Seagate'" by Seamus himself.
+
 ## TODO LIST
 - [ ] Re add old bwr+ from March 2022 commands and colors
 - [x] Fix ban command
