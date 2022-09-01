@@ -32,6 +32,7 @@ var reconnect = function(){
     })
     socket.on('reconnected',reconnect)
 }
+
 /* socket.emit('command', {list:['aboutme','<div><h4>Version ①.⑦.②</h4><br><hr>Hello, I am <b>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</b>! If you need my assistance please start by using <b>c#hub</b>. <hr><div><h5>⌬ Developed by: Cosmic ⌬</h5></div></p>']}) */
 
 socket.emit('command', {list:['pitch','77']})
@@ -230,7 +231,7 @@ var commands = {
 	changelog(txt){
 		console.log('Loaded changelog menu.' + ' - bwe')
 		cmdcount++
-		return '- - <h3>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</h3><h5>⌬ Developed by: Cosmic ⌬</h5> <hr /><li>c#hub</li> <hr /><b>✰①.⑦.② Changelog:✰</b><hr /> <li>Updated to <b>①.⑦.②</b></li><br /> <li>Added new emotes and colors</li><br /> <li>Added alternate names to some commands</li><br /> <li>Added delay before running commands to reduce spam</li><br /> <hr /><h6>Changelog.</h6><hr />'
+		return '- - <h3>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</h3><h5>⌬ Developed by: Cosmic ⌬</h5> <hr /><li>c#hub</li> <hr /><b>✰①.⑦.② Changelog:✰</b><hr /> <li>Updated to <b>①.⑦.②</b></li><br /> <li>Added wtf command</li><br /> <hr /><h6>Changelog.</h6><hr />'
 	},
 	hub(txt){
 		if(txt.startsWith('c#')){
