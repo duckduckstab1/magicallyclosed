@@ -937,6 +937,7 @@ class User {
 				text = text.replace(/nig/gi,"bobba ")
 			}
 			text = text.replace(/nijg/gi,"bobba ")
+			text = text.replace(/nijj/gi,"bobba ")
 			text = text.replace(/nii/gi,"bobba ") // ugh
 			text = text.replace(/nie/gi,"bobba ")
 			text = text.replace(/nei/gi,"bobba ")
@@ -946,6 +947,7 @@ class User {
 			text = text.replace(/neeg/gi,"bobba ") // really crappy
 			text = text.replace(/mig/gi,"bobba ")
 			text = text.replace(/mijg/gi,"bobba ")
+			text = text.replace(/mijj/gi,"bobba ")
 			text = text.replace(/mii/gi,"bobba ")
 			text = text.replace(/mie/gi,"bobba ")
 			text = text.replace(/mei/gi,"bobba ")
