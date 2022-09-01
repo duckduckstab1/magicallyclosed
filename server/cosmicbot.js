@@ -32,8 +32,7 @@ var reconnect = function(){
     })
     socket.on('reconnected',reconnect)
 }
-
-/* socket.emit('command', {list:['aboutme','<div><h4>Version ①.⑦.①</h4><br><hr>Hello, I am <b>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</b>! If you need my assistance please start by using <b>c#hub</b>. <hr><div><h5>⌬ Developed by: Cosmic ⌬</h5></div></p>']}) */
+/* socket.emit('command', {list:['aboutme','<div><h4>Version ①.⑦.②</h4><br><hr>Hello, I am <b>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</b>! If you need my assistance please start by using <b>c#hub</b>. <hr><div><h5>⌬ Developed by: Cosmic ⌬</h5></div></p>']}) */
 
 socket.emit('command', {list:['pitch','77']})
 socket.emit('command', {list:['speed','146']})
@@ -43,7 +42,124 @@ var cmdcount = 0;
 var ytcount = 0;
 var sockets = []
 var talkmode = true;
-
+		var wtf = [
+            "i cut a hole in my computer so i can fuck it",
+            "i hate minorities",
+            "i said /godmode password and it didnt work",
+            "i like to imagine i have sex with my little pony characters",
+            "ok yall are grounded grounded grounded grounded grounded grounded grounded grounded grounded for 64390863098630985 years go to ur room",
+            "i like to eat dog crap off the ground",
+            "i can use inspect element to change your name so i can bully you",
+            "i can ban you, my dad is seamus",
+            "why do woman reject me, i know i masturbate in public and dont shower but still",
+            "put your dick in my nose and lets have nasal sex",
+            "my cock is 6 ft so ladies please suck it",
+            "please make pope free",
+            "whats that color",
+            "I got a question. but it's a serious, yes, serious thing that I have to say! AAAAAAAAAAA! I! am! not! made! by! Pixel works! Pixel works doesn't make microsoft agent videos! Kieran G&A Doesn't exist! Anymore! So, if you guys keep mocking me that i am made by Pixel works (Originally Aqua) or Kieran G&A, then i am gonna commit kill you! huff, puff, that is all.",
+            "This PC cannot run Windows 11. The processor isn't supported for Windows 11. While this PC doesn't meet the system requirements, you'll keep getting Windows 10 Updates.",
+            "I made Red Brain Productions, and i deny that i am made by Pixelworks",
+            "100. Continue.",
+            "418. I'm a teapot.",
+            "I am SonicFan08 and i like Norbika9Entertainment and grounded videos! Wow! I also block people who call me a gotard!",
+            "When BonziWORLD leaks your memory, your system will go AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "Bonkey sugar. Anything that makes one physically satisfied. By extension, anything good or desirable. The following are examples of things which are most certainly bonkey sugar...",
+            "i like to harass bonziworld fans on bonziworld",
+            "there is a fucking white bird in my chest please get him out",
+            "i am that frog that is speaking chinese",
+            "Crypt Moment! Crypt Moment! Crypt Moment! Crypt Moment! Crypt Moment! Crypt Moment! Crypt Moment! Crypt Moment!",
+            "i don't let anyone have any fun like holy shit i hate bonziworld soooooooooo much!",
+            "i make gore art out of dream as fucking usual",
+            "yummy yummy two letter object in my tummy! yummy in my tummy! i pretend to be david and terrorize the fuck out of my friends!",
+            "why the fuck are you hating Twitter?! what did they do to you?!",
+            "seamus has a weird- NO YOU FUCKING DONT! YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY! [[ IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII",
+            "This is not a test. You have been caught as a 'funny child harassment' moment. you will be banned. You got banned! Why? Being retarded? IDK. You literally harass BonziWORLD Fans. How dare you!",
+            "fingerprinting on bonzi.world is giving out your location! real! not fake!",
+            "how many fucking times have i told you? GIVE ME THE MARIO 64 BETA ROM NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW NOW!",
+            "<p hidden> i have nothing to say </p>",
+            "I am getting fucking tired of you using this command. Fucking take a break already!",
+            "<script></script>",
+            "DeviantArt",
+            "You're a [['fVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVkjng]] asshole!",
+            "javascript",
+            "hi i'm crypt and i have a internet explorer fetish daddy please hate on seamus for cutting ties with me and ziggymoncher",
+            "BonziWORLD.exe has encountered and error and needs to close. Nah, seriously, you caused this error to happen because you used /wtf.",
+            "/amplitude is best command",
+            "moo!",
+            "host bathbomb",
+            "Hi.",
+            "hiii i'm soundcard from mapper league",
+            "I injected some soundcard syringes into your browser. <small>this is obviously fake</small>",
+            '<img src="https://cdn.discordapp.com/emojis/854164241527209995.gif?v=1"></img>',
+            "i listen to baby from justin bieber",
+            "i watch numberblocks",
+            "i watch doodland and now people are calling me a doodtard",
+            "i watch bfdi and now people are calling me a objecttard",
+            "i post klasky csupo effects and now people are calling me a logotard",
+            "i inflate people, and body inflation is my fetish.",
+            "i installed BonziBUDDY on my pc and now i have a virus",
+            "i deleted system32",
+            "i flood servers, and that makes me cool.",
+            "I unironically do ERPs that has body inflation fetishism with people. Do you have a problem with that? YES! INFLATION FUCKING SUCKS YOU STUPID PERSON NAMED GERI!",
+            "I unironically do ERPs that has body inflation fetishism with people. Do you have a problem with that? YES! INFLATION FUCKING SUCKS YOU STUPID PERSON NAMED BOWGART!",
+            "I unironically do ERPs that has body inflation fetishism with people. Do you have a problem with that? YES! INFLATION FUCKING SUCKS YOU STUPID PERSON NAMED POM POM!",
+            "I unironically do ERPs that has body inflation fetishism with people. Do you have a problem with that? YES! INFLATION FUCKING SUCKS YOU STUPID PERSON NAMED WHITTY!",
+            "Hi. My name is DanielTR52 and i change my fucking mind every 1 picosecond. Also, ICS fucking sucks. Nope, now he doesnt. Now he does. Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.  Now he doesnt. Now he does.",
+            "i still use the wii u&trade;",
+            "i used homebrew on my nintendo switch and i got banned",
+            "i bricked my wii",
+            "muda muda muda muda!",
+            'i am going to post inflation videos because, remember: "I inflate people and inflation is my fetish."',
+            "i copy other people's usernames",
+            "i use microsoft agent scripting helper for fighting videos against innocent people that did nothing wrong by just friendly commenting",
+            "i use microsoft agent scripting helper for gotard videos",
+            "i use hotswap for my xbox 360",
+            "i boycotted left 4 dead 2",
+            "CAN U PLZ UNBAN ME PLZ PLZ PLZ PLZ PLZ PLZ PLZ PLZ",
+            "I use an leaked build of Windows 11 on my computer.",
+            "Do you know how much /wtf quotes are there?",
+            "Fun Fact: You're a fucking asshole",
+            "Crypt: HAHA HEY GUYS I LIKE TO USE AUTISM AS A INSULT LOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLO",
+            "i watch body inflation videos on youtube",
+            "ItzCrazyScout, No! More like.... ekfheiophjeodxenwobifuodhndoxnwsiohbdeiowdhn2werifhwefief! He banned euhdeioqwdheiwohjixzojqsioh r23oipwshnwq! End of rant.",
+            "Pro Hacker: NEAGEUR! [[llllllllllllll]] NEAGEUR!",
+            "i play left 4 dead games 24/7",
+            "i am so cool. i shit on people, add reactions  that make fun of users on discord, and abuse my admin powers. i am really so cool.",
+            "This product will not operate when connected to a device which makes unauthorized copies. Please refer to your instruction booklet for more information.",
+            "hey medic i like doodland",
+            "i installed windows xp on my real computer",
+            "i am whistler and i like to say no u all the time",
+            "HEY EVERYONE LOOK AT ME I USE NO U ALL THE TIME LMAO",
+            "i like to give my viewers anxiety",
+            "how to make a bonziworld server?",
+            "shock, blood loss, infection; [['oU: hoUhoUhoUhoU]]! i love stabbing!",
+            "I AM ANGRY BECAUSE I GOT BANNED! I WILL MAKE A MASH VIDEO OUT OF ME GETTING BANNED!",
+            "oh you're approaching me!",
+            "MUTED! HEY EVERYONE LOOK AT ME I SAY MUTED IN ALL CAPS WHEN I MUTE SOMEONE LMAO",
+            "can you boost my server? no? you're mean! >:(",
+            "no u",
+            "numberblocks is my fetish",
+            "Jy: OOOOOOOOOOOOO look at me i'm the guy who likes to harass children as well HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA",
+            "#inflation big haram",
+            "Sorry, i don't want you anymore.",
+            "Twitter Cancel Culture! Twitter Cancel Culture! Twitter Cancel Culture! Twitter Cancel Culture! Twitter Cancel Culture!",
+            "cry about it",
+            "<p hidden>[[??????????????????????????????????????????????????????????????????????????????????????]] Hello? Is anyone there? Please help me!</p>",
+            "SyntaxError: Unexpected string",
+            "i post random gummibar videos on bonziworld",
+            "i support meatballmars",
+            "PLEASE GIVE THIS VIDEO LIKES!!!!! I CANNOT TAKE IT ANYMORE!",
+            "I WILL MAKE A BAD VIDEO OUT OF YOU! GRRRRRRRRRRRR!",
+            "Muted",
+            "i keep watching doodland like forever now",
+            "i mined diamonds with a wooden pickaxe",
+            "i kept asking for admin and now i got muted",
+            "I FAP TO FEMMEPYRO NO JOKE",
+            "i like to imagine that i am getting so fat for no reason at all",
+            "i am not kid",
+            "i want mario beta rom hack now!",
+            "i am a gamer girl yes not man no im not man i am gamer girl so give me money and ill giv you my adress <3",
+        ];
 var commands = {
     echo(txt){
         if(txt.startsWith('c#')){
@@ -104,7 +220,7 @@ var commands = {
 	fun(txt){
 		console.log('Loaded fun menu.' + ' - bwe')
 		cmdcount++
-		return '- - <h3>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</h3><h5>⌬ Developed by: Cosmic ⌬</h5> <hr /><li>c#hub</li> <hr /><b>✰Fun Commands:✰</b><hr /> <li>c#joke</li><br /> <li>c#fact</li><br /> <li>c#nigger</li><br /> <li>c#skiddie</li><br /> <li>c#asshole</li><br /> <li>c#owo</li><br /> <li>c#vaporwave</li><br /> <li>c#unvaporwave</li><br /> <li>c#echo</li><br /> <hr /><h6>Fun.</h6><hr />'
+		return '- - <h3>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</h3><h5>⌬ Developed by: Cosmic ⌬</h5> <hr /><li>c#hub</li> <hr /><b>✰Fun Commands:✰</b><hr /> <li>c#joke</li><br /> <li>c#fact</li><br /> <li>c#wtf</li><br /> <li>c#nigger</li><br /> <li>c#skiddie</li><br /> <li>c#asshole</li><br /> <li>c#owo</li><br /> <li>c#vaporwave</li><br /> <li>c#unvaporwave</li><br /> <li>c#echo</li><br /> <hr /><h6>Fun.</h6><hr />'
 	},
 	misc(txt){
 		console.log('Loaded misc menu.' + ' - bwe')
@@ -114,7 +230,7 @@ var commands = {
 	changelog(txt){
 		console.log('Loaded changelog menu.' + ' - bwe')
 		cmdcount++
-		return '- - <h3>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</h3><h5>⌬ Developed by: Cosmic ⌬</h5> <hr /><li>c#hub</li> <hr /><b>✰①.⑦.① Changelog:✰</b><hr /> <li>Updated to <b>①.⑦.①</b></li><br /> <li>Added new emotes and colors</li><br /> <li>Added alternate names to some commands</li><br /> <li>Added delay before running commands to reduce spam</li><br /> <hr /><h6>Changelog.</h6><hr />'
+		return '- - <h3>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</h3><h5>⌬ Developed by: Cosmic ⌬</h5> <hr /><li>c#hub</li> <hr /><b>✰①.⑦.② Changelog:✰</b><hr /> <li>Updated to <b>①.⑦.②</b></li><br /> <li>Added new emotes and colors</li><br /> <li>Added alternate names to some commands</li><br /> <li>Added delay before running commands to reduce spam</li><br /> <hr /><h6>Changelog.</h6><hr />'
 	},
 	hub(txt){
 		if(txt.startsWith('c#')){
@@ -138,15 +254,15 @@ var commands = {
         }
 		console.log('Loaded links menu.' + ' - bwe')
 		cmdcount++
-		return '- - <hr /><h4>⚜My Discord Server:</h4> <br /><h5>https://bit.ly/3C1wDDO</h5><br /><hr /> <h4>📝My Pastebin Profile:</h4> <br /><h5>https://bit.ly/3k1DiYM</h5><br /><hr /> <h4>🌐My Github Profile:</h4> <br /><h5>https://tinyurl.com/ykx6s9hj</h5><br /><hr /> <h4>🟪My BonziWORLD Server:</h4> <br /><h5>http://147.185.221.180:35473</h5><br /><hr /> <h6>Links.</h6><hr />'
+		return '- - <hr /><h4>⚜My Discord Server:</h4> <br /><h5>https://bit.ly/3C1wDDO</h5><br /><hr /> <h4>📝My Pastebin Profile:</h4> <br /><h5>https://bit.ly/3k1DiYM</h5><br /><hr /> <h4>🌐My Github Profile:</h4> <br /><h5>https://tinyurl.com/ykx6s9hj</h5><br /><hr /> <h6>Links.</h6><hr />'
 	},
-	aboutme(txt){ 
+	aboutme(txt){
 		if(txt.startsWith('c#')){
             return "hahahaha nice command lmao hahaha fuck you"
         }
 		console.log('Loaded aboutme menu.' + ' - bwe')
 		cmdcount++
-		return '- - <h3>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</h3><div><h4>Version ①.⑦.①</h4><br><hr>Hello, I am <b>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</b>! If you need my assistance please start by using <b>c#hub</b>. <hr><div><h5>⌬ Developed by: Cosmic ⌬</h5></div></p>'
+		return '- - <h3>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</h3><div><h4>Version ①.⑦.②</h4><br><hr>Hello, I am <b>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</b>! If you need my assistance please start by using <b>c#hub</b>. <hr><div><h5>⌬ Developed by: Cosmic ⌬</h5></div></p>'
 	},
 	about(txt){
 		if(txt.startsWith('c#')){
@@ -154,7 +270,7 @@ var commands = {
         }
 		console.log('Loaded about menu.' + ' - bwe')
 		cmdcount++
-		return '- - <h3>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</h3><div><h4>Version ①.⑦.①</h4><br><hr>Hello, I am <b>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</b>! If you need my assistance please start by using <b>c#hub</b>. <hr><div><h5>⌬ Developed by: Cosmic ⌬</h5></div></p>'
+		return '- - <h3>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</h3><div><h4>Version ①.⑦.②</h4><br><hr>Hello, I am <b>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</b>! If you need my assistance please start by using <b>c#hub</b>. <hr><div><h5>⌬ Developed by: Cosmic ⌬</h5></div></p>'
 	},
 	fakeerrors(txt){
 		if(txt.startsWith('c#')){
@@ -197,6 +313,11 @@ var commands = {
 		cmdcount++
 		console.log('Called somebody a nigga' + ' - bwe')
         return ([txt]+[' is a nigga'])
+    },
+	wtf(txt){
+		cmdcount++
+		var num = Math.floor(Math.random() * wtf.length);
+		return(wtf[num])
     },
 	skiddie(txt){
 		cmdcount++
@@ -692,7 +813,7 @@ var commands = {
     },
 	botver(txt){
 	cmdcount++
-	return '- - <h3>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</h3><div><h4>Version: ①.⑦.①</h4><hr><h4>Bug Fixes & Update</h4><hr>'
+	return '- - <h3>𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓</h3><div><h4>Version: ①.⑦.②</h4><hr><h4>Bug Fixes & Update</h4><hr>'
     },
 	message(txt){
 		cmdcount++

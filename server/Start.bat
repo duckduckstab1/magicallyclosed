@@ -1,8 +1,8 @@
 @echo off
+title BonziWORLD Revived+ Remake
 cls
-echo Starting BWR+ (prototype)
-:restart
+echo Starting BWR+...
+:bwr
 node index.js
-echo FAK SAN WHAT ARE YOU DOING NO!!!!
-goto restart
-pause
+echo WARNING: Server crashed or has been reset!
+goto bwr
