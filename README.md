@@ -15,3 +15,4 @@
 - [ ] Ability to send messages to the server from discord??
 - [ ] Official forums? (phpbb)
 - [ ] Hide typing indicator when muted
+- [ ] Prevent people with godmode from being kicked/banned by other pope users (server owner is exempt)
