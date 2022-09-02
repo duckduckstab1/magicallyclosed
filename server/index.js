@@ -151,4 +151,5 @@ Console.listen();
 // ========================================================================
 
 require('./cosmicbot.js');
-require('./boombot.js');
+// twats will use this for posting black people twerking
+// require('./boombot.js');
