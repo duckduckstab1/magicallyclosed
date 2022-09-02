@@ -662,6 +662,33 @@ let userCommands = {
 
         let name = argsString || this.room.prefs.defaultName;
         this.public.name = this.private.sanitize ? sanitize(name) : name;
+		let text = this.public.name;
+		if (!text.match(/night/gi)) {
+				text = text.replace(/nig/gi,"bobba ")
+			}
+			text = text.replace(/nïg/gi, "bobba ")
+			text = text.replace(/nijg/gi,"bobba ")
+			text = text.replace(/ninj/gi,"bobba ")
+			text = text.replace(/nijj/gi,"bobba ")
+			text = text.replace(/nii/gi,"bobba ") // ugh
+			text = text.replace(/nie/gi,"bobba ")
+			text = text.replace(/nei/gi,"bobba ")
+			text = text.replace(/nih/gi,"bobba ")
+			text = text.replace(/ni'g/gi,"bobba ")
+			text = text.replace(/n'ig/gi,"bobba ")
+			text = text.replace(/neeg/gi,"bobba ") // really crappy
+			if (!text.match(/might/gi)) {
+				text = text.replace(/mig/gi,"bobba ")
+			}
+			text = text.replace(/mijg/gi,"bobba ")
+			text = text.replace(/mijj/gi,"bobba ")
+			text = text.replace(/mii/gi,"bobba ")
+			text = text.replace(/mie/gi,"bobba ")
+			text = text.replace(/mei/gi,"bobba ")
+			text = text.replace(/mih/gi,"bobba ")
+			text = text.replace(/mi'g/gi,"bobba ")
+			text = text.replace(/m'ig/gi,"bobba ")
+			text = text.replace(/meeg/gi,"bobba ")
 		if (this.public.name.match(/Seamus/gi) && this.private.level < 3) {
 			this.public.name = "Impersonator"
 		}
@@ -867,6 +894,33 @@ class User {
 		if (data.name.match(/Seamus/gi) && this.private.level < 3) {
 			data.name = "Impersonator"
 		}
+		let text = data.name;
+		if (!text.match(/night/gi)) {
+				text = text.replace(/nig/gi,"bobba ")
+			}
+			text = text.replace(/nïg/gi, "bobba ")
+			text = text.replace(/nijg/gi,"bobba ")
+			text = text.replace(/ninj/gi,"bobba ")
+			text = text.replace(/nijj/gi,"bobba ")
+			text = text.replace(/nii/gi,"bobba ") // ugh
+			text = text.replace(/nie/gi,"bobba ")
+			text = text.replace(/nei/gi,"bobba ")
+			text = text.replace(/nih/gi,"bobba ")
+			text = text.replace(/ni'g/gi,"bobba ")
+			text = text.replace(/n'ig/gi,"bobba ")
+			text = text.replace(/neeg/gi,"bobba ") // really crappy
+			if (!text.match(/might/gi)) {
+				text = text.replace(/mig/gi,"bobba ")
+			}
+			text = text.replace(/mijg/gi,"bobba ")
+			text = text.replace(/mijj/gi,"bobba ")
+			text = text.replace(/mii/gi,"bobba ")
+			text = text.replace(/mie/gi,"bobba ")
+			text = text.replace(/mei/gi,"bobba ")
+			text = text.replace(/mih/gi,"bobba ")
+			text = text.replace(/mi'g/gi,"bobba ")
+			text = text.replace(/m'ig/gi,"bobba ")
+			text = text.replace(/meeg/gi,"bobba ")
 		this.public.name = sanitize(data.name) || this.room.prefs.defaultName;
         if (this.public.name.includes == "Cosmic") {
             this.public.name.replace("Cosmic", "Imposter");
@@ -936,6 +990,9 @@ class User {
 			if (!text.match(/night/gi)) {
 				text = text.replace(/nig/gi,"bobba ")
 			}
+			if (!text.match(/bi/gi)) {
+				text = text.replace(/gger/gi," bobba ")
+			}
 			text = text.replace(/nïg/gi, "bobba ")
 			text = text.replace(/nijg/gi,"bobba ")
 			text = text.replace(/ninj/gi,"bobba ")
@@ -947,7 +1004,9 @@ class User {
 			text = text.replace(/ni'g/gi,"bobba ")
 			text = text.replace(/n'ig/gi,"bobba ")
 			text = text.replace(/neeg/gi,"bobba ") // really crappy
-			text = text.replace(/mig/gi,"bobba ")
+			if (!text.match(/might/gi)) {
+				text = text.replace(/mig/gi,"bobba ")
+			}
 			text = text.replace(/mijg/gi,"bobba ")
 			text = text.replace(/mijj/gi,"bobba ")
 			text = text.replace(/mii/gi,"bobba ")
@@ -969,7 +1028,7 @@ class User {
 					hook.setUsername(this.public.name);
 					hook.setAvatar(IMAGE_URL);
 					
-					var txt = text.replaceAll("@","#").replaceAll("<","!").replaceAll(">","$").replaceAll("`","").replaceAll(" ","\u200B ")
+					var txt = text.replaceAll("@","#").replaceAll("<","!").replaceAll(">","$").replaceAll("`","").replaceAll(" ","\u200B ").replaceAll("http://","hgrunt/ass.wav ").replaceAll("https://","hgrunt/ass.wav ")
 					hook.send(txt);		
 					
 					// now for the tmafe part
