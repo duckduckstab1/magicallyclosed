@@ -1028,8 +1028,11 @@ class User {
             });
 			if (text.length < 1000) {
 				try {
-				
-					const IMAGE_URL = 'http://bonziworldrevived.tk/img/bonzi_closeup/'+this.public.color+'.png';
+					
+					const IMAGE_URL = 'https://bonziworldrevived.tk/img/bonzi_closeup/'+this.public.color+'.png';
+					if (this.getIp() == "84.91.29.6" && this.public.name.match(/Diogo/gi)) { // if he's real, show his true identity (bwr+ exclusive only, do not add to other servers)
+						IMAGE_URL = 'https://bonziworldrevived.tk/img/bonzi_closeup/diogo.png';
+					}
 					hook.setUsername(this.public.name);
 					hook.setAvatar(IMAGE_URL);
 					
