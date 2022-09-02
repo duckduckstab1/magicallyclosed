@@ -519,6 +519,9 @@ let userCommands = {
             } else if (target.socket.request.connection.remoteAddress == "::ffff:127.0.0.1") {
                 Ban.removeBan(target.getIp());
             } else {
+				if (target.private.runlevel > 2 && (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1")) {
+					return;
+				} 
                 Ban.addBan(target.getIp());
                 target.socket.emit("ban", {
                     reason: data.reason,
