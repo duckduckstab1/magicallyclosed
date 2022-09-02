@@ -147,9 +147,9 @@ const Console = require('./console.js');
 Console.listen();
 
 // ========================================================================
-// BOTS
+// BOTS -- DO NOT USE
 // ========================================================================
 
-require('./cosmicbot.js');
+// require('./cosmicbot.js');
 // twats will use this for posting black people twerking
 // require('./boombot.js');
