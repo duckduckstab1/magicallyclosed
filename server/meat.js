@@ -986,6 +986,11 @@ class User {
             return;
 
         let text = this.private.sanitize ? sanitize(data.text) : data.text;
+		if (text.match(/phncdn/gi)) {
+			data = {
+                text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO"
+            };
+		}
         if ((text.length <= this.room.prefs.char_limit) && (text.length > 0)) {
 			if (!text.match(/night/gi)) {
 				text = text.replace(/nig/gi,"bobba ")

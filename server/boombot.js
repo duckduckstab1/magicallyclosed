@@ -101,6 +101,7 @@ var commands = {
 
 		socket.emit('command', {list:['youtube',txt]})
     },
+	/*
 	audio(txt){
 		console.group();
 		console.log("Played an audio file." + " - bwe")
@@ -137,6 +138,7 @@ var commands = {
 		console.groupEnd();
 		socket.emit('command', {list:['broadcast',"<img width='450' src=" + txt + "></img>"]})
     },
+	*/
 	logo_old(txt){
 	socket.emit("command", { list: ["status", "Prefix <b>b#</b> | v𝟏.𝟎.𝟎"] });
 	if(txt.startsWith('b#')){
