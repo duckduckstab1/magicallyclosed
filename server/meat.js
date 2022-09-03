@@ -614,6 +614,7 @@ let userCommands = {
             target: sanitize(Utils.argsString(arguments))
         });
     },
+	/*
     video: function (vidRaw) {
         var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
         this.room.emit("video", {
@@ -634,7 +635,8 @@ let userCommands = {
             guid: this.guid,
             vid: vid,
         });
-    }, 
+    },
+	*/
     "owo": function() {
         this.room.emit("owo", {
             guid: this.guid,
@@ -744,10 +746,11 @@ let userCommands = {
             guid: this.guid
         });
     },
+	/*
 	imageapi: function (data) {
         if (data.includes('"') || data.length > 8 * 1024 * 1024) return;
         this.room.emit("talk", { guid: this.guid, text: `<img alt="assume png" src="data:image/png;base64,${data}"/>`, say: "-e" })
-    },
+    },*/
     "dm2":function(data){
         if(typeof data != "object") return
         let pu = this.room.getUsersPublic()[data.target]
