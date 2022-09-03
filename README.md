@@ -3,6 +3,9 @@
 Also known as "BonziWORLD Revived Codename 'Seagate'" by Seamus himself.
 Cosmic was demoted due to an incident about a bot he was using. As a developer, you should not do this as it can break the website's guidlines/rules.
 
+> "Cosmic was demoted due to an incident about a bot he was using." noted.. - Cosmic
+
+
 ## TODO LIST
 - [ ] Re add old bwr+ from March 2022 commands and colors
 - [x] Fix ban command
