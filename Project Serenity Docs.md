@@ -10,6 +10,8 @@
 
 > [https://obfuscator.io] | Use this to encrypt script.min.js (remember to remove all comments before encrypting!
 
+> [https://jimcute8879.medium.com/how-to-bypass-google-recaptcha-using-node-js-6a65768ddee1] | This can be intergrated into bots to solve login the login capchas.
+
 <hr>
 
 ##### (As i find more resources to aid in the development of Project Serenity i'll add them here)
