@@ -1,9 +1,3 @@
-<style>
-  code {
-    white-space : pre-wrap !important;
-    word-break: break-word;
-  }
-</style>
 # Project Serenity
 ## By: Cosmic
 ###### A plan to cure BonziWORLD from skids and spammers!
