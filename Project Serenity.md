@@ -39,4 +39,8 @@
 > Step Nine:
 `Implement a process for reporting nasty troublemakers so staff can be notified of their misdeeds across bwr and take more effective action against them`
 
+
+> Step Ten:
+`Encrypt script.min.js`
+
 <hr>
