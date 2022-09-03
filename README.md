@@ -22,3 +22,4 @@ Cosmic was demoted due to an incident about a bot he was using. As a developer, 
 - [ ] Official forums? (phpbb)
 - [ ] Hide typing indicator when muted
 - [ ] Prevent people with godmode from being kicked/banned by other pope users (server owner is exempt)
+- [ ] # Complete Project Serenity
