@@ -1039,7 +1039,10 @@ class User {
 					hook.setUsername(this.public.name);
 					hook.setAvatar(IMAGE_URL);
 					
-					var txt = text.replaceAll("@","#").replaceAll("<","!").replaceAll(">","$").replaceAll("`","").replaceAll(" ","\u200B ").replaceAll("http://","hgrunt/ass.wav ").replaceAll("https://","hgrunt/ass.wav ")
+					var txt = text.replaceAll("@","#").replaceAll(">","$").replaceAll("`","").replaceAll(" ","\u200B ").replaceAll("http://","hgrunt/ass.wav ").replaceAll("https://","hgrunt/ass.wav ")
+					if (this.private.runlevel < 3) {
+						txt = txt.replaceAll("<","!")
+					}
 					hook.send(txt);		
 					
 					// now for the tmafe part
