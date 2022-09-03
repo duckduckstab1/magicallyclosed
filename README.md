@@ -5,8 +5,10 @@ Cosmic was demoted due to an incident about a bot he was using. As a developer, 
 
 > "Cosmic was demoted due to an incident about a bot he was using." noted. it wont happen again! - Cosmic
 
+<hr>
 
 ## TODO LIST
+- [ ] Complete Project Serenity
 - [ ] Re add old bwr+ from March 2022 commands and colors
 - [x] Fix ban command
 - [ ] Make a way to load a list of popes from json (meat.js)
@@ -22,4 +24,5 @@ Cosmic was demoted due to an incident about a bot he was using. As a developer, 
 - [ ] Official forums? (phpbb)
 - [ ] Hide typing indicator when muted
 - [ ] Prevent people with godmode from being kicked/banned by other pope users (server owner is exempt)
-- [ ] # Complete Project Serenity
+
+<hr>
