@@ -1,6 +1,7 @@
 # BonziWORLD Revived+ Official Repository
 
 Also known as "BonziWORLD Revived Codename 'Seagate'" by Seamus himself.
+Cosmic has been permanently demoted due to multiple serious infractions.
 
 ## TODO LIST
 - [ ] Re add old bwr+ from March 2022 commands and colors
