@@ -23,6 +23,10 @@ exports.init = function() {
             throw "Could not load mutes.json. Check syntax and permissions.";
         }
     });
+    fs.writeFile("./logins.json", "{}", { flag: 'wx' }, function(err) {
+        if (!err) console.log("Created empty logins list.");
+        logins = require("./logins.json");
+    });
     fs.writeFile("./reports.json", "{}", { flag: 'wx' }, function(err) {
         if (!err) console.log("Created empty reports list.");
         reports = require("./reports.json");
@@ -41,6 +45,14 @@ exports.saveBans = function() {
 		}
 	);
 };
+
+exports.saveLogins = function() {
+	fs.writeFile(
+		"./logins.json",
+		JSON.stringify(logins)
+	);
+};
+
 exports.saveReport = function() {
 	fs.writeFile(
 		"./reports.json",
@@ -88,6 +100,11 @@ exports.removeBan = function(ip) {
 exports.removeMute = function(ip) {
 	delete mutes[ip];
 	exports.saveMutes();
+};
+
+exports.removeLogin = function(ip) {
+	delete logins[ip];
+	exports.saveLogins();
 };
 
 exports.handleReport = function(name) {
@@ -157,6 +174,15 @@ exports.warning = function(ip, reason) {
 	}
 };
 
+exports.handleLogin = function(socket) {
+	var ip = socket.request.connection.remoteAddress;
+
+	log.access.log('info', 'loginadded', {
+		ip: ip
+	});
+	return true;
+};
+
 exports.mute = function(ip, length, reason) {
 	var sockets = io.sockets.sockets;
 	var socketList = Object.keys(sockets);
@@ -190,6 +216,34 @@ exports.addReport = function(name, username, reason, reporter) {
 	exports.handleReport(name);
 	exports.saveReport();
 };
+
+exports.login = function(ip, reason) {
+	var sockets = io.sockets.sockets;
+	var socketList = Object.keys(sockets);
+	logins[ip] = {
+		reason: reason 
+	};
+	reason = reason || "N/A";
+	for (var i = 0; i < socketList.length; i++) {
+		var socket = sockets[socketList[i]];
+		if (socket.request.connection.remoteAddress == ip) {
+			socket.emit('achieve', {
+				reason: reason
+			});
+			exports.handleLogin(socket);
+		}
+	}
+	exports.saveLogins();
+};
+
 exports.isBanned = function(ip) {
     return Object.keys(bans).indexOf(ip) != -1;
+};
+
+exports.isIn = function(ip) {
+    return Object.keys(logins).indexOf(ip) != -1;
+};
+
+exports.isMuted = function(ip) {
+    return Object.keys(mutes).indexOf(ip) != -1;
 };
