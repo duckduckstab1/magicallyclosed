@@ -6,6 +6,7 @@ const io2 = require('./index.js').io2;
 const settings = require("./settings.json");
 const sanitize = require('sanitize-html');
 
+let mutes = Ban.mutes;
 let roomsPublic = [];
 let rooms = {};
 let usersAll = [];
