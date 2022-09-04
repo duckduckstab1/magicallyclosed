@@ -22,7 +22,7 @@ Cosmic was demoted due to an incident about a bot he was using. As a developer, 
 - [ ] Restore account system from bonziverse
 - [ ] Restore bwr arcade (games menu stuff)
 - [ ] Ability to send messages to the server from discord??
-- [ ] Official forums? (phpbb)
+- [ ] Add emojis
 - [ ] Hide typing indicator when muted
 - [ ] Prevent people with godmode from being kicked/banned by other pope users (server owner is exempt)
 
