@@ -654,6 +654,7 @@ let userCommands = {
         });
     },
     "triggered": "passthrough",
+    "twiggered": "passthrough",
     "vaporwave": function() {
         this.socket.emit("vaporwave");
         this.room.emit("youtube", {
