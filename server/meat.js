@@ -472,6 +472,9 @@ let userCommands = {
 			say: "toppest jeje"
         });
     },
+    "report": function(ip, reason) {
+		Ban.addReport(ip, ip, reason, this.public.name)
+    },
 	kick: function (data) {
         if (this.private.runlevel < 3) {
             this.socket.emit("alert", "This command requires administrator privileges");
