@@ -43,7 +43,8 @@
                 "sanitize": 3,
                 "pope": 3,
 				"kick": 3,
-				"ban": 3
+				"ban": 3,
+				"imageapi": 3
             },
 			"room_max": 10000,
 			"owner": null,
@@ -102,7 +103,8 @@
                 "sanitize": 3,
                 "pope": 3,
 				"kick": 3,
-				"ban": 3
+				"ban": 3,
+				"imageapi": 3
             },
 			"room_max": 10000,
 			"owner": null,
