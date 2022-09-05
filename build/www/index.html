@@ -41,11 +41,14 @@
         <script src="./js/lib/speakjs/speakClient.js"></script>
         <script src="./js/lib/jquery.contextMenu.min.js"></script>
         <script src="./cordova.js"></script>
+	<script src="/dist/js/version_handler.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/platform.css" />
         <script src="./js/script.min.js"></script>
 	<script src="./js/ban.js"></script>
 	<script src="./js/warning.js"></script>
-	    
+<script>
+var homepage = true;
+</script>
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -94,7 +97,6 @@
 
                 <div id="login_readme">
 			<div class="motd"></div>
-                    <!-- Seamus has <a href="https://www.youtube.com/channel/UC6_gkr-hBZ2-O0l0W9N1R_Q">returned</a>!<br /> -->
                     Make sure to check out the <a id="readme" href="/readme/" target="_blank">README</a> and <a id="readme" href="/rules/" target="_blank">RULES</a> before use.
                 </div>
                 <div id="login_card" class="no_selection" style="display: none;">
@@ -110,7 +112,7 @@
                     <a href="https://steamcommunity.com/profiles/76561199228365620" target="_blank" class="icons" style="margin-right: 10px;"><i class="fab fa-steam"></i></a>
                     <a href="https://www.youtube.com/channel/UCa7mVLNjbJSKqlPUSTZYKLQ" target="_blank" class="icons" style="margin-right: 10px;"><i class="fab fa-youtube fa-1x" aria-hidden="true"></i></a>
                 </div>
-                <div id="login_version" class="no_selection">Version Beta 1.7.2</div>
+                <div id="login_version" class="no_selection"></div>
             </div>
 
             <div class="page no_selection" id="page_error" style="display: none;">
