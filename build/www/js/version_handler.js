@@ -12,7 +12,7 @@ if (homepage) {
                                 success: function (data) {
                                     if (data.hasOwnProperty('form')) {
                                         datas = data.form;
-                                        $("" + datas.build_name + "" + datas.build_num + """").prependTo("#login_version");
+                                        $("" + datas.build_name + "" + datas.build_num + """").appendTo("#login_version");
                                     }
                                 }
 
@@ -38,7 +38,7 @@ if (!homepage) {
                                 success: function (data) {
                                     if (data.hasOwnProperty('form')) {
                                         datas = data.form;
-                                        $("" + datas.name + "" + datas.build_num + """").prependTo(".ver");
+                                        $("" + datas.name + "" + datas.build_num + """").appendTo(".ver");
                                     }
                                 }
 
