@@ -4,8 +4,6 @@ This project is serious development. Things could change drastically throughout 
 <br>
 Here be dragons!
 
-All the source code for the server and client is publically available here. If you want to run your own BonziWORLD, by all means go ahead. Do whatever you'd like with this code. Just try to put me somewhere in the credits.
-
 ### Running BWR+
 ```
 cd server
