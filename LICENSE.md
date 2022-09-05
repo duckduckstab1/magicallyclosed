@@ -1,7 +1,7 @@
 # BWE License
-Version 1, June 13th 2022
+`Version 1, June 13th 2022`
 <br>
-Revised on August 24th 2022
+`Revised on August 24th 2022`
 <hr>
 
 Everyone is permitted to copy and distribute verbatim copies of this server, <br>but changing it's contents is prohibited unless explicit permission is given by the owner of BonziWORLD Enhanced! <b>(Cosmic)</b>
