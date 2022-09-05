@@ -6,11 +6,11 @@
 
 
 > Step One:
-> For bots that u actually want to exist (such as cosmicbot and bonzibot) check for their connecting ip address, channel and name. if all are correct then let it through. NOTE: if even one part of the response is incorrect then the connection gets terminated!
+<li>For bots that u actually want to exist (such as cosmicbot and bonzibot) check for their connecting ip address, channel and name. if all are correct then let it through, otherwise deny entry to BonziWORLD Revived+ NOTE: if even one part of the response is incorrect then the connection gets terminated!</li>
 
 
 > Step Two:
-`Add a chat cooldown (configurable) to prevent spam`
+<li>Add a chat cooldown (configurable) to prevent spam</li>
 
 
 > Step Three:
