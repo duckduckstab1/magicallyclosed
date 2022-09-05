@@ -5,7 +5,7 @@ Cosmic was demoted due to an incident about a bot he was using. As a developer, 
 
 > "Cosmic was demoted due to an incident about a bot he was using." noted. it wont happen again! - Cosmic
 
-<br>
+<hr>
 
 ## BWR+ INDEX
 
