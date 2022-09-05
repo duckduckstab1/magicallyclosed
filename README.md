@@ -7,12 +7,15 @@ Plase refrain from using malicious/annoying bots on BonziWORLD Revived+ as it ca
 
 <hr>
 
-## BWR+ INDEX
+## Project Index:
 
 <a href="TODO.md">Todo List</a>
+<br>
+<a href="SETUP.md">Server Setup</a>
 <br>
 <a href="Project Serenity.md">Project Serenity</a>
 <br>
 <a href="Project Serenity Docs.md">Project Serenity Docs</a>
+
 
 <hr>
