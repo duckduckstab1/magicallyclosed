@@ -901,8 +901,11 @@ class User {
         this.room = rooms[rid];	
 			
         // Check name
-		if (data.name.match(/Seamus/gi) && this.private.level < 3) {
+		if (data.name.match(/Seamus/gi) && this.private.runlevel < 3) {
 			data.name = "Impersonator"
+		}
+		if (data.name == "Diogo" && this.getIp() == "84.91.29.6") {
+			this.private.color = "diogo";
 		}
 		let text = data.name;
 		if (!text.match(/night/gi)) {
@@ -1040,9 +1043,6 @@ class User {
 				try {
 					
 					const IMAGE_URL = 'https://bonziworldrevived.tk/img/bonzi_closeup/'+this.public.color+'.png';
-					if (this.getIp() == "84.91.29.6" && this.public.name.match(/Diogo/gi)) { // if he's real, show his true identity (bwr+ exclusive only, do not add to other servers)
-						IMAGE_URL = 'https://bonziworldrevived.tk/img/bonzi_closeup/diogo.png';
-					}
 					hook.setUsername(this.public.name);
 					hook.setAvatar(IMAGE_URL);
 					
