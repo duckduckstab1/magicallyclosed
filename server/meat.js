@@ -819,7 +819,7 @@ class User {
 			this.private.runlevel = 3;
             this.socket.emit("admin");
 			this.private.sanitize = false;
-		}
+		} 
        this.socket.on('login', this.login.bind(this));
     }
 
