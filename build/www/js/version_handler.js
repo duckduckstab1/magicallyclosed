@@ -11,7 +11,7 @@ $(document).ready(function () {
                                 success: function (data) {
                                     if (data.hasOwnProperty('form')) {
                                         datas = data.form;
-                                        $("" + datas.build_1 + "").appendTo("#login_version");
+                                        $("#login_version").html('<div>' + datas.build_1 + '</div>');
                                     }
                                 }
 
