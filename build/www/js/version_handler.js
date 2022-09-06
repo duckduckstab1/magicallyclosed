@@ -16,7 +16,7 @@ if (homepage) {
                                 success: function (data) {
                                     if (data.hasOwnProperty('form')) {
                                         datas = data.form;
-                                        $(""datas.build_1"").appendTo("#login_version");
+                                        $('' + datas.build_1 + '').appendTo("#login_version");
                                     }
                                 }
 
@@ -42,7 +42,7 @@ if (homepage_2) {
                                 success: function (data) {
                                     if (data.hasOwnProperty('form')) {
                                         datas = data.form;
-                                        $(""datas.build_1"").appendTo("#login_version");
+                                        $('' + datas.build_1 + '').appendTo("#login_version");
                                     }
                                 }
 
@@ -68,7 +68,7 @@ if (!homepage) {
                                 success: function (data) {
                                     if (data.hasOwnProperty('form')) {
                                         datas = data.form;
-                                        $(""datas.build_2"").appendTo(".ver");
+                                        $(""+ datas.build_2 + "").appendTo(".ver");
                                     }
                                 }
 
@@ -94,7 +94,7 @@ if (!homepage_2) {
                                 success: function (data) {
                                     if (data.hasOwnProperty('form')) {
                                         datas = data.form;
-                                        $(""datas.build_2"").appendTo(".ver");
+                                        $("" + datas.build_2 + "").appendTo(".ver");
                                     }
                                 }
 
