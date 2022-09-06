@@ -12,7 +12,8 @@
 - [x] Fix a message that only contains " " (space) crashing the server
 - [ ] Add logging for joining and leaving
 - [ ] Restore account system from bonziverse
-- [ ] Restore bwr arcade (games menu stuff)
+- [ ] Restore bwr arcade (games menu stuff) (prototype in progress)
+- [x] Use a better ban system
 - [ ] Ability to send messages to the server from discord??
 - [ ] Add emojis
 - [ ] Hide typing indicator when muted
