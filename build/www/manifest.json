@@ -13,7 +13,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/pwa_mode/",
+  "start_url": "/",
   "background_color": "#925DE8",
   "display": "fullscreen",
   "display_override": ["window-controls-overlay"],
