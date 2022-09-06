@@ -18,5 +18,6 @@
 - [ ] Add emojis
 - [ ] Hide typing indicator when muted
 - [ ] Prevent people with godmode from being kicked/banned by other pope users (server owner is exempt)
+- [ ] Make a wiki documenting the various revisions of the boniworld codebase and some of the community's users
 
 <hr>
