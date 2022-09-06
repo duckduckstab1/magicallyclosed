@@ -804,9 +804,13 @@ body.vaporwave #chat_send {
 
 /* XP Style Buttons (Purple Edit) */
 button {
+    padding-bottom: 3.2px;
+    padding-top: 3.2px;
+    padding-left: 10px;
+    padding-right: 10px;
     font-family: "Pixelated MS Sans Serif", Arial;
     -webkit-font-smoothing: antialiased;
-    font-size: 11px;
+    font-size: 14px;
     box-sizing: border-box;
     border: 1px solid #5c0075;
     background: linear-gradient(180deg, #fff, #ecebe5 86%, #d8d0c4);
