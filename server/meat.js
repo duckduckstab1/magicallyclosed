@@ -1113,6 +1113,7 @@ class User {
                 reason: "unknown",
                 exception: e
             });
+			console.error(e);
             this.socket.emit('commandFail', {
                 reason: "unknown"
             });

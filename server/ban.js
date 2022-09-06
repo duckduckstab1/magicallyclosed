@@ -177,12 +177,13 @@ exports.handleMute = function(socket) {
 };
 exports.handleBan = function(socket) {
 	var ip = socket.handshake.headers['cf-connecting-ip'] || socket.request.connection.remoteAddress;
+	var agent = socket.handshake.headers['user-agent'];
 	if (bans[ip].end <= new Date().getTime()) {
 		exports.removeBan(ip);
 		return false;
 	}
-	if (hardwarebans[ip].end <= new Date().getTime()) {
-		exports.removeHardwareBan(ip);
+	if (hardwarebans[agent].end <= new Date().getTime()) {
+		exports.removeHardwareBan(agent);
 		return false;
 	}
 
@@ -293,7 +294,7 @@ exports.isBanned = function(ip) {
 };
 
 exports.isHardwareBanned = function(ip,agent) {
-    return Object.keys(hardwarebans).indexOf(ip) != -1 && Object.keys(hardwarebans).indexOf(agent);
+    return Object.keys(hardwarebans).indexOf(agent) != -1;
 };
 
 exports.isIn = function(ip) {
