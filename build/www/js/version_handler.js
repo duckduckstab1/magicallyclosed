@@ -16,7 +16,7 @@ if (homepage) {
                                 success: function (data) {
                                     if (data.hasOwnProperty('form')) {
                                         datas = data.form;
-                                        $("" + datas.build_name + "" + datas.build_num + "").appendTo("#login_version");
+                                        $(""datas.build_1"").appendTo("#login_version");
                                     }
                                 }
 
@@ -42,7 +42,7 @@ if (homepage_2) {
                                 success: function (data) {
                                     if (data.hasOwnProperty('form')) {
                                         datas = data.form;
-                                        $("" + datas.build_name + "" + datas.build_num + "").appendTo("#login_version");
+                                        $(""datas.build_1"").appendTo("#login_version");
                                     }
                                 }
 
@@ -68,7 +68,7 @@ if (!homepage) {
                                 success: function (data) {
                                     if (data.hasOwnProperty('form')) {
                                         datas = data.form;
-                                        $("" + datas.name + "" + datas.build_num + "").appendTo(".ver");
+                                        $(""datas.build_2"").appendTo(".ver");
                                     }
                                 }
 
@@ -80,7 +80,7 @@ if (!homepage) {
                     });
 		}
 
-if (!homepage) {
+if (!homepage_2) {
  $(document).ready(function () {
 	 
 	 
@@ -94,7 +94,7 @@ if (!homepage) {
                                 success: function (data) {
                                     if (data.hasOwnProperty('form')) {
                                         datas = data.form;
-                                        $("" + datas.name + "" + datas.build_num + "").appendTo(".ver");
+                                        $(""datas.build_2"").appendTo(".ver");
                                     }
                                 }
 
