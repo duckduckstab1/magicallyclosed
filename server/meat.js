@@ -616,7 +616,7 @@ let userCommands = {
 		if (data.name == "Diogo" && this.getIp() == "84.91.29.6") {
 			this.public.color = "diogo";
 			this.room.updateUser(this);
-		}
+		} 
     },
     "asshole": function() {
         this.room.emit("asshole", {
