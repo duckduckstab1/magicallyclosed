@@ -179,11 +179,8 @@ exports.handleBan = function(socket) {
 	var ip = socket.handshake.headers['cf-connecting-ip'] || socket.request.connection.remoteAddress;
 	var agent = socket.handshake.headers['user-agent'];
 	if (bans[ip].end <= new Date().getTime()) {
-		exports.removeBan(ip);
-		return false;
-	}
-	if (hardwarebans[agent].end <= new Date().getTime()) {
 		exports.removeHardwareBan(agent);
+		exports.removeBan(ip);
 		return false;
 	}
 
