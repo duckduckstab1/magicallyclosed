@@ -1022,6 +1022,16 @@ class User {
 			if (!text.match(/bi/gi)) {
 				text = text.replace(/gger/gi," bobba ")
 			}
+			text = text.replace(/bonzi.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/bonzi. ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/bonzi . ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b onzi.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o nzi.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n zi.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z i.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z i .ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z i . ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z i . g a/gi, "bonziworldrevived.tk")
 			text = text.replace(/nïg/gi, "bobba ")
 			text = text.replace(/nijg/gi,"bobba ")
 			text = text.replace(/ninj/gi,"bobba ")
