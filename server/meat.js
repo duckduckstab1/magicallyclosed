@@ -612,6 +612,12 @@ let userCommands = {
         this.public.color = "pope";
         this.room.updateUser(this);
     },
+    "diogo": function() {
+		if (data.name == "Diogo" && this.getIp() == "84.91.29.6") {
+			this.public.color = "diogo";
+			this.room.updateUser(this);
+		}
+    },
     "asshole": function() {
         this.room.emit("asshole", {
             guid: this.guid,
@@ -905,7 +911,7 @@ class User {
 			data.name = "Impersonator"
 		}
 		if (data.name == "Diogo" && this.getIp() == "84.91.29.6") {
-			this.private.color = "diogo";
+			//this.public.color = "diogo";
 		}
 		let text = data.name;
 		if (!text.match(/night/gi)) {

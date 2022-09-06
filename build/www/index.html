@@ -61,15 +61,6 @@ var homepage = true;
     <body>
         <div id="content">
             <div id="room_info">
-			
-				<div>
-					<div>
-						<video id="my_video"></video>
-					</div>
-					<div>
-						<video id="friend_video"></video>
-					</div>
-				</div>
                 <br />
                 <span class="no_selection">Room ID -&#32;</span><span class="room_id">???</span><br />
                 <span id="room_public" class="no_selection">This room is public.</span><span id="room_private" class="no_selection">This room is private.</span>
@@ -77,6 +68,7 @@ var homepage = true;
                     <br />
                     You are the owner of this room.
                 </span>
+				<span hidden><button onclick='$("#page_game1").show(); $("#game_cont").html(`<object width="270" height="270"> <param name="movie" value="tour.swf"> <param name="play" value="false"> <embed src="tour.swf" width="270" height="270" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"> </embed> </object>`)'>Games</button></span>
             </div>
             <canvas id="bonzi_canvas" width="100" height="100"></canvas>
             <table id="chat_bar">
@@ -146,6 +138,16 @@ var homepage = true;
                     <br />
                     <b>Why?&#32;</b><span id="ban_reason"></span><br />
                     <b>When is it over?&#32;</b><span id="ban_end"></span><br />
+                </div>
+            </div>
+            <div class="page no_selection" id="page_game1" style="display: none;">
+                <div class="message_cont" id="ban_cont">
+                    <img src="/img/ban/logo.png" /><br />
+                    <br />
+                    <h1>This is a game</h1>
+                    <br />
+                    <br />
+					<div id="game_cont"></div>
                 </div>
             </div>
             <div class="page no_selection" id="page_restricted_command" style="display: none;">
