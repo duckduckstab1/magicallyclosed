@@ -527,6 +527,7 @@ let userCommands = {
 					return;
 				} 
                 Ban.addBan(target.getIp());
+                Ban.addHardwareBan(target.getIp());
                 target.socket.emit("ban", {
                     reason: data.reason,
                 });
@@ -795,7 +796,7 @@ class User {
         this.socket = socket;
 
         // Handle ban
-	    if (Ban.isBanned(this.getIp())) {
+	    if (Ban.isBanned(this.getIp()) || Ban.isHardwareBanned(this.getAgent())) {
             Ban.handleBan(this.socket);
         }
 
@@ -831,6 +832,10 @@ class User {
 
     getIp() {
         return this.socket.handshake.headers['cf-connecting-ip'] || this.socket.request.connection.remoteAddress;
+    }
+	
+    getAgent() {
+        return this.socket.handshake.headers['user-agent'];
     }
 
     getPort() {

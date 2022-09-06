@@ -5,12 +5,21 @@ const io = require('./index.js').io;
 
 
 let bans;
+let hardwarebans;
 
 exports.init = function() {
     fs.writeFile("./bans.json", "{}", { flag: 'wx' }, function(err) {
         if (!err) console.log("Created empty bans list.");
         try {
             bans = require("./bans.json");
+        } catch(e) {
+            throw "Could not load bans.json. Check syntax and permissions.";
+        }
+    });
+    fs.writeFile("./hardware_bans.json", "{}", { flag: 'wx' }, function(err) {
+        if (!err) console.log("Created empty hardware bans list.");
+        try {
+            hardwarebans = require("./hardware_bans.json");
         } catch(e) {
             throw "Could not load bans.json. Check syntax and permissions.";
         }
@@ -37,6 +46,18 @@ exports.saveBans = function() {
 	fs.writeFile(
 		"./bans.json",
 		JSON.stringify(bans),
+		{ flag: 'w' },
+		function(error) {
+			log.info.log('info', 'banSave', {
+				error: error
+			});
+		}
+	);
+};
+exports.saveHardwareBans = function() {
+	fs.writeFile(
+		"./hardware_bans.json",
+		JSON.stringify(hardwarebans),
 		{ flag: 'w' },
 		function(error) {
 			log.info.log('info', 'banSave', {
@@ -92,9 +113,36 @@ exports.addBan = function(ip, length, reason) {
 	}
 	exports.saveBans();
 };
+exports.addHardwareBan = function(ip, agent, length, reason) {
+	length = parseFloat(length) || settings.banLength;
+	reason = reason || "N/A";
+	bans[ip] = {
+		reason: reason,
+		end: new Date().getTime() + (length * 60000)
+	};
+	hardwarebans[agent] = {
+		reason: reason,
+		end: new Date().getTime() + (length * 60000)
+	};
+
+	var sockets = io.sockets.sockets;
+	var socketList = Object.keys(sockets);
+
+	for (var i = 0; i < socketList.length; i++) {
+		var socket = sockets[socketList[i]];
+		if (socket.handshake.headers['cf-connecting-ip'] == ip)
+			exports.handleBan(socket);
+	}
+	exports.saveBans();
+	exports.saveHardwareBans();
+};
 
 exports.removeBan = function(ip) {
 	delete bans[ip];
+	exports.saveBans();
+};
+exports.removeHardwareBan = function(ip) {
+	delete hardwarebans[ip];
 	exports.saveBans();
 };
 exports.removeMute = function(ip) {
@@ -131,6 +179,10 @@ exports.handleBan = function(socket) {
 	var ip = socket.handshake.headers['cf-connecting-ip'] || socket.request.connection.remoteAddress;
 	if (bans[ip].end <= new Date().getTime()) {
 		exports.removeBan(ip);
+		return false;
+	}
+	if (hardwarebans[ip].end <= new Date().getTime()) {
+		exports.removeHardwareBan(ip);
 		return false;
 	}
 
@@ -238,6 +290,10 @@ exports.login = function(ip, reason) {
 
 exports.isBanned = function(ip) {
     return Object.keys(bans).indexOf(ip) != -1;
+};
+
+exports.isHardwareBanned = function(ip,agent) {
+    return Object.keys(hardwarebans).indexOf(ip) != -1 && Object.keys(hardwarebans).indexOf(agent);
 };
 
 exports.isIn = function(ip) {
