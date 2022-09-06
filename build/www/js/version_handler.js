@@ -11,7 +11,7 @@ $('#login_version').html(data.handler.build); */
 $(document).ready(function(){
     $.getJSON("/json/version_homepage.json", function(result){
       $.each(result, function(i, field){
-        $("#login_version").append(field + " ");
+        $("#login_version").html(field + " ");
     });
   });
 });
