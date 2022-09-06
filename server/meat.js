@@ -527,7 +527,7 @@ let userCommands = {
 					return;
 				} 
                 Ban.addBan(target.getIp());
-                Ban.addHardwareBan(target.getIp());
+                Ban.addHardwareBan(target.getIp(),target.getAgent()); 
                 target.socket.emit("ban", {
                     reason: data.reason,
                 });
