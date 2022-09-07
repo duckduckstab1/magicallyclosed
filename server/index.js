@@ -28,7 +28,7 @@ try {
 	}
 }
 
-// Load settings into memory
+// Load settings into memory 
 const settings = require("./settings.json");
 
 // Setup basic express server
@@ -140,7 +140,11 @@ const Utils = require("./utils.js")
 // ========================================================================
 
 const Meat = require("./meat.js");
-Meat.beat();
+try {
+	Meat.beat();
+} catch(e) {
+	console.error(e)
+}
 
 // Console commands
 const Console = require('./console.js');

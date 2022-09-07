@@ -23,7 +23,7 @@ exports.init = function() {
         } catch(e) {
             throw "Could not load bans.json. Check syntax and permissions.";
         }
-    });
+    }); 
     fs.writeFile("./mutes.json", "{}", { flag: 'wx' }, function(err) {
         if (!err) console.log("Created empty mutes list.");
         try {

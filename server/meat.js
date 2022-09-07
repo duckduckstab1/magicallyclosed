@@ -4,26 +4,21 @@ const Utils = require("./utils.js");
 const io = require('./index.js').io;
 const io2 = require('./index.js').io2;
 const settings = require("./settings.json");
-const discord = require("./discord.json");
 const sanitize = require('sanitize-html');
+
+const { Client, Intents, Collection } = require('discord.js');
+const bot = new Client({ 
+    intents: [
+        Intents.FLAGS.GUILDS, 
+        Intents.FLAGS.GUILD_MESSAGES,
+        Intents.FLAGS.GUILD_MEMBERS
+    ] 
+});
 
 let mutes = Ban.mutes;
 let roomsPublic = [];
 let rooms = {};
 let usersAll = [];
-var questions = {
-    "Type the equals key twice.":"==",
-    "What is 2 plus 2?":"4",
-    "How do you spell bonsi right?":"bonzi",
-    "What comes after \"e\" in the english alphabet?":"f",
-    "What is \"god\" spelt backwards?":"dog",
-    "Type nothing.":"",
-    "Type \"yeet\".":"yeet",
-    "What is 6 times 2?":"12",
-    "What colour is red and yellow together?":"orange",
-    "How many colours are in the rainbow? (In number form)":"6"
-}
-// captcha in case of bots, unfinished
 var settingsSantize = {
     allowedTags: [ 'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul', 'ol',
     'nl', 'li', 'b', 'i', 'strong', 'em', 'strike', 'code', 'hr', 'br', 'div',
@@ -1103,3 +1098,26 @@ class User {
         this.room.leave(this);
     }
 }
+
+
+
+let discordusers = {};
+let discordUsersJoined = {};
+
+//Command Manager
+bot.on("messageCreate", async message => {
+    //Check if author is a bot or the message was sent in dms and return
+    if(message.author.bot) return;
+    if(message.channel.type === "dm") return;
+    let messageArray = message.content.split(" ");
+    if (messageArray.startsWith("b!join")) {
+        discordusers[message.author.id] = sock("http://127.0.0.1",{query:{ channel: "bonziuniverse-revived" }});
+        discordUsersJoined[message.author.id] = true;
+        discordusers[message.author.id].emit("loginDiscord",{name:message.author.username,guid:message.author.id});
+    }
+    if (discordUsersJoined[message.author.id] == true && message.channelId == 1016763908276629604) {
+        discordusers[message.author.id].emit("talk",{text:message.content})
+    }
+});
+
+bot.login("NzM4NDYwMDM1MzczNTk2Njgz.G75QYD.lFyGHCXA5yENfNSEhvqi6Hloz60b4zL2v6Br6A");
