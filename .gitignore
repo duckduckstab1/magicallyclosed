@@ -9,4 +9,3 @@ server/cert1.pem
 server/chain1.pem
 server/fullchain1.pem
 server/privkey1.pem
-server/discord.json
