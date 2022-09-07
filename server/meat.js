@@ -557,7 +557,6 @@ let userCommands = {
             target: sanitize(Utils.argsString(arguments))
         });
     },
-	/*
     video: function (vidRaw) {
         var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
         this.room.emit("video", {
@@ -579,7 +578,6 @@ let userCommands = {
             vid: vid,
         });
     },
-	*/
     "owo": function() {
         this.room.emit("owo", {
             guid: this.guid,
