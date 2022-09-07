@@ -948,7 +948,7 @@ class User {
         if (typeof data.text == "undefined")
             return;
 
-        let text = this.private.sanitize ? sanitize(data.text+"",settingsSantize) : data.text;
+        let text = this.private.sanitize ? sanitize(data.text) : data.text;
 		if (text.match(/phncdn/gi)) {
 			data = {
                 text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO"
