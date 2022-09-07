@@ -817,10 +817,16 @@ class User {
 
         log.access.log('info', 'connect', {
             guid: this.guid,
-            ip: this.getIp()
+            ip: this.getIp(),
+            user_agent: this.getAgent(),
         });
 		
 		if (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1") {
+            if (this.getAgent().match(/20100101/gi)) {
+                
+				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>Your user agent is highly suspicious and you have been banned as a result.");
+
+            }
 			if (this.getIp() == this.socket.request.connection.remoteAddress) {
 				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>You are not allowed to access this part of the server as it can increase the risk of denial of service attacks.<br>Please use the domain if you want your ban removed.");
 			}
@@ -871,7 +877,8 @@ class User {
 		}
 		log.info.log('info', 'roomSpecified', {
 			guid: this.guid,
-			roomSpecified: roomSpecified
+			roomSpecified: roomSpecified,
+            user_agent: this.getAgent(),
         });
         
 		// If private room
@@ -1006,7 +1013,8 @@ class User {
             guid: this.guid,
             text: data.text,
 			name: this.public.name,
-			userIp: this.getIp()
+			userIp: this.getIp(),
+            user_agent: this.getAgent(),
         });
 
         if (typeof data.text == "undefined")
