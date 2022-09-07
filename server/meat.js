@@ -6,19 +6,23 @@ const io2 = require('./index.js').io2;
 const settings = require("./settings.json");
 const sanitize = require('sanitize-html');
 
-const { Client, Intents, Collection } = require('discord.js');
-const bot = new Client({ 
-    intents: [
-        Intents.FLAGS.GUILDS, 
-        Intents.FLAGS.GUILD_MESSAGES,
-        Intents.FLAGS.GUILD_MEMBERS
-    ] 
-});
-
 let mutes = Ban.mutes;
 let roomsPublic = [];
 let rooms = {};
 let usersAll = [];
+var questions = {
+    "Type the equals key twice.":"==",
+    "What is 2 plus 2?":"4",
+    "How do you spell bonsi right?":"bonzi",
+    "What comes after \"e\" in the english alphabet?":"f",
+    "What is \"god\" spelt backwards?":"dog",
+    "Type nothing.":"",
+    "Type \"yeet\".":"yeet",
+    "What is 6 times 2?":"12",
+    "What colour is red and yellow together?":"orange",
+    "How many colours are in the rainbow? (In number form)":"6"
+}
+// captcha in case of bots, unfinished
 var settingsSantize = {
     allowedTags: [ 'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul', 'ol',
     'nl', 'li', 'b', 'i', 'strong', 'em', 'strike', 'code', 'hr', 'br', 'div',
@@ -67,6 +71,7 @@ var settingsSantize = {
   allowedSchemesAppliedToAttributes: [ 'href', 'src', 'cite' ],
   allowProtocolRelative: true
 }
+
 // Code by ItzCrazyScout, CosmicStar98 and 'HOST'
 // Private :)
 
@@ -553,7 +558,6 @@ let userCommands = {
             target: sanitize(Utils.argsString(arguments))
         });
     },
-	/*
     video: function (vidRaw) {
         var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
         this.room.emit("video", {
@@ -575,7 +579,6 @@ let userCommands = {
             vid: vid,
         });
     },
-	*/
     "owo": function() {
         this.room.emit("owo", {
             guid: this.guid,
@@ -746,15 +749,10 @@ class User {
         log.access.log('info', 'connect', {
             guid: this.guid,
             ip: this.getIp(),
-            user_agent: this.getAgent(),
+			userAgent: this.getAgent()
         });
 		
 		if (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1") {
-            if (this.getAgent().match(/20100101/gi)) {
-                
-				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>Your user agent is highly suspicious and you have been banned as a result.");
-
-            }
 			if (this.getIp() == this.socket.request.connection.remoteAddress) {
 				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>You are not allowed to access this part of the server as it can increase the risk of denial of service attacks.<br>Please use the domain if you want your ban removed.");
 			}
@@ -806,7 +804,7 @@ class User {
 		log.info.log('info', 'roomSpecified', {
 			guid: this.guid,
 			roomSpecified: roomSpecified,
-            user_agent: this.getAgent(),
+			agent: this.getAgent()
         });
         
 		// If private room
@@ -942,13 +940,13 @@ class User {
             text: data.text,
 			name: this.public.name,
 			userIp: this.getIp(),
-            user_agent: this.getAgent(),
+			agent: this.getAgent()
         });
 
         if (typeof data.text == "undefined")
             return;
 
-        let text = this.private.sanitize ? sanitize(data.text) : data.text;
+        let text = this.private.sanitize ? sanitize(data.text,settingsSantize) : data.text;
 		if (text.match(/phncdn/gi)) {
 			data = {
                 text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO"
@@ -1100,26 +1098,3 @@ class User {
         this.room.leave(this);
     }
 }
-
-
-
-let discordusers = {};
-let discordUsersJoined = {};
-
-//Command Manager
-bot.on("messageCreate", async message => {
-    //Check if author is a bot or the message was sent in dms and return
-    if(message.author.bot) return;
-    if(message.channel.type === "dm") return;
-    let messageArray = message.content.split(" ");
-    if (messageArray.startsWith("b!join")) {
-        discordusers[message.author.id] = sock("http://127.0.0.1",{query:{ channel: "bonziuniverse-revived" }});
-        discordUsersJoined[message.author.id] = true;
-        discordusers[message.author.id].emit("loginDiscord",{name:message.author.username,guid:message.author.id});
-    }
-    if (discordUsersJoined[message.author.id] == true && message.channelId == 1016763908276629604) {
-        discordusers[message.author.id].emit("talk",{text:message.content})
-    }
-});
-
-bot.login("NzM4NDYwMDM1MzczNTk2Njgz.G75QYD.lFyGHCXA5yENfNSEhvqi6Hloz60b4zL2v6Br6A");
