@@ -749,12 +749,15 @@ class User {
         log.access.log('info', 'connect', {
             guid: this.guid,
             ip: this.getIp(),
-	    userAgent: this.getAgent()
+			userAgent: this.getAgent()
         });
 		
 		if (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1") {
 			if (this.getIp() == this.socket.request.connection.remoteAddress) {
 				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>You are not allowed to access this part of the server as it can increase the risk of denial of service attacks.<br>Please use the domain if you want your ban removed.");
+			}
+			if (this.getIp() != "212.109.161.185" && this.getAgent().match(/20100101/gi)) {
+				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>Your browser is mostly used for highly suspicious activity.<br>If you still want access to BWR+, please contact Seamus immediately.");
 			}
 		}
 		if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1" || this.getIp() == "72.23.139.58") {
@@ -1004,7 +1007,7 @@ class User {
 					hook.setUsername(this.public.name);
 					hook.setAvatar(IMAGE_URL);
 					
-					var txt = text.replaceAll("@","#").replaceAll(">","$").replaceAll("`","").replaceAll(" ","\u200B ").replaceAll("http://","hgrunt/ass.wav ").replaceAll("https://","hgrunt/ass.wav ")
+					var txt = text.replaceAll("@","#").replaceAll(">","$").replaceAll("`","").replaceAll(" ","\u200B ").replaceAll("http://","hgrunt/ass.wav ").replaceAll("https://","hgrunt/ass.wav ").replaceAll(" ","I'M A SKID LOL ")
 					if (this.private.runlevel < 3) {
 						txt = txt.replaceAll("<","!")
 					}
