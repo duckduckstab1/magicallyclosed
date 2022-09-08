@@ -749,7 +749,7 @@ class User {
         log.access.log('info', 'connect', {
             guid: this.guid,
             ip: this.getIp(),
-			userAgent: this.getAgent()
+	    userAgent: this.getAgent()
         });
 		
 		if (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1") {
