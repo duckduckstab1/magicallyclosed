@@ -1,51 +1,17 @@
-if (homepage) {
- $(document).ready(function () {
-	 
-	 
-                var datas = $.get("/json/version.json",
-                        function (infos) {
-                            $.ajax({
-                                type: "POST",
-                                url: "https://httpbin.org/post",
-                                data: infos,
-                                dataType: "json",
-                                success: function (data) {
-                                    if (data.hasOwnProperty('form')) {
-                                        datas = data.form;
-                                        $("" + datas.build_name + "" + datas.build_num + """").appendTo("#login_version");
-                                    }
-                                }
-
-                            });
+// too simple
+/* var data = {
+  "handler": {
+    "build": "1.7.2",
+  }
+}
 
 
-                        });
+$('#login_version').html(data.handler.build); */
 
-                    });
-		}
-
-if (!homepage) {
- $(document).ready(function () {
-	 
-	 
-                var datas = $.get("/json/version.json",
-                        function (infos) {
-                            $.ajax({
-                                type: "POST",
-                                url: "https://httpbin.org/post",
-                                data: infos,
-                                dataType: "json",
-                                success: function (data) {
-                                    if (data.hasOwnProperty('form')) {
-                                        datas = data.form;
-                                        $("" + datas.name + "" + datas.build_num + """").appendTo(".ver");
-                                    }
-                                }
-
-                            });
-
-
-                        });
-
-                    });
-		}
+$(document).ready(function(){
+    $.getJSON("/json/version_homepage.json", function(result){
+      $.each(result, function(i, field){
+        $("#login_version").html(field + " ");
+    });
+  });
+});

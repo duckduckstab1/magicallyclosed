@@ -40,14 +40,19 @@
         <script src="./js/lib/socket.io-1.4.5.js"></script>
         <script src="./js/lib/speakjs/speakClient.js"></script>
         <script src="./js/lib/jquery.contextMenu.min.js"></script>
+	<script src="./js/lib/pwa.js"></script>
         <script src="./cordova.js"></script>
 	<script src="./js/version_handler.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/platform.css" />
         <script src="./js/script.min.js"></script>
 	<script src="./js/ban.js"></script>
 	<script src="./js/warning.js"></script>
-<script>
-var homepage = true;
+<script defer>
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then(function() { console.log("Registered Service Worker..."); });
+    }
 </script>
         <link
             rel="stylesheet"
@@ -61,15 +66,6 @@ var homepage = true;
     <body>
         <div id="content">
             <div id="room_info">
-			
-				<div>
-					<div>
-						<video id="my_video"></video>
-					</div>
-					<div>
-						<video id="friend_video"></video>
-					</div>
-				</div>
                 <br />
                 <span class="no_selection">Room ID -&#32;</span><span class="room_id">???</span><br />
                 <span id="room_public" class="no_selection">This room is public.</span><span id="room_private" class="no_selection">This room is private.</span>
@@ -77,12 +73,13 @@ var homepage = true;
                     <br />
                     You are the owner of this room.
                 </span>
+				<span hidden><button onclick='$("#page_game1").show(); $("#game_cont").html(`<object width="270" height="270"> <param name="movie" value="tour.swf"> <param name="play" value="false"> <embed src="tour.swf" width="270" height="270" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"> </embed> </object>`)'>Games</button></span>
             </div>
             <canvas id="bonzi_canvas" width="100" height="100"></canvas>
             <table id="chat_bar">
                 <tbody>
                     <tr>
-                        <td id="chat_send" class="no_selection">SFD;LSFDSKDSPKLFDSJMKF</td>
+                        <td id="chat_send" class="no_selection">send</td>
                         <td id="chat_message_cont">
                             <input id="chat_message" class="no_selection" type="text" placeholder="Enter a message or command...." />
                         </td>
@@ -96,7 +93,8 @@ var homepage = true;
                 <div class="app_showcase no_selection" id="login_apps"></div>
 
                 <div id="login_readme">
-			<h1>DKFGJKLFSJSKLDFDSKLDSJKLSJGFKDSAG HACKED! THIS IS WHAT YOU GET FOR NOT LISTENING!!!</h1><br>HACKED BY BONZIWORLDSAYBYE
+			<div class="motd"></div>
+                    Make sure to check out the <a id="readme" href="/readme/" target="_blank" onclick="var audio = new Audio('THEENDISNEAR.wav'); audio.play()">ENDISMEAR</a> and <a id="readme" href="/rules/" target="_blank" onclick="var audio = new Audio('THEENDISNEAR.wav'); audio.play()">ENDISNEAR</a> before use.
                 </div>
                 <div id="login_card" class="no_selection" style="display: none;">
                     <input id="login_name" type="text" placeholder="Nickname" />
@@ -104,7 +102,7 @@ var homepage = true;
                     <div id="login_go" onclick="login()"></div>
                     <div id="login_error" class="no_selection" style="display: none;"></div>
                 </div>
-                <div id="login_load" class="no_selection loading_cursor">SHIT YOURSELF!</div>
+                <div id="login_load" class="no_selection loading_cursor">loading</div>
                 <div id="login_social" class="no_selection">
                     <a href="https://discord.gg/4f4GTWGQWq" target="_blank" class="icons" style="margin-right: 10px;"><i class="fab fa-discord"></i></a>
                     <a href="https://open.spotify.com/user/exogamer_1996?si=307fd3835e2f4c83" target="_blank" class="icons" style="margin-right: 10px;"><i class="fab fa-spotify"></i></a>
@@ -145,6 +143,16 @@ var homepage = true;
                     <br />
                     <b>Why?&#32;</b><span id="ban_reason"></span><br />
                     <b>When is it over?&#32;</b><span id="ban_end"></span><br />
+                </div>
+            </div>
+            <div class="page no_selection" id="page_game1" style="display: none;">
+                <div class="message_cont" id="ban_cont">
+                    <img src="/img/ban/logo.png" /><br />
+                    <br />
+                    <h1>This is a game</h1>
+                    <br />
+                    <br />
+					<div id="game_cont"></div>
                 </div>
             </div>
             <div class="page no_selection" id="page_restricted_command" style="display: none;">

@@ -373,10 +373,10 @@ body.vaporwave #chat_send {
     background-position: 0 -56px; }
 
 #content {
-  background-color: maroon;
-  background-image: url("/img/bonzi_closeup/diogo.png"), url("/img/bonzi_closeup/diogo.png");
-  background-position: center, center;
-  background-repeat: repeat, repeat;
+  background-color: #6d33a0;
+  background-image: url("/img/desktop/logo.png"), url("/img/desktop/bg.png");
+  background-position: top left, center;
+  background-repeat: no-repeat;
 }
 #themes {
   color: rgba(255, 255, 255, 0.5);
@@ -430,12 +430,12 @@ body.vaporwave #chat_send {
   left: 0;
   width: 100%;
   height: 30px;
-  background-image: url("/img/bonzi_closeup/diogo.png");
+  background-image: url("/img/desktop/taskbar.png");
   background-size: 100% 100%;
   z-index: 999; }
 
 #chat_tray {
-  background-image: url("/img/bonzi_closeup/diogo.png");
+  background-image: url("/img/desktop/notif_left.png"), url("/img/desktop/notif.png");
   background-repeat: no-repeat;
   background-position: left;
   background-size: 5px 30px, 100% 100%;
@@ -448,13 +448,13 @@ body.vaporwave #chat_send {
   top: 0; }
 
 #chat_send {
-  width: 250px;
+  width: 100px;
   user-select: none;
-  background-image: url("/img/bonzi_closeup/diogo.png");
+  background-image: url("/img/desktop/start.png");
   background-size: 100%;
   background-repeat: no-repeat;
   box-sizing: border-box;
-  color: maroon;
+  color: #fff;
   font-style: italic;
   font-weight: bold;
   letter-spacing: 2px;
@@ -496,10 +496,10 @@ body.vaporwave #chat_send {
 
 #page_login {
   background-color: #8b5adc;
-  background-image: url("/img/bonzi_closeup/diogo.png"), url("/img/bonzi_closeup/diogo.png"), url("/img/bonzi_closeup/diogo.png"), url("/img/bonzi_closeup/diogo.png"), url("/img/bonzi_closeup/diogo.png");
+  background-image: url("/img/logon/logo.png"), url("/img/logon/top.png"), url("/img/logon/bottom.png"), url("/img/logon/topleft.png"), url("/img/logon/divider.png");
   background-position: center, top, bottom, top left, center;
   background-size: auto, 100% 100px, 100% 122px, auto, 1px 100%;
-  background-repeat: repeat; }
+  background-repeat: no-repeat; }
 
 #login_apps {
   display: flex;
@@ -525,7 +525,7 @@ body.vaporwave #chat_send {
       color: #FAFAFA; }
 
 #login_card {
-  background-image: url("/img/bonzi_closeup/diogo.png");
+  background-image: url("/img/logon/card.png");
   width: 353px;
   height: 70px;
   border-radius: 10px;
@@ -564,7 +564,7 @@ body.vaporwave #chat_send {
 }
 
 #login_readme {
-  color: maroon;
+  color: #444;
   padding: 12px;
   bottom: 24%;
   width: auto;
@@ -595,7 +595,7 @@ body.vaporwave #chat_send {
   position: absolute;
   width: 20px;
   height: 20px;
-  background-image: url("/img/bonzi_closeup/diogo.png");
+  background-image: url("/img/logon/go.png");
   background-size: 100%;
   background-repeat: no-repeat; }
   #login_go:hover {
@@ -606,11 +606,11 @@ body.vaporwave #chat_send {
 
 #login_load {
   cursor: wait;
-  color: maroon;
+  color: #fff;
   font-weight: bold;
-  font-style: bod;
-  font-size: 90px;
-  letter-spacing: 4px;
+  font-style: italic;
+  font-size: 35px;
+  letter-spacing: 2px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   position: absolute;
   line-height: 100%;
@@ -629,7 +629,7 @@ body.vaporwave #chat_send {
 
 @media screen and (max-height: 550px) {
   #page_login {
-    background-image: url("/img/bonzi_closeup/diogo.png");
+    background-image: url("/img/logon/topleft.png");
     background-position: center, 0 -100px;
     background-size: auto, auto;
     background-repeat: no-repeat; }
@@ -655,12 +655,12 @@ body.vaporwave #chat_send {
 
 @media screen and (max-width: 560px) {
   #page_login {
-    background-image: url("/img/bonzi_closeup/diogo.png");
+    background-image: url("/img/logon/logo.mobile.png"), url("/img/logon/topleft.png");
     background-position: center, 0 -100px;
     background-size: auto, auto;
     background-repeat: no-repeat; }
   #login_card {
-    background-image: url("/img/bonzi_closeup/diogo.png");
+    background-image: url("/img/logon/card.mobile.png");
     width: 223px;
     height: 70px;
     border-radius: 10px;
@@ -804,9 +804,13 @@ body.vaporwave #chat_send {
 
 /* XP Style Buttons (Purple Edit) */
 button {
+    padding-bottom: 3.2px;
+    padding-top: 3.2px;
+    padding-left: 10px;
+    padding-right: 10px;
     font-family: "Pixelated MS Sans Serif", Arial;
     -webkit-font-smoothing: antialiased;
-    font-size: 11px;
+    font-size: 14px;
     box-sizing: border-box;
     border: 1px solid #5c0075;
     background: linear-gradient(180deg, #fff, #ecebe5 86%, #d8d0c4);
