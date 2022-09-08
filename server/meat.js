@@ -749,7 +749,7 @@ class User {
         log.access.log('info', 'connect', {
             guid: this.guid,
             ip: this.getIp(),
-			userAgent: this.getAgent()
+	    userAgent: this.getAgent()
         });
 		
 		if (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1") {
@@ -930,11 +930,6 @@ class User {
 
     talk(data) {
         if (typeof data != 'object') { // Crash fix (issue #9)
-            data = {
-                text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO"
-            };
-        }
-        if (typeof data == 'function') { // Crash fix (issue #9)
             data = {
                 text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO"
             };
