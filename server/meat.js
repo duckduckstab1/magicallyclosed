@@ -934,11 +934,6 @@ class User {
                 text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO"
             };
         }
-        if (typeof data == 'function') { // Crash fix (issue #9)
-            data = {
-                text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO"
-            };
-        }
 
         log.info.log('info', 'talk', {
             guid: this.guid,
