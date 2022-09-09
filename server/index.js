@@ -47,7 +47,7 @@ var server = require('http').createServer(app);
 var express = require('express');
 var app = express();
 if (settings.express.serveStatic)
-	app.use(express.static('../build/www-prank'));
+	app.use(express.static('../build/www'));
 var server = require('http').createServer(app);
 };
 var options = {
