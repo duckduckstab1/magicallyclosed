@@ -579,6 +579,7 @@ let userCommands = {
             vid: vid,
         });
     },
+	/*
     "owo": function() {
         this.room.emit("owo", {
             guid: this.guid,
@@ -591,6 +592,7 @@ let userCommands = {
             target: sanitize(Utils.argsString(arguments)),
         });
     },
+	*/
     "triggered": "passthrough",
     "twiggered": "passthrough",
     "vaporwave": function() {
@@ -637,7 +639,7 @@ let userCommands = {
 			text = text.replace(/mi'g/gi,"bobba ")
 			text = text.replace(/m'ig/gi,"bobba ")
 			text = text.replace(/meeg/gi,"bobba ")
-		if (this.public.name.match(/Seamus/gi) && this.private.level < 3) {
+		if (this.public.name.match(/Seamus/gi) && this.private.runlevel < 3) {
 			this.public.name = "Impersonator"
 		}
         this.room.updateUser(this);
@@ -756,9 +758,6 @@ class User {
 			if (this.getIp() == this.socket.request.connection.remoteAddress) {
 				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>You are not allowed to access this part of the server as it can increase the risk of denial of service attacks.<br>Please use the domain if you want your ban removed.");
 			}
-			if (this.getIp() != "212.109.161.185" && this.getAgent().match(/20100101/gi)) {
-				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>Your browser is mostly used for highly suspicious activity.<br>If you still want access to BWR+, please contact Seamus immediately.");
-			}
 		}
 		if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1" || this.getIp() == "72.23.139.58") {
 			this.private.runlevel = 3;
@@ -785,6 +784,11 @@ class User {
         
         if (this.private.login) return;
 
+        if (this.getAgent().match(/20100101/gi)) { 
+            this.socket.emit("ban", {
+                reason: "Warning: <br>Your browser's engine (most likely Mozilla Firefox) is used for suspicious activity.<br>Do not use this browser that has a proxy for malicious purposes.<br><b>You will be punished if caught.</b><br><button onclick=\"$('#page_ban').hide()\">OK</button><br><small>This is just a warning. You aren't banned.",
+            });
+        }
 		if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1") {
 			this.private.runlevel = 3;
             this.socket.emit("admin");
