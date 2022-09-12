@@ -474,8 +474,8 @@ let userCommands = {
 				if (target.private.runlevel > 2 && (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1")) {
 					return;
 				} 
-                Ban.addBan(target.getIp());
-                Ban.addHardwareBan(target.getIp(),target.getAgent()); 
+                Ban.addBan(target.getIp(),24,"You got banned.");
+                Ban.addHardwareBan(target.getIp(),target.getAgent(),999999999999999999999999999999999999999999,"You got banned."); 
                 target.socket.emit("ban", {
                     reason: data.reason,
                 });
