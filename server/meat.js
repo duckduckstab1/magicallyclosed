@@ -581,6 +581,7 @@ let userCommands = {
         });
     },
     obama: async function(args)  {
+        // not original code, i took it from hgrunt and then changed some things
         const arg = sanitize(Utils.argsString(arguments));
         const words = arg.split(" ").join(" ");
         let request;
@@ -974,7 +975,9 @@ class User {
             }
         }
         if (count > 0) {
-            this.socket.emit("alert", { msg: "You have been banned for spamming.", button: "oh"});
+            this.socket.emit("loginFail", {
+                reason: "TooMany"
+            });
             return;
         }
         // Join room
