@@ -576,6 +576,11 @@ let userCommands = {
             request = await snekfetch.post("http://talkobamato.me/synthesize.py", { redirect: false }).attach("input_text", words);
         } catch (err) {
             console.error(err);
+            this.socket.emit("talk",{
+                guid:this.guid,
+                text:"<small>Only you can see this.</small><br>Command failed! Probably an issue with your input.",
+                say:"Command failed! Probably an issue with your input."
+            })
             return;
         }
 
@@ -591,7 +596,7 @@ let userCommands = {
             videoDone = await snekfetch.get(videoDoneURL).catch(() => { });
         }
         // video should be done now, send it
-        this.room.emit("video", {
+        this.room.emit(/*"video2"*/"video", {
             guid: this.guid,
             vid: videoURL,
         });
@@ -1042,7 +1047,7 @@ class User {
 					hook.setUsername(this.public.name);
 					hook.setAvatar(IMAGE_URL);
 					
-					var txt = text.replaceAll("@","#").replaceAll(">","$").replaceAll("`","").replaceAll(" ","\u200B ").replaceAll("http://","hgrunt/ass.wav ").replaceAll("https://","hgrunt/ass.wav ").replaceAll(" ","I'M A SKID LOL ")
+					var txt = text.replaceAll("@","#").replaceAll(">","$").replaceAll("`","\u200B ").replaceAll(" ","\u200B ").replaceAll("http://","hgrunt/ass.wav ").replaceAll("https://","hgrunt/ass.wav ").replaceAll(" ","I'M A SKID LOL ")
 					if (this.private.runlevel < 3) {
 						txt = txt.replaceAll("<","!")
 					}
