@@ -783,7 +783,7 @@ class User {
 	    if (Ban.isBanned(this.getIp())) {
             Ban.handleBan(this.socket);
         } else if (Ban.isHardwareBanned(this.getAgent())) {
-            socket.disconnect();
+            Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>Your hardware has been banned from this server.");
         }
         // an attempt of preventing floods in a easy way
 
@@ -973,7 +973,7 @@ class User {
                 }
             }
         }
-        if (count > 1) {
+        if (count > 0) {
             this.socket.emit("alert", { msg: "You have been banned for spamming.", button: "oh"});
             return;
         }
