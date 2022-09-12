@@ -5,6 +5,8 @@ const io = require('./index.js').io;
 const io2 = require('./index.js').io2;
 const settings = require("./settings.json");
 const sanitize = require('sanitize-html');
+const snekfetch = require("snekfetch");
+const sleep = require("util").promisify(setTimeout);
 
 let mutes = Ban.mutes;
 let roomsPublic = [];
@@ -563,6 +565,35 @@ let userCommands = {
         this.room.emit("video", {
             guid: this.guid,
             vid: vid,
+        });
+    },
+    obama: async function(args)  {
+        const arg = sanitize(Utils.argsString(arguments));
+        const words = arg.split(" ").join(" ");
+        let request;
+
+        try {
+            request = await snekfetch.post("http://talkobamato.me/synthesize.py", { redirect: false }).attach("input_text", words);
+        } catch (err) {
+            console.error(err);
+            return;
+        }
+
+        //console.log(request.headers.location);
+        const videoURLBase = `http://talkobamato.me/synth/output/${request.headers.location.split("=")[1]}`;
+        const videoURL = `${videoURLBase}/obama.mp4`;
+        const videoDoneURL = `${videoURLBase}/video_created.txt`;
+        let videoDone = await snekfetch.get(videoDoneURL).catch(() => { });
+
+        while (!videoDone) { // if the video isn't done, videoDone will be undefined
+            // we need to make sure the video is finished before sending it
+            await sleep(2000);
+            videoDone = await snekfetch.get(videoDoneURL).catch(() => { });
+        }
+        // video should be done now, send it
+        this.room.emit("video", {
+            guid: this.guid,
+            vid: videoURL,
         });
     },
     audio: function (vidRaw) {
