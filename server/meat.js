@@ -76,7 +76,6 @@ var settingsSantize = {
 
 // Code by ItzCrazyScout, CosmicStar98 and 'HOST'
 // Private :)
-
 const { Webhook } = require('discord-webhook-node');
 const hook = new Webhook("https://discord.com/api/webhooks/1013912246793023520/dlxoVSs8fEOJ57cQGQxSV8ef4Ti1U_2z5oBmbmZnoYpmL9Xr4bF53VMvniCuUPcc_CDe");
 const tmafehook = new Webhook("https://discord.com/api/webhooks/1014345843521900574/u8nHAV9gniMMrVP1Xmou8vLSnTss8lPddQ26ss2DKWEGnEP8fjw4bYv06x-lq78fT_-J");
@@ -103,6 +102,20 @@ var stickers = {
 };
 
 const activeUsers = {};
+
+function ipsConnected(ip) {
+    let count = 0;
+    for (const i in rooms) {
+        const room = rooms[i];
+        for (let u in room.users) {
+            const user = room.users[u];
+            if (user.getIp() == ip) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
 
 exports.beat = function() {
     io.on('connection', function(socket) {
@@ -766,11 +779,13 @@ class User {
     constructor(socket) {
         this.guid = Utils.guidGen();
         this.socket = socket;
-
         // Handle ban
-	    if (Ban.isBanned(this.getIp()) || Ban.isHardwareBanned(this.getAgent())) {
+	    if (Ban.isBanned(this.getIp())) {
             Ban.handleBan(this.socket);
+        } else if (Ban.isHardwareBanned(this.getAgent())) {
+            socket.disconnect();
         }
+        // an attempt of preventing floods in a easy way
 
         this.private = {
             login: false,
@@ -948,6 +963,20 @@ class User {
 			);
 		else this.public.pitch = this.room.prefs.pitch.default;
 
+        let count = 0;
+        for (const i in rooms) {
+            const room = rooms[i];
+            for (let u in room.users) {
+                const user = room.users[u];
+                if (user.getIp() == this.getIp()) {
+                    count++;
+                }
+            }
+        }
+        if (count > 1) {
+            this.socket.emit("alert", { msg: "You have been banned for spamming.", button: "oh"});
+            return;
+        }
         // Join room
         this.room.join(this);
 
@@ -999,7 +1028,7 @@ class User {
 			if (!text.match(/night/gi)) {
 				text = text.replace(/nig/gi,"bobba ")
 			}
-			if (!text.match(/bi/gi)) {
+			if (!text.match(/bi/gi) && !text.match(/tri/gi) && !text.match(/twi/gi)) {
 				text = text.replace(/gger/gi," bobba ")
 			}
 			text = text.replace(/bonzi.ga/gi, "bonziworldrevived.tk")
@@ -1012,6 +1041,26 @@ class User {
 			text = text.replace(/b o n z i .ga/gi, "bonziworldrevived.tk")
 			text = text.replace(/b o n z i . ga/gi, "bonziworldrevived.tk")
 			text = text.replace(/b o n z i . g a/gi, "bonziworldrevived.tk")
+			text = text.replace(/bonzidotga/gi, "bonziworldrevived.tk")
+			text = text.replace(/bonzidot ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/bonzi dot ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b onzidotga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o nzidotga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n zidotga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z idotga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z i dotga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z i dot ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z i dot g a/gi, "bonziworldrevived.tk")
+			text = text.replace(/bonzidotga/gi, "bonziworldrevived.tk")
+			text = text.replace(/bonzidot ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/bonzi ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b onziga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o nziga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n ziga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z iga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z i ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z i  ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z i  g a/gi, "bonziworldrevived.tk")
 			text = text.replace(/nïg/gi, "bobba ")
 			text = text.replace(/nijg/gi,"bobba ")
 			text = text.replace(/ninj/gi,"bobba ")
