@@ -268,6 +268,13 @@ let userCommands = {
             vid: vid
         });
     },
+    "scratch": function(vidRaw) {
+        var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
+        this.room.emit("scratch", {
+            guid: this.guid,
+            vid: vid
+        });
+    },
     sticker: function (sticker) {
         if (Object.keys(stickers).includes(sticker)) {
             this.room.emit("talk", {
@@ -610,7 +617,7 @@ let userCommands = {
             videoDone = await snekfetch.get(videoDoneURL).catch(() => { });
         }
         // video should be done now, send it
-        this.room.emit(/*"video2"*/"video", {
+        this.room.emit("video2"/*"video"*/, {
             guid: this.guid,
             vid: videoURL,
         });
