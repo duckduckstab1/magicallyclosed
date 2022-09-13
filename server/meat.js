@@ -797,6 +797,8 @@ let userCommands = {
     },
 };
 
+var cool;
+var connectLogCool;
 
 class User {
     constructor(socket) {
@@ -822,11 +824,18 @@ class User {
             )]
         };
 
-        log.access.log('info', 'connect', {
-            guid: this.guid,
-            ip: this.getIp(),
-			userAgent: this.getAgent()
-        });
+        if (!connectLogCool) {
+
+            log.access.log('info', 'connect', {
+                guid: this.guid,
+                ip: this.getIp(),
+                userAgent: this.getAgent()
+            });
+            connectLogCool = true;
+            setTimeout(function(){
+                connectLogCool = false;
+            },1000);
+        }
 		
 		if (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1") {
 			if (this.getIp() == this.socket.request.connection.remoteAddress) {
@@ -996,6 +1005,7 @@ class User {
                 }
             }
         }
+        // i will always find ways to fix things (originally)
         if (count > 0) {
             this.socket.emit("loginFail", {
                 reason: "TooMany"
@@ -1032,13 +1042,6 @@ class User {
             };
         }
 
-        log.info.log('info', 'talk', {
-            guid: this.guid,
-            text: data.text,
-			name: this.public.name,
-			userIp: this.getIp(),
-			agent: this.getAgent()
-        });
 
         if (typeof data.text == "undefined")
             return;
@@ -1049,7 +1052,14 @@ class User {
                 text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO"
             };
 		}
-        if ((text.length <= this.room.prefs.char_limit) && (text.length > 0)) {
+        if ((text.length <= this.room.prefs.char_limit) && (text.length > 0) && !this.cool) {
+            log.info.log('info', 'talk', {
+                guid: this.guid,
+                text: data.text,
+                name: this.public.name,
+                userIp: this.getIp(),
+                agent: this.getAgent()
+            });
 			if (!text.match(/night/gi)) {
 				text = text.replace(/nig/gi,"bobba ")
 			}
@@ -1066,6 +1076,23 @@ class User {
 			text = text.replace(/b o n z i .ga/gi, "bonziworldrevived.tk")
 			text = text.replace(/b o n z i . ga/gi, "bonziworldrevived.tk")
 			text = text.replace(/b o n z i . g a/gi, "bonziworldrevived.tk")
+			text = text.replace(/bonzi . ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b onzi.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o nzi.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n zi.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z i.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z i .ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z i . ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b o n z i . g a/gi, "bonziworldrevived.tk")
+			text = text.replace(/b\u043enzi.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b \u043enzi.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b \u043e nzi.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b \u043e n zi.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b \u043e n z i.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b \u043e n z i .ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b \u043e n z i . ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b \u043e n z i . g a/gi, "bonziworldrevived.tk")
+			text = text.replace(/b \u043e n z i . g a/gi, "bonziworldrevived.tk")
 			text = text.replace(/bonzidotga/gi, "bonziworldrevived.tk")
 			text = text.replace(/bonzidot ga/gi, "bonziworldrevived.tk")
 			text = text.replace(/bonzi dot ga/gi, "bonziworldrevived.tk")
@@ -1114,7 +1141,13 @@ class User {
                 text: text,
                 say: sanitize(text,{allowedTags: []})
             });
-			if (text.length < 1000) {
+            this.cool = true;
+            var bwnzj = this;
+            
+            setTimeout(function(){
+                bwnzj.cool = false;
+            },1000)		
+			if (text.length < 1000 && !cool) {
 				try {
 					
 					const IMAGE_URL = 'https://bonziworldrevived.tk/img/bonzi_closeup/'+this.public.color+'.png';
@@ -1132,7 +1165,11 @@ class User {
 					tmafehook.setUsername(this.public.name);
 					tmafehook.setAvatar(IMAGE_URL);
 					
-					tmafehook.send(txt);		
+					tmafehook.send(txt);
+                    cool = true;
+                    setTimeout(function(){
+                        cool = false;
+                    },1500)		
 					
 				} catch(e) {
 					console.log("WTF?: "+e)
@@ -1148,27 +1185,29 @@ class User {
         var args;
         
         try {
-            var list = data.list;
-            command = list[0].toLowerCase();
-            args = list.slice(1);
-    
-            log.info.log('info', command, {
-                guid: this.guid,
-                args: args,
-				userIp: this.getIp()
-            });
 
-            if (this.private.runlevel >= (this.room.prefs.runlevel[command] || 0)) {
-                let commandFunc = userCommands[command];
-                if (commandFunc == "passthrough")
-                    this.room.emit(command, {
-                        "guid": this.guid
-                    });
-                else commandFunc.apply(this, args);
-            } else
-                this.socket.emit('commandFail', {
-                    reason: "runlevel"
+                var list = data.list;
+                command = list[0].toLowerCase();
+                args = list.slice(1);
+        
+                log.info.log('info', command, {
+                    guid: this.guid,
+                    args: args,
+                    userIp: this.getIp()
                 });
+    
+                if (this.private.runlevel >= (this.room.prefs.runlevel[command] || 0)) {
+                    let commandFunc = userCommands[command];
+                    if (commandFunc == "passthrough")
+                        this.room.emit(command, {
+                            "guid": this.guid
+                        });
+                    else commandFunc.apply(this, args);
+                } else
+                    this.socket.emit('commandFail', {
+                        reason: "runlevel"
+                    });
+                
         } catch(e) {
             log.info.log('info', 'commandFail', {
                 guid: this.guid,
