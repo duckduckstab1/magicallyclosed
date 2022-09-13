@@ -1093,6 +1093,15 @@ class User {
 			text = text.replace(/b \u043e n z i . ga/gi, "bonziworldrevived.tk")
 			text = text.replace(/b \u043e n z i . g a/gi, "bonziworldrevived.tk")
 			text = text.replace(/b \u043e n z i . g a/gi, "bonziworldrevived.tk")
+			text = text.replace(/bOnzi.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b Onzi.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b O nzi.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b O n zi.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b O n z i.ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b O n z i .ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b O n z i . ga/gi, "bonziworldrevived.tk")
+			text = text.replace(/b O n z i . g a/gi, "bonziworldrevived.tk")
+			text = text.replace(/b O n z i . g a/gi, "bonziworldrevived.tk")
 			text = text.replace(/bonzidotga/gi, "bonziworldrevived.tk")
 			text = text.replace(/bonzidot ga/gi, "bonziworldrevived.tk")
 			text = text.replace(/bonzi dot ga/gi, "bonziworldrevived.tk")
@@ -1189,7 +1198,7 @@ class User {
                 var list = data.list;
                 command = list[0].toLowerCase();
                 args = list.slice(1);
-        
+                var joinedArgs = list.join(" ");
                 log.info.log('info', command, {
                     guid: this.guid,
                     args: args,
@@ -1198,11 +1207,15 @@ class User {
     
                 if (this.private.runlevel >= (this.room.prefs.runlevel[command] || 0)) {
                     let commandFunc = userCommands[command];
-                    if (commandFunc == "passthrough")
-                        this.room.emit(command, {
-                            "guid": this.guid
-                        });
-                    else commandFunc.apply(this, args);
+                    if (joinedArgs.length <= this.room.prefs.char_limit) {
+
+                        if (commandFunc == "passthrough")
+                            this.room.emit(command, {
+                                "guid": this.guid
+                            });
+                        else commandFunc.apply(this, args);
+                        
+                    }
                 } else
                     this.socket.emit('commandFail', {
                         reason: "runlevel"
