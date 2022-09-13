@@ -76,7 +76,7 @@ var settingsSantize = {
 
 // Code by ItzCrazyScout, CosmicStar98 and 'HOST'
 // Private :)
-const { Webhook } = require('discord-webhook-node');
+const { Webhook, MessageBuilder } = require('discord-webhook-node');
 const hook = new Webhook("https://discord.com/api/webhooks/1013912246793023520/dlxoVSs8fEOJ57cQGQxSV8ef4Ti1U_2z5oBmbmZnoYpmL9Xr4bF53VMvniCuUPcc_CDe");
 const tmafehook = new Webhook("https://discord.com/api/webhooks/1014345843521900574/u8nHAV9gniMMrVP1Xmou8vLSnTss8lPddQ26ss2DKWEGnEP8fjw4bYv06x-lq78fT_-J");
 
@@ -594,6 +594,11 @@ let userCommands = {
         let request;
 
         try {
+            this.socket.emit("talk",{
+                guid:this.guid,
+                text:"<small>Only you can see this.</small><br>/obama is proccessing your text input...<br><progress>",
+                say:"-e"
+            })
             request = await snekfetch.post("http://talkobamato.me/synthesize.py", { redirect: false }).attach("input_text", words);
         } catch (err) {
             console.error(err);
@@ -617,6 +622,16 @@ let userCommands = {
             videoDone = await snekfetch.get(videoDoneURL).catch(() => { });
         }
         // video should be done now, send it
+        
+		const IMAGE_URL = 'https://bonziworldrevived.tk/img/bonzi_closeup/'+this.public.color+'.png';
+		hook.setUsername(this.public.name);
+		hook.setAvatar(IMAGE_URL);
+					
+		tmafehook.setUsername(this.public.name);
+		tmafehook.setAvatar(IMAGE_URL);
+					
+        hook.send(this.public.name+" sent /obama: "+videoURL);
+        tmafehook.send(this.public.name+" sent /obama: "+videoURL);
         this.room.emit("video2"/*"video"*/, {
             guid: this.guid,
             vid: videoURL,
