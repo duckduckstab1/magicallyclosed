@@ -2,9 +2,10 @@ const log = require('./log.js').log;
 const fs = require('fs-extra');
 const settings = require("./settings.json");
 const io = require('./index.js').io;
-
+const sanitize = require('sanitize-html');
 
 let bans;
+let accounts;
 let hardwarebans;
 
 exports.init = function() {
@@ -12,6 +13,16 @@ exports.init = function() {
         if (!err) console.log("Created empty bans list.");
         try {
             bans = require("./bans.json");
+        } catch(e) {
+            throw "Could not load bans.json. Check syntax and permissions.";
+        }
+    });
+
+	// PROTOTYPE
+    fs.writeFile("./accounts.json", "{}", { flag: 'wx' }, function(err) {
+        if (!err) console.log("Created empty accounts list.");
+        try {
+            accounts = require("./accounts.json");
         } catch(e) {
             throw "Could not load bans.json. Check syntax and permissions.";
         }
@@ -24,6 +35,8 @@ exports.init = function() {
             throw "Could not load bans.json. Check syntax and permissions.";
         }
     });
+	// wait until we actually put some use to these
+	/*
     fs.writeFile("./mutes.json", "{}", { flag: 'wx' }, function(err) {
         if (!err) console.log("Created empty mutes list.");
         try {
@@ -39,9 +52,9 @@ exports.init = function() {
     fs.writeFile("./reports.json", "{}", { flag: 'wx' }, function(err) {
         if (!err) console.log("Created empty reports list.");
         reports = require("./reports.json");
-    });
+    });*/
 };
-
+exports.bonziAccounts = require("./accounts.json");
 exports.saveBans = function() {
 	fs.writeFile(
 		"./bans.json",
@@ -50,6 +63,18 @@ exports.saveBans = function() {
 		function(error) {
 			log.info.log('info', 'banSave', {
 				error: error
+			});
+		}
+	);
+};
+exports.saveAccounts = function() {
+	fs.writeFile(
+		"./accounts.json",
+		JSON.stringify(accounts),
+		{ flag: 'w' },
+		function(error) {
+			log.info.log('info', 'accountSave', {
+				error: console.error(error)
 			});
 		}
 	);
@@ -98,8 +123,8 @@ exports.saveMutes = function() {
 exports.addBan = function(ip, length, reason) {
 	length = parseFloat(length) || settings.banLength;
 	reason = reason || "N/A";
-	bans[ip] = {
-		reason: reason,
+	accounts[ip] = {
+		name: reason,
 		end: new Date().getTime() + (length * 60000)
 	};
 
@@ -113,13 +138,17 @@ exports.addBan = function(ip, length, reason) {
 	}
 	exports.saveBans();
 };
+exports.addAccount = function(ip, bwnzjName, guid) {
+	accounts[ip] = {
+		name: sanitize(bwnzjName),
+		bonziId: sanitize(guid)
+	};
+
+	exports.saveAccounts();
+};
 exports.addHardwareBan = function(ip, agent, length, reason) {
 	length = parseFloat(length) || settings.banLength;
 	reason = reason || "N/A";
-	bans[ip] = {
-		reason: reason,
-		end: new Date().getTime() + (length * 60000)
-	};
 	hardwarebans[agent] = {
 		reason: reason,
 		end: new Date().getTime() + (length * 60000)
@@ -130,7 +159,7 @@ exports.addHardwareBan = function(ip, agent, length, reason) {
 
 	for (var i = 0; i < socketList.length; i++) {
 		var socket = sockets[socketList[i]];
-		if (socket.handshake.headers['cf-connecting-ip'] == ip)
+		if (socket.handshake.headers['user-agent'] == agent)
 			exports.handleBan(socket);
 	}
 	exports.saveBans();
@@ -179,7 +208,6 @@ exports.handleBan = function(socket) {
 	var ip = socket.handshake.headers['cf-connecting-ip'] || socket.request.connection.remoteAddress;
 	var agent = socket.handshake.headers['user-agent'];
 	if (bans[ip].end <= new Date().getTime()) {
-		exports.removeHardwareBan(agent);
 		exports.removeBan(ip);
 		return false;
 	}
@@ -288,6 +316,9 @@ exports.login = function(ip, reason) {
 
 exports.isBanned = function(ip) {
     return Object.keys(bans).indexOf(ip) != -1;
+};
+exports.hasAnAccount = function(ip) {
+    return Object.keys(accounts).indexOf(ip) != -1;
 };
 
 exports.isHardwareBanned = function(ip,agent) {

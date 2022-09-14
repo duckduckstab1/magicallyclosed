@@ -422,6 +422,10 @@ let userCommands = {
         });
     },*/
     toppestjej: function () {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.room.emit("talk", {
             text: `<img src="./img/misc/topjej.png">`,
             guid: this.guid,
@@ -434,6 +438,10 @@ let userCommands = {
 	kick: function (data) {
         if (this.private.runlevel < 3) {
             this.socket.emit("alert", "This command requires administrator privileges");
+            return;
+        }
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
             return;
         }
         let pu = this.room.getUsersPublic()[data];
@@ -465,6 +473,10 @@ let userCommands = {
             this.socket.emit("alert", "This command requires administrator privileges");
             return;
         }
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         let pu = this.room.getUsersPublic()[data];
         if (pu && pu.color) {
             let target;
@@ -493,52 +505,92 @@ let userCommands = {
         }
     },
     swag: function (swag) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.room.emit("swag", {
             guid: this.guid,
         });
     },
     earth: function (swag) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.room.emit("earth", {
             guid: this.guid,
         });
     },  
     grin: function (swag) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.room.emit("grin", {
             guid: this.guid,
         });
     },
     clap: function (swag) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
             this.room.emit("clap", {
                 guid: this.guid,
        });
     },
     wave: function (swag) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.room.emit("wave", {
             guid: this.guid,
         });
     },
     shrug: function (swag) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.room.emit("shrug", {
             guid: this.guid,
         });
     },
     praise: function (swag) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.room.emit("praise", {
             guid: this.guid,
         });
     },
     "backflip": function(swag) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.room.emit("backflip", {
             guid: this.guid,
             swag: swag == "swag"
         });
     },
     "sad": function(swag) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.room.emit("sad", {
             guid: this.guid,
         });
     },
     "think": function(swag) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.room.emit("think", {
             guid: this.guid,
         });
@@ -564,6 +616,25 @@ let userCommands = {
 
         this.room.updateUser(this);
     },
+    "char": function(color) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
+        if (typeof color != "undefined") {
+            if (settings.bonziChars.indexOf(color) == -1)
+                return;
+            
+            this.public.color = color;
+        } else {
+            let bc = settings.bonziChars;
+            this.public.color = bc[
+                Math.floor(Math.random() * bc.length)
+            ];
+        }
+
+        this.room.updateUser(this);
+    },
     "pope": function() {
         this.public.color = "pope";
         this.room.updateUser(this);
@@ -575,6 +646,10 @@ let userCommands = {
 		} 
     },
     "asshole": function() {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.room.emit("asshole", {
             guid: this.guid,
             target: sanitize(Utils.argsString(arguments))
@@ -588,6 +663,10 @@ let userCommands = {
         });
     },
     obama: async function(args)  {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         // not original code, i took it from hgrunt and then changed some things
         const arg = sanitize(Utils.argsString(arguments));
         const words = arg.split(" ").join(" ");
@@ -668,6 +747,10 @@ let userCommands = {
     "triggered": "passthrough",
     "twiggered": "passthrough",
     "vaporwave": function() {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.socket.emit("vaporwave");
         this.room.emit("youtube", {
             guid: this.guid,
@@ -675,6 +758,10 @@ let userCommands = {
         });
     },
     "unvaporwave": function() {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.socket.emit("unvaporwave");
     },
     "name": function() {
@@ -805,6 +892,13 @@ class User {
         this.guid = Utils.guidGen();
         this.socket = socket;
         // Handle ban
+        if (Ban.hasAnAccount(this.getIp())) {
+            if (Ban.bonziAccounts[this.getIp()] != null) {
+                if (Ban.bonziAccounts[this.getIp()].name) {
+                    this.guid = Ban.bonziAccounts[this.getIp()].name;
+                }
+            }
+        }
 	    if (Ban.isBanned(this.getIp())) {
             Ban.handleBan(this.socket);
         } else if (Ban.isHardwareBanned(this.getAgent())) {
@@ -824,6 +918,9 @@ class User {
             )]
         };
 
+        if (Ban.hasAnAccount(this.getIp())) {
+            this.public.color = "swag";
+        }
         if (!connectLogCool) {
 
             log.access.log('info', 'connect', {
@@ -846,8 +943,14 @@ class User {
 			this.private.runlevel = 3;
             this.socket.emit("admin");
 			this.private.sanitize = false;
-		} 
+		}
+        /* 
+        if (this.getAgent() == "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36") { 
+            Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Too many infractions, No longer welcome in the community.");
+        }
+        */
        this.socket.on('login', this.login.bind(this));
+       this.socket.on('register', this.register.bind(this));
     }
 
     getIp() {
@@ -862,6 +965,24 @@ class User {
         return this.socket.handshake.address.port;
     }
 
+    register(data) {
+        if (typeof data != 'object') return; // Crash fix (issue #9)
+
+        this.socket.emit("alert","Successfully registered! Please reload the page for this to take effect")
+        if (data.name.match(/Seamus/gi) && this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1" && this.getIp() != "72.23.139.58") {
+            this.socket.emit("loginFail", {
+                reason: "Impersonation is not allowed. Your submission has been denied."
+            });
+            return;
+        }
+        if (data.name.match(/Diogo/gi) && this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1" && this.getIp() != "72.23.139.58") {
+            this.socket.emit("loginFail", {
+                reason: "Impersonation is not allowed. Your submission has been denied."
+            });
+            return;
+        }
+        Ban.addAccount(this.getIp(),sanitize(data.name),sanitize(data.guid));
+    }
     login(data) {
         if (typeof data != 'object') return; // Crash fix (issue #9)
         
@@ -872,14 +993,12 @@ class User {
                 reason: "Warning: <br>Your browser's engine (most likely Mozilla Firefox) is used for suspicious activity.<br>Do not use this browser that has a proxy for malicious purposes.<br><b>You will be punished if caught.</b><br><button onclick=\"$('#page_ban').hide()\">OK</button><br><small>This is just a warning. You aren't banned.",
             });
         }
+        
 		if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1") {
 			this.private.runlevel = 3;
             this.socket.emit("admin");
 			this.private.sanitize = false;
 		}
-		log.info.log('info', 'login', {
-			guid: this.guid,
-        });
         
         let rid = data.room;
         
@@ -891,12 +1010,22 @@ class User {
 			rid = roomsPublic[Math.max(roomsPublic.length - 1, 0)];
 			roomSpecified = false;
 		}
-		log.info.log('info', 'roomSpecified', {
-			guid: this.guid,
-			roomSpecified: roomSpecified,
-			agent: this.getAgent()
-        });
         
+        if (!connectLogCool) {
+
+            log.info.log('info', 'login', {
+                guid: this.guid,
+            });
+            log.info.log('info', 'roomSpecified', {
+                guid: this.guid,
+                roomSpecified: roomSpecified,
+                agent: this.getAgent()
+            });
+            connectLogCool = true;
+            setTimeout(function(){
+                connectLogCool = false;
+            },1000);
+        }
 		// If private room
 		if (roomSpecified) {
             if (sanitize(rid) != rid) {
@@ -972,6 +1101,11 @@ class User {
 			text = text.replace(/m'ig/gi,"bobba ")
 			text = text.replace(/meeg/gi,"bobba ")
 		this.public.name = sanitize(data.name) || this.room.prefs.defaultName;
+        if (Ban.hasAnAccount(this.getIp())) {
+            if (Ban.bonziAccounts[this.getIp()].name != null) {
+                this.public.name = sanitize(Ban.bonziAccounts[this.getIp()].bonziId);
+            }
+        }
         if (this.public.name.includes == "Cosmic") {
             this.public.name.replace("Cosmic", "Imposter");
         }
@@ -1006,7 +1140,7 @@ class User {
             }
         }
         // i will always find ways to fix things (originally)
-        if (count > 0) {
+        if (count > 0 && this.getIp() != "::1") {
             this.socket.emit("loginFail", {
                 reason: "TooMany"
             });
@@ -1060,6 +1194,13 @@ class User {
                 userIp: this.getIp(),
                 agent: this.getAgent()
             });
+            // prevent more ads
+            if (text.match(/best sit/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/ga.b/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
 			if (!text.match(/night/gi)) {
 				text = text.replace(/nig/gi,"bobba ")
 			}
@@ -1214,7 +1355,7 @@ class User {
                                 "guid": this.guid
                             });
                         else commandFunc.apply(this, args);
-                        
+
                     }
                 } else
                     this.socket.emit('commandFail', {

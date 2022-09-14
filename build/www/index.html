@@ -97,7 +97,7 @@
 
                 <div id="login_readme">
 			<div class="motd"></div>
-                    Make sure to check out the <a id="readme" href="/readme/" target="_blank"">README</a> and <a id="readme" href="/rules/" target="_blank"">RULES</a> before use.<br>Join the <a href="https://discord.gg/zpnXyrDYmm">Discord</a> <hr>
+                    Make sure to check out the <a id="readme" href="/readme/" target="_blank"">README</a> and <a id="readme" href="/rules/" target="_blank"">RULES</a> before use.<br>Join the <a href="https://discord.gg/zpnXyrDYmm">Discord</a> <br> <button onclick="$('#page_register').show('slow')">Register</button><hr>
 <select onchange="select_language(this.options[this.selectedIndex].value)">
   <option value="en" selected>English</option>
   <option value="fr">French</option>
@@ -169,12 +169,28 @@
                     <br />
                     <h1>This command is restricted for registered users only</h1>
                     <br />
-					Want to become registered? This is how.
+					Want to become registered? Let us show you how to register an account.
 					<br>
 					Go to the home page, click on the register button in the readme bubble, <br> insert your username and Bonzi ID, and then you're good to go!
 					<br>
 					<br>
 					<button onclick='$("#page_restricted_command").hide()'>OK</button>
+                </div>
+            </div>
+            <div class="page no_selection" id="page_register" style="display: none;">
+                <div class="message_cont" id="ban_cont">
+                    <img src="/img/ban/logo.png" /><br />
+                    <br />
+                    <h1>Register an Account</h1>
+                    <br />
+                    <b>Never set your Bonzi ID as your password!</b>
+                    <br />
+					<input id="acc_guid" placeholder="Bonzi Name">
+					<br>
+					<input id="acc_name" placeholder="Bonzi ID">
+					<br>
+					<br>
+					<button onclick='registerAccount()'>Register!</button>
                 </div>
             </div>
             <div class="page no_selection" id="page_kick" style="display: none;">
