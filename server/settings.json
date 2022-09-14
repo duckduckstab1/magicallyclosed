@@ -173,6 +173,9 @@
       "peedy_pope",
       "robby"
     ],
+    "bonziChars": [
+      "swag"
+    ],
 	"banLength": 1440,
 	"port": 80,
 	"express": {
