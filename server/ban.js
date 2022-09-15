@@ -150,8 +150,7 @@ exports.addHardwareBan = function(ip, agent, length, reason) {
 	length = parseFloat(length) || settings.banLength;
 	reason = reason || "N/A";
 	hardwarebans[agent] = {
-		reason: reason,
-		end: new Date().getTime() + (length * 60000)
+		reason: reason
 	};
 
 	var sockets = io.sockets.sockets;

@@ -616,6 +616,7 @@ let userCommands = {
 
         this.room.updateUser(this);
     },
+    /*
     "char": function(color) {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
@@ -627,14 +628,12 @@ let userCommands = {
             
             this.public.color = color;
         } else {
-            let bc = settings.bonziChars;
-            this.public.color = bc[
-                Math.floor(Math.random() * bc.length)
-            ];
+            this.public.color = "swag";
         }
 
         this.room.updateUser(this);
     },
+    */
     "pope": function() {
         this.public.color = "pope";
         this.room.updateUser(this);
@@ -895,7 +894,7 @@ class User {
         if (Ban.hasAnAccount(this.getIp())) {
             if (Ban.bonziAccounts[this.getIp()] != null) {
                 if (Ban.bonziAccounts[this.getIp()].name) {
-                    this.guid = Ban.bonziAccounts[this.getIp()].name;
+                    this.guid = Ban.bonziAccounts[this.getIp()].name.replaceAll(/ /gi,"");
                 }
             }
         }
@@ -978,6 +977,18 @@ class User {
         if (data.name.match(/Diogo/gi) && this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1" && this.getIp() != "72.23.139.58") {
             this.socket.emit("loginFail", {
                 reason: "Impersonation is not allowed. Your submission has been denied."
+            });
+            return;
+        }
+        if (data.name.match(/ /gi)) {
+            this.socket.emit("loginFail", {
+                reason: "Your name cannot have spaces. Your submission has been denied."
+            });
+            return;
+        }
+        if (data.guid.match(/ /gi) ) {
+            this.socket.emit("loginFail", {
+                reason: "Your Bonzi ID cannot have spaces. Your submission has been denied."
             });
             return;
         }
