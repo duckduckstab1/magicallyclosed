@@ -42,6 +42,7 @@
         <script src="./js/lib/seedrandom.min.js"></script>
         <script src="./js/lib/socket.io-1.4.5.js"></script>
         <script src="./js/lib/speakjs/speakClient.js"></script>
+        <script src="./js/lib/speakjs/speakGenerator.js"></script>
         <script src="./js/lib/jquery.contextMenu.min.js"></script>
 	<script src="./js/lib/pwa.js"></script>
         <script src="./cordova.js"></script>
@@ -97,7 +98,7 @@
 
                 <div id="login_readme">
 			<div class="motd"></div>
-                    Make sure to check out the <a id="readme" href="/readme/" target="_blank"">README</a> and <a id="readme" href="/rules/" target="_blank"">RULES</a> before use.<br>Join the <a href="https://discord.gg/zpnXyrDYmm">Discord</a> <br> <button onclick="$('#page_register').show('slow')">Register</button><hr>
+                    Make sure to check out the <a id="readme" href="/readme/" target="_blank"">README</a> and <a id="readme" href="/rules/" target="_blank"">RULES</a> before use.<br><font size="2">Join the <a href="https://discord.gg/zpnXyrDYmm">Discord</a> <a onclick="$('#page_register').show('slow')" href="javascript:void(0);">Register</a> <br> <a href="/servers/" target="_blank">List of Servers</a></font><hr>
 <select onchange="select_language(this.options[this.selectedIndex].value)">
   <option value="en" selected>English</option>
   <option value="fr">French</option>

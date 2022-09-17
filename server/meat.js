@@ -232,6 +232,10 @@ function newRoom(rid, prefs) {
 
 let userCommands = {
     godmode: function (word) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         let success = word == this.room.prefs.godword;
         if (success) {
             this.private.runlevel = 3;
@@ -245,6 +249,10 @@ let userCommands = {
         });
     },
     "sanitize": function() {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         let sanitizeTerms = ["false", "off", "disable", "disabled", "f", "no", "n"];
         let argsString = Utils.argsString(arguments);
         this.private.sanitize = !sanitizeTerms.includes(argsString.toLowerCase());
@@ -262,6 +270,10 @@ let userCommands = {
         });
     },
     "youtube": function(vidRaw) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
         this.room.emit("youtube", {
             guid: this.guid,
@@ -269,6 +281,10 @@ let userCommands = {
         });
     },
     "scratch": function(vidRaw) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
         this.room.emit("scratch", {
             guid: this.guid,
@@ -285,8 +301,12 @@ let userCommands = {
         }
     },  
 	// it needs to stay removed because people spam it too much
-	/*
+    // nevermind
     wtf: function (text) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         var wtf = [
             "i cut a hole in my computer so i can fuck it",
             "i hate minorities",
@@ -420,7 +440,7 @@ let userCommands = {
             text: wtf[num],
             guid: this.guid,
         });
-    },*/
+    },
     toppestjej: function () {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
@@ -494,7 +514,6 @@ let userCommands = {
 					return;
 				} 
                 Ban.addBan(target.getIp(),24,"You got banned.");
-                Ban.addHardwareBan(target.getIp(),target.getAgent(),999999999999999999999999999999999999999999,"You got banned."); 
                 target.socket.emit("ban", {
                     reason: data.reason,
                 });
@@ -616,7 +635,6 @@ let userCommands = {
 
         this.room.updateUser(this);
     },
-    /*
     "char": function(color) {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
@@ -633,8 +651,11 @@ let userCommands = {
 
         this.room.updateUser(this);
     },
-    */
     "pope": function() {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.public.color = "pope";
         this.room.updateUser(this);
     },
@@ -716,6 +737,10 @@ let userCommands = {
         });
     },
     audio: function (vidRaw) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
         this.room.emit("audio", {
             guid: this.guid,
@@ -723,6 +748,10 @@ let userCommands = {
         });
     },
     image: function (vidRaw) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
         this.room.emit("image", {
             guid: this.guid,
@@ -853,10 +882,18 @@ let userCommands = {
         this.guid = data;
     },
 	imageapi: function (data) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         if (data.includes('"') || data.length > 8 * 1024 * 1024) return;
         this.room.emit("talk", { guid: this.guid, text: `<img alt="assume png" src="data:image/png;base64,${data}"/>`, say: "-e" })
     },
     "dm2":function(data){
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         if(typeof data != "object") return
         let pu = this.room.getUsersPublic()[data.target]
         if(pu&&pu.color){
@@ -894,14 +931,12 @@ class User {
         if (Ban.hasAnAccount(this.getIp())) {
             if (Ban.bonziAccounts[this.getIp()] != null) {
                 if (Ban.bonziAccounts[this.getIp()].name) {
-                    this.guid = Ban.bonziAccounts[this.getIp()].name.replaceAll(/ /gi,"");
+                    this.guid = Ban.bonziAccounts[this.getIp()].name.replaceAll(/ /gi,"").replaceAll(".","_")+Math.floor(Math.random() * 1337);
                 }
             }
         }
 	    if (Ban.isBanned(this.getIp())) {
             Ban.handleBan(this.socket);
-        } else if (Ban.isHardwareBanned(this.getAgent())) {
-            Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>Your hardware has been banned from this server.");
         }
         // an attempt of preventing floods in a easy way
 
@@ -966,8 +1001,19 @@ class User {
 
     register(data) {
         if (typeof data != 'object') return; // Crash fix (issue #9)
-
         this.socket.emit("alert","Successfully registered! Please reload the page for this to take effect")
+        if (data.name == '') {
+            this.socket.emit("loginFail", {
+                reason: "You must have a name."
+            });
+			return;
+		}
+        if (data.guid == '') {
+            this.socket.emit("loginFail", {
+                reason: "You must have a Bonzi ID."
+            });
+			return;
+		}
         if (data.name.match(/Seamus/gi) && this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1" && this.getIp() != "72.23.139.58") {
             this.socket.emit("loginFail", {
                 reason: "Impersonation is not allowed. Your submission has been denied."
@@ -992,6 +1038,7 @@ class User {
             });
             return;
         }
+		this.guid = data.name.replaceAll(/ /gi,"").replaceAll(".","_")+Math.floor(Math.random() * 1337);
         Ban.addAccount(this.getIp(),sanitize(data.name),sanitize(data.guid));
     }
     login(data) {

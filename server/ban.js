@@ -123,7 +123,7 @@ exports.saveMutes = function() {
 exports.addBan = function(ip, length, reason) {
 	length = parseFloat(length) || settings.banLength;
 	reason = reason || "N/A";
-	accounts[ip] = {
+	bans[ip] = {
 		name: reason,
 		end: new Date().getTime() + (length * 60000)
 	};

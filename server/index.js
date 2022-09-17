@@ -51,8 +51,8 @@ if (settings.express.serveStatic)
 var server = require('http').createServer(app);
 };
 var options = {
-  key: fs.readFileSync('./privkey1.pem'),
-  cert: fs.readFileSync('./cert1.pem')
+  key: fs.readFileSync('./privkey2.pem'),
+  cert: fs.readFileSync('./cert2.pem')
 }
 var server2 = require('https').createServer(options,app);
 // Shutdown Configs

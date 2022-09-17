@@ -1,8 +1,27 @@
 @echo off
-title BonziWORLD Revived+ Remake
 cls
-echo Starting BWR+...
-:bwr
-node index.js
-echo WARNING: Server crashed or has been reset!
-goto bwr
+title BWR+ Remake
+
+:j
+node index
+echo Reloading BWR+
+goto j
+
+
+// Replace "05" with one of the presets from this list to change terminal color!
+// Note: While you can't add your own colors to your presets, you can mix and match pre-existing colors instead!
+
+// color 01
+// color 02
+// color 03
+// color 04
+// color 05
+// color 06
+// color 07
+// color 08
+// color 0A
+// color 0B
+// color 0C
+// color 0D
+// color 0E
+// color 0F
