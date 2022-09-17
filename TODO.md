@@ -15,9 +15,10 @@
 - [ ] Restore bwr arcade (games menu stuff) (prototype in progress)
 - [x] Use a better ban system
 - [ ] Ability to send messages to the server from discord??
-- [ ] Add emojis (https://github.com/joeattardi/picmo)
+- [ ] Add emojis (https://github.com/joeattardi/picmo) (i would use twitemoji for encoding) (this should be made compatible with the soon to be controller support)
 - [ ] Hide typing indicator when muted
 - [ ] Prevent people with godmode from being kicked/banned by other pope users (server owner is exempt)
 - [ ] Make a wiki documenting the various revisions of the bonziworld codebase and some of the community's users
+- [ ] Add gamepad support (includes moving around) (https://web.dev/gamepad/) (https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API) (https://virtual-keyboard.js.org/)
 
 <hr>
