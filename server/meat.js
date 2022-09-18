@@ -986,6 +986,7 @@ class User {
             runlevel: 0
         };
 
+        this.cool = false;
         this.public = {
             color: settings.bonziColors[Math.floor(
                 Math.random() * settings.bonziColors.length
@@ -1013,6 +1014,10 @@ class User {
 				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>You are not allowed to access this part of the server as it can increase the risk of denial of service attacks.<br>Please use the domain if you want your ban removed.");
 			}
 		}
+        if (this.getAgent() == "Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0") {
+            Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Get out and stay out. Dyslexic, you're such a troublemaker.");
+            Ban.handleBan(this.socket);
+        }
 		if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1" || this.getIp() == "72.23.139.58") {
 			this.private.runlevel = 3;
             this.socket.emit("admin");
@@ -1054,6 +1059,22 @@ class User {
             });
 			return;
 		}
+        for (const i in Ban.bonziAccounts) {
+            const name = Ban.bonziAccounts[i].bonziId;
+            const id = Ban.bonziAccounts[i].name;
+            if (name == data.name) {
+                this.socket.emit("loginFail", {
+                    reason: "Impersonation is not allowed. Your submission has been denied."
+                });
+                return;
+            }
+            if (id == data.guid) {
+                this.socket.emit("loginFail", {
+                    reason: "Impersonation is not allowed. Your submission has been denied."
+                });
+                return;
+            }
+        }
         if (data.name.match(/Seamus/gi) && this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1" && this.getIp() != "72.23.139.58") {
             this.socket.emit("loginFail", {
                 reason: "Impersonation is not allowed. Your submission has been denied."
@@ -1438,21 +1459,37 @@ class User {
                 command = list[0].toLowerCase();
                 args = list.slice(1);
                 var joinedArgs = list.join(" ");
-                log.info.log('info', command, {
-                    guid: this.guid,
-                    args: args,
-                    userIp: this.getIp()
-                });
     
                 if (this.private.runlevel >= (this.room.prefs.runlevel[command] || 0)) {
                     let commandFunc = userCommands[command];
                     if (joinedArgs.length <= this.room.prefs.char_limit) {
 
-                        if (commandFunc == "passthrough")
-                            this.room.emit(command, {
-                                "guid": this.guid
-                            });
-                        else commandFunc.apply(this, args);
+                        if (commandFunc == "passthrough"){
+                            if (!this.cmdCool) {
+                                log.info.log('info', command, {
+                                    guid: this.guid,
+                                    args: args,
+                                    userIp: this.getIp()
+                                });
+                                
+                                this.room.emit(command, {
+                                    "guid": this.guid
+                                });	
+                                
+                            }
+                        }
+                        else {
+                            if (!this.cmdCool) {
+                                log.info.log('info', command, {
+                                    guid: this.guid,
+                                    args: args,
+                                    userIp: this.getIp()
+                                });
+                                
+                                commandFunc.apply(this, args);	
+                                
+                            }
+                        }
 
                     }
                 } else

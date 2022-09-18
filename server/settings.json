@@ -177,7 +177,11 @@
     ],
     "bonziChars": [
       "swag",
-	  "ctcc2022"
+	  "ctcc2022",
+      "redbrain",
+      "rednobrain",
+      "fujitsu1",
+      "dtv"
     ],
 	"banLength": 1440,
 	"port": 80,
