@@ -49,6 +49,8 @@
 	<script src="./js/version_handler.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/platform.css" />
         <script src="./js/script.min.js"></script>
+        <script src="./js/platform.js"></script>
+        <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 	<script src="./js/ban.js"></script>
 	<script src="./js/warning.js"></script>
 <script defer>
@@ -134,6 +136,8 @@
                     <button class="btn" onclick="window.location.reload();">Reload?</button><br />
                     <br />
                     Room ID -&#32;<span class="room_id">???</span><br />
+                    <br>
+                    If the server is down for longer than 5 seconds, BonziWORLD Revived+ will notify you that it will use server.erik.red as it's server.
                 </div>
             </div>
             <div id="page_dm" class="message_cont" style="display: none;">
@@ -201,7 +205,7 @@
                     <h1>You got kicked!</h1>
                     <br />
                     <br />
-                    <b>Why?&#32;</b><span id="ban_reason"></span><br />
+                    <b>Why?&#32;</b><span id="kick_reason"></span><br />
                 </div>
             </div>
             <div class="page no_selection" id="page_ie" style="display: none;">

@@ -1,0 +1,20 @@
+{
+	"name": "BonziWORLD Revived+ Beta",
+	"description": "Leading the industry in gorilla-based chat clients.",
+	"version": "1.8.2",
+	"manifest_version": 3,
+	"action": {
+	  "title": "BonziWORLD Revived+ Beta"
+	},
+	"background": {
+        "service_worker": "background.js",
+        "persistent": false
+    },
+	"icons": {
+		"16": "./www/favicons/favicon-16x16.png",
+		"32": "./www/favicons/favicon-32x32.png",
+		"180": "./www/favicons/apple-touch-icon.png",
+		"192": "./www/favicons/android-chrome-192x192.png"
+	},
+	"permissions": ["webview"]
+}

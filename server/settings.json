@@ -44,7 +44,8 @@
                 "pope": 3,
 				"setguid": 3,
 				"kick": 3,
-				"ban": 3
+				"ban": 3,
+                "nofuckoff": 3
             },
 			"room_max": 10000,
 			"owner": null,
@@ -104,7 +105,8 @@
                 "pope": 3,
 				"setguid": 3,
 				"kick": 3,
-				"ban": 3
+				"ban": 3,
+                "nofuckoff": 3
             },
 			"room_max": 10000,
 			"owner": null,

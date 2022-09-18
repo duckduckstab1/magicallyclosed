@@ -480,6 +480,42 @@ let userCommands = {
             this.socket.emit("alert", "The user you are trying to kick left. Get dunked on nerd");
         }
     },
+	nofuckoff: function (data) {
+        if (this.private.runlevel < 3) {
+            this.socket.emit("alert", "This command requires administrator privileges");
+            return;
+        }
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
+        
+		this.room.emit("nofuckoff",{
+			guid: data
+		})
+        var user = this;
+        setTimeout(function(){
+                        
+            let pu = user.room.getUsersPublic()[data];
+            if (pu && pu.color) {
+                let target;
+                user.room.users.map((n) => {
+                    if (n.guid == data) {
+                        target = n;
+                    }
+                });
+                target.socket.emit("kick", {
+                    reason: "No fuck off.",
+                });
+                setTimeout(function(){
+                    target.disconnect();
+                },500);
+            } else {
+                user.socket.emit("alert", "The user you are trying to dissolve left. Get dunked on nerd");
+            }
+
+        },1084)
+    },
 	send_invite: function () {
 		// kinda did it
 		this.room.emit("talk",{
@@ -676,6 +712,10 @@ let userCommands = {
         });
     },
     video: function (vidRaw) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
         this.room.emit("video", {
             guid: this.guid,
