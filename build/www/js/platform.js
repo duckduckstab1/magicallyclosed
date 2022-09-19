@@ -7,9 +7,8 @@ var isChromeBrowser = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(na
 var isEdgeBrowser = /Edg/.test(navigator.userAgent);
 // wait until it gets released
 //var urlChrome = "https://www.mediafire.com/file/ykd37x0t2tzz8fl/BonziWORLD_Revived%252B_Chrome_App.rar/file";
-//var urlFirefox = "https://addons.mozilla.org/en-US/firefox/addon/bonziworld-revived-beta/";
+var urlFirefox = "https://addons.mozilla.org/en-US/firefox/addon/bonziworld-revived-beta/";
 var urlChrome = "./downloads/chrome/bwrplusaddon.zip";
-var urlFirefox = "./downloads/firefox/bwrplusaddon.zip";
 
 var isiOS = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)/i) != null;
 var urlGPlay = "https://play.google.com/store/apps/details?id=com.jojudge.bonziworld";

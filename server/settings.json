@@ -180,8 +180,13 @@
 	  "ctcc2022",
       "redbrain",
       "rednobrain",
+      "fujitsu",
       "fujitsu1",
-      "dtv"
+      "dtv",
+      "lewandowski",
+      "uhoh",
+      "ross",
+      "boruc"
     ],
 	"banLength": 1440,
 	"port": 80,
