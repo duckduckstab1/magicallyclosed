@@ -1841,7 +1841,7 @@ class User {
                 }
             } else {
 
-                if (hours == 16 && minutes <= 30 || hours == 9 && minutes <= 25) 
+                if (hours == 16 && minutes <= 30 || hours == 9 && minutes <= 25 || hours == 13 && minutes <= 20) 
                 {
     
                     var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
