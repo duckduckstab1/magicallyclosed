@@ -862,83 +862,6 @@ let userCommands = {
             });
         }
     },  
-    updatebonzitv: function() {
-        if (!bonziTvCool) {
-            const date = new Date();
-            const hours = date.getHours();
-            const minutes = date.getMinutes();
-            var bonziTvIdent = [
-                "https://www.youtube.com/watch?v=l_F7ZyzufPg",
-                "https://www.youtube.com/watch?v=l_F7ZyzufPg",
-                "https://www.youtube.com/watch?v=l_F7ZyzufPg",
-                "https://www.youtube.com/watch?v=GCA5CB5uUyA",
-            ];
-            var ident = Math.floor(Math.random() * bonziTvIdent.length);
-
-                if (hours == 16 && minutes <= 30 || hours == 9 && minutes <= 25) 
-                {
-    
-                    var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
-                    var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-                    this.room.vid = vid;
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
-                    
-    
-                } else if (hours == 17 ) {
-    
-                    var num = Math.floor(Math.random() * videoIds5PM.length);
-                    var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-                    this.room.vid = vid;
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
-                    
-                } else if (hours == 18 && minutes <= 30) {
-    
-                    var num = Math.floor(Math.random() * videoIds6PM.length);
-                    var vid = videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
-                    this.room.vid = vid;
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
-                } else if (hours == 19 && hours <= 22) {
-    
-                    var num = Math.floor(Math.random() * videoIds7PM.length);
-                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
-                    this.room.vid = vid;
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
-                } else if (hours == 23) {
-                    
-                    this.room.emit("replaceTVWithURL",{
-                        id: "38oe0urhVnM",
-                        hourAmount: hours,
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
-                } else {
-                    
-                    var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
-                    var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-                    this.room.vid = vid; 
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
-    
-                }
-            bonziTvCool = true;
-            setTimeout(function(){
-                bonziTvCool = false;
-            },20000)
-        }
-    },
     "whynot": "passthrough",
     "isee": "passthrough",
     "dtvhater": function() {
@@ -1831,8 +1754,163 @@ class User {
 		});
 
         this.socket.on('talk', this.talk.bind(this));
+        this.socket.on('updatebonzitv', this.updatebonzitv.bind(this));
         this.socket.on('command', this.command.bind(this));
         this.socket.on('disconnect', this.disconnect.bind(this));
+    }
+
+    updatebonzitv() {
+        if (!bonziTvCool) {
+            const date = new Date();
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            var bonziTvIdent = [
+                "https://www.youtube.com/watch?v=l_F7ZyzufPg",
+                "https://www.youtube.com/watch?v=l_F7ZyzufPg",
+                "https://www.youtube.com/watch?v=l_F7ZyzufPg",
+                "https://www.youtube.com/watch?v=GCA5CB5uUyA",
+            ];
+            var ident = Math.floor(Math.random() * bonziTvIdent.length);
+            
+            var tvhook = new Webhook("https://discord.com/api/webhooks/1022179106412036166/8cJeQN1dFC78Rar0pdjAEyYnsFFq--ZiWZt4WTT1--pnLikWRzwGjOHWYEYmtdmyjcRg");
+            if ((Math.random() * 3) == 1) {
+
+                if (hours == 16 && minutes <= 30 || hours == 9 && minutes <= 25) 
+                {
+    
+                    var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
+                    var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    this.room.vid = vid;
+                    
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                    })
+                    
+    
+                } else if (hours == 17 ) {
+    
+                    var num = Math.floor(Math.random() * videoIds5PM.length);
+                    var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    this.room.vid = vid;
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                    })
+                    
+                } else if (hours == 18 && minutes <= 30) {
+    
+                    var num = Math.floor(Math.random() * videoIds6PM.length);
+                    var vid = videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    this.room.vid = vid;
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                    })
+                } else if (hours == 19 && hours <= 22) {
+    
+                    var num = Math.floor(Math.random() * videoIds7PM.length);
+                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    this.room.vid = vid;
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                    })
+                } else if (hours == 23) {
+                    
+                    this.room.emit("replaceTVWithURL",{
+                        id: "38oe0urhVnM",
+                        hourAmount: hours,
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
+                    })
+                } else {
+                    
+                    var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
+                    var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    this.room.vid = vid; 
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                    })
+    
+                }
+            } else {
+
+                if (hours == 16 && minutes <= 30 || hours == 9 && minutes <= 25) 
+                {
+    
+                    var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
+                    var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    this.room.vid = vid;
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
+                    })
+                    
+    
+                } else if (hours == 17 ) {
+    
+                    var num = Math.floor(Math.random() * videoIds5PM.length);
+                    var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    this.room.vid = vid;
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
+                    })
+                    
+                } else if (hours == 18 && minutes <= 30) {
+    
+                    var num = Math.floor(Math.random() * videoIds6PM.length);
+                    var vid = videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    this.room.vid = vid;
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
+                    })
+                } else if (hours == 19 && hours <= 22) {
+    
+                    var num = Math.floor(Math.random() * videoIds7PM.length);
+                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    this.room.vid = vid;
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
+                    })
+                } else if (hours == 23) {
+                    
+					tvhook.send("BonziTV is now off air.");
+                    this.room.emit("replaceTVWithURL",{
+                        id: "38oe0urhVnM",
+                        hourAmount: hours,
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
+                    })
+                } else {
+                    
+                    var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
+                    var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    this.room.vid = vid; 
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
+                    })
+    
+                }
+            }
+            bonziTvCool = true;
+            setTimeout(function(){
+                bonziTvCool = false;
+            },20000)
+        }
     }
 
     talk(data) {
