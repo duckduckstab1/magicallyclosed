@@ -12,6 +12,327 @@ let mutes = Ban.mutes;
 let roomsPublic = [];
 let rooms = {};
 let usersAll = [];
+
+var bonziTvCool = false;
+var videoIds4PM2430PM = [
+    "https://www.youtube.com/watch?v=n_sWTHQKr-s",
+    "https://www.youtube.com/watch?v=FdjXC4aDNrc",
+    "https://www.youtube.com/watch?v=oqwjsqLvaGA",
+    "https://www.youtube.com/watch?v=ewQeG4bfh7o",
+    "https://www.youtube.com/watch?v=J1xFJDSeHxI",
+    "https://www.youtube.com/watch?v=AJNF04k6hDU",
+    "https://www.youtube.com/watch?v=EXFJ1gUqSOI",
+    "https://www.youtube.com/watch?v=zvB3h2IKdYU",
+    "https://www.youtube.com/watch?v=ihDMzzMxsFY",
+    "https://www.youtube.com/watch?v=JdPibO28X6g",
+    "https://www.youtube.com/watch?v=BpJZAKy3-EI",
+    "https://www.youtube.com/watch?v=y281xhixx9I",
+    "https://www.youtube.com/watch?v=f-1tlzLYUE0",
+    "https://www.youtube.com/watch?v=LBapITUr878",
+    "https://www.youtube.com/watch?v=R7M2RiTgEO4",
+    "https://www.youtube.com/watch?v=hYC5FcjhowU",
+    "https://www.youtube.com/watch?v=PM2cT0GYs0k",
+    "https://www.youtube.com/watch?v=kX-TUNMguqQ",
+    "https://www.youtube.com/watch?v=CJjGRbm7AP0",
+    "https://www.youtube.com/watch?v=nUXNQk-GpXE",
+    "https://www.youtube.com/watch?v=pRIdTBDo5s0",
+    "https://www.youtube.com/watch?v=lnUnMD8avFo",
+    "https://www.youtube.com/watch?v=OHtNgbbZUHc",
+    "https://www.youtube.com/watch?v=IWeeGlqWjTo",
+    "https://www.youtube.com/watch?v=B-43bJpN9p0",
+    "https://www.youtube.com/watch?v=ZlJUN6ld7Uw",
+    "https://www.youtube.com/watch?v=cepnx5OtwMg",
+    "https://www.youtube.com/watch?v=CyYUtJWu67g",
+    "https://www.youtube.com/watch?v=kVPAH1SoJOs",
+    "https://www.youtube.com/watch?v=CSSucrEZru0",
+    "https://www.youtube.com/watch?v=voX77aqxMVM",
+    "https://www.youtube.com/watch?v=VMenL3FtjwY",
+    "https://www.youtube.com/watch?v=gMWMaYqMuvU",
+    "https://www.youtube.com/watch?v=9CivuYkHkdw",
+    "https://www.youtube.com/watch?v=nWjshODENSE",
+    "https://www.youtube.com/watch?v=wC85p4WwT7o",
+    "https://www.youtube.com/watch?v=-STfCX3_Dt8",
+    "https://www.youtube.com/watch?v=2npJbktaXas",
+    "https://www.youtube.com/watch?v=mW8HT3wTjtw",
+    "https://www.youtube.com/watch?v=aqJxAEc8I98",
+    "https://www.youtube.com/watch?v=7RTuOTLqNJg",
+    "https://www.youtube.com/watch?v=D-mxD6R0PZk",
+    "https://www.youtube.com/watch?v=gkpfOwxvP5Y",
+    "https://www.youtube.com/watch?v=MaOJiU7ICSs",
+    "https://www.youtube.com/watch?v=ldoCeoPnsr4",
+    "https://www.youtube.com/watch?v=kRtuL6PVM3M",
+    "https://www.youtube.com/watch?v=BxEn1br2hhA",
+    "https://www.youtube.com/watch?v=E7e2NbRTv34",
+    "https://www.youtube.com/watch?v=0Pw-W11hzaY",
+    "https://www.youtube.com/watch?v=fjOraqJJfdo",
+    "https://www.youtube.com/watch?v=-k2lYZmcyUs",
+    "https://www.youtube.com/watch?v=IpDx4Fw137U",
+    "https://www.youtube.com/watch?v=bIy7bGgPmu8",
+    "https://www.youtube.com/watch?v=wGFfIulM2aw",
+    "https://www.youtube.com/watch?v=xv3LBB6GAh4",
+    "https://www.youtube.com/watch?v=SLfbsnOG3lA",
+    "https://www.youtube.com/watch?v=YaRNqZT1QH4"
+];
+var videoIds5PM = [
+    "https://www.youtube.com/watch?v=qsATpni7B9s",
+    "https://www.youtube.com/watch?v=a0tSVDjQbz0",
+    "https://www.youtube.com/watch?v=4ES2y7bxENE", 
+    "https://www.youtube.com/watch?v=j32-UnN6m5E",
+    "https://www.youtube.com/watch?v=86EkHcJsXhU",
+    "https://www.youtube.com/watch?v=P3Ca0X-TO1U",
+    "https://www.youtube.com/watch?v=UjnyCsweHOE",
+    "https://www.youtube.com/watch?v=G2ApsOSMX2s",
+    "https://www.youtube.com/watch?v=3Hssx5jy-f4",
+    "https://www.youtube.com/watch?v=sRih4d0Um9U",
+    "https://www.youtube.com/watch?v=lI-u0pJ-XEM",
+    "https://www.youtube.com/watch?v=tv9UIy0RCus",
+    "https://www.youtube.com/watch?v=wGKi7YITv84",
+    "https://www.youtube.com/watch?v=FQ0ZvlLi3Aw",
+    "https://www.youtube.com/watch?v=hlm9JW6hzu4",
+    "https://www.youtube.com/watch?v=W61OP5HPSU4",
+    "https://www.youtube.com/watch?v=PqS4Ckf01XI",
+    "https://www.youtube.com/watch?v=BjiWP6GdaZs",
+    "https://www.youtube.com/watch?v=7D6W6Dzsinw",
+    "https://www.youtube.com/watch?v=LWW9kyDhSGY",
+    "https://www.youtube.com/watch?v=UfDFvG0Px5A",
+    "https://www.youtube.com/watch?v=mtxjk_kIi6I",
+    "https://www.youtube.com/watch?v=M_U4NYPHuE8",
+    "https://www.youtube.com/watch?v=XmheFB3vSmM",
+    "https://www.youtube.com/watch?v=b9RSREv2NAE",
+    "https://www.youtube.com/watch?v=YcZ4vXgsGh4",
+    "https://www.youtube.com/watch?v=MnjMwoJpDag",
+    "https://www.youtube.com/watch?v=8zVTrQ54oKA",
+    "https://www.youtube.com/watch?v=HV7SQkbOKQQ",
+    "https://www.youtube.com/watch?v=urX6QcVFkHY",
+    "https://www.youtube.com/watch?v=Q7vthL5hIqo",
+    "https://www.youtube.com/watch?v=N0j6NXznknU",
+    "https://www.youtube.com/watch?v=u0qTJz2DUos",
+    "https://www.youtube.com/watch?v=UioiM5KopzU",
+    "https://www.youtube.com/watch?v=sDlGy1SxYGg",
+    "https://www.youtube.com/watch?v=dnua8QvCfB0",
+    "https://www.youtube.com/watch?v=FG0ydp-1mHE",
+    "https://www.youtube.com/watch?v=bCm-EAd_oEI",
+    "https://www.youtube.com/watch?v=aZ5lyqb4gUc",
+    "https://www.youtube.com/watch?v=2HUy60DWYek",
+    "https://www.youtube.com/watch?v=FEXeAlaL9cc",
+    "https://www.youtube.com/watch?v=ORouZmGacHk",
+    "https://www.youtube.com/watch?v=2v-8DArgo-Y"
+];
+var videoIds6PM = [
+    "https://www.youtube.com/watch?v=CipV9DBI72I",
+    "https://www.youtube.com/watch?v=kYYbYdZdZuo",
+    "https://www.youtube.com/watch?v=Fz_fD06bFho",
+    "https://www.youtube.com/watch?v=dF3ALkzF6i4",
+    "https://www.youtube.com/watch?v=wlqM_kMRPJI"
+];
+var videoIds7PM = [
+    "https://www.youtube.com/watch?v=PT5HrjP-lPE",
+    "https://www.youtube.com/watch?v=1yfUfH1jF3g",
+    "https://www.youtube.com/watch?v=vN2BCZjZYWs",
+    "https://www.youtube.com/watch?v=oZF2RUJHV8c",
+    "https://www.youtube.com/watch?v=rNY5lwrmZ1w",
+    "https://www.youtube.com/watch?v=E7sn6tjcZgI",
+    "https://www.youtube.com/watch?v=kvsw74KWAIw",
+    "https://www.youtube.com/watch?v=OX3rC3ENFw0",
+    "https://www.youtube.com/watch?v=o3i64oR6Dv8",
+    "https://www.youtube.com/watch?v=Frm0LTTtgFo",
+    "https://www.youtube.com/watch?v=PFbYJ2-KpR8",
+    "https://www.youtube.com/watch?v=rVAxjlFU28o",
+    "https://www.youtube.com/watch?v=fIonJON2p9A",
+    "https://www.youtube.com/watch?v=Gc_DMKiz9LU",
+    "https://www.youtube.com/watch?v=bfk_pzQSfX8",
+    "https://www.youtube.com/watch?v=SKLlmJKfcI0",
+    "https://www.youtube.com/watch?v=r0W-607Atz0",
+    "https://www.youtube.com/watch?v=nGQ-nCwHYcs",
+    "https://www.youtube.com/watch?v=7hTge-5W3Cc",
+    "https://www.youtube.com/watch?v=fBHJFPqKIG0",
+    "https://www.youtube.com/watch?v=LvV7MOoSwy0",
+    "https://www.youtube.com/watch?v=MTyBtwmvEjE",
+    "https://www.youtube.com/watch?v=djMpH9D3NUQ",
+    "https://www.youtube.com/watch?v=3_uRhxkjdB4",
+    "https://www.youtube.com/watch?v=3VS4Nkzh-70",
+    "https://www.youtube.com/watch?v=jX28oxrdUVI",
+    "https://www.youtube.com/watch?v=dnBqjTmlLg8",
+    "https://www.youtube.com/watch?v=r_mwNcxuxwY",
+    "https://www.youtube.com/watch?v=xlyyu1Go4yU",
+    "https://www.youtube.com/watch?v=l8g0z8yZ6FU",
+    "https://www.youtube.com/watch?v=gMDgHPQ0YfI",
+    "https://www.youtube.com/watch?v=HjWbtUBKuUc",
+    "https://www.youtube.com/watch?v=WO2SCGfEYiE",
+    "https://www.youtube.com/watch?v=ur8ys2aglI4",
+    "https://www.youtube.com/watch?v=jmr5kAmIQGs",
+    "https://www.youtube.com/watch?v=3va3bdtT9LQ",
+    "https://www.youtube.com/watch?v=7vzfeyh-ow8",
+    "https://www.youtube.com/watch?v=v2t6iP4mWvA",
+    "https://www.youtube.com/watch?v=iwxbY-p_w0w",
+    "https://www.youtube.com/watch?v=pdO9uKpzaYU",
+    "https://www.youtube.com/watch?v=8iEXhbqami8",
+    "https://www.youtube.com/watch?v=T-BoDW1_9P4",
+    "https://www.youtube.com/watch?v=NgHygsNwTNk",
+    "https://www.youtube.com/watch?v=jPKuyeDb0mM",
+    "https://www.youtube.com/watch?v=EDsDnR2dzlw",
+    "https://www.youtube.com/watch?v=ljl1jBEY3_A",
+    "https://www.youtube.com/watch?v=jIwqlKDPq4s",
+    "https://www.youtube.com/watch?v=TGulB0MfxPs",
+    "https://www.youtube.com/watch?v=ehlrUPrvFuk",
+    "https://www.youtube.com/watch?v=vkUIyOm9hZk",
+    "https://www.youtube.com/watch?v=t2Jpe0I5pa4",
+    "https://www.youtube.com/watch?v=kHKJ9Mf8UxU",
+    "https://www.youtube.com/watch?v=zwz5yJR_aFA",
+    "https://www.youtube.com/watch?v=RdTJHVG_IdU",
+    "https://www.youtube.com/watch?v=WaXvbkjn-RA",
+    "https://www.youtube.com/watch?v=xe0P0rnsS1Q",
+    "https://www.youtube.com/watch?v=bBjk55hNjWw",
+    "https://www.youtube.com/watch?v=bBjk55hNjWw",
+    "https://www.youtube.com/watch?v=bBjk55hNjWw",
+    "https://www.youtube.com/watch?v=bBjk55hNjWw",
+    "https://www.youtube.com/watch?v=bBjk55hNjWw",
+    "https://www.youtube.com/watch?v=bBjk55hNjWw",
+    "https://www.youtube.com/watch?v=bBjk55hNjWw",
+    "https://www.youtube.com/watch?v=bBjk55hNjWw"
+]
+var videoIds25MinutesofMSAgent = [
+    "https://www.youtube.com/watch?v=qsATpni7B9s",
+    "https://www.youtube.com/watch?v=a0tSVDjQbz0",
+    "https://www.youtube.com/watch?v=4ES2y7bxENE",
+    "https://www.youtube.com/watch?v=j32-UnN6m5E",
+    "https://www.youtube.com/watch?v=86EkHcJsXhU",
+    "https://www.youtube.com/watch?v=P3Ca0X-TO1U",
+    "https://www.youtube.com/watch?v=UjnyCsweHOE",
+    "https://www.youtube.com/watch?v=G2ApsOSMX2s",
+    "https://www.youtube.com/watch?v=3Hssx5jy-f4",
+    "https://www.youtube.com/watch?v=sRih4d0Um9U",
+    "https://www.youtube.com/watch?v=lI-u0pJ-XEM",
+    "https://www.youtube.com/watch?v=tv9UIy0RCus",
+    "https://www.youtube.com/watch?v=wGKi7YITv84",
+    "https://www.youtube.com/watch?v=FQ0ZvlLi3Aw",
+    "https://www.youtube.com/watch?v=hlm9JW6hzu4",
+    "https://www.youtube.com/watch?v=W61OP5HPSU4",
+    "https://www.youtube.com/watch?v=PqS4Ckf01XI",
+    "https://www.youtube.com/watch?v=BjiWP6GdaZs",
+    "https://www.youtube.com/watch?v=7D6W6Dzsinw",
+    "https://www.youtube.com/watch?v=LWW9kyDhSGY",
+    "https://www.youtube.com/watch?v=I5XjMXFuAEg",
+    "https://www.youtube.com/watch?v=bQIIms6REH0",
+    "https://www.youtube.com/watch?v=bLu9ZT7xc-s",
+    "https://www.youtube.com/watch?v=oDmcLsCd1wM",
+    "https://www.youtube.com/watch?v=bDRkDiK5OgA",
+    "https://www.youtube.com/watch?v=_0EaFBajEJc",
+    "https://www.youtube.com/watch?v=PESJ7GXFSTY",
+    "https://www.youtube.com/watch?v=tjWpSalUJ7M",
+    "https://www.youtube.com/watch?v=CUwkddtoq_Q",
+    "https://www.youtube.com/watch?v=kUS79V-GED4",
+    "https://www.youtube.com/watch?v=XuZYiN_fLLo",
+    "https://www.youtube.com/watch?v=N7UVouZF3rs",
+    "https://www.youtube.com/watch?v=nIe6hhSNYMo",
+    "https://www.youtube.com/watch?v=WR-ItEt7Wsc",
+    "https://www.youtube.com/watch?v=xRMtup3tSiY",
+    "https://www.youtube.com/watch?v=8PdVfC588rk",
+    "https://www.youtube.com/watch?v=y_NNbA1YHXI",
+    "https://www.youtube.com/watch?v=uUKakTJTq8Q",
+    "https://www.youtube.com/watch?v=Q9xzX3uYFrg",
+    "https://www.youtube.com/watch?v=AeHLChNvmuo",
+    "https://www.youtube.com/watch?v=oAnQODG7WIM",
+    "https://www.youtube.com/watch?v=32lLfeLcqpc",
+    "https://www.youtube.com/watch?v=T6OqOb9GHm8",
+    "https://www.youtube.com/watch?v=7_dFef7LmN0",
+    "https://www.youtube.com/watch?v=35aKtzd6ITU",
+    "https://www.youtube.com/watch?v=PYX5WGWCy80",
+    "https://www.youtube.com/watch?v=JnkxS1kyZgc",
+    "https://www.youtube.com/watch?v=pg4zVD6nVTM",
+    "https://www.youtube.com/watch?v=i8zCkUtvbyI",
+    "https://www.youtube.com/watch?v=5lWKWEBG7sU",
+    "https://www.youtube.com/watch?v=JC__xVzW4q4",
+    "https://www.youtube.com/watch?v=g_bKg27Zskg",
+    "https://www.youtube.com/watch?v=vsPt1P6ouEw",
+    "https://www.youtube.com/watch?v=sWKXS0Jy6y0",
+    "https://www.youtube.com/watch?v=H3aSBjRV1m4",
+    "https://www.youtube.com/watch?v=mDofooY1oxI",
+    "https://www.youtube.com/watch?v=9NQVRayFJ4Q",
+    "https://www.youtube.com/watch?v=-_0qqaiFwKU",
+    "https://www.youtube.com/watch?v=CpW0lFG8nxE",
+    "https://www.youtube.com/watch?v=i7KzCagtyvg",
+    "https://www.youtube.com/watch?v=Tc9IJ9yE_ds",
+    "https://www.youtube.com/watch?v=LgZ9XoRakuE",
+    "https://www.youtube.com/watch?v=HJ_QylejL0o",
+    "https://www.youtube.com/watch?v=T7PRlNIbEOw",
+    "https://www.youtube.com/watch?v=hht_m1cjqLo",
+    "https://www.youtube.com/watch?v=AltpSUZqRzo",
+    "https://www.youtube.com/watch?v=ryI0Hc6TNs4",
+    "https://www.youtube.com/watch?v=RIrYEbJmYVU",
+    "https://www.youtube.com/watch?v=NbzjAQd_A4E",
+    "https://www.youtube.com/watch?v=DeugO5Tl0-k",
+    "https://www.youtube.com/watch?v=b9RSREv2NAE",
+    "https://www.youtube.com/watch?v=YcZ4vXgsGh4",
+    "https://www.youtube.com/watch?v=MnjMwoJpDag",
+    "https://www.youtube.com/watch?v=8zVTrQ54oKA",
+    "https://www.youtube.com/watch?v=HV7SQkbOKQQ",
+    "https://www.youtube.com/watch?v=urX6QcVFkHY",
+    "https://www.youtube.com/watch?v=Q7vthL5hIqo",
+    "https://www.youtube.com/watch?v=N0j6NXznknU",
+    "https://www.youtube.com/watch?v=u0qTJz2DUos",
+    "https://www.youtube.com/watch?v=UioiM5KopzU",
+    "https://www.youtube.com/watch?v=dnua8QvCfB0",
+    "https://www.youtube.com/watch?v=FG0ydp-1mHE",
+    "https://www.youtube.com/watch?v=bCm-EAd_oEI",
+    "https://www.youtube.com/watch?v=wlqM_kMRPJI",
+    "https://www.youtube.com/watch?v=W9DST-6jIBU",
+    "https://www.youtube.com/watch?v=9Lu99J5UsXs",
+    "https://www.youtube.com/watch?v=hRSYYKEfwoE",
+    "https://www.youtube.com/watch?v=GODj_vgnmuY",
+    "https://www.youtube.com/watch?v=z4nWu0kmYzE",
+    "https://www.youtube.com/watch?v=SkKPMlCQWiI",
+    "https://www.youtube.com/watch?v=5SAkFdHwrdU",
+    "https://www.youtube.com/watch?v=5zdMJ9gCkHY",
+    "https://www.youtube.com/watch?v=Q391KSf2ER8",
+    "https://www.youtube.com/watch?v=OEp_2CnlXsk",
+    "https://www.youtube.com/watch?v=BtmvlPi3pnM",
+    "https://www.youtube.com/watch?v=hRSYYKEfwoE",
+    "https://www.youtube.com/watch?v=1dHWxhHVnog",
+    "https://www.youtube.com/watch?v=VVTde5W-vkg",
+    "https://www.youtube.com/watch?v=FMi67zFJYyc",
+    "https://www.youtube.com/watch?v=CQYj1xu-Oeg",
+    "https://www.youtube.com/watch?v=LSCrZc0Ced0",
+    "https://www.youtube.com/watch?v=PwyUb98K2T4",
+    "https://www.youtube.com/watch?v=wx7Txh0SF6Y",
+    "https://www.youtube.com/watch?v=HYCJKB-o72M",
+    "https://www.youtube.com/watch?v=HYCJKB-o72M",
+    "https://www.youtube.com/watch?v=HYCJKB-o72M",
+    "https://www.youtube.com/watch?v=HYCJKB-o72M", 
+    "https://www.youtube.com/watch?v=lI-u0pJ-XEM",
+    "https://www.youtube.com/watch?v=tv9UIy0RCus",
+    "https://www.youtube.com/watch?v=wGKi7YITv84",
+    "https://www.youtube.com/watch?v=FQ0ZvlLi3Aw",
+    "https://www.youtube.com/watch?v=hlm9JW6hzu4",
+    "https://www.youtube.com/watch?v=W61OP5HPSU4",
+    "https://www.youtube.com/watch?v=PqS4Ckf01XI",
+    "https://www.youtube.com/watch?v=BjiWP6GdaZs",
+    "https://www.youtube.com/watch?v=7D6W6Dzsinw",
+    "https://www.youtube.com/watch?v=LWW9kyDhSGY",
+    "https://www.youtube.com/watch?v=UfDFvG0Px5A",
+    "https://www.youtube.com/watch?v=mtxjk_kIi6I",
+    "https://www.youtube.com/watch?v=M_U4NYPHuE8",
+    "https://www.youtube.com/watch?v=XmheFB3vSmM",
+    "https://www.youtube.com/watch?v=b9RSREv2NAE",
+    "https://www.youtube.com/watch?v=YcZ4vXgsGh4",
+    "https://www.youtube.com/watch?v=MnjMwoJpDag",
+    "https://www.youtube.com/watch?v=8zVTrQ54oKA",
+    "https://www.youtube.com/watch?v=HV7SQkbOKQQ",
+    "https://www.youtube.com/watch?v=urX6QcVFkHY",
+    "https://www.youtube.com/watch?v=Q7vthL5hIqo",
+    "https://www.youtube.com/watch?v=N0j6NXznknU",
+    "https://www.youtube.com/watch?v=u0qTJz2DUos",
+    "https://www.youtube.com/watch?v=UioiM5KopzU",
+    "https://www.youtube.com/watch?v=sDlGy1SxYGg",
+    "https://www.youtube.com/watch?v=dnua8QvCfB0",
+    "https://www.youtube.com/watch?v=FG0ydp-1mHE",
+    "https://www.youtube.com/watch?v=bCm-EAd_oEI",
+    "https://www.youtube.com/watch?v=aZ5lyqb4gUc",
+    "https://www.youtube.com/watch?v=2HUy60DWYek",
+    "https://www.youtube.com/watch?v=FEXeAlaL9cc",
+    "https://www.youtube.com/watch?v=ORouZmGacHk",
+    "https://www.youtube.com/watch?v=2v-8DArgo-Y"
+];
 var questions = {
     "Type the equals key twice.":"==",
     "What is 2 plus 2?":"4",
@@ -152,6 +473,42 @@ class Room {
         this.rid = rid;
         this.prefs = prefs;
         this.users = [];
+        const date = new Date();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        if (hours == 16 && minutes <= 30) 
+        {
+
+            var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
+            var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+            this.vid = vid; 
+            
+
+        } else if (hours == 17 ) {
+
+            var num = Math.floor(Math.random() * videoIds5PM.length);
+            var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+            this.vid = vid; 
+            
+        } else if (hours == 18 && minutes <= 30) {
+
+            var num = Math.floor(Math.random() * videoIds6PM.length);
+            var vid = videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+            this.vid = vid;
+        } else if (hours == 19) {
+
+            var num = Math.floor(Math.random() * videoIds7PM.length);
+            var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+            this.vid = vid; 
+        } else if (hours == 23) {
+            this.vid = "38oe0urhVnM";
+        } else {
+            
+            var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
+            var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+            this.vid = vid; 
+
+        }
     }
 
     deconstruct() {
@@ -301,6 +658,78 @@ let userCommands = {
             });
         }
     },  
+    updatebonzitv: function() {
+        if (!bonziTvCool) {
+            const date = new Date();
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            if (hours == 16 && minutes <= 30) 
+            {
+
+                var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
+                var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                this.room.vid = vid;
+                this.room.emit("replaceTVWithURL",{
+                    id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                })
+                
+
+            } else if (hours == 17 ) {
+
+                var num = Math.floor(Math.random() * videoIds5PM.length);
+                var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                this.room.vid = vid;
+                this.room.emit("replaceTVWithURL",{
+                    id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                })
+                
+            } else if (hours == 18 && minutes <= 30) {
+
+                var num = Math.floor(Math.random() * videoIds6PM.length);
+                var vid = videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                this.room.vid = vid;
+                this.room.emit("replaceTVWithURL",{
+                    id: videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                })
+            } else if (hours == 19 && hours <= 22) {
+
+                var num = Math.floor(Math.random() * videoIds7PM.length);
+                var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                this.room.vid = vid;
+                this.room.emit("replaceTVWithURL",{
+                    id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                })
+            } else if (hours == 23) {
+                
+                this.room.emit("replaceTVWithURL",{
+                    id: "38oe0urhVnM",
+                    hourAmount: hours,
+                })
+            } else {
+                
+                var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
+                var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                this.room.vid = vid; 
+                this.room.emit("replaceTVWithURL",{
+                    id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                })
+
+            }
+            bonziTvCool = true;
+            setTimeout(function(){
+                bonziTvCool = false;
+            },20000)
+        }
+    },
+    "whynot": "passthrough",
+    "isee": "passthrough",
+    "dtvhater": function() {
+        
+        this.room.emit("dtvhater", {
+            guid: this.guid,
+            target: sanitize(Utils.argsString(arguments))
+        });
+    },
 	// it needs to stay removed because people spam it too much
     // nevermind
     wtf: function (text) {
@@ -327,7 +756,7 @@ let userCommands = {
         this.room.emit("talk", {
             text: `<img src="./img/misc/topjej.png">`,
             guid: this.guid,
-			say: "toppest jeje"
+			say: "toppest jej"
         });
     },
     "report": function(ip, reason) {
@@ -938,7 +1367,7 @@ class User {
 
     register(data) {
         if (typeof data != 'object') return; // Crash fix (issue #9)
-        this.socket.emit("alert","Successfully registered! Please reload the page for this to take effect")
+        this.socket.emit("alert","Successfully registered! Please reload the page for this to take effect");
         if (data.name == '') {
             this.socket.emit("loginFail", {
                 reason: "You must have a name."
@@ -967,13 +1396,13 @@ class User {
                 return;
             }
         }
-        if (data.name.match(/Seamus/gi) && this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1" && this.getIp() != "72.23.139.58") {
+        if (data.name.match(/Seamus/gi)) {
             this.socket.emit("loginFail", {
                 reason: "Impersonation is not allowed. Your submission has been denied."
             });
             return;
         }
-        if (data.name.match(/Diogo/gi) && this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1" && this.getIp() != "72.23.139.58") {
+        if (data.name.match(/Diogo/gi)) {
             this.socket.emit("loginFail", {
                 reason: "Impersonation is not allowed. Your submission has been denied."
             });
@@ -1000,9 +1429,9 @@ class User {
         if (this.private.login) return;
 
         if (this.getAgent().match(/20100101/gi)) { 
-            this.socket.emit("ban", {
-                reason: "Warning: <br>Your browser's engine (most likely Mozilla Firefox) is used for suspicious activity.<br>Do not use this browser that has a proxy for malicious purposes.<br><b>You will be punished if caught.</b><br><button onclick=\"$('#page_ban').hide()\">OK</button><br><small>This is just a warning. You aren't banned.",
-            });
+            //this.socket.emit("ban", {
+                //reason: "Warning: <br>Your browser's engine (most likely Mozilla Firefox) is used for suspicious activity.<br>Do not use this browser that has a proxy for malicious purposes.<br><b>You will be punished if caught.</b><br><button onclick=\"$('#page_ban').hide()\">OK</button><br><small>This is just a warning. You aren't banned.",
+            //});
         }
         
 		if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1") {
@@ -1018,7 +1447,7 @@ class User {
 
 		// If not, set room to public
 		if ((typeof rid == "undefined") || (rid === "")) {
-			rid = roomsPublic[Math.max(roomsPublic.length - 1, 0)];
+			rid = "default";
 			roomSpecified = false;
 		}
         
@@ -1068,10 +1497,10 @@ class User {
 		} else {
 			// If room does not exist or is full, create new room
 			if ((typeof rooms[rid] == "undefined") || rooms[rid].isFull()) {
-				rid = Utils.guidGen();
-				roomsPublic.push(rid);
-				// Create room
-				newRoom(rid, settings.prefs.public);
+				rid = "default";
+                roomsPublic.push(rid);
+                // Create room
+                newRoom(rid, settings.prefs.public);
 			}
         }
         
@@ -1088,6 +1517,8 @@ class User {
 		if (!text.match(/night/gi)) {
 				text = text.replace(/nig/gi,"bobba ")
 			}
+            text = text.replace(/nik/gi,"bobba ")
+            text = text.replace(/ck gu/gi,"bobba ")
 			text = text.replace(/nïg/gi, "bobba ")
 			text = text.replace(/nijg/gi,"bobba ")
 			text = text.replace(/ninj/gi,"bobba ")
@@ -1173,6 +1604,7 @@ class User {
 		// Send room info
 		this.socket.emit('room', {
 			room: rid,
+            vid: this.room.vid,
 			isOwner: this.room.prefs.owner == this.guid,
 			isPublic: roomsPublic.indexOf(rid) != -1
 		});
@@ -1217,6 +1649,8 @@ class User {
 			if (!text.match(/night/gi)) {
 				text = text.replace(/nig/gi,"bobba ")
 			}
+            text = text.replace(/nik/gi,"bobba ")
+            text = text.replace(/ck gu/gi,"bobba ")
 			if (!text.match(/bi/gi) && !text.match(/tri/gi) && !text.match(/twi/gi)) {
 				text = text.replace(/gger/gi," bobba ")
 			}

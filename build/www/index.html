@@ -37,6 +37,7 @@
         <link rel="mask-icon" href="./favicons/safari-pinned-tab.svg" color="#5bbad5" />
         <link rel="shortcut icon" href="./favicons/favicon.ico" />
         <meta name="msapplication-config" content="./favicons/browserconfig.xml" />
+        <script src="./js/lib/purify.min.js"></script>
         <script src="./js/lib/easeljs.min.js"></script>
         <script src="./js/lib/preloadjs-0.6.2.min.js"></script>
         <script src="./js/lib/jquery.min.js"></script>
@@ -72,6 +73,7 @@
     </head>
     <body>
         <div id="content">
+            <div id="bonzi_tv"></div>
             <div id="room_info">
                 <br />
                 <span class="no_selection">Room ID -&#32;</span><span class="room_id">???</span><br />
@@ -110,7 +112,12 @@
 </div>
                 <div id="login_card" class="no_selection" style="display: none;">
                     <input id="login_name" type="text" placeholder="Nickname" />
-                    <input id="login_room" type="text" placeholder="Room ID (Optional)" />
+                    <input id="login_room" list="login_rooms" type="text" placeholder="Room ID" />
+                    <datalist id="login_rooms">
+                        <option value="default"></option>
+                        <option value="news"></option>
+                        <option value="bonzi_tv"></option>
+                    </datalist>
                     <div id="login_go" onclick="login()"></div>
                     <div id="login_error" class="no_selection" style="display: none;"></div>
                 </div>
@@ -119,6 +126,7 @@
                     <a href="https://discord.gg/zpnXyrDYmm" target="_blank" class="icons" style="margin-right: 10px;"><i class="fab fa-discord"></i></a>
                     <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2693835351" target="_blank" class="icons" style="margin-right: 10px;"><i class="fab fa-steam"></i></a>
                     <a href="https://www.youtube.com/channel/UC6_gkr-hBZ2-O0l0W9N1R_Q/" target="_blank" class="icons" style="margin-right: 10px;"><i class="fab fa-youtube fa-1x" aria-hidden="true"></i></a>
+                    <a href="https://github.com/Seamusmario/BonziWORLD-Revived-Plus-Open-SRC" target="_blank" class="icons" style="margin-right: 10px;"><i class="fab fa-github fa-1x" aria-hidden="true"></i></a>
                 </div>
                 <div id="login_version" class="no_selection"></div>
             </div>
