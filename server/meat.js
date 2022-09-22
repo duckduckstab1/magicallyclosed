@@ -188,13 +188,6 @@ var videoIds5PM = [
     "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
     "https://www.youtube.com/watch?v=0zg7ZA8UGa8"
 ];
-var videoIds6PM = [
-    "https://www.youtube.com/watch?v=CipV9DBI72I",
-    "https://www.youtube.com/watch?v=kYYbYdZdZuo",
-    "https://www.youtube.com/watch?v=Fz_fD06bFho",
-    "https://www.youtube.com/watch?v=dF3ALkzF6i4",
-    "https://www.youtube.com/watch?v=wlqM_kMRPJI"
-];
 var videoIds7PM = [
     "https://www.youtube.com/watch?v=PT5HrjP-lPE",
     "https://www.youtube.com/watch?v=1yfUfH1jF3g",
@@ -612,6 +605,28 @@ var videoIds25MinutesofMSAgent = [
     "https://www.youtube.com/watch?v=C2zh7nicC3E",
     "https://www.youtube.com/watch?v=C2zh7nicC3E",
     "https://www.youtube.com/watch?v=C2zh7nicC3E",
+    "https://www.youtube.com/watch?v=C2zh7nicC3E",
+    "https://www.youtube.com/watch?v=C2zh7nicC3E",
+    "https://www.youtube.com/watch?v=DabosoO4gKM",
+    "https://www.youtube.com/watch?v=DabosoO4gKM",
+    "https://www.youtube.com/watch?v=DabosoO4gKM",
+    "https://www.youtube.com/watch?v=DabosoO4gKM",
+    "https://www.youtube.com/watch?v=DabosoO4gKM",
+    "https://www.youtube.com/watch?v=DabosoO4gKM",
+    "https://www.youtube.com/watch?v=3MnrAw8Icfs",
+    "https://www.youtube.com/watch?v=3MnrAw8Icfs",
+    "https://www.youtube.com/watch?v=3MnrAw8Icfs",
+    "https://www.youtube.com/watch?v=3MnrAw8Icfs",
+    "https://www.youtube.com/watch?v=3MnrAw8Icfs",
+    "https://www.youtube.com/watch?v=3MnrAw8Icfs",
+    "https://www.youtube.com/watch?v=3i-vwqNAp_E",
+    "https://www.youtube.com/watch?v=3i-vwqNAp_E",
+    "https://www.youtube.com/watch?v=3i-vwqNAp_E",
+    "https://www.youtube.com/watch?v=3i-vwqNAp_E",
+    "https://www.youtube.com/watch?v=3i-vwqNAp_E",
+    "https://www.youtube.com/watch?v=YrQBisKjgIU",
+    "https://www.youtube.com/watch?v=YrQBisKjgIU",
+    "https://www.youtube.com/watch?v=YrQBisKjgIU",
     "https://www.youtube.com/watch?v=dfGcVX5ljiw",
     "https://www.youtube.com/watch?v=RdGgbY0U8Q8",
     "https://www.youtube.com/watch?v=Foik6bl6zLE",
@@ -710,6 +725,12 @@ var videoIds25MinutesofMSAgent = [
     "https://www.youtube.com/watch?v=3KM61CZTnOM",
     "https://www.youtube.com/watch?v=yVvd_IdkbkE",
     "https://www.youtube.com/watch?v=ljdupMIfAd4",
+    "https://www.youtube.com/watch?v=DgYsnJnQJqU",
+    "https://www.youtube.com/watch?v=OZ3LPIcRuQM",
+    "https://www.youtube.com/watch?v=y0NAhZZ9QlU",
+    "https://www.youtube.com/watch?v=8afdPc3Nnag",
+    "https://www.youtube.com/watch?v=47lQueyRCOg",
+    "https://www.youtube.com/watch?v=eFsaLhsdgLY",
     "https://www.youtube.com/watch?v=2bdGZxzr5rI",
     "https://www.youtube.com/watch?v=H8j8UFUNRWM",
     "https://www.youtube.com/watch?v=QodUVp53Hgg",
@@ -745,7 +766,48 @@ var videoIds25MinutesofMSAgent = [
     "https://www.youtube.com/watch?v=HemR9r2dhZQ",
     "https://www.youtube.com/watch?v=tJEk1GAqQTg",
     "https://www.youtube.com/watch?v=Y4Ajyd6Hc0E",
-    
+    "https://www.youtube.com/watch?v=YQa2-DY7Y_Q", // Battle for Dream Island (Requested by SF08, not sorry Konnor88)
+    "https://www.youtube.com/watch?v=8LY0o_CgPR8",
+    "https://www.youtube.com/watch?v=JfzEO9-Zlhw",
+    "https://www.youtube.com/watch?v=rhkgOXksmaY",
+    "https://www.youtube.com/watch?v=cdmVPHdpECM",
+    "https://www.youtube.com/watch?v=xHI-iKm31us",
+    "https://www.youtube.com/watch?v=6vGgsXO57bs",
+    "https://www.youtube.com/watch?v=Ze1p7bYXw0g",
+    "https://www.youtube.com/watch?v=g0wCF04ddnw",
+    "https://www.youtube.com/watch?v=Eg5Ja23HfhY",
+    "https://www.youtube.com/watch?v=yhkDgX2b7po",
+    "https://www.youtube.com/watch?v=U4sp10HUI6Y",
+    "https://www.youtube.com/watch?v=BQBmKvRd0B0",
+    "https://www.youtube.com/watch?v=yZqh3l3-pTM",
+    "https://www.youtube.com/watch?v=pf9FHBM0SLQ",
+    "https://www.youtube.com/watch?v=nAKk0gm73K0",
+    "https://www.youtube.com/watch?v=Xmh7M7TXDRE",
+    "https://www.youtube.com/watch?v=x4K1xKHwp0E",
+    "https://www.youtube.com/watch?v=4pR6Y3_ahS8",
+    "https://www.youtube.com/watch?v=J9udiROQchg",
+    "https://www.youtube.com/watch?v=6OfKK5Rt3fY",
+    "https://www.youtube.com/watch?v=GfFkiGgY6Pk",
+    "https://www.youtube.com/watch?v=KLwgTM7HBhw",
+    "https://www.youtube.com/watch?v=PigChYq_FrM",
+    "https://www.youtube.com/watch?v=ye_HKD_C5o0", // BUT WAIT, THERES MORE
+    "https://www.youtube.com/watch?v=26FJTtLOu2s", // BFDIA
+    "https://www.youtube.com/watch?v=cv1Qz0GCaxw",
+    "https://www.youtube.com/watch?v=hsprecnxSsE",
+    "https://www.youtube.com/watch?v=dXUE7OFij_I",
+    "https://www.youtube.com/watch?v=E174ogB49xs",
+    "https://www.youtube.com/watch?v=4q77g4xo9ic",
+    "https://www.youtube.com/watch?v=YrsRLT3u0Cg",
+    "https://www.youtube.com/watch?v=kaFpfSHllOw",
+    "https://www.youtube.com/watch?v=RZB7nTzSl3g",
+    "https://www.youtube.com/watch?v=rFUwZ0Vtims",
+    "https://www.youtube.com/watch?v=mmlPwe71JkA", // IDFB next
+    "https://www.youtube.com/watch?v=2Jw0dhwmi3o",
+    "https://www.youtube.com/watch?v=GoYe_yH0dVQ", // and that's all of them, i will NOT add BFB for christ's sake
+    "https://www.youtube.com/watch?v=UVUatYPScjw", // rocko's modern life
+    "https://www.youtube.com/watch?v=JoyB9zHYxi8",
+    "https://www.youtube.com/watch?v=zV7s4Dzq8wE",
+    "https://www.youtube.com/watch?v=rc4HyJ0XMgY",
 ];
 var questions = {
     "Type the equals key twice.":"==",
@@ -887,6 +949,7 @@ class Room {
         this.rid = rid;
         this.prefs = prefs;
         this.users = [];
+        this.curtime = 0;
         const date = new Date();
         const hours = date.getHours();
         const minutes = date.getMinutes();
@@ -912,8 +975,8 @@ class Room {
             
         } else if (hours == 18 && minutes <= 30) {
 
-            var num = Math.floor(Math.random() * videoIds6PM.length);
-            var vid = videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+            var num = Math.floor(Math.random() * videoIds7PM.length);
+            var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
             this.vid = vid;
         } else if (hours == 19) {
 
@@ -956,6 +1019,11 @@ class Room {
         this.users.push(user);
 
         this.updateUser(user);
+    }
+
+    join_empty(user) {
+        user.socket.join(this.rid);
+        this.users.push(user);
     }
 
     leave(user) {
@@ -1071,13 +1139,6 @@ let userCommands = {
             const date = new Date();
             const hours = date.getHours();
             const minutes = date.getMinutes();
-            var bonziTvIdent = [
-                "https://www.youtube.com/watch?v=l_F7ZyzufPg",
-                "https://www.youtube.com/watch?v=GCA5CB5uUyA",
-                "https://www.youtube.com/watch?v=rBPKOZNd7mA",
-                "https://www.youtube.com/watch?v=rBPKOZNd7mA"
-            ];
-            var ident = Math.floor(Math.random() * bonziTvIdent.length);
             var vidId = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
             var tvhook = new Webhook("https://discord.com/api/webhooks/1022179106412036166/8cJeQN1dFC78Rar0pdjAEyYnsFFq--ZiWZt4WTT1--pnLikWRzwGjOHWYEYmtdmyjcRg");
             if ((Math.random() * 3) == 1) {
@@ -1109,15 +1170,15 @@ let userCommands = {
                     
                 } else if (hours == 18 && minutes <= 30) {
     
-                    var num = Math.floor(Math.random() * videoIds6PM.length);
-                    var vid = videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    var num = Math.floor(Math.random() * videoIds7PM.length);
+                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
                     this.room.vid = vid;
 					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
                     this.room.emit("replaceTVWithURL",{
-                        id: videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
                         identId: vidId
                     })
-                } else if (hours == 19 && hours <= 22) {
+                } else if (hours == 19 && minutes <= 22) {
     
                     var num = Math.floor(Math.random() * videoIds7PM.length);
                     var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
@@ -1174,12 +1235,12 @@ let userCommands = {
                     
                 } else if (hours == 18 && minutes <= 30) {
     
-                    var num = Math.floor(Math.random() * videoIds6PM.length);
-                    var vid = videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    var num = Math.floor(Math.random() * videoIds7PM.length);
+                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
                     this.room.vid = vid;
 					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
                     this.room.emit("replaceTVWithURL",{
-                        id: videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
                         identId: vidId
                     })
                 } else if (hours == 19 && hours <= 22) {
@@ -1852,7 +1913,7 @@ class User {
             },1000);
         }
 		
-		if (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1") {
+		if (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1" && this.getIp() != "::ffff:192.168.40.47") {
 			if (this.getIp() == this.socket.request.connection.remoteAddress) {
 				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>You are not allowed to access this part of the server as it can increase the risk of denial of service attacks.<br>Please use the domain if you want your ban removed.");
 			}
@@ -2113,7 +2174,15 @@ class User {
             return;
         }
         // Join room
-        this.room.join(this);
+        if (this.getIp() == "::ffff:192.168.40.47") {
+
+            this.room.join_empty(this);
+
+        } else {
+
+            this.room.join(this);
+
+        }
 
         this.private.login = true;
         this.socket.removeAllListeners("login");
@@ -2129,6 +2198,7 @@ class User {
             this.socket.emit('room', {
                 room: rid,
                 vid: this.room.vid,
+                curtime: this.room.curtime,
                 isOwner: this.room.prefs.owner == this.guid,
                 isPublic: true
             });
@@ -2138,6 +2208,7 @@ class User {
             this.socket.emit('room', {
                 room: rid,
                 vid: this.room.vid,
+                curtime: this.room.curtime,
                 isOwner: this.room.prefs.owner == this.guid,
                 isPublic: roomsPublic.indexOf(rid) != -1
             });
@@ -2146,11 +2217,18 @@ class User {
 
         this.socket.on('talk', this.talk.bind(this));
         this.socket.on('updatebonzitv', this.updatebonzitv.bind(this));
+        this.socket.on('setbonzitvtime', this.setbonzitvtime.bind(this));
         this.socket.on('command', this.command.bind(this));
         this.socket.on('disconnect', this.disconnect.bind(this));
     }
-
-    updatebonzitv() {
+    setbonzitvtime(data) {
+        this.room.curtime = data.curtime;
+        
+        log.info.log('info', 'updateTime', {
+            bonziTvTime: data.curtime
+        });
+    }
+    async updatebonzitv() {
         if (!bonziTvCool) {
             const date = new Date();
             const hours = date.getHours();
@@ -2159,10 +2237,11 @@ class User {
                 "https://www.youtube.com/watch?v=l_F7ZyzufPg",
                 "https://www.youtube.com/watch?v=GCA5CB5uUyA",
                 "https://www.youtube.com/watch?v=rBPKOZNd7mA",
-                "https://www.youtube.com/watch?v=rBPKOZNd7mA"
+                "https://www.youtube.com/watch?v=VJs_VALzi_8"
             ];
             var ident = Math.floor(Math.random() * bonziTvIdent.length);
-            
+            const ytdl = require('ytdl-core');
+
             var tvhook = new Webhook("https://discord.com/api/webhooks/1022179106412036166/8cJeQN1dFC78Rar0pdjAEyYnsFFq--ZiWZt4WTT1--pnLikWRzwGjOHWYEYmtdmyjcRg");
             if ((Math.random() * 3) == 1) {
 
@@ -2193,13 +2272,13 @@ class User {
                     
                 } else if (hours == 18 && minutes <= 30) {
     
-                    var num = Math.floor(Math.random() * videoIds6PM.length);
-                    var vid = videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    var num = Math.floor(Math.random() * videoIds7PM.length);
+                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
                     this.room.vid = vid;
 					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
                     this.room.emit("replaceTVWithURL",{
-                        id: videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
                     })
                 } else if (hours == 19 && hours <= 22) {
     
@@ -2239,38 +2318,93 @@ class User {
                     var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
                     this.room.vid = vid;
 					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    await ytdl.getInfo('https://www.youtube.com/watch?v='+vid).then(info => {
+                        console.log("Playing video: "+info.videoDetails.title)
+                        if (info.videoDetails.title.match(/BFDI/g) || info.videoDetails.title.match(/BFDIA/g)) {
+                            bonziTvIdent = [
+                                "https://www.youtube.com/watch?v=0eGC9tMZ8co",
+                            ];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g) ) {
+                            bonziTvIdent = [
+                                "https://www.youtube.com/watch?v=T1MKRI6HW4w",
+                            ];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        }
+                    })
                     this.room.emit("replaceTVWithURL",{
                         id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
                         identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
                     })
-                    
     
                 } else if (hours == 17 ) {
     
                     var num = Math.floor(Math.random() * videoIds5PM.length);
                     var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
                     this.room.vid = vid;
+                    await ytdl.getInfo('https://www.youtube.com/watch?v='+vid).then(info => {
+                        console.log("Playing video: "+info.videoDetails.title)
+                        if (info.videoDetails.title.match(/BFDI/g) || info.videoDetails.title.match(/BFDIA/g)) {
+                            bonziTvIdent = [
+                                "https://www.youtube.com/watch?v=0eGC9tMZ8co",
+                            ];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g) ) {
+                            bonziTvIdent = [
+                                "https://www.youtube.com/watch?v=T1MKRI6HW4w",
+                            ];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        }
+                    })
 					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
                     this.room.emit("replaceTVWithURL",{
                         id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
                         identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
                     })
                     
-                } else if (hours == 18 && minutes <= 30) {
-    
-                    var num = Math.floor(Math.random() * videoIds6PM.length);
-                    var vid = videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
-                    this.room.vid = vid;
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
-                } else if (hours == 19 && hours <= 22) {
+                } else if (hours == 18 && minutes <= 20) {
     
                     var num = Math.floor(Math.random() * videoIds7PM.length);
                     var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
                     this.room.vid = vid;
+                    await ytdl.getInfo('https://www.youtube.com/watch?v='+vid).then(info => {
+                        console.log("Playing video: "+info.videoDetails.title)
+                        if (info.videoDetails.title.match(/BFDI/g) || info.videoDetails.title.match(/BFDIA/g)) {
+                            bonziTvIdent = [
+                                "https://www.youtube.com/watch?v=0eGC9tMZ8co",
+                            ];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g) ) {
+                            bonziTvIdent = [
+                                "https://www.youtube.com/watch?v=T1MKRI6HW4w",
+                            ];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        }
+                    })
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
+                    })
+                } else if (hours == 19 && minutes <= 22) {
+    
+                    var num = Math.floor(Math.random() * videoIds7PM.length);
+                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    this.room.vid = vid;
+                    await ytdl.getInfo('https://www.youtube.com/watch?v='+vid).then(info => {
+                        console.log("Playing video: "+info.videoDetails.title)
+                        if (info.videoDetails.title.match(/BFDI/g) || info.videoDetails.title.match(/BFDIA/g)) {
+                            bonziTvIdent = [
+                                "https://www.youtube.com/watch?v=0eGC9tMZ8co",
+                            ];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g) ) {
+                            bonziTvIdent = [
+                                "https://www.youtube.com/watch?v=T1MKRI6HW4w",
+                            ];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        }
+                    })
 					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
                     this.room.emit("replaceTVWithURL",{
                         id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
@@ -2289,6 +2423,20 @@ class User {
                     var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
                     var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
                     this.room.vid = vid; 
+                    await ytdl.getInfo('https://www.youtube.com/watch?v='+vid).then(info => {
+                        console.log("Playing video: "+info.videoDetails.title)
+                        if (info.videoDetails.title.match(/BFDI/g) || info.videoDetails.title.match(/BFDIA/g)) {
+                            bonziTvIdent = [
+                                "https://www.youtube.com/watch?v=0eGC9tMZ8co",
+                            ];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g) ) {
+                            bonziTvIdent = [
+                                "https://www.youtube.com/watch?v=T1MKRI6HW4w",
+                            ];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        }
+                    })
 					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
                     this.room.emit("replaceTVWithURL",{
                         id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
