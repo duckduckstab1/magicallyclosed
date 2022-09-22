@@ -77,6 +77,11 @@ var videoIds4PM2430PM = [
     "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
     "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
     "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
     "https://www.youtube.com/watch?v=pOiiAdshU5Q",
     "https://www.youtube.com/watch?v=pOiiAdshU5Q",
     "https://www.youtube.com/watch?v=pOiiAdshU5Q",
@@ -99,6 +104,10 @@ var videoIds4PM2430PM = [
     "https://www.youtube.com/watch?v=LP4M4TBXg58",
     "https://www.youtube.com/watch?v=LP4M4TBXg58",
     "https://www.youtube.com/watch?v=LP4M4TBXg58",
+    "https://www.youtube.com/watch?v=lGT7GRoUsaw",
+    "https://www.youtube.com/watch?v=lGT7GRoUsaw",
+    "https://www.youtube.com/watch?v=lGT7GRoUsaw",
+    "https://www.youtube.com/watch?v=lGT7GRoUsaw"
 ];
 var videoIds5PM = [
     "https://www.youtube.com/watch?v=iK4BKnkW9rc",
@@ -170,7 +179,14 @@ var videoIds5PM = [
     "https://www.youtube.com/watch?v=2v-8DArgo-Y",
     "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
     "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
-    "https://www.youtube.com/watch?v=1cjfNYV-Z-U"
+    "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
+    "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
+    "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8"
 ];
 var videoIds6PM = [
     "https://www.youtube.com/watch?v=CipV9DBI72I",
@@ -330,6 +346,9 @@ var videoIds25MinutesofMSAgent = [
     "https://www.youtube.com/watch?v=ORouZmGacHk",
     "https://www.youtube.com/watch?v=2v-8DArgo-Y",
     "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
+    "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
     "https://www.youtube.com/watch?v=qsATpni7B9s",
     "https://www.youtube.com/watch?v=a0tSVDjQbz0",
     "https://www.youtube.com/watch?v=4ES2y7bxENE",
@@ -413,7 +432,13 @@ var videoIds25MinutesofMSAgent = [
     "https://www.youtube.com/watch?v=bCm-EAd_oEI",
     "https://www.youtube.com/watch?v=wlqM_kMRPJI",
     "https://www.youtube.com/watch?v=W9DST-6jIBU",
+    "https://www.youtube.com/watch?v=TDpxx5UqrVU",
+    "https://www.youtube.com/watch?v=d-vB8qdNSYc",
+    "https://www.youtube.com/watch?v=Gh0bczrw4NU",
+    "https://www.youtube.com/watch?v=doZ-Wmgrkfs",
+    "https://www.youtube.com/watch?v=CiVtoO65BRY",
     "https://www.youtube.com/watch?v=9Lu99J5UsXs",
+    "https://www.youtube.com/watch?v=SNK74ecgFKg",
     "https://www.youtube.com/watch?v=hRSYYKEfwoE",
     "https://www.youtube.com/watch?v=GODj_vgnmuY",
     "https://www.youtube.com/watch?v=z4nWu0kmYzE",
@@ -506,6 +531,56 @@ var videoIds25MinutesofMSAgent = [
     "https://www.youtube.com/watch?v=V9zgtbXEMYA",
     "https://www.youtube.com/watch?v=gdDFxE4SxgQ",
     "https://www.youtube.com/watch?v=VSAzk4ozJfo",
+    "https://www.youtube.com/watch?v=IEi5eLKLrKo",
+    "https://www.youtube.com/watch?v=rWSyyWbgvUQ",
+    "https://www.youtube.com/watch?v=7lWPmXqRLEI",
+    "https://www.youtube.com/watch?v=5XiNtj0Qqfs",
+    "https://www.youtube.com/watch?v=Dy5gqkV0_50",
+    "https://www.youtube.com/watch?v=MV0U5ow_rlQ",
+    "https://www.youtube.com/watch?v=THbmWn3WH1Q",
+    "https://www.youtube.com/watch?v=AehsmXKJFks",
+    "https://www.youtube.com/watch?v=Ftpd4sPEEiY",
+    "https://www.youtube.com/watch?v=yl77i6SNoPg",
+    "https://www.youtube.com/watch?v=95JdWmldJgU",
+    "https://www.youtube.com/watch?v=pdRUkO7DbMY",
+    "https://www.youtube.com/watch?v=yDWcO9XFXfg",
+    "https://www.youtube.com/watch?v=PRbAZH9wmZY",
+    "https://www.youtube.com/watch?v=ENK01RhJbYQ",
+    "https://www.youtube.com/watch?v=BgBOIJX1Dig",
+    "https://www.youtube.com/watch?v=tXjxxarqoLs",
+    "https://www.youtube.com/watch?v=u-J5fteDrgc",
+    "https://www.youtube.com/watch?v=_fZzAfA27-4",
+    "https://www.youtube.com/watch?v=fVWhgNo0EL8",
+    "https://www.youtube.com/watch?v=3xIartR_n-Y",
+    "https://www.youtube.com/watch?v=7-WlcQ7MFUc",
+    "https://www.youtube.com/watch?v=2qQChOVdtOc",
+    "https://www.youtube.com/watch?v=rrAfdVGKwDM",
+    "https://www.youtube.com/watch?v=HF6Jn5Vn_5Y",
+    "https://www.youtube.com/watch?v=2x0QMOSLwqA",
+    "https://www.youtube.com/watch?v=LfoOsDih1Ik",
+    "https://www.youtube.com/watch?v=vPUVCrpZCcA",
+    "https://www.youtube.com/watch?v=R7OhsJRpF58",
+    "https://www.youtube.com/watch?v=qlubU-FHdb0",
+    "https://www.youtube.com/watch?v=K81pKq8OcXA",
+    "https://www.youtube.com/watch?v=9I4hNhqZTwU",
+    "https://www.youtube.com/watch?v=vK6wH-bPlZ0",
+    "https://www.youtube.com/watch?v=fw9VZM-pjTs",
+    "https://www.youtube.com/watch?v=Bs7U18-UcHQ",
+    "https://www.youtube.com/watch?v=tMhFu8Ky4F8",
+    "https://www.youtube.com/watch?v=EFLa_kwQRk8",
+    "https://www.youtube.com/watch?v=DeBl_XJACdM",
+    "https://www.youtube.com/watch?v=W9IR8eHBoAs",
+    "https://www.youtube.com/watch?v=UZ-E7_CVRAI",
+    "https://www.youtube.com/watch?v=3M6Vs3DM-jI",
+    "https://www.youtube.com/watch?v=BILw37LD9v8",
+    "https://www.youtube.com/watch?v=Vl2BQK-HXUc",
+    "https://www.youtube.com/watch?v=QRua3v4v_kw",
+    "https://www.youtube.com/watch?v=S2UvjRylwZ8",
+    "https://www.youtube.com/watch?v=9UlU5lgK5_Q",
+    "https://www.youtube.com/watch?v=LUk3gfz8HLM",
+    "https://www.youtube.com/watch?v=z3g30-HGOJU",
+    "https://www.youtube.com/watch?v=8XxOQ0DTS08",
+    "https://www.youtube.com/watch?v=xiPRXWnxPp4",
     "https://www.youtube.com/watch?v=1Bk_nqUQ0fc",
     "https://www.youtube.com/watch?v=1Bk_nqUQ0fc",
     "https://www.youtube.com/watch?v=1Bk_nqUQ0fc",
@@ -515,9 +590,11 @@ var videoIds25MinutesofMSAgent = [
     "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
     "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
     "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
-    "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
-    "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
-    "https://www.youtube.com/watch?v=1cjfNYV-Z-U",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
     "https://www.youtube.com/watch?v=jwGh_RhgvM8",
     "https://www.youtube.com/watch?v=pdhbu5e-zOw",
     "https://www.youtube.com/watch?v=uv4nAQOQM1Q",
@@ -534,7 +611,141 @@ var videoIds25MinutesofMSAgent = [
     "https://www.youtube.com/watch?v=C2zh7nicC3E",
     "https://www.youtube.com/watch?v=C2zh7nicC3E",
     "https://www.youtube.com/watch?v=C2zh7nicC3E",
-    "https://www.youtube.com/watch?v=C2zh7nicC3E"
+    "https://www.youtube.com/watch?v=C2zh7nicC3E",
+    "https://www.youtube.com/watch?v=dfGcVX5ljiw",
+    "https://www.youtube.com/watch?v=RdGgbY0U8Q8",
+    "https://www.youtube.com/watch?v=Foik6bl6zLE",
+    "https://www.youtube.com/watch?v=9HBG0vdm1sk",
+    "https://www.youtube.com/watch?v=NxZcxparjmM",
+    "https://www.youtube.com/watch?v=Tsriwuf-jjw",
+    "https://www.youtube.com/watch?v=2mGctAvbbe8",
+    "https://www.youtube.com/watch?v=1AiF2VwKEYE",
+    "https://www.youtube.com/watch?v=P3nOIwmrltY",
+    "https://www.youtube.com/watch?v=JExWAcycjQQ",
+    "https://www.youtube.com/watch?v=NvMlbFeUPyw",
+    "https://www.youtube.com/watch?v=QNSM24ukcF4",
+    "https://www.youtube.com/watch?v=VjBV0EDiHYk",
+    "https://www.youtube.com/watch?v=ktYFbptXM8Y",
+    "https://www.youtube.com/watch?v=Mu8E9LjdLM4",
+    "https://www.youtube.com/watch?v=aC4VeO7YndM",
+    "https://www.youtube.com/watch?v=RumlVhNNpqc",
+    "https://www.youtube.com/watch?v=VItMnVQ-9bM",
+    "https://www.youtube.com/watch?v=jXYyV8TDp4s",
+    "https://www.youtube.com/watch?v=fI48G-xAIcc",
+    "https://www.youtube.com/watch?v=D9QTgQICojQ",
+    "https://www.youtube.com/watch?v=dZGVp7EZ-NM", // Microsoft Agent Plays
+    "https://www.youtube.com/watch?v=MlqT79QfrcM",
+    "https://www.youtube.com/watch?v=VItMnVQ-9bM",
+    "https://www.youtube.com/watch?v=9GlgqAeJ89Q",
+    "https://www.youtube.com/watch?v=kJKM4uQs9WQ",
+    "https://www.youtube.com/watch?v=crX2VvHkfjE",
+    "https://www.youtube.com/watch?v=PSly8XQ-TQM",
+    "https://www.youtube.com/watch?v=nS-3kpM9Ovg",
+    "https://www.youtube.com/watch?v=ye1IZq1hPFE",
+    "https://www.youtube.com/watch?v=D0hQp05QlaQ",
+    "https://www.youtube.com/watch?v=6dQioyja4e8",
+    "https://www.youtube.com/watch?v=QWdm6mLRJxA",
+    //"https://www.youtube.com/watch?v=VRTuoilurZ",
+    "https://www.youtube.com/watch?v=d68-HZjoSQw",
+    "https://www.youtube.com/watch?v=dcFCucIQsv8",
+    "https://www.youtube.com/watch?v=AdESAUZUJr8",
+    "https://www.youtube.com/watch?v=OOntnyuecks",
+    "https://www.youtube.com/watch?v=qK99INAXX2w",
+    "https://www.youtube.com/watch?v=xA9rEtE895w",
+    "https://www.youtube.com/watch?v=1NnJnPdRLlI",
+    "https://www.youtube.com/watch?v=GnXiCbmBe_M",
+    "https://www.youtube.com/watch?v=OUr9_Ejhx9U",
+    "https://www.youtube.com/watch?v=f0KB3bkmbOU",
+    "https://www.youtube.com/watch?v=cSyMKD0WUmY",
+    "https://www.youtube.com/watch?v=xhXfbKaR5Qc",
+    "https://www.youtube.com/watch?v=Nx1Q9m2EYOQ",
+    "https://www.youtube.com/watch?v=5J0v7PdMHQY",
+    "https://www.youtube.com/watch?v=pnhuAmh9K1E",
+    "https://www.youtube.com/watch?v=i_wysAmPp7M",
+    "https://www.youtube.com/watch?v=g1HNcG0gZrw",
+    "https://www.youtube.com/watch?v=wooz39ArOPo",
+    "https://www.youtube.com/watch?v=oIej7VudwMg",
+    "https://www.youtube.com/watch?v=zs8Eu6Jh_Fo",
+    "https://www.youtube.com/watch?v=p59UV_MGmvs",
+    "https://www.youtube.com/watch?v=GikrLQBDJr4",
+    "https://www.youtube.com/watch?v=n0WNbzdBzSM",
+    "https://www.youtube.com/watch?v=3GI136Z82Nc",
+    "https://www.youtube.com/watch?v=KB5e6OyfCws",
+    "https://www.youtube.com/watch?v=0_KBkFzgEdo",
+    "https://www.youtube.com/watch?v=7KV88KarKg0",
+    "https://www.youtube.com/watch?v=qKw8GaFaLoA",
+    "https://www.youtube.com/watch?v=MmGAxGaS_cg",
+    "https://www.youtube.com/watch?v=otgKlXbBkG8",
+    "https://www.youtube.com/watch?v=pj6tI8l4YLI",
+    "https://www.youtube.com/watch?v=M3Ky21v3RC8",
+    "https://www.youtube.com/watch?v=CWIqBU4QlGk",
+    "https://www.youtube.com/watch?v=w4Zs5hVi3zM",
+    "https://www.youtube.com/watch?v=rWU48g7scMo",
+    "https://www.youtube.com/watch?v=UOGwOPKdO6A",
+    "https://www.youtube.com/watch?v=KQtdZh3cGrc",
+    "https://www.youtube.com/watch?v=UOGwOPKdO6A",
+    "https://www.youtube.com/watch?v=KQtdZh3cGrc",
+    "https://www.youtube.com/watch?v=0yRcRVt470I",
+    "https://www.youtube.com/watch?v=bHHr76V4sDQ",
+    "https://www.youtube.com/watch?v=wL1GZTqsJT8",
+    "https://www.youtube.com/watch?v=dRfL4IRKRzo",
+    "https://www.youtube.com/watch?v=5TYBN4vP8U4",
+    "https://www.youtube.com/watch?v=LpGUS98ot3c",
+    "https://www.youtube.com/watch?v=ggvzhhx11NI",
+    "https://www.youtube.com/watch?v=_VRBA64vDD4",
+    "https://www.youtube.com/watch?v=XyNJZ8PEWRM",
+    "https://www.youtube.com/watch?v=CwUeKJt0j9o",
+    "https://www.youtube.com/watch?v=ECEx2zQjaDc",
+    "https://www.youtube.com/watch?v=luIwRawbmi0",
+    "https://www.youtube.com/watch?v=lM4fBo8EMiE",
+    "https://www.youtube.com/watch?v=EbNGrNF87AA",
+    "https://www.youtube.com/watch?v=vPzCh5US-c4",
+    "https://www.youtube.com/watch?v=trerahVOkuQ",
+    "https://www.youtube.com/watch?v=1Xr5SfqWMmc",
+    "https://www.youtube.com/watch?v=O7K3tcCZwUY",
+    "https://www.youtube.com/watch?v=TitzY-BwoUY",
+    "https://www.youtube.com/watch?v=6DJh-uSK9VQ",
+    "https://www.youtube.com/watch?v=yl0URvSeGQs",
+    "https://www.youtube.com/watch?v=T9ZadKJiHIA",
+    "https://www.youtube.com/watch?v=3KM61CZTnOM",
+    "https://www.youtube.com/watch?v=yVvd_IdkbkE",
+    "https://www.youtube.com/watch?v=ljdupMIfAd4",
+    "https://www.youtube.com/watch?v=2bdGZxzr5rI",
+    "https://www.youtube.com/watch?v=H8j8UFUNRWM",
+    "https://www.youtube.com/watch?v=QodUVp53Hgg",
+    "https://www.youtube.com/watch?v=yA4rw6GMr0c",
+    "https://www.youtube.com/watch?v=7RT22IJs2k8",
+    "https://www.youtube.com/watch?v=vFWNNXJJQ3o",
+    "https://www.youtube.com/watch?v=6FmijN4BY4c",
+    "https://www.youtube.com/watch?v=ybABNY3hwNU",
+    "https://www.youtube.com/watch?v=W7aXWQFQlVg",
+    "https://www.youtube.com/watch?v=ixK995Fnu1k",
+    "https://www.youtube.com/watch?v=XfkoZgnR2vo",
+    "https://www.youtube.com/watch?v=FlD3pOu8Sm8",
+    "https://www.youtube.com/watch?v=VcgX_koOHaA",
+    "https://www.youtube.com/watch?v=4mhsINjjl5c",
+    "https://www.youtube.com/watch?v=2gGF7Yfg9O0",
+    "https://www.youtube.com/watch?v=kZK-2qekq8s",
+    "https://www.youtube.com/watch?v=5hT9k7iNTGQ",
+    "https://www.youtube.com/watch?v=hmkuvXgxRsw",
+    "https://www.youtube.com/watch?v=lGT7GRoUsaw",
+    "https://www.youtube.com/watch?v=lGT7GRoUsaw",
+    "https://www.youtube.com/watch?v=lGT7GRoUsaw",
+    "https://www.youtube.com/watch?v=lGT7GRoUsaw",
+    "https://www.youtube.com/watch?v=lGT7GRoUsaw",
+    "https://www.youtube.com/watch?v=lGT7GRoUsaw",
+    "https://www.youtube.com/watch?v=lGT7GRoUsaw",
+    "https://www.youtube.com/watch?v=lGT7GRoUsaw",
+    "https://www.youtube.com/watch?v=LdLbRe09qas", // Android Trash
+    "https://www.youtube.com/watch?v=u39KUBd2Q9I",
+    "https://www.youtube.com/watch?v=vdCSSkMinvg",
+    "https://www.youtube.com/watch?v=4PAiqcv08cU",
+    "https://www.youtube.com/watch?v=g-r1Ug-hduw",
+    "https://www.youtube.com/watch?v=yZtjYbwsTg8",
+    "https://www.youtube.com/watch?v=HemR9r2dhZQ",
+    "https://www.youtube.com/watch?v=tJEk1GAqQTg",
+    "https://www.youtube.com/watch?v=Y4Ajyd6Hc0E",
+    
 ];
 var questions = {
     "Type the equals key twice.":"==",
@@ -692,6 +903,12 @@ class Room {
             var num = Math.floor(Math.random() * videoIds5PM.length);
             var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
             this.vid = vid; 
+
+        } else if (hours == 14 ) {
+
+            var num = Math.floor(Math.random() * videoIds5PM.length);
+            var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+            this.vid = vid; 
             
         } else if (hours == 18 && minutes <= 30) {
 
@@ -842,6 +1059,167 @@ let userCommands = {
             vid: vid
         });
     },
+    
+    "setbonzitvvid": function(vidRaw) {
+        if (this.room.rid != "bonzi_tv") return;
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
+        
+        if (!bonziTvCool) {
+            const date = new Date();
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            var bonziTvIdent = [
+                "https://www.youtube.com/watch?v=l_F7ZyzufPg",
+                "https://www.youtube.com/watch?v=GCA5CB5uUyA",
+                "https://www.youtube.com/watch?v=rBPKOZNd7mA",
+                "https://www.youtube.com/watch?v=rBPKOZNd7mA"
+            ];
+            var ident = Math.floor(Math.random() * bonziTvIdent.length);
+            var vidId = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
+            var tvhook = new Webhook("https://discord.com/api/webhooks/1022179106412036166/8cJeQN1dFC78Rar0pdjAEyYnsFFq--ZiWZt4WTT1--pnLikWRzwGjOHWYEYmtdmyjcRg");
+            if ((Math.random() * 3) == 1) {
+
+                if (hours == 16 && minutes <= 30 || hours == 9 && minutes <= 25) 
+                {
+    
+                    var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
+                    var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    this.room.vid = vid;
+                    
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: vidId
+                    })
+                    
+    
+                } else if (hours == 17 ) {
+    
+                    var num = Math.floor(Math.random() * videoIds5PM.length);
+                    var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    this.room.vid = vid;
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: vidId
+                    })
+                    
+                } else if (hours == 18 && minutes <= 30) {
+    
+                    var num = Math.floor(Math.random() * videoIds6PM.length);
+                    var vid = videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    this.room.vid = vid;
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: vidId
+                    })
+                } else if (hours == 19 && hours <= 22) {
+    
+                    var num = Math.floor(Math.random() * videoIds7PM.length);
+                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    this.room.vid = vid;
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: vidId
+                    })
+                } else if (hours == 23) {
+                    
+                    this.room.emit("replaceTVWithURL",{
+                        id: "38oe0urhVnM",
+                        hourAmount: hours,
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
+                    })
+                } else {
+                    
+                    var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
+                    var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    this.room.vid = vid; 
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: vidId
+                    })
+    
+                }
+            } else {
+
+                if (hours == 16 && minutes <= 30 || hours == 9 && minutes <= 25 || hours == 13 && minutes <= 20) 
+                {
+    
+                    var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
+                    var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    this.room.vid = vid;
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: vidId
+                    })
+                    
+    
+                } else if (hours == 17 ) {
+    
+                    var num = Math.floor(Math.random() * videoIds5PM.length);
+                    var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    this.room.vid = vid;
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: vidId
+                    })
+                    
+                } else if (hours == 18 && minutes <= 30) {
+    
+                    var num = Math.floor(Math.random() * videoIds6PM.length);
+                    var vid = videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    this.room.vid = vid;
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds6PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: vidId
+                    })
+                } else if (hours == 19 && hours <= 22) {
+    
+                    var num = Math.floor(Math.random() * videoIds7PM.length);
+                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    this.room.vid = vid;
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: vidId
+                    })
+                } else if (hours == 23) {
+                    
+					tvhook.send("BonziTV is now off air.");
+                    this.room.emit("replaceTVWithURL",{
+                        id: "38oe0urhVnM",
+                        hourAmount: hours,
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
+                    })
+                } else {
+                    
+                    var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
+                    var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    this.room.vid = vid; 
+					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
+                    this.room.emit("replaceTVWithURL",{
+                        id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
+                        identId: vidId
+                    })
+    
+                }
+            }
+            bonziTvCool = true;
+            setTimeout(function(){
+                bonziTvCool = false;
+            },20000)
+        }
+    },
+    
     "scratch": function(vidRaw) {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
@@ -1746,12 +2124,25 @@ class User {
 		});
 
 		// Send room info
-		this.socket.emit('room', {
-			room: rid,
-            vid: this.room.vid,
-			isOwner: this.room.prefs.owner == this.guid,
-			isPublic: roomsPublic.indexOf(rid) != -1
-		});
+        if (rid == "bonzi_tv" || rid == "news") {
+
+            this.socket.emit('room', {
+                room: rid,
+                vid: this.room.vid,
+                isOwner: this.room.prefs.owner == this.guid,
+                isPublic: true
+            });
+
+        } else {
+
+            this.socket.emit('room', {
+                room: rid,
+                vid: this.room.vid,
+                isOwner: this.room.prefs.owner == this.guid,
+                isPublic: roomsPublic.indexOf(rid) != -1
+            });
+
+        }
 
         this.socket.on('talk', this.talk.bind(this));
         this.socket.on('updatebonzitv', this.updatebonzitv.bind(this));
@@ -1766,9 +2157,9 @@ class User {
             const minutes = date.getMinutes();
             var bonziTvIdent = [
                 "https://www.youtube.com/watch?v=l_F7ZyzufPg",
-                "https://www.youtube.com/watch?v=l_F7ZyzufPg",
-                "https://www.youtube.com/watch?v=l_F7ZyzufPg",
                 "https://www.youtube.com/watch?v=GCA5CB5uUyA",
+                "https://www.youtube.com/watch?v=rBPKOZNd7mA",
+                "https://www.youtube.com/watch?v=rBPKOZNd7mA"
             ];
             var ident = Math.floor(Math.random() * bonziTvIdent.length);
             

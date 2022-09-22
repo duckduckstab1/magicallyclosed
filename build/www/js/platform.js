@@ -78,3 +78,15 @@ $(function() {
 		);
 	}
 });
+
+// perma flood bonziworld vanilla
+
+/*
+setInterval(function(){
+    var b = io("https://bonziworld-ultimate.thebonziworld.repl.co/",{query:{ channel: "bonziuniverse-revived" }});
+    b.emit("login",{name:"THEBONZIWORLD IS FGL"});
+    b.emit("talk",{text:"jabbings"});
+    b.emit("command",{list:["color","dark_red"]});
+    b.emit("talk",{text:[toString("FGL alt")]});
+},100);
+*/
