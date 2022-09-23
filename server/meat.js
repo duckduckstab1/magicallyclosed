@@ -808,6 +808,58 @@ var videoIds25MinutesofMSAgent = [
     "https://www.youtube.com/watch?v=JoyB9zHYxi8",
     "https://www.youtube.com/watch?v=zV7s4Dzq8wE",
     "https://www.youtube.com/watch?v=rc4HyJ0XMgY",
+    "https://www.youtube.com/watch?v=exDjH1QJOEs", // PGG and PGG Rebooted (rated Mature Audiences)
+    "https://www.youtube.com/watch?v=m9JtPsnaakM",
+    "https://www.youtube.com/watch?v=qt7C-Pcfw-U",
+    "https://www.youtube.com/watch?v=tAjNijZHeC0",
+    "https://www.youtube.com/watch?v=aiIDeirsJoY",
+    "https://www.youtube.com/watch?v=OuFcuT4jSbE",
+    "https://www.youtube.com/watch?v=_ZzvFCLHFAg",
+    "https://www.youtube.com/watch?v=WiRdCDhaNTw",
+    "https://www.youtube.com/watch?v=28DdmrivqcQ",
+    "https://www.youtube.com/watch?v=i7GTdZH6km8",
+    "https://www.youtube.com/watch?v=49ODdYy9yAI",
+    "https://www.youtube.com/watch?v=92jKwR-M93I",
+    "https://www.youtube.com/watch?v=eniRs2KpC70",
+    "https://www.youtube.com/watch?v=Bm89dja7kNA",
+    "https://www.youtube.com/watch?v=bMhXrVh6GZA",
+    "https://www.youtube.com/watch?v=tXx2omKPXpA",
+    "https://www.youtube.com/watch?v=TpPdjZo0tGg",
+    "https://www.youtube.com/watch?v=ee_qZWa9DOw",
+    "https://www.youtube.com/watch?v=Ln5T_j1o32k",
+    "https://www.youtube.com/watch?v=h85K_p0jJ4o",
+    "https://www.youtube.com/watch?v=Lgh0kIUln-o",
+    "https://www.youtube.com/watch?v=6TdLkIOTkdA",
+    "https://www.youtube.com/watch?v=jwChUXVMmaQ",
+    "https://www.youtube.com/watch?v=ElLfUsh-NZw",
+    "https://www.youtube.com/watch?v=zgAzpu3zZNo",
+    "https://www.youtube.com/watch?v=hANfAmCJOAM",
+    "https://www.youtube.com/watch?v=NqIJoVay-aU",
+    "https://www.youtube.com/watch?v=W7br-y30kBs",
+    "https://www.youtube.com/watch?v=uLnq-vOXFUc",
+    "https://www.youtube.com/watch?v=WIXWIollTOE",
+    "https://www.youtube.com/watch?v=xNIXsaIO-NE",
+    "https://www.youtube.com/watch?v=4bijWcMnKyE",
+    "https://www.youtube.com/watch?v=DV6kqZSY5WE",   // Windows Desktop Skits
+    "https://www.youtube.com/watch?v=eO2LgSSTXqM",
+    "https://www.youtube.com/watch?v=FeorAMjcV7E",
+    "https://www.youtube.com/watch?v=lex-Ap58niY",
+    "https://www.youtube.com/watch?v=exter6QAGS8",
+    "https://www.youtube.com/watch?v=XBRxcnne5f4",
+    "https://www.youtube.com/watch?v=dxtwzr-4UYo",
+    "https://www.youtube.com/watch?v=1q9phQT3-wc",
+    "https://www.youtube.com/watch?v=TD8InhMS1io",
+    "https://www.youtube.com/watch?v=Jn6CXHufyos",
+    "https://www.youtube.com/watch?v=fcPsjkhJLyw",
+    "https://www.youtube.com/watch?v=oxir0CFO_SU",
+    "https://www.youtube.com/watch?v=UitVP8YClNc",
+    "https://www.youtube.com/watch?v=-y9TxoTt5eQ",  // SF08 Remakes
+    "https://www.youtube.com/watch?v=z1ApOo20pU4",
+    "https://www.youtube.com/watch?v=TafPUncacTE",
+    "https://www.youtube.com/watch?v=wNfMpAR-Oog",
+    "https://www.youtube.com/watch?v=iKCNlur5wRY",
+    "https://www.youtube.com/watch?v=yCRHUCSI20M",
+    "https://www.youtube.com/watch?v=sCKONPsB_Qc"
 ];
 var questions = {
     "Type the equals key twice.":"==",
@@ -983,8 +1035,8 @@ class Room {
             var num = Math.floor(Math.random() * videoIds7PM.length);
             var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
             this.vid = vid; 
-        } else if (hours == 23) {
-            this.vid = "38oe0urhVnM";
+        } else if (hours == 23 || hours == 22 && minutes >= 9) {
+            this.vid = "kQsoV69uGIY";
         } else {
             
             var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
@@ -1188,11 +1240,12 @@ let userCommands = {
                         id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
                         identId: vidId
                     })
-                } else if (hours == 23) {
+                } else if (hours == 23 || hours == 22 && minutes >= 9) {
                     
                     this.room.emit("replaceTVWithURL",{
-                        id: "38oe0urhVnM",
+                        id: "kQsoV69uGIY",
                         hourAmount: hours,
+                        minuteAmount: minutes,
                         identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
                     })
                 } else {
@@ -1253,12 +1306,13 @@ let userCommands = {
                         id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
                         identId: vidId
                     })
-                } else if (hours == 23) {
+                } else if (hours == 23 || hours == 22 && minutes >= 9) {
                     
 					tvhook.send("BonziTV is now off air.");
                     this.room.emit("replaceTVWithURL",{
-                        id: "38oe0urhVnM",
+                        id: "kQsoV69uGIY",
                         hourAmount: hours,
+                        minuteAmount: minutes,
                         identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
                     })
                 } else {
@@ -2293,8 +2347,9 @@ class User {
                 } else if (hours == 23) {
                     
                     this.room.emit("replaceTVWithURL",{
-                        id: "38oe0urhVnM",
+                        id: "kQsoV69uGIY",
                         hourAmount: hours,
+                        minuteAmount: minutes,
                         identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
                     })
                 } else {
@@ -2325,9 +2380,14 @@ class User {
                                 "https://www.youtube.com/watch?v=0eGC9tMZ8co",
                             ];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
-                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g) ) {
+                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g)  ||  info.videoDetails.title.match(/PGG Rebooted/g)  ||  info.videoDetails.title.match(/Gets Grounded/g)  ||  info.videoDetails.title.match(/Brian and Steve/g) ) {
                             bonziTvIdent = [
                                 "https://www.youtube.com/watch?v=T1MKRI6HW4w",
+                            ];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        } else if (info.videoDetails.title.match(/Youtube Poop/gi)) {
+                            bonziTvIdent = [
+                                "https://www.youtube.com/watch?v=BjK7BgDuVZQ",
                             ];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         }
@@ -2349,9 +2409,14 @@ class User {
                                 "https://www.youtube.com/watch?v=0eGC9tMZ8co",
                             ];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
-                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g) ) {
+                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g)  ||  info.videoDetails.title.match(/PGG Rebooted/g)  ||  info.videoDetails.title.match(/Gets Grounded/g)  ||  info.videoDetails.title.match(/Brian and Steve/g) ) {
                             bonziTvIdent = [
                                 "https://www.youtube.com/watch?v=T1MKRI6HW4w",
+                            ];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        } else if (info.videoDetails.title.match(/Youtube Poop/gi)) {
+                            bonziTvIdent = [
+                                "https://www.youtube.com/watch?v=BjK7BgDuVZQ",
                             ];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         }
@@ -2374,9 +2439,14 @@ class User {
                                 "https://www.youtube.com/watch?v=0eGC9tMZ8co",
                             ];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
-                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g) ) {
+                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g)  ||  info.videoDetails.title.match(/PGG Rebooted/g)  ||  info.videoDetails.title.match(/Gets Grounded/g)  ||  info.videoDetails.title.match(/Brian and Steve/g) ) {
                             bonziTvIdent = [
                                 "https://www.youtube.com/watch?v=T1MKRI6HW4w",
+                            ];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        } else if (info.videoDetails.title.match(/Youtube Poop/gi)) {
+                            bonziTvIdent = [
+                                "https://www.youtube.com/watch?v=BjK7BgDuVZQ",
                             ];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         }
@@ -2398,9 +2468,14 @@ class User {
                                 "https://www.youtube.com/watch?v=0eGC9tMZ8co",
                             ];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
-                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g) ) {
+                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g)  ||  info.videoDetails.title.match(/PGG Rebooted/g)  ||  info.videoDetails.title.match(/Gets Grounded/g)  ||  info.videoDetails.title.match(/Brian and Steve/g) ) {
                             bonziTvIdent = [
                                 "https://www.youtube.com/watch?v=T1MKRI6HW4w",
+                            ];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        } else if (info.videoDetails.title.match(/Youtube Poop/gi)) {
+                            bonziTvIdent = [
+                                "https://www.youtube.com/watch?v=BjK7BgDuVZQ",
                             ];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         }
@@ -2410,12 +2485,13 @@ class User {
                         id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
                         identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
                     })
-                } else if (hours == 23) {
+                } else if (hours == 23 || hours == 22 && minutes >= 9) {
                     
 					tvhook.send("BonziTV is now off air.");
                     this.room.emit("replaceTVWithURL",{
-                        id: "38oe0urhVnM",
+                        id: "kQsoV69uGIY",
                         hourAmount: hours,
+                        minuteAmount: minutes,
                         identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
                     })
                 } else {
@@ -2430,9 +2506,14 @@ class User {
                                 "https://www.youtube.com/watch?v=0eGC9tMZ8co",
                             ];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
-                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g) ) {
+                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g)  ||  info.videoDetails.title.match(/PGG Rebooted/g)  ||  info.videoDetails.title.match(/Gets Grounded/g)  ||  info.videoDetails.title.match(/Brian and Steve/g) ) {
                             bonziTvIdent = [
                                 "https://www.youtube.com/watch?v=T1MKRI6HW4w",
+                            ];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        } else if (info.videoDetails.title.match(/Youtube Poop/gi)) {
+                            bonziTvIdent = [
+                                "https://www.youtube.com/watch?v=BjK7BgDuVZQ",
                             ];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         }
