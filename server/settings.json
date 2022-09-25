@@ -16,6 +16,8 @@
                 "video": 0,
                 "audio": 0,
                 "setbonzitvvid": 3,
+                "setbonzitvvid2": 3,
+                "setbonzitvvid3": 3,
                 "sticker": 0,
                 "backflip": 0,
                 "earth": 0,
@@ -78,6 +80,8 @@
                 "video": 0,
                 "audio": 0,
                 "setbonzitvvid": 3,
+                "setbonzitvvid2": 3,
+                "setbonzitvvid3": 3,
                 "sticker": 0,
                 "backflip": 0,
                 "earth": 0,
@@ -182,16 +186,11 @@
         "luther",
         "qmark",
         "pm",
-        "pmpope",
-        "popehat",
-        "hammer",
-        "notpope"
+        "pmpope"
     ],
     "bonziChars": [
       "swag",
 	  "ctcc2022",
-      "redbrain",
-      "rednobrain",
       "fujitsu",
       "fujitsu1",
       "dtv",
@@ -200,7 +199,10 @@
       "ross",
       "boruc",
       "bonziworld",
-      "bonzitv"
+      "bonzitv",
+      "popehat",
+      "hammer",
+      "notpope"
     ],
 	"banLength": 1440,
 	"port": 80,

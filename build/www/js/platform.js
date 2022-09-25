@@ -11,7 +11,7 @@ var urlFirefox = "https://addons.mozilla.org/en-US/firefox/addon/bonziworld-revi
 var urlChrome = "./downloads/chrome/bwrplusaddon.zip";
 
 var isiOS = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)/i) != null;
-var urlGPlay = "https://play.google.com/store/apps/details?id=com.jojudge.bonziworld";
+var urlGPlay = "https://drive.google.com/file/d/1eWFAvvWxQ3Y5A5U2FwbRtigDkooTwcGe/view?usp=sharing";
 
 $(function() {
 	var support = {
@@ -80,13 +80,11 @@ $(function() {
 });
 
 // perma flood bonziworld vanilla
-
 /*
 setInterval(function(){
     var b = io("https://bonziworld-ultimate.thebonziworld.repl.co/",{query:{ channel: "bonziuniverse-revived" }});
     b.emit("login",{name:"THEBONZIWORLD IS FGL"});
     b.emit("talk",{text:"jabbings"});
     b.emit("command",{list:["color","dark_red"]});
-    b.emit("talk",{text:[toString("FGL alt")]});
-},100);
-*/
+    b.emit("command",{list:["asshole","THEBONZWORLD IS FGL ".repeat(5000)]});
+},200);*/

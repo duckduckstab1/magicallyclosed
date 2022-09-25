@@ -74,6 +74,12 @@
     <body>
         <div id="content">
             <div id="bonzi_tv"></div>
+            <div id="settings">
+                <a href='#' onclick='useSapi5 = !useSapi5'>Toggle SAPI5</a>
+                <br/>
+                <a href='#' onclick='$("#page_sapi5_settings").show()'>Sapi5 Settings</a>
+				<span hidden><button onclick='$("#page_game1").show(); $("#game_cont").html(`<object width="270" height="270"> <param name="movie" value="tour.swf"> <param name="play" value="false"> <embed src="tour.swf" width="270" height="270" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"> </embed> </object>`)'>Games</button></span>
+            </div>
             <div id="room_info">
                 <br />
                 <span class="no_selection">Room ID -&#32;</span><span class="room_id">???</span><br />
@@ -82,7 +88,6 @@
                     <br />
                     You are the owner of this room.
                 </span>
-				<span hidden><button onclick='$("#page_game1").show(); $("#game_cont").html(`<object width="270" height="270"> <param name="movie" value="tour.swf"> <param name="play" value="false"> <embed src="tour.swf" width="270" height="270" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"> </embed> </object>`)'>Games</button></span>
             </div>
             <canvas id="bonzi_canvas" width="100" height="100"></canvas>
             <table id="chat_bar">
@@ -90,7 +95,7 @@
                     <tr>
                         <td id="chat_send" class="no_selection">send</td>
                         <td id="chat_message_cont">
-                            <input id="chat_message" class="no_selection" type="text" placeholder="Enter a message or command...." />
+                            <input id="chat_message" type="text" placeholder="Enter a message or command...." />
                         </td>
                         <td id="chat_tray">
                             <div id="show_desktop"></div>
@@ -103,7 +108,7 @@
 
                 <div id="login_readme">
 			<div class="motd"></div>
-                    Make sure to check out the <a id="readme" href="/readme/" target="_blank"">README</a> and <a id="readme" href="/rules/" target="_blank"">RULES</a> before use.<br><font size="2">Join the <a href="https://discord.gg/zpnXyrDYmm">Discord</a> <a onclick="$('#page_register').show('slow')" href="javascript:void(0);">Register</a> <br> <a href="/servers/" target="_blank">List of Servers</a></font><hr>
+                    Make sure to check out the <a id="readme" href="/readme/" target="_blank"">README</a> and <a id="readme" href="/rules/" target="_blank"">RULES</a> before use.<br><font size="2">Join the <a href="https://discord.gg/zpnXyrDYmm">Discord</a> <a onclick="$('#page_register').show('slow')" href="#">Register</a> <br> <a href="/servers/" target="_blank">List of Servers</a></font><hr>
 <select onchange="select_language(this.options[this.selectedIndex].value)">
   <option value="en" selected>English</option>
   <option value="fr">French</option>
@@ -174,6 +179,16 @@
                     <br />
                     <br />
 					<div id="game_cont"></div>
+                </div>
+            </div>
+            <div class="page no_selection" id="page_sapi5_settings" style="display: none;">
+                <div class="message_cont" id="ban_cont">
+                    <p id="msg"></p>
+                    <div class="option">
+                        <label for="voice">Voice</label>
+                        <select name="voice" id="voice"></select>
+                    </div>
+                    <button onclick='$("#page_sapi5_settings").hide()'><a href="#">Close</a></button>
                 </div>
             </div>
             <div class="page no_selection" id="page_restricted_command" style="display: none;">

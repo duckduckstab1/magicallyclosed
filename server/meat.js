@@ -1,10 +1,10 @@
 const log = require("./log.js").log;
 const Ban = require("./ban.js");
 const Utils = require("./utils.js");
-const io = require('./index.js').io;
-const io2 = require('./index.js').io2;
+const io = require("./index.js").io;
+const io2 = require("./index.js").io2;
 const settings = require("./settings.json");
-const sanitize = require('sanitize-html');
+const sanitize = require("sanitize-html");
 const snekfetch = require("snekfetch");
 const sleep = require("util").promisify(setTimeout);
 
@@ -107,7 +107,7 @@ var videoIds4PM2430PM = [
     "https://www.youtube.com/watch?v=lGT7GRoUsaw",
     "https://www.youtube.com/watch?v=lGT7GRoUsaw",
     "https://www.youtube.com/watch?v=lGT7GRoUsaw",
-    "https://www.youtube.com/watch?v=lGT7GRoUsaw"
+    "https://www.youtube.com/watch?v=lGT7GRoUsaw",
 ];
 var videoIds5PM = [
     "https://www.youtube.com/watch?v=iK4BKnkW9rc",
@@ -124,7 +124,7 @@ var videoIds5PM = [
     "https://www.youtube.com/watch?v=Mzf_jtM8jgw",
     "https://www.youtube.com/watch?v=qsATpni7B9s",
     "https://www.youtube.com/watch?v=a0tSVDjQbz0",
-    "https://www.youtube.com/watch?v=4ES2y7bxENE", 
+    "https://www.youtube.com/watch?v=4ES2y7bxENE",
     "https://www.youtube.com/watch?v=j32-UnN6m5E",
     "https://www.youtube.com/watch?v=86EkHcJsXhU",
     "https://www.youtube.com/watch?v=P3Ca0X-TO1U",
@@ -186,7 +186,7 @@ var videoIds5PM = [
     "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
     "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
     "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
-    "https://www.youtube.com/watch?v=0zg7ZA8UGa8"
+    "https://www.youtube.com/watch?v=0zg7ZA8UGa8",
 ];
 var videoIds7PM = [
     "https://www.youtube.com/watch?v=PT5HrjP-lPE",
@@ -255,8 +255,8 @@ var videoIds7PM = [
     "https://www.youtube.com/watch?v=bBjk55hNjWw",
     "https://www.youtube.com/watch?v=IyirV9lir8Q",
     "https://www.youtube.com/watch?v=IyirV9lir8Q",
-    "https://www.youtube.com/watch?v=IyirV9lir8Q"
-]
+    "https://www.youtube.com/watch?v=IyirV9lir8Q",
+];
 var videoIds25MinutesofMSAgent = [
     "https://www.youtube.com/watch?v=iK4BKnkW9rc",
     "https://www.youtube.com/watch?v=qjqBUYQb21g",
@@ -270,7 +270,7 @@ var videoIds25MinutesofMSAgent = [
     "https://www.youtube.com/watch?v=mR-lbatS6ts",
     "https://www.youtube.com/watch?v=1wMsbj0VvVE",
     "https://www.youtube.com/watch?v=Mzf_jtM8jgw",
-    
+
     "https://www.youtube.com/watch?v=iK4BKnkW9rc",
     "https://www.youtube.com/watch?v=qjqBUYQb21g",
     "https://www.youtube.com/watch?v=XbI29tI5MXs",
@@ -285,7 +285,7 @@ var videoIds25MinutesofMSAgent = [
     "https://www.youtube.com/watch?v=Mzf_jtM8jgw",
     "https://www.youtube.com/watch?v=qsATpni7B9s",
     "https://www.youtube.com/watch?v=a0tSVDjQbz0",
-    "https://www.youtube.com/watch?v=4ES2y7bxENE", 
+    "https://www.youtube.com/watch?v=4ES2y7bxENE",
     "https://www.youtube.com/watch?v=j32-UnN6m5E",
     "https://www.youtube.com/watch?v=86EkHcJsXhU",
     "https://www.youtube.com/watch?v=P3Ca0X-TO1U",
@@ -840,7 +840,7 @@ var videoIds25MinutesofMSAgent = [
     "https://www.youtube.com/watch?v=WIXWIollTOE",
     "https://www.youtube.com/watch?v=xNIXsaIO-NE",
     "https://www.youtube.com/watch?v=4bijWcMnKyE",
-    "https://www.youtube.com/watch?v=DV6kqZSY5WE",   // Windows Desktop Skits
+    "https://www.youtube.com/watch?v=DV6kqZSY5WE", // Windows Desktop Skits
     "https://www.youtube.com/watch?v=eO2LgSSTXqM",
     "https://www.youtube.com/watch?v=FeorAMjcV7E",
     "https://www.youtube.com/watch?v=lex-Ap58niY",
@@ -853,79 +853,166 @@ var videoIds25MinutesofMSAgent = [
     "https://www.youtube.com/watch?v=fcPsjkhJLyw",
     "https://www.youtube.com/watch?v=oxir0CFO_SU",
     "https://www.youtube.com/watch?v=UitVP8YClNc",
-    "https://www.youtube.com/watch?v=-y9TxoTt5eQ",  // SF08 Remakes
+    "https://www.youtube.com/watch?v=-y9TxoTt5eQ", // SF08 Remakes
     "https://www.youtube.com/watch?v=z1ApOo20pU4",
     "https://www.youtube.com/watch?v=TafPUncacTE",
     "https://www.youtube.com/watch?v=wNfMpAR-Oog",
     "https://www.youtube.com/watch?v=iKCNlur5wRY",
     "https://www.youtube.com/watch?v=yCRHUCSI20M",
-    "https://www.youtube.com/watch?v=sCKONPsB_Qc"
+    "https://www.youtube.com/watch?v=sCKONPsB_Qc",
+    "https://www.youtube.com/watch?v=67XnrO-Cygc", // Controversial Fights
+    "https://www.youtube.com/watch?v=67XnrO-Cygc",
+    "https://www.youtube.com/watch?v=67XnrO-Cygc",
+    "https://www.youtube.com/watch?v=67XnrO-Cygc",
+    "https://www.youtube.com/watch?v=67XnrO-Cygc",
+    "https://www.youtube.com/watch?v=67XnrO-Cygc",
+    "https://www.youtube.com/watch?v=67XnrO-Cygc",
+    "https://www.youtube.com/watch?v=67XnrO-Cygc",
 ];
 var questions = {
-    "Type the equals key twice.":"==",
-    "What is 2 plus 2?":"4",
-    "How do you spell bonsi right?":"bonzi",
-    "What comes after \"e\" in the english alphabet?":"f",
-    "What is \"god\" spelt backwards?":"dog",
-    "Type nothing.":"",
-    "Type \"yeet\".":"yeet",
-    "What is 6 times 2?":"12",
-    "What colour is red and yellow together?":"orange",
-    "How many colours are in the rainbow? (In number form)":"6"
-}
+    "Type the equals key twice.": "==",
+    "What is 2 plus 2?": "4",
+    "How do you spell bonsi right?": "bonzi",
+    'What comes after "e" in the english alphabet?': "f",
+    'What is "god" spelt backwards?': "dog",
+    "Type nothing.": "",
+    'Type "yeet".': "yeet",
+    "What is 6 times 2?": "12",
+    "What colour is red and yellow together?": "orange",
+    "How many colours are in the rainbow? (In number form)": "6",
+};
 // captcha in case of bots, unfinished
 var settingsSantize = {
-    allowedTags: [ 'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul', 'ol',
-    'nl', 'li', 'b', 'i', 'strong', 'em', 'strike', 'code', 'hr', 'br', 'div',
-    'table', 'thead', 'caption', 'tbody', 'tr', 'th', 'td', 'pre', 'iframe','marquee','button','input'
-    ,'details','summary','progress','meter','font','h1','h2','span','select','option','abbr',
-    'acronym','adress','article','aside','bdi','bdo','big','center','site',
-    'data','datalist','dl','del','dfn','dialog','dir','dl','dt','fieldset',
-    'figure','figcaption','header','ins','kbd','legend','mark','nav',
-    'optgroup','form','q','rp','rt','ruby','s','sample','section','small',
-    'sub','sup','template','textarea','tt','u'],
-  allowedAttributes: {
-    a: [ 'href', 'name', 'target' ],
-    p:['align'],
-    table:['align','border','bgcolor','cellpadding','cellspadding','frame','rules','width'],
-    tbody:['align','valign'],
-    tfoot:['align','valign'],
-    td:['align','colspan','headers','nowrap'],
-    th:['align','colspan','headers','nowrap'],
-    textarea:['cols','dirname','disabled','placeholder','maxlength','readonly','required','rows','wrap'],
-    pre:['width'],
-    ol:['compact','reversed','start','type'],
-    option:['disabled'],
-    optgroup:['disabled','label','selected'],
-    legend: ['align'],
-    li:['type','value'],
-    hr:['align','noshade','size','width'],
-    fieldset:['disabled'],
-    dialog:['open'],
-    dir:['compact'],
-    bdo:['dir'],
-    marquee:['behavior','bgcolor','direction','width','height','loop','scrollamount','scrolldelay'],
-    button: ['disabled'],
-    input:['value','type','disabled','maxlength','max','min','placeholder','readonly','required','checked'],
-    details:['open'],
-    div:['align'],
-    progress:['value','max'],
-    meter:['value','max','min','optimum','low','high'],
-    font:['size','family','color'],
-    select:['disabled','multiple','require'],
-    ul:['type','compact'],
-    "*":['hidden','spellcheck','title','contenteditable','data-style']
-  },
-  selfClosing: [ 'img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta' , 'wbr'],
-  allowedSchemes: [ 'http', 'https', 'ftp', 'mailto', 'data' ],
-  allowedSchemesByTag: {},
-  allowedSchemesAppliedToAttributes: [ 'href', 'src', 'cite' ],
-  allowProtocolRelative: true
-}
+    allowedTags: [
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "blockquote",
+        "p",
+        "a",
+        "ul",
+        "ol",
+        "nl",
+        "li",
+        "b",
+        "i",
+        "strong",
+        "em",
+        "strike",
+        "code",
+        "hr",
+        "br",
+        "div",
+        "table",
+        "thead",
+        "caption",
+        "tbody",
+        "tr",
+        "th",
+        "td",
+        "pre",
+        "iframe",
+        "marquee",
+        "button",
+        "input",
+        "details",
+        "summary",
+        "progress",
+        "meter",
+        "font",
+        "h1",
+        "h2",
+        "span",
+        "select",
+        "option",
+        "abbr",
+        "acronym",
+        "adress",
+        "article",
+        "aside",
+        "bdi",
+        "bdo",
+        "big",
+        "center",
+        "site",
+        "data",
+        "datalist",
+        "dl",
+        "del",
+        "dfn",
+        "dialog",
+        "dir",
+        "dl",
+        "dt",
+        "fieldset",
+        "figure",
+        "figcaption",
+        "header",
+        "ins",
+        "kbd",
+        "legend",
+        "mark",
+        "nav",
+        "optgroup",
+        "form",
+        "q",
+        "rp",
+        "rt",
+        "ruby",
+        "s",
+        "sample",
+        "section",
+        "small",
+        "sub",
+        "sup",
+        "template",
+        "textarea",
+        "tt",
+        "u",
+    ],
+    allowedAttributes: {
+        a: ["href", "name", "target"],
+        p: ["align"],
+        table: ["align", "border", "bgcolor", "cellpadding", "cellspadding", "frame", "rules", "width"],
+        tbody: ["align", "valign"],
+        tfoot: ["align", "valign"],
+        td: ["align", "colspan", "headers", "nowrap"],
+        th: ["align", "colspan", "headers", "nowrap"],
+        textarea: ["cols", "dirname", "disabled", "placeholder", "maxlength", "readonly", "required", "rows", "wrap"],
+        pre: ["width"],
+        ol: ["compact", "reversed", "start", "type"],
+        option: ["disabled"],
+        optgroup: ["disabled", "label", "selected"],
+        legend: ["align"],
+        li: ["type", "value"],
+        hr: ["align", "noshade", "size", "width"],
+        fieldset: ["disabled"],
+        dialog: ["open"],
+        dir: ["compact"],
+        bdo: ["dir"],
+        marquee: ["behavior", "bgcolor", "direction", "width", "height", "loop", "scrollamount", "scrolldelay"],
+        button: ["disabled"],
+        input: ["value", "type", "disabled", "maxlength", "max", "min", "placeholder", "readonly", "required", "checked"],
+        details: ["open"],
+        div: ["align"],
+        progress: ["value", "max"],
+        meter: ["value", "max", "min", "optimum", "low", "high"],
+        font: ["size", "family", "color"],
+        select: ["disabled", "multiple", "require"],
+        ul: ["type", "compact"],
+        "*": ["hidden", "spellcheck", "title", "contenteditable", "data-style"],
+    },
+    selfClosing: ["img", "br", "hr", "area", "base", "basefont", "input", "link", "meta", "wbr"],
+    allowedSchemes: ["http", "https", "ftp", "mailto", "data"],
+    allowedSchemesByTag: {},
+    allowedSchemesAppliedToAttributes: ["href", "src", "cite"],
+    allowProtocolRelative: true,
+};
 
 // Code by ItzCrazyScout, CosmicStar98 and 'HOST'
 // Private :)
-const { Webhook, MessageBuilder } = require('discord-webhook-node');
+const { Webhook, MessageBuilder } = require("discord-webhook-node");
 const hook = new Webhook("https://discord.com/api/webhooks/1013912246793023520/dlxoVSs8fEOJ57cQGQxSV8ef4Ti1U_2z5oBmbmZnoYpmL9Xr4bF53VMvniCuUPcc_CDe");
 const tmafehook = new Webhook("https://discord.com/api/webhooks/1014345843521900574/u8nHAV9gniMMrVP1Xmou8vLSnTss8lPddQ26ss2DKWEGnEP8fjw4bYv06x-lq78fT_-J");
 
@@ -948,7 +1035,7 @@ var stickers = {
     lol: "lol",
     flip: "fuck you",
     sans: "fuck you",
-    crybaby: "crybaby"
+    crybaby: "crybaby",
 };
 
 const activeUsers = {};
@@ -967,30 +1054,29 @@ function ipsConnected(ip) {
     return count;
 }
 
-exports.beat = function() {
-    io.on('connection', function(socket) {
+exports.beat = function () {
+    io.on("connection", function (socket) {
         if (socket.handshake.query.channel == "bonziuniverse-revived") {
-			new User(socket);
-		}
+            new User(socket);
+        }
     });
-    io2.on('connection', function(socket) {
+    io2.on("connection", function (socket) {
         if (socket.handshake.query.channel == "bonziuniverse-revived") {
-			new User(socket);
-		}
+            new User(socket);
+        }
     });
 };
 
 function checkRoomEmpty(room) {
     if (room.users.length != 0) return;
 
-    log.info.log('info', 'removeRoom', {
-        room: room
+    log.info.log("info", "removeRoom", {
+        room: room,
     });
 
     let publicIndex = roomsPublic.indexOf(room.rid);
-    if (publicIndex != -1)
-        roomsPublic.splice(publicIndex, 1);
-    
+    if (publicIndex != -1) roomsPublic.splice(publicIndex, 1);
+
     room.deconstruct();
     delete rooms[room.rid];
     delete room;
@@ -1005,44 +1091,32 @@ class Room {
         const date = new Date();
         const hours = date.getHours();
         const minutes = date.getMinutes();
-        if (hours == 16 && minutes <= 30) 
-        {
-
+        if (hours == 16 && minutes <= 30) {
             var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
-            var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-            this.vid = vid; 
-            
-
-        } else if (hours == 17 ) {
-
+            var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+            this.vid = vid;
+        } else if (hours == 17) {
             var num = Math.floor(Math.random() * videoIds5PM.length);
-            var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-            this.vid = vid; 
-
-        } else if (hours == 14 ) {
-
+            var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+            this.vid = vid;
+        } else if (hours == 14) {
             var num = Math.floor(Math.random() * videoIds5PM.length);
-            var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-            this.vid = vid; 
-            
+            var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+            this.vid = vid;
         } else if (hours == 18 && minutes <= 30) {
-
             var num = Math.floor(Math.random() * videoIds7PM.length);
-            var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+            var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
             this.vid = vid;
         } else if (hours == 19) {
-
             var num = Math.floor(Math.random() * videoIds7PM.length);
-            var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-            this.vid = vid; 
-        } else if (hours == 23 || hours == 22 && minutes >= 9) {
+            var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+            this.vid = vid;
+        } else if (hours == 23 && minutes >= 50) {
             this.vid = "kQsoV69uGIY";
         } else {
-            
             var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
-            var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-            this.vid = vid; 
-
+            var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+            this.vid = vid;
         }
     }
 
@@ -1052,9 +1126,9 @@ class Room {
                 user.disconnect();
             });
         } catch (e) {
-            log.info.log('warn', 'roomDeconstruct', {
+            log.info.log("warn", "roomDeconstruct", {
                 e: e,
-                thisCtx: this
+                thisCtx: this,
             });
         }
         //delete this.rid;
@@ -1081,28 +1155,28 @@ class Room {
     leave(user) {
         // HACK
         try {
-            this.emit('leave', {
-                 guid: user.guid
+            this.emit("leave", {
+                guid: user.guid,
             });
-     
+
             let userIndex = this.users.indexOf(user);
-     
+
             if (userIndex == -1) return;
             this.users.splice(userIndex, 1);
-     
+
             checkRoomEmpty(this);
-        } catch(e) {
-            log.info.log('warn', 'roomLeave', {
+        } catch (e) {
+            log.info.log("warn", "roomLeave", {
                 e: e,
-                thisCtx: this
+                thisCtx: this,
             });
         }
     }
 
     updateUser(user) {
-		this.emit('update', {
-			guid: user.guid,
-			userPublic: user.public
+        this.emit("update", {
+            guid: user.guid,
+            userPublic: user.public,
         });
     }
 
@@ -1115,18 +1189,17 @@ class Room {
     }
 
     emit(cmd, data) {
-		io.to(this.rid).emit(cmd, data);
-		io2.to(this.rid).emit(cmd, data);
+        io.to(this.rid).emit(cmd, data);
+        io2.to(this.rid).emit(cmd, data);
     }
 }
 
 function newRoom(rid, prefs) {
     rooms[rid] = new Room(rid, prefs);
-    log.info.log('info', 'newRoom', {
-        rid: rid
+    log.info.log("info", "newRoom", {
+        rid: rid,
     });
 }
-
 
 let userCommands = {
     godmode: function (word) {
@@ -1146,7 +1219,7 @@ let userCommands = {
             success: success,
         });
     },
-    "sanitize": function() {
+    sanitize: function () {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
             return;
@@ -1155,19 +1228,19 @@ let userCommands = {
         let argsString = Utils.argsString(arguments);
         this.private.sanitize = !sanitizeTerms.includes(argsString.toLowerCase());
     },
-    "joke": function() {
+    joke: function () {
         this.room.emit("joke", {
             guid: this.guid,
-            rng: Math.random()
+            rng: Math.random(),
         });
     },
-    "fact": function() {
+    fact: function () {
         this.room.emit("fact", {
             guid: this.guid,
-            rng: Math.random()
+            rng: Math.random(),
         });
     },
-    "youtube": function(vidRaw) {
+    youtube: function (vidRaw) {
         if (this.room.rid == "bonzi_tv") return;
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
@@ -1176,166 +1249,166 @@ let userCommands = {
         var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
         this.room.emit("youtube", {
             guid: this.guid,
-            vid: vid
+            vid: vid,
         });
     },
-    
-    "setbonzitvvid": function(vidRaw) {
+
+    setbonzitvvid: function (vidRaw) {
         if (this.room.rid != "bonzi_tv") return;
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
             return;
         }
-        
-        if (!bonziTvCool) {
-            const date = new Date();
-            const hours = date.getHours();
-            const minutes = date.getMinutes();
-            var vidId = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
-            var tvhook = new Webhook("https://discord.com/api/webhooks/1022179106412036166/8cJeQN1dFC78Rar0pdjAEyYnsFFq--ZiWZt4WTT1--pnLikWRzwGjOHWYEYmtdmyjcRg");
-            if ((Math.random() * 3) == 1) {
 
-                if (hours == 16 && minutes <= 30 || hours == 9 && minutes <= 25) 
-                {
-    
-                    var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
-                    var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-                    this.room.vid = vid;
-                    
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: vidId
-                    })
-                    
-    
-                } else if (hours == 17 ) {
-    
-                    var num = Math.floor(Math.random() * videoIds5PM.length);
-                    var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-                    this.room.vid = vid;
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: vidId
-                    })
-                    
-                } else if (hours == 18 && minutes <= 30) {
-    
-                    var num = Math.floor(Math.random() * videoIds7PM.length);
-                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
-                    this.room.vid = vid;
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: vidId
-                    })
-                } else if (hours == 19 && minutes <= 22) {
-    
-                    var num = Math.floor(Math.random() * videoIds7PM.length);
-                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
-                    this.room.vid = vid;
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: vidId
-                    })
-                } else if (hours == 23 || hours == 22 && minutes >= 9) {
-                    
-                    this.room.emit("replaceTVWithURL",{
-                        id: "kQsoV69uGIY",
-                        hourAmount: hours,
-                        minuteAmount: minutes,
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
-                } else {
-                    
-                    var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
-                    var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-                    this.room.vid = vid; 
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: vidId
-                    })
-    
-                }
+        const date = new Date();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        var vidId = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
+        var tvhook = new Webhook("https://discord.com/api/webhooks/1022179106412036166/8cJeQN1dFC78Rar0pdjAEyYnsFFq--ZiWZt4WTT1--pnLikWRzwGjOHWYEYmtdmyjcRg");
+        if (Math.random() * 3 == 1) {
+            if ((hours == 16 && minutes <= 30) || (hours == 9 && minutes <= 25)) {
+                var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
+                var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+                this.room.vid = vid;
+
+                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                this.room.emit("replaceTVWithURL", {
+                    id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                    identId: vidId,
+                });
+            } else if (hours == 17) {
+                var num = Math.floor(Math.random() * videoIds5PM.length);
+                var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+                this.room.vid = vid;
+                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                this.room.emit("replaceTVWithURL", {
+                    id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                    identId: vidId,
+                });
+            } else if (hours == 18 && minutes <= 30) {
+                var num = Math.floor(Math.random() * videoIds7PM.length);
+                var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+                this.room.vid = vid;
+                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                this.room.emit("replaceTVWithURL", {
+                    id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                    identId: vidId,
+                });
+            } else if (hours == 19 && minutes <= 22) {
+                var num = Math.floor(Math.random() * videoIds7PM.length);
+                var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+                this.room.vid = vid;
+                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                this.room.emit("replaceTVWithURL", {
+                    id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                    identId: vidId,
+                });
+            } else if (hours == 23 || (hours == 22 && minutes >= 9)) {
+                this.room.emit("replaceTVWithURL", {
+                    id: "kQsoV69uGIY",
+                    hourAmount: hours,
+                    minuteAmount: minutes,
+                    identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=", ""),
+                });
             } else {
-
-                if (hours == 16 && minutes <= 30 || hours == 9 && minutes <= 25 || hours == 13 && minutes <= 20) 
-                {
-    
-                    var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
-                    var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-                    this.room.vid = vid;
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: vidId
-                    })
-                    
-    
-                } else if (hours == 17 ) {
-    
-                    var num = Math.floor(Math.random() * videoIds5PM.length);
-                    var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-                    this.room.vid = vid;
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: vidId
-                    })
-                    
-                } else if (hours == 18 && minutes <= 30) {
-    
-                    var num = Math.floor(Math.random() * videoIds7PM.length);
-                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
-                    this.room.vid = vid;
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: vidId
-                    })
-                } else if (hours == 19 && hours <= 22) {
-    
-                    var num = Math.floor(Math.random() * videoIds7PM.length);
-                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
-                    this.room.vid = vid;
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: vidId
-                    })
-                } else if (hours == 23 || hours == 22 && minutes >= 9) {
-                    
-					tvhook.send("BonziTV is now off air.");
-                    this.room.emit("replaceTVWithURL",{
-                        id: "kQsoV69uGIY",
-                        hourAmount: hours,
-                        minuteAmount: minutes,
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
-                } else {
-                    
-                    var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
-                    var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-                    this.room.vid = vid; 
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: vidId
-                    })
-    
-                }
+                var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
+                var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+                this.room.vid = vid;
+                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                this.room.emit("replaceTVWithURL", {
+                    id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                    identId: vidId,
+                });
             }
-            bonziTvCool = true;
-            setTimeout(function(){
-                bonziTvCool = false;
-            },20000)
+        } else {
+            if ((hours == 16 && minutes <= 30) || (hours == 9 && minutes <= 25) || (hours == 13 && minutes <= 20)) {
+                var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
+                var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+                this.room.vid = vid;
+                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                this.room.emit("replaceTVWithURL", {
+                    id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                    identId: vidId,
+                });
+            } else if (hours == 17) {
+                var num = Math.floor(Math.random() * videoIds5PM.length);
+                var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+                this.room.vid = vid;
+                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                this.room.emit("replaceTVWithURL", {
+                    id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                    identId: vidId,
+                });
+            } else if (hours == 18 && minutes <= 30) {
+                var num = Math.floor(Math.random() * videoIds7PM.length);
+                var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+                this.room.vid = vid;
+                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                this.room.emit("replaceTVWithURL", {
+                    id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                    identId: vidId,
+                });
+            } else if (hours == 19 && hours <= 22) {
+                var num = Math.floor(Math.random() * videoIds7PM.length);
+                var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+                this.room.vid = vid;
+                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                this.room.emit("replaceTVWithURL", {
+                    id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                    identId: vidId,
+                });
+            } else if (hours == 23 || (hours == 22 && minutes >= 9)) {
+                tvhook.send("BonziTV is now off air.");
+                this.room.emit("replaceTVWithURL", {
+                    id: "kQsoV69uGIY",
+                    hourAmount: hours,
+                    minuteAmount: minutes,
+                    identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=", ""),
+                });
+            } else {
+                var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
+                var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+                this.room.vid = vid;
+                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                this.room.emit("replaceTVWithURL", {
+                    id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                    identId: vidId,
+                });
+            }
         }
     },
-    
-    "scratch": function(vidRaw) {
+
+    setbonzitvvid2: function (vidRaw) {
+        if (this.room.rid != "bonzi_tv") return;
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
+
+        var vidId = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
+        this.room.vid = vidId;
+        this.room.emit("replaceTVWithURL", {
+            id: vidId,
+            identId: vidId,
+        });
+    },
+    setbonzitvvid3: function (vidRaw) {
+        if (this.room.rid != "bonzi_tv") return;
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
+
+        var bonziTvIdent = ["https://www.youtube.com/watch?v=l_F7ZyzufPg", "https://www.youtube.com/watch?v=GCA5CB5uUyA", "https://www.youtube.com/watch?v=rBPKOZNd7mA", "https://www.youtube.com/watch?v=VJs_VALzi_8"];
+        var ident = Math.floor(Math.random() * bonziTvIdent.length);
+        var vidId = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
+        this.room.vid = vidId;
+        this.room.emit("replaceTVWithURL", {
+            id: vidId,
+            identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=", ""),
+        });
+    },
+    scratch: function (vidRaw) {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
             return;
@@ -1343,28 +1416,27 @@ let userCommands = {
         var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
         this.room.emit("scratch", {
             guid: this.guid,
-            vid: vid
+            vid: vid,
         });
     },
     sticker: function (sticker) {
         if (Object.keys(stickers).includes(sticker)) {
             this.room.emit("talk", {
                 text: `<img src="./img/stickers/${sticker}.png" width=170>`,
-				say: stickers[sticker],
+                say: stickers[sticker],
                 guid: this.guid,
             });
         }
-    },  
-    "whynot": "passthrough",
-    "isee": "passthrough",
-    "dtvhater": function() {
-        
+    },
+    whynot: "passthrough",
+    isee: "passthrough",
+    dtvhater: function () {
         this.room.emit("dtvhater", {
             guid: this.guid,
-            target: sanitize(Utils.argsString(arguments))
+            target: sanitize(Utils.argsString(arguments)),
         });
     },
-	// it needs to stay removed because people spam it too much
+    // it needs to stay removed because people spam it too much
     // nevermind
     /*
     wtf: function (text) {
@@ -1391,13 +1463,13 @@ let userCommands = {
         this.room.emit("talk", {
             text: `<img src="./img/misc/topjej.png">`,
             guid: this.guid,
-			say: "toppest jej"
+            say: "toppest jej",
         });
     },
-    "report": function(ip, reason) {
-		Ban.addReport(ip, ip, reason, this.public.name)
+    report: function (ip, reason) {
+        Ban.addReport(ip, ip, reason, this.public.name);
     },
-	kick: function (data) {
+    kick: function (data) {
         if (this.private.runlevel < 3) {
             this.socket.emit("alert", "This command requires administrator privileges");
             return;
@@ -1422,7 +1494,7 @@ let userCommands = {
             this.socket.emit("alert", "The user you are trying to kick left. Get dunked on nerd");
         }
     },
-	nofuckoff: function (data) {
+    nofuckoff: function (data) {
         if (this.private.runlevel < 3) {
             this.socket.emit("alert", "This command requires administrator privileges");
             return;
@@ -1431,13 +1503,12 @@ let userCommands = {
             this.socket.emit("accountRequired");
             return;
         }
-        
-		this.room.emit("nofuckoff",{
-			guid: data
-		})
+
+        this.room.emit("nofuckoff", {
+            guid: data,
+        });
         var user = this;
-        setTimeout(function(){
-                        
+        setTimeout(function () {
             let pu = user.room.getUsersPublic()[data];
             if (pu && pu.color) {
                 let target;
@@ -1449,23 +1520,22 @@ let userCommands = {
                 target.socket.emit("kick", {
                     reason: "No fuck off.",
                 });
-                setTimeout(function(){
+                setTimeout(function () {
                     target.disconnect();
-                },500);
+                }, 500);
             } else {
                 user.socket.emit("alert", "The user you are trying to dissolve left. Get dunked on nerd");
             }
-
-        },1084)
+        }, 1084);
     },
-	send_invite: function () {
-		// kinda did it
-		this.room.emit("talk",{
-			text: "The Discord Invite: https://discord.gg/zpnXyrDYmm",
-			say: "- bob",
-			guid: this.guid
-		})
-	},
+    send_invite: function () {
+        // kinda did it
+        this.room.emit("talk", {
+            text: "The Discord Invite: https://discord.gg/zpnXyrDYmm",
+            say: "- bob",
+            guid: this.guid,
+        });
+    },
     ban: function (data) {
         if (this.private.runlevel < 3) {
             this.socket.emit("alert", "This command requires administrator privileges");
@@ -1488,10 +1558,10 @@ let userCommands = {
             } else if (target.socket.request.connection.remoteAddress == "::ffff:127.0.0.1") {
                 Ban.removeBan(target.getIp());
             } else {
-				if (target.private.runlevel > 2 && (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1")) {
-					return;
-				} 
-                Ban.addBan(target.getIp(),24,"You got banned.");
+                if (target.private.runlevel > 2 && this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1") {
+                    return;
+                }
+                Ban.addBan(target.getIp(), 24, "You got banned.");
                 target.socket.emit("ban", {
                     reason: data.reason,
                 });
@@ -1518,7 +1588,7 @@ let userCommands = {
         this.room.emit("earth", {
             guid: this.guid,
         });
-    },  
+    },
     grin: function (swag) {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
@@ -1533,9 +1603,9 @@ let userCommands = {
             this.socket.emit("accountRequired");
             return;
         }
-            this.room.emit("clap", {
-                guid: this.guid,
-       });
+        this.room.emit("clap", {
+            guid: this.guid,
+        });
     },
     wave: function (swag) {
         if (!Ban.hasAnAccount(this.getIp())) {
@@ -1564,17 +1634,17 @@ let userCommands = {
             guid: this.guid,
         });
     },
-    "backflip": function(swag) {
+    backflip: function (swag) {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
             return;
         }
         this.room.emit("backflip", {
             guid: this.guid,
-            swag: swag == "swag"
+            swag: swag == "swag",
         });
     },
-    "sad": function(swag) {
+    sad: function (swag) {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
             return;
@@ -1583,7 +1653,7 @@ let userCommands = {
             guid: this.guid,
         });
     },
-    "think": function(swag) {
+    think: function (swag) {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
             return;
@@ -1595,33 +1665,34 @@ let userCommands = {
     godlevel: function () {
         this.socket.emit("alert", "Your godlevel is " + this.private.runlevel + ".");
     },
-    "linux": "passthrough",
-    "pawn": "passthrough",
-    "bees": "passthrough",
-    "color": function(color) {
+    linux: "passthrough",
+    pawn: "passthrough",
+    bees: "passthrough",
+    color: function (color) {
         if (typeof color != "undefined") {
-            if (settings.bonziColors.indexOf(color) == -1)
-                return;
-            
+            if (settings.bonziColors.indexOf(color) == -1) return;
+
             this.public.color = color;
         } else {
             let bc = settings.bonziColors;
-            this.public.color = bc[
-                Math.floor(Math.random() * bc.length)
-            ];
+            this.public.color = bc[Math.floor(Math.random() * bc.length)];
         }
 
         this.room.updateUser(this);
     },
-    "char": function(color) {
+    voice: function (color) {
+        this.public.voice = color;
+
+        this.room.updateUser(this);
+    },
+    char: function (color) {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
             return;
         }
         if (typeof color != "undefined") {
-            if (settings.bonziChars.indexOf(color) == -1)
-                return;
-            
+            if (settings.bonziChars.indexOf(color) == -1) return;
+
             this.public.color = color;
         } else {
             this.public.color = "swag";
@@ -1629,7 +1700,7 @@ let userCommands = {
 
         this.room.updateUser(this);
     },
-    "pope": function() {
+    pope: function () {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
             return;
@@ -1637,20 +1708,20 @@ let userCommands = {
         this.public.color = "pope";
         this.room.updateUser(this);
     },
-    "diogo": function() {
-		if (data.name == "Diogo" && this.getIp() == "84.91.29.6") {
-			this.public.color = "diogo";
-			this.room.updateUser(this);
-		} 
+    diogo: function () {
+        if (data.name == "Diogo" && this.getIp() == "84.91.29.6") {
+            this.public.color = "diogo";
+            this.room.updateUser(this);
+        }
     },
-    "asshole": function() {
+    asshole: function () {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
             return;
         }
         this.room.emit("asshole", {
             guid: this.guid,
-            target: sanitize(Utils.argsString(arguments))
+            target: sanitize(Utils.argsString(arguments)),
         });
     },
     video: function (vidRaw) {
@@ -1667,7 +1738,7 @@ let userCommands = {
             vid: vid,
         });
     },
-    obama: async function(args)  {
+    obama: async function (args) {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
             return;
@@ -1678,19 +1749,19 @@ let userCommands = {
         let request;
 
         try {
-            this.socket.emit("talk",{
-                guid:this.guid,
-                text:"<small>Only you can see this.</small><br>/obama is proccessing your text input...<br><progress>",
-                say:"-e"
-            })
+            this.socket.emit("talk", {
+                guid: this.guid,
+                text: "<small>Only you can see this.</small><br>/obama is proccessing your text input...<br><progress>",
+                say: "-e",
+            });
             request = await snekfetch.post("http://talkobamato.me/synthesize.py", { redirect: false }).attach("input_text", words);
         } catch (err) {
             console.error(err);
-            this.socket.emit("talk",{
-                guid:this.guid,
-                text:"<small>Only you can see this.</small><br>Command failed! Probably an issue with your input.",
-                say:"Command failed! Probably an issue with your input."
-            })
+            this.socket.emit("talk", {
+                guid: this.guid,
+                text: "<small>Only you can see this.</small><br>Command failed! Probably an issue with your input.",
+                say: "Command failed! Probably an issue with your input.",
+            });
             return;
         }
 
@@ -1698,25 +1769,26 @@ let userCommands = {
         const videoURLBase = `http://talkobamato.me/synth/output/${request.headers.location.split("=")[1]}`;
         const videoURL = `${videoURLBase}/obama.mp4`;
         const videoDoneURL = `${videoURLBase}/video_created.txt`;
-        let videoDone = await snekfetch.get(videoDoneURL).catch(() => { });
+        let videoDone = await snekfetch.get(videoDoneURL).catch(() => {});
 
-        while (!videoDone) { // if the video isn't done, videoDone will be undefined
+        while (!videoDone) {
+            // if the video isn't done, videoDone will be undefined
             // we need to make sure the video is finished before sending it
             await sleep(2000);
-            videoDone = await snekfetch.get(videoDoneURL).catch(() => { });
+            videoDone = await snekfetch.get(videoDoneURL).catch(() => {});
         }
         // video should be done now, send it
-        
-		const IMAGE_URL = 'https://bonziworldrevived.tk/img/bonzi_closeup/'+this.public.color+'.png';
-		hook.setUsername(this.public.name);
-		hook.setAvatar(IMAGE_URL);
-					
-		tmafehook.setUsername(this.public.name);
-		tmafehook.setAvatar(IMAGE_URL);
-					
-        hook.send(this.public.name+" sent /obama: "+videoURL);
-        tmafehook.send(this.public.name+" sent /obama: "+videoURL);
-        this.room.emit("video2"/*"video"*/, {
+
+        const IMAGE_URL = "https://bonziworldrevived.tk/img/bonzi_closeup/" + this.public.color + ".png";
+        hook.setUsername(this.public.name);
+        hook.setAvatar(IMAGE_URL);
+
+        tmafehook.setUsername(this.public.name);
+        tmafehook.setAvatar(IMAGE_URL);
+
+        hook.send(this.public.name + " sent /obama: " + videoURL);
+        tmafehook.send(this.public.name + " sent /obama: " + videoURL);
+        this.room.emit("video2" /*"video"*/, {
             guid: this.guid,
             vid: videoURL,
         });
@@ -1749,7 +1821,7 @@ let userCommands = {
             vid: vid,
         });
     },
-	/*
+    /*
     "owo": function() {
         this.room.emit("owo", {
             guid: this.guid,
@@ -1763,9 +1835,9 @@ let userCommands = {
         });
     },
 	*/
-    "triggered": "passthrough",
-    "twiggered": "passthrough",
-    "vaporwave": function() {
+    triggered: "passthrough",
+    twiggered: "passthrough",
+    vaporwave: function () {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
             return;
@@ -1773,55 +1845,65 @@ let userCommands = {
         this.socket.emit("vaporwave");
         this.room.emit("youtube", {
             guid: this.guid,
-            vid: "aVRzocGJzw8"
+            vid: "aVRzocGJzw8",
         });
     },
-    "unvaporwave": function() {
+    unvaporwave: function () {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
             return;
         }
         this.socket.emit("unvaporwave");
     },
-    "name": function() {
+    name: function () {
         let argsString = Utils.argsString(arguments);
-        if (argsString.length > this.room.prefs.name_limit)
-            return;
+        if (argsString.length > this.room.prefs.name_limit) return;
 
         let name = argsString || this.room.prefs.defaultName;
         this.public.name = this.private.sanitize ? sanitize(name) : name;
-		let text = this.public.name;
-		if (!text.match(/night/gi)) {
-				text = text.replace(/nig/gi,"bobba ")
-			}
-            text = text.replace(/{NAME}/gi,"Anonymous")
-            text = text.replace(/{COLOR}/gi,this.public.color)
-			text = text.replace(/nïg/gi, "bobba ")
-			text = text.replace(/nijg/gi,"bobba ")
-			text = text.replace(/ninj/gi,"bobba ")
-			text = text.replace(/nijj/gi,"bobba ")
-			text = text.replace(/nii/gi,"bobba ") // ugh
-			text = text.replace(/nie/gi,"bobba ")
-			text = text.replace(/nei/gi,"bobba ")
-			text = text.replace(/nih/gi,"bobba ")
-			text = text.replace(/ni'g/gi,"bobba ")
-			text = text.replace(/n'ig/gi,"bobba ")
-			text = text.replace(/neeg/gi,"bobba ") // really crappy
-			if (!text.match(/might/gi)) {
-				text = text.replace(/mig/gi,"bobba ")
-			}
-			text = text.replace(/mijg/gi,"bobba ")
-			text = text.replace(/mijj/gi,"bobba ")
-			text = text.replace(/mii/gi,"bobba ")
-			text = text.replace(/mie/gi,"bobba ")
-			text = text.replace(/mei/gi,"bobba ")
-			text = text.replace(/mih/gi,"bobba ")
-			text = text.replace(/mi'g/gi,"bobba ")
-			text = text.replace(/m'ig/gi,"bobba ")
-			text = text.replace(/meeg/gi,"bobba ")
-		if (this.public.name.match(/Seamus/gi) && this.private.runlevel < 3) {
-			this.public.name = "Impersonator"
-		}
+        let text = this.public.name;
+        for (const i in Ban.bonziAccounts) {
+            const thename = Ban.bonziAccounts[i].bonziId;
+            if (thename == name) {
+                if (Ban.hasAnAccount(this.getIp()) && Ban.bonziAccounts[this.getIp()].bonziId != name) {
+
+                    this.public.name = "Impersonator";
+
+                }
+            }
+        }
+        if (!text.match(/night/gi)) {
+            text = text.replace(/nig/gi, "bobba ");
+        }
+        
+        text = text.replace(/{NAME}/gi, "Anonymous");
+        text = text.replace(/{COLOR}/gi, this.public.color);
+        text = text.replace(/nïg/gi, "bobba ");
+        text = text.replace(/nijg/gi, "bobba ");
+        text = text.replace(/ninj/gi, "bobba ");
+        text = text.replace(/nijj/gi, "bobba ");
+        text = text.replace(/nii/gi, "bobba "); // ugh
+        text = text.replace(/nie/gi, "bobba ");
+        text = text.replace(/nei/gi, "bobba ");
+        text = text.replace(/nih/gi, "bobba ");
+        text = text.replace(/ni'g/gi, "bobba ");
+        text = text.replace(/n'ig/gi, "bobba ");
+        text = text.replace(/neeg/gi, "bobba "); // really crappy
+        if (!text.match(/might/gi)) {
+            text = text.replace(/mig/gi, "bobba ");
+        }
+        text = text.replace(/mijg/gi, "bobba ");
+        text = text.replace(/mijj/gi, "bobba ");
+        text = text.replace(/mii/gi, "bobba ");
+        text = text.replace(/mie/gi, "bobba ");
+        text = text.replace(/mei/gi, "bobba ");
+        text = text.replace(/mih/gi, "bobba ");
+        text = text.replace(/mi'g/gi, "bobba ");
+        text = text.replace(/m'ig/gi, "bobba ");
+        text = text.replace(/meeg/gi, "bobba ");
+        if (this.public.name.match(/Seamus/gi) && this.private.runlevel < 3) {
+            this.public.name = "Impersonator";
+        }
         this.room.updateUser(this);
     },
     broadcast: function (...text) {
@@ -1831,50 +1913,38 @@ let userCommands = {
         }
         this.room.emit("broadcast", this.private.sanitize ? sanitize(text.join(" ")) : text.join(" "));
     },
-    "pitch": function(pitch) {
+    pitch: function (pitch) {
         pitch = parseInt(pitch);
 
         if (isNaN(pitch)) return;
 
-        this.public.pitch = Math.max(
-            Math.min(
-                parseInt(pitch),
-                this.room.prefs.pitch.max
-            ),
-            this.room.prefs.pitch.min
-        );
+        this.public.pitch = Math.max(Math.min(parseInt(pitch), this.room.prefs.pitch.max), this.room.prefs.pitch.min);
 
         this.room.updateUser(this);
     },
-    "speed": function(speed) {
+    speed: function (speed) {
         speed = parseInt(speed);
 
         if (isNaN(speed)) return;
 
-        this.public.speed = Math.max(
-            Math.min(
-                parseInt(speed),
-                this.room.prefs.speed.max
-            ),
-            this.room.prefs.speed.min
-        );
-        
+        this.public.speed = Math.max(Math.min(parseInt(speed), this.room.prefs.speed.max), this.room.prefs.speed.min);
+
         this.room.updateUser(this);
     },
-    "startyping": function(swag) {
+    startyping: function (swag) {
         this.room.emit("typing", {
-            guid: this.guid
+            guid: this.guid,
         });
     },
-    "stoptyping": function(swag) {
+    stoptyping: function (swag) {
         this.room.emit("stoptyping", {
-            guid: this.guid
+            guid: this.guid,
         });
     },
-    "setguid": function(data) {
+    setguid: function (data) {
         this.guid = data;
     },
-	imageapi: function (data) {
+    imageapi: function (data) {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
             return;
@@ -1883,35 +1953,35 @@ let userCommands = {
             return;
         }
         if (data.includes('"') || data.length > 8 * 1024 * 1024) return;
-        this.room.emit("talk", { guid: this.guid, text: `<img alt="assume png" src="data:image/png;base64,${data}"/>`, say: "-e" })
+        this.room.emit("talk", { guid: this.guid, text: `<img alt="assume png" src="data:image/png;base64,${data}"/>`, say: "-e" });
     },
-    "dm2":function(data){
+    dm2: function (data) {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
             return;
         }
-        if(typeof data != "object") return
-        let pu = this.room.getUsersPublic()[data.target]
-        if(pu&&pu.color){
+        if (typeof data != "object") return;
+        let pu = this.room.getUsersPublic()[data.target];
+        if (pu && pu.color) {
             let target;
-            this.room.users.map(n=>{
-                if(n.guid==data.target){
+            this.room.users.map((n) => {
+                if (n.guid == data.target) {
                     target = n;
                 }
-            })
-            data.text = sanitize(data.text,settingsSantize)
-            target.socket.emit("talk",{
-                guid:this.guid,
-                text:"<small>Only you can see this.</small><br>"+data.text,
-                say:data.text
-            })
-            this.socket.emit("talk",{
-                guid:this.guid,
-                text:"<small>Only "+pu.name+" can see this.</small><br>"+data.text,
-                say:data.text
-            })
-        }else{
-            this.socket.emit('alert','The user you are trying to dm left. Get dunked on nerd')
+            });
+            data.text = sanitize(data.text, settingsSantize);
+            target.socket.emit("talk", {
+                guid: this.guid,
+                text: "<small>Only you can see this.</small><br>" + data.text,
+                say: data.text,
+            });
+            this.socket.emit("talk", {
+                guid: this.guid,
+                text: "<small>Only " + pu.name + " can see this.</small><br>" + data.text,
+                say: data.text,
+            });
+        } else {
+            this.socket.emit("alert", "The user you are trying to dm left. Get dunked on nerd");
         }
     },
 };
@@ -1927,11 +1997,11 @@ class User {
         if (Ban.hasAnAccount(this.getIp())) {
             if (Ban.bonziAccounts[this.getIp()] != null) {
                 if (Ban.bonziAccounts[this.getIp()].name) {
-                    this.guid = Ban.bonziAccounts[this.getIp()].name.replaceAll(/ /gi,"").replaceAll(".","_")+Math.floor(Math.random() * 1337);
+                    this.guid = Ban.bonziAccounts[this.getIp()].name.replaceAll(/ /gi, "").replaceAll(".", "_") + Math.floor(Math.random() * 1337);
                 }
             }
         }
-	    if (Ban.isBanned(this.getIp())) {
+        if (Ban.isBanned(this.getIp())) {
             Ban.handleBan(this.socket);
         }
         // an attempt of preventing floods in a easy way
@@ -1939,63 +2009,64 @@ class User {
         this.private = {
             login: false,
             sanitize: true,
-            runlevel: 0
+            runlevel: 0,
         };
 
         this.cool = false;
         this.public = {
-            color: settings.bonziColors[Math.floor(
-                Math.random() * settings.bonziColors.length
-            )]
+            color: settings.bonziColors[Math.floor(Math.random() * settings.bonziColors.length)],
         };
 
         if (Ban.hasAnAccount(this.getIp())) {
-            if ((Math.random() * 8) == 1) {
+            if (Math.random() * 8 == 1) {
                 this.public.color = "swag";
             }
         }
         if (!connectLogCool) {
-
-            log.access.log('info', 'connect', {
+            log.access.log("info", "connect", {
                 guid: this.guid,
                 ip: this.getIp(),
-                userAgent: this.getAgent()
+                userAgent: this.getAgent(),
             });
             connectLogCool = true;
-            setTimeout(function(){
+            setTimeout(function () {
                 connectLogCool = false;
-            },1000);
+            }, 1000);
         }
-		
-		if (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1" && this.getIp() != "::ffff:192.168.40.47") {
-			if (this.getIp() == this.socket.request.connection.remoteAddress) {
-				Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Access to this part of the server has been denied.<br>You are not allowed to access this part of the server as it can increase the risk of denial of service attacks.<br>Please use the domain if you want your ban removed.");
-			}
-		}
+
+        if (this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1" && this.getIp() != "::ffff:192.168.40.47") {
+            if (this.getIp() == this.socket.request.connection.remoteAddress) {
+                Ban.addBan(
+                    this.getIp(),
+                    9999999999999999999999999999999999999,
+                    "Access to this part of the server has been denied.<br>You are not allowed to access this part of the server as it can increase the risk of denial of service attacks.<br>Please use the domain if you want your ban removed."
+                );
+            }
+        }
         if (this.getAgent() == "Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0") {
-            Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Get out and stay out. Dyslexic, you're such a troublemaker.");
+            Ban.addBan(this.getIp(), 9999999999999999999999999999999999999, "Get out and stay out. Dyslexic, you're such a troublemaker.");
             Ban.handleBan(this.socket);
         }
-		if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1" || this.getIp() == "72.23.139.58") {
-			this.private.runlevel = 3;
+        if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1" || this.getIp() == "72.23.139.58") {
+            this.private.runlevel = 3;
             this.socket.emit("admin");
-			this.private.sanitize = false;
-		}
+            this.private.sanitize = false;
+        }
         /* 
         if (this.getAgent() == "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36") { 
             Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Too many infractions, No longer welcome in the community.");
         }
         */
-       this.socket.on('login', this.login.bind(this));
-       this.socket.on('register', this.register.bind(this));
+        this.socket.on("login", this.login.bind(this));
+        this.socket.on("register", this.register.bind(this));
     }
 
     getIp() {
-        return this.socket.handshake.headers['cf-connecting-ip'] || this.socket.request.connection.remoteAddress;
+        return this.socket.handshake.headers["cf-connecting-ip"] || this.socket.request.connection.remoteAddress;
     }
-	
+
     getAgent() {
-        return this.socket.handshake.headers['user-agent'];
+        return this.socket.handshake.headers["user-agent"];
     }
 
     getPort() {
@@ -2003,213 +2074,219 @@ class User {
     }
 
     register(data) {
-        if (typeof data != 'object') return; // Crash fix (issue #9)
-        this.socket.emit("alert","Successfully registered! Please reload the page for this to take effect");
-        if (data.name == '') {
+        if (typeof data != "object") return; // Crash fix (issue #9)
+        this.socket.emit("alert", "Successfully registered! Please reload the page for this to take effect");
+        if (data.name == "") {
             this.socket.emit("loginFail", {
-                reason: "You must have a name."
+                reason: "You must have a name.",
             });
-			return;
-		}
-        if (data.guid == '') {
+            return;
+        }
+        if (data.guid == "") {
             this.socket.emit("loginFail", {
-                reason: "You must have a Bonzi ID."
+                reason: "You must have a Bonzi ID.",
             });
-			return;
-		}
+            return;
+        }
         for (const i in Ban.bonziAccounts) {
             const name = Ban.bonziAccounts[i].bonziId;
             const id = Ban.bonziAccounts[i].name;
             if (name == data.name) {
                 this.socket.emit("loginFail", {
-                    reason: "Impersonation is not allowed. Your submission has been denied."
+                    reason: "Impersonation is not allowed. Your submission has been denied.",
                 });
                 return;
             }
             if (id == data.guid) {
                 this.socket.emit("loginFail", {
-                    reason: "Impersonation is not allowed. Your submission has been denied."
+                    reason: "Impersonation is not allowed. Your submission has been denied.",
                 });
                 return;
             }
         }
         if (data.name.match(/Seamus/gi)) {
             this.socket.emit("loginFail", {
-                reason: "Impersonation is not allowed. Your submission has been denied."
+                reason: "Impersonation is not allowed. Your submission has been denied.",
             });
             return;
         }
         if (data.name.match(/Diogo/gi)) {
             this.socket.emit("loginFail", {
-                reason: "Impersonation is not allowed. Your submission has been denied."
+                reason: "Impersonation is not allowed. Your submission has been denied.",
             });
             return;
         }
         if (data.name.match(/ /gi)) {
             this.socket.emit("loginFail", {
-                reason: "Your name cannot have spaces. Your submission has been denied."
+                reason: "Your name cannot have spaces. Your submission has been denied.",
             });
             return;
         }
-        if (data.guid.match(/ /gi) ) {
+        if (data.guid.match(/ /gi)) {
             this.socket.emit("loginFail", {
-                reason: "Your Bonzi ID cannot have spaces. Your submission has been denied."
+                reason: "Your Bonzi ID cannot have spaces. Your submission has been denied.",
             });
             return;
         }
-		this.guid = data.name.replaceAll(/ /gi,"").replaceAll(".","_")+Math.floor(Math.random() * 1337);
-        Ban.addAccount(this.getIp(),sanitize(data.name),sanitize(data.guid));
+        this.guid = data.name.replaceAll(/ /gi, "").replaceAll(".", "_") + Math.floor(Math.random() * 1337);
+        Ban.addAccount(this.getIp(), sanitize(data.name), sanitize(data.guid));
     }
     login(data) {
-        if (typeof data != 'object') return; // Crash fix (issue #9)
-        
+        if (typeof data != "object") return; // Crash fix (issue #9)
+
         if (this.private.login) return;
 
-        if (this.getAgent().match(/20100101/gi)) { 
+        if (this.getAgent().match(/20100101/gi)) {
             //this.socket.emit("ban", {
-                //reason: "Warning: <br>Your browser's engine (most likely Mozilla Firefox) is used for suspicious activity.<br>Do not use this browser that has a proxy for malicious purposes.<br><b>You will be punished if caught.</b><br><button onclick=\"$('#page_ban').hide()\">OK</button><br><small>This is just a warning. You aren't banned.",
+            //reason: "Warning: <br>Your browser's engine (most likely Mozilla Firefox) is used for suspicious activity.<br>Do not use this browser that has a proxy for malicious purposes.<br><b>You will be punished if caught.</b><br><button onclick=\"$('#page_ban').hide()\">OK</button><br><small>This is just a warning. You aren't banned.",
             //});
         }
-        
-		if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1") {
-			this.private.runlevel = 3;
+
+        if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1") {
+            this.private.runlevel = 3;
             this.socket.emit("admin");
-			this.private.sanitize = false;
-		}
-        
+            this.private.sanitize = false;
+        }
+
         let rid = data.room;
-        
-		// Check if room was explicitly specified
-		var roomSpecified = true;
 
-		// If not, set room to public
-		if ((typeof rid == "undefined") || (rid === "")) {
-			rid = "default";
-			roomSpecified = false;
-		}
-        
+        // Check if room was explicitly specified
+        var roomSpecified = true;
+
+        // If not, set room to public
+        if (typeof rid == "undefined" || rid === "") {
+            rid = "default";
+            roomSpecified = false;
+        }
+
         if (!connectLogCool) {
-
-            log.info.log('info', 'login', {
+            log.info.log("info", "login", {
                 guid: this.guid,
             });
-            log.info.log('info', 'roomSpecified', {
+            log.info.log("info", "roomSpecified", {
                 guid: this.guid,
                 roomSpecified: roomSpecified,
-                agent: this.getAgent()
+                agent: this.getAgent(),
             });
             connectLogCool = true;
-            setTimeout(function(){
+            setTimeout(function () {
                 connectLogCool = false;
-            },1000);
+            }, 1000);
         }
-		// If private room
-		if (roomSpecified) {
+        // If private room
+        if (roomSpecified) {
             if (sanitize(rid) != rid) {
                 this.socket.emit("loginFail", {
-                    reason: "nameMal"
+                    reason: "nameMal",
                 });
                 return;
             }
 
-			// If room does not yet exist
-			if (typeof rooms[rid] == "undefined") {
-				// Clone default settings
-				var tmpPrefs = JSON.parse(JSON.stringify(settings.prefs.private));
-				// Set owner
-				tmpPrefs.owner = this.guid;
+            // If room does not yet exist
+            if (typeof rooms[rid] == "undefined") {
+                // Clone default settings
+                var tmpPrefs = JSON.parse(JSON.stringify(settings.prefs.private));
+                // Set owner
+                tmpPrefs.owner = this.guid;
                 newRoom(rid, tmpPrefs);
-			}
-			// If room is full, fail login
-			else if (rooms[rid].isFull()) {
-				log.info.log('info', 'loginFail', {
-					guid: this.guid,
-					reason: "full"
-				});
-				return this.socket.emit("loginFail", {
-					reason: "full"
-				});
-			}
-		// If public room
-		} else {
-			// If room does not exist or is full, create new room
-			if ((typeof rooms[rid] == "undefined") || rooms[rid].isFull()) {
-				rid = "default";
+            }
+            // If room is full, fail login
+            else if (rooms[rid].isFull()) {
+                log.info.log("info", "loginFail", {
+                    guid: this.guid,
+                    reason: "full",
+                });
+                return this.socket.emit("loginFail", {
+                    reason: "full",
+                });
+            }
+            // If public room
+        } else {
+            // If room does not exist or is full, create new room
+            if (typeof rooms[rid] == "undefined" || rooms[rid].isFull()) {
+                rid = "default";
                 roomsPublic.push(rid);
                 // Create room
                 newRoom(rid, settings.prefs.public);
-			}
+            }
         }
-        
-        this.room = rooms[rid];	
-			
+
+        this.room = rooms[rid];
+
         if (Ban.hasAnAccount(this.getIp())) {
             if (Ban.bonziAccounts[this.getIp()].name != null) {
-                data.name = sanitize(Ban.bonziAccounts[this.getIp()].bonziId);
+                if (data.name == "") {
+
+                    data.name = sanitize(Ban.bonziAccounts[this.getIp()].bonziId);
+
+                }
             }
         }
         // Check name
-		if (data.name.match(/Seamus/gi) && this.private.runlevel < 3) {
-			data.name = "Impersonator"
-		}
-		if (data.name == "Diogo" && this.getIp() == "84.91.29.6") {
-			//this.public.color = "diogo";
-		}
-		let text = data.name;
-		if (!text.match(/night/gi)) {
-				text = text.replace(/nig/gi,"bobba ")
-			}
-            text = text.replace(/nik/gi,"bobba ")
-            text = text.replace(/ck gu/gi,"bobba ")
-			text = text.replace(/nïg/gi, "bobba ")
-			text = text.replace(/nijg/gi,"bobba ")
-			text = text.replace(/ninj/gi,"bobba ")
-			text = text.replace(/nijj/gi,"bobba ")
-			text = text.replace(/nii/gi,"bobba ") // ugh
-			text = text.replace(/nie/gi,"bobba ")
-			text = text.replace(/nei/gi,"bobba ")
-			text = text.replace(/nih/gi,"bobba ")
-			text = text.replace(/ni'g/gi,"bobba ")
-			text = text.replace(/n'ig/gi,"bobba ")
-			text = text.replace(/neeg/gi,"bobba ") // really crappy
-			if (!text.match(/might/gi)) {
-				text = text.replace(/mig/gi,"bobba ")
-			}
-			text = text.replace(/mijg/gi,"bobba ")
-			text = text.replace(/mijj/gi,"bobba ")
-			text = text.replace(/mii/gi,"bobba ")
-			text = text.replace(/mie/gi,"bobba ")
-			text = text.replace(/mei/gi,"bobba ")
-			text = text.replace(/mih/gi,"bobba ")
-			text = text.replace(/mi'g/gi,"bobba ")
-			text = text.replace(/m'ig/gi,"bobba ")
-			text = text.replace(/meeg/gi,"bobba ")
-            text = text.replace(/{NAME}/gi,"Anonymous")
-            text = text.replace(/{COLOR}/gi,this.public.color)
-		this.public.name = sanitize(data.name) || this.room.prefs.defaultName;
+        
+        for (const i in Ban.bonziAccounts) {
+            const thename = Ban.bonziAccounts[i].bonziId;
+            if (thename == data.name) {
+                if (Ban.hasAnAccount(this.getIp()) && Ban.bonziAccounts[this.getIp()].bonziId != data.name) {
+
+                    this.public.name = "Impersonator";
+
+                }
+            }
+        }
+        if (data.name.match(/Seamus/gi) && this.private.runlevel < 3) {
+            data.name = "Impersonator";
+        }
+        if (data.name == "Diogo" && this.getIp() == "84.91.29.6") {
+            //this.public.color = "diogo";
+        }
+        let text = data.name;
+        if (!text.match(/night/gi)) {
+            text = text.replace(/nig/gi, "bobba ");
+        }
+        text = text.replace(/nik/gi, "bobba ");
+        text = text.replace(/ck gu/gi, "bobba ");
+        text = text.replace(/nïg/gi, "bobba ");
+        text = text.replace(/nijg/gi, "bobba ");
+        text = text.replace(/ninj/gi, "bobba ");
+        text = text.replace(/nijj/gi, "bobba ");
+        text = text.replace(/nii/gi, "bobba "); // ugh
+        text = text.replace(/nie/gi, "bobba ");
+        text = text.replace(/nei/gi, "bobba ");
+        text = text.replace(/nih/gi, "bobba ");
+        text = text.replace(/ni'g/gi, "bobba ");
+        text = text.replace(/n'ig/gi, "bobba ");
+        text = text.replace(/neeg/gi, "bobba "); // really crappy
+        if (!text.match(/might/gi)) {
+            text = text.replace(/mig/gi, "bobba ");
+        }
+        text = text.replace(/mijg/gi, "bobba ");
+        text = text.replace(/mijj/gi, "bobba ");
+        text = text.replace(/mii/gi, "bobba ");
+        text = text.replace(/mie/gi, "bobba ");
+        text = text.replace(/mei/gi, "bobba ");
+        text = text.replace(/mih/gi, "bobba ");
+        text = text.replace(/mi'g/gi, "bobba ");
+        text = text.replace(/m'ig/gi, "bobba ");
+        text = text.replace(/meeg/gi, "bobba ");
+        text = text.replace(/{NAME}/gi, "Anonymous");
+        text = text.replace(/{COLOR}/gi, this.public.color);
+        this.public.name = sanitize(data.name) || this.room.prefs.defaultName;
         if (this.public.name.includes == "Cosmic") {
             this.public.name.replace("Cosmic", "Imposter");
         }
 
-		if (this.public.name.length > this.room.prefs.name_limit)
-			return this.socket.emit("loginFail", {
-				reason: "nameLength"
-			});
-        
-		if (this.room.prefs.speed.default == "random")
-			this.public.speed = Utils.randomRangeInt(
-				this.room.prefs.speed.min,
-				this.room.prefs.speed.max
-			);
-		else this.public.speed = this.room.prefs.speed.default;
+        if (this.public.name.length > this.room.prefs.name_limit)
+            return this.socket.emit("loginFail", {
+                reason: "nameLength",
+            });
 
-		if (this.room.prefs.pitch.default == "random")
-			this.public.pitch = Utils.randomRangeInt(
-				this.room.prefs.pitch.min,
-				this.room.prefs.pitch.max
-			);
-		else this.public.pitch = this.room.prefs.pitch.default;
+        if (this.room.prefs.speed.default == "random") this.public.speed = Utils.randomRangeInt(this.room.prefs.speed.min, this.room.prefs.speed.max);
+        else this.public.speed = this.room.prefs.speed.default;
 
+        if (this.room.prefs.pitch.default == "random") this.public.pitch = Utils.randomRangeInt(this.room.prefs.pitch.min, this.room.prefs.pitch.max);
+        else this.public.pitch = this.room.prefs.pitch.default;
+        this.public.voice = "espeak";
         let count = 0;
         for (const i in rooms) {
             const room = rooms[i];
@@ -2223,63 +2300,55 @@ class User {
         // i will always find ways to fix things (originally)
         if (count > 0 && this.getIp() != "::1") {
             this.socket.emit("loginFail", {
-                reason: "TooMany"
+                reason: "TooMany",
             });
             return;
         }
         // Join room
         if (this.getIp() == "::ffff:192.168.40.47") {
-
             this.room.join_empty(this);
-
         } else {
-
             this.room.join(this);
-
         }
 
         this.private.login = true;
         this.socket.removeAllListeners("login");
 
-		// Send all user info
-		this.socket.emit('updateAll', {
-			usersPublic: this.room.getUsersPublic()
-		});
+        // Send all user info
+        this.socket.emit("updateAll", {
+            usersPublic: this.room.getUsersPublic(),
+        });
 
-		// Send room info
+        // Send room info
         if (rid == "bonzi_tv" || rid == "news") {
-
-            this.socket.emit('room', {
+            this.socket.emit("room", {
                 room: rid,
                 vid: this.room.vid,
                 curtime: this.room.curtime,
                 isOwner: this.room.prefs.owner == this.guid,
-                isPublic: true
+                isPublic: true,
             });
-
         } else {
-
-            this.socket.emit('room', {
+            this.socket.emit("room", {
                 room: rid,
                 vid: this.room.vid,
                 curtime: this.room.curtime,
                 isOwner: this.room.prefs.owner == this.guid,
-                isPublic: roomsPublic.indexOf(rid) != -1
+                isPublic: roomsPublic.indexOf(rid) != -1,
             });
-
         }
 
-        this.socket.on('talk', this.talk.bind(this));
-        this.socket.on('updatebonzitv', this.updatebonzitv.bind(this));
-        this.socket.on('setbonzitvtime', this.setbonzitvtime.bind(this));
-        this.socket.on('command', this.command.bind(this));
-        this.socket.on('disconnect', this.disconnect.bind(this));
+        this.socket.on("talk", this.talk.bind(this));
+        this.socket.on("updatebonzitv", this.updatebonzitv.bind(this));
+        this.socket.on("setbonzitvtime", this.setbonzitvtime.bind(this));
+        this.socket.on("command", this.command.bind(this));
+        this.socket.on("disconnect", this.disconnect.bind(this));
     }
     setbonzitvtime(data) {
         this.room.curtime = data.curtime;
-        
-        log.info.log('info', 'updateTime', {
-            bonziTvTime: data.curtime
+
+        log.info.log("info", "updateTime", {
+            bonziTvTime: data.curtime,
         });
     }
     async updatebonzitv() {
@@ -2287,276 +2356,272 @@ class User {
             const date = new Date();
             const hours = date.getHours();
             const minutes = date.getMinutes();
-            var bonziTvIdent = [
-                "https://www.youtube.com/watch?v=l_F7ZyzufPg",
-                "https://www.youtube.com/watch?v=GCA5CB5uUyA",
-                "https://www.youtube.com/watch?v=rBPKOZNd7mA",
-                "https://www.youtube.com/watch?v=VJs_VALzi_8"
-            ];
+            var bonziTvIdent = ["https://www.youtube.com/watch?v=l_F7ZyzufPg", "https://www.youtube.com/watch?v=GCA5CB5uUyA", "https://www.youtube.com/watch?v=rBPKOZNd7mA", "https://www.youtube.com/watch?v=VJs_VALzi_8"];
             var ident = Math.floor(Math.random() * bonziTvIdent.length);
-            const ytdl = require('ytdl-core');
+            const ytdl = require("ytdl-core");
 
             var tvhook = new Webhook("https://discord.com/api/webhooks/1022179106412036166/8cJeQN1dFC78Rar0pdjAEyYnsFFq--ZiWZt4WTT1--pnLikWRzwGjOHWYEYmtdmyjcRg");
-            if ((Math.random() * 3) == 1) {
-
-                if (hours == 16 && minutes <= 30 || hours == 9 && minutes <= 25) 
-                {
-    
+            if (Math.random() * 3 == 1) {
+                if ((hours == 16 && minutes <= 30) || (hours == 9 && minutes <= 25)) {
                     var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
-                    var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                     this.room.vid = vid;
-                    
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                    })
-                    
-    
-                } else if (hours == 17 ) {
-    
+
+                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    this.room.emit("replaceTVWithURL", {
+                        id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                        identId: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                    });
+                } else if (hours == 17) {
                     var num = Math.floor(Math.random() * videoIds5PM.length);
-                    var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                     this.room.vid = vid;
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                    })
-                    
+                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    this.room.emit("replaceTVWithURL", {
+                        id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                        identId: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                    });
                 } else if (hours == 18 && minutes <= 30) {
-    
                     var num = Math.floor(Math.random() * videoIds7PM.length);
-                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                     this.room.vid = vid;
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                    })
+                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    this.room.emit("replaceTVWithURL", {
+                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                        identId: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                    });
                 } else if (hours == 19 && hours <= 22) {
-    
                     var num = Math.floor(Math.random() * videoIds7PM.length);
-                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                     this.room.vid = vid;
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                    })
+                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    this.room.emit("replaceTVWithURL", {
+                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                        identId: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                    });
                 } else if (hours == 23) {
-                    
-                    this.room.emit("replaceTVWithURL",{
+                    this.room.emit("replaceTVWithURL", {
                         id: "kQsoV69uGIY",
                         hourAmount: hours,
                         minuteAmount: minutes,
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=", ""),
+                    });
                 } else {
-                    
                     var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
-                    var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-                    this.room.vid = vid; 
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                    })
-    
+                    var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+                    this.room.vid = vid;
+                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    this.room.emit("replaceTVWithURL", {
+                        id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                        identId: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                    });
                 }
             } else {
-
-                if (hours == 16 && minutes <= 30 || hours == 9 && minutes <= 25 || hours == 13 && minutes <= 20) 
-                {
-    
+                if ((hours == 16 && minutes <= 30) || (hours == 9 && minutes <= 25) || (hours == 13 && minutes <= 20)) {
                     var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
-                    var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                     this.room.vid = vid;
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    await ytdl.getInfo('https://www.youtube.com/watch?v='+vid).then(info => {
-                        console.log("Playing video: "+info.videoDetails.title)
+                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    await ytdl.getInfo("https://www.youtube.com/watch?v=" + vid).then((info) => {
+                        console.log("Playing video: " + info.videoDetails.title);
                         if (info.videoDetails.title.match(/BFDI/g) || info.videoDetails.title.match(/BFDIA/g)) {
-                            bonziTvIdent = [
-                                "https://www.youtube.com/watch?v=0eGC9tMZ8co",
-                            ];
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=0eGC9tMZ8co"];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
-                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g)  ||  info.videoDetails.title.match(/PGG Rebooted/g)  ||  info.videoDetails.title.match(/Gets Grounded/g)  ||  info.videoDetails.title.match(/Brian and Steve/g) ) {
-                            bonziTvIdent = [
-                                "https://www.youtube.com/watch?v=T1MKRI6HW4w",
-                            ];
+                        } else if (
+                            info.videoDetails.title.match(/Clips Tape/g) ||
+                            info.videoDetails.title.match(/Left 4 Dead/gi) ||
+                            info.videoDetails.title.match(/How it FEELS/g) ||
+                            info.videoDetails.title.match(/PGG Rebooted/g) ||
+                            info.videoDetails.title.match(/BonziBUDDY/g) ||
+                            info.videoDetails.title.match(/Gets Grounded/g) ||
+                            info.videoDetails.title.match(/Brian and Steve/g)
+                        ) {
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=T1MKRI6HW4w"];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         } else if (info.videoDetails.title.match(/Youtube Poop/gi)) {
-                            bonziTvIdent = [
-                                "https://www.youtube.com/watch?v=BjK7BgDuVZQ",
-                            ];
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=T1MKRI6HW4w"];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        } else if (info.videoDetails.title.match(/Vinesauce/gi)) {
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=qlYR9mW1DVk"];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         }
-                    })
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
-    
-                } else if (hours == 17 ) {
-    
+                    });
+                    this.room.emit("replaceTVWithURL", {
+                        id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=", ""),
+                    });
+                } else if (hours == 17) {
                     var num = Math.floor(Math.random() * videoIds5PM.length);
-                    var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
+                    var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                     this.room.vid = vid;
-                    await ytdl.getInfo('https://www.youtube.com/watch?v='+vid).then(info => {
-                        console.log("Playing video: "+info.videoDetails.title)
+                    await ytdl.getInfo("https://www.youtube.com/watch?v=" + vid).then((info) => {
+                        console.log("Playing video: " + info.videoDetails.title);
                         if (info.videoDetails.title.match(/BFDI/g) || info.videoDetails.title.match(/BFDIA/g)) {
-                            bonziTvIdent = [
-                                "https://www.youtube.com/watch?v=0eGC9tMZ8co",
-                            ];
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=0eGC9tMZ8co"];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
-                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g)  ||  info.videoDetails.title.match(/PGG Rebooted/g)  ||  info.videoDetails.title.match(/Gets Grounded/g)  ||  info.videoDetails.title.match(/Brian and Steve/g) ) {
-                            bonziTvIdent = [
-                                "https://www.youtube.com/watch?v=T1MKRI6HW4w",
-                            ];
+                        } else if (
+                            info.videoDetails.title.match(/Clips Tape/g) ||
+                            info.videoDetails.title.match(/Left 4 Dead/gi) ||
+                            info.videoDetails.title.match(/How it FEELS/g) ||
+                            info.videoDetails.title.match(/PGG Rebooted/g) ||
+                            info.videoDetails.title.match(/BonziBUDDY/g) ||
+                            info.videoDetails.title.match(/Gets Grounded/g) ||
+                            info.videoDetails.title.match(/Brian and Steve/g)
+                        ) {
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=T1MKRI6HW4w"];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         } else if (info.videoDetails.title.match(/Youtube Poop/gi)) {
-                            bonziTvIdent = [
-                                "https://www.youtube.com/watch?v=BjK7BgDuVZQ",
-                            ];
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=T1MKRI6HW4w"];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        } else if (info.videoDetails.title.match(/Vinesauce/gi)) {
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=qlYR9mW1DVk"];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         }
-                    })
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
-                    
+                    });
+                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    this.room.emit("replaceTVWithURL", {
+                        id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=", ""),
+                    });
                 } else if (hours == 18 && minutes <= 20) {
-    
                     var num = Math.floor(Math.random() * videoIds7PM.length);
-                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                     this.room.vid = vid;
-                    await ytdl.getInfo('https://www.youtube.com/watch?v='+vid).then(info => {
-                        console.log("Playing video: "+info.videoDetails.title)
+                    await ytdl.getInfo("https://www.youtube.com/watch?v=" + vid).then((info) => {
+                        console.log("Playing video: " + info.videoDetails.title);
                         if (info.videoDetails.title.match(/BFDI/g) || info.videoDetails.title.match(/BFDIA/g)) {
-                            bonziTvIdent = [
-                                "https://www.youtube.com/watch?v=0eGC9tMZ8co",
-                            ];
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=0eGC9tMZ8co"];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
-                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g)  ||  info.videoDetails.title.match(/PGG Rebooted/g)  ||  info.videoDetails.title.match(/Gets Grounded/g)  ||  info.videoDetails.title.match(/Brian and Steve/g) ) {
-                            bonziTvIdent = [
-                                "https://www.youtube.com/watch?v=T1MKRI6HW4w",
-                            ];
+                        } else if (
+                            info.videoDetails.title.match(/Clips Tape/g) ||
+                            info.videoDetails.title.match(/Left 4 Dead/gi) ||
+                            info.videoDetails.title.match(/How it FEELS/g) ||
+                            info.videoDetails.title.match(/PGG Rebooted/g) ||
+                            info.videoDetails.title.match(/BonziBUDDY/g) ||
+                            info.videoDetails.title.match(/Gets Grounded/g) ||
+                            info.videoDetails.title.match(/Brian and Steve/g)
+                        ) {
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=T1MKRI6HW4w"];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         } else if (info.videoDetails.title.match(/Youtube Poop/gi)) {
-                            bonziTvIdent = [
-                                "https://www.youtube.com/watch?v=BjK7BgDuVZQ",
-                            ];
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=T1MKRI6HW4w"];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        } else if (info.videoDetails.title.match(/Vinesauce/gi)) {
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=qlYR9mW1DVk"];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         }
-                    })
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
+                    });
+                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    this.room.emit("replaceTVWithURL", {
+                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=", ""),
+                    });
                 } else if (hours == 19 && minutes <= 22) {
-    
                     var num = Math.floor(Math.random() * videoIds7PM.length);
-                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","");
+                    var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                     this.room.vid = vid;
-                    await ytdl.getInfo('https://www.youtube.com/watch?v='+vid).then(info => {
-                        console.log("Playing video: "+info.videoDetails.title)
+                    await ytdl.getInfo("https://www.youtube.com/watch?v=" + vid).then((info) => {
+                        console.log("Playing video: " + info.videoDetails.title);
                         if (info.videoDetails.title.match(/BFDI/g) || info.videoDetails.title.match(/BFDIA/g)) {
-                            bonziTvIdent = [
-                                "https://www.youtube.com/watch?v=0eGC9tMZ8co",
-                            ];
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=0eGC9tMZ8co"];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
-                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g)  ||  info.videoDetails.title.match(/PGG Rebooted/g)  ||  info.videoDetails.title.match(/Gets Grounded/g)  ||  info.videoDetails.title.match(/Brian and Steve/g) ) {
-                            bonziTvIdent = [
-                                "https://www.youtube.com/watch?v=T1MKRI6HW4w",
-                            ];
+                        } else if (
+                            info.videoDetails.title.match(/Clips Tape/g) ||
+                            info.videoDetails.title.match(/Left 4 Dead/gi) ||
+                            info.videoDetails.title.match(/How it FEELS/g) ||
+                            info.videoDetails.title.match(/PGG Rebooted/g) ||
+                            info.videoDetails.title.match(/BonziBUDDY/g) ||
+                            info.videoDetails.title.match(/Gets Grounded/g) ||
+                            info.videoDetails.title.match(/Brian and Steve/g)
+                        ) {
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=T1MKRI6HW4w"];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         } else if (info.videoDetails.title.match(/Youtube Poop/gi)) {
-                            bonziTvIdent = [
-                                "https://www.youtube.com/watch?v=BjK7BgDuVZQ",
-                            ];
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=T1MKRI6HW4w"];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        } else if (info.videoDetails.title.match(/Vinesauce/gi)) {
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=qlYR9mW1DVk"];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         }
-                    })
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
-                } else if (hours == 23 || hours == 22 && minutes >= 9) {
-                    
-					tvhook.send("BonziTV is now off air.");
-                    this.room.emit("replaceTVWithURL",{
+                    });
+                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    this.room.emit("replaceTVWithURL", {
+                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=", ""),
+                    });
+                } else if (hours == 23 && minutes >= 50) {
+                    tvhook.send("BonziTV is now off air.");
+                    this.room.emit("replaceTVWithURL", {
                         id: "kQsoV69uGIY",
-                        hourAmount: hours,
-                        minuteAmount: minutes,
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
+                        hourAmount: 23,
+                        minuteAmount: 50,
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=", ""),
+                    });
                 } else {
-                    
                     var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
-                    var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/","")
-                    this.room.vid = vid; 
-                    await ytdl.getInfo('https://www.youtube.com/watch?v='+vid).then(info => {
-                        console.log("Playing video: "+info.videoDetails.title)
+                    var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
+                    this.room.vid = vid;
+                    await ytdl.getInfo("https://www.youtube.com/watch?v=" + vid).then((info) => {
+                        console.log("Playing video: " + info.videoDetails.title);
                         if (info.videoDetails.title.match(/BFDI/g) || info.videoDetails.title.match(/BFDIA/g)) {
-                            bonziTvIdent = [
-                                "https://www.youtube.com/watch?v=0eGC9tMZ8co",
-                            ];
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=0eGC9tMZ8co"];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
-                        } else if (info.videoDetails.title.match(/Clips Tape/g) || info.videoDetails.title.match(/Left 4 Dead/gi) ||  info.videoDetails.title.match(/How it FEELS/g)  ||  info.videoDetails.title.match(/PGG Rebooted/g)  ||  info.videoDetails.title.match(/Gets Grounded/g)  ||  info.videoDetails.title.match(/Brian and Steve/g) ) {
-                            bonziTvIdent = [
-                                "https://www.youtube.com/watch?v=T1MKRI6HW4w",
-                            ];
+                        } else if (
+                            info.videoDetails.title.match(/Clips Tape/g) ||
+                            info.videoDetails.title.match(/Left 4 Dead/gi) ||
+                            info.videoDetails.title.match(/How it FEELS/g) ||
+                            info.videoDetails.title.match(/PGG Rebooted/g) ||
+                            info.videoDetails.title.match(/BonziBUDDY/g) ||
+                            info.videoDetails.title.match(/Gets Grounded/g) ||
+                            info.videoDetails.title.match(/Brian and Steve/g)
+                        ) {
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=T1MKRI6HW4w"];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         } else if (info.videoDetails.title.match(/Youtube Poop/gi)) {
-                            bonziTvIdent = [
-                                "https://www.youtube.com/watch?v=BjK7BgDuVZQ",
-                            ];
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=T1MKRI6HW4w"];
+                            ident = Math.floor(Math.random() * bonziTvIdent.length);
+                        } else if (info.videoDetails.title.match(/Vinesauce/gi)) {
+                            bonziTvIdent = ["https://www.youtube.com/watch?v=qlYR9mW1DVk"];
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         }
-                    })
-					tvhook.send("Now playing: https://www.youtube.com/watch?v="+vid);
-                    this.room.emit("replaceTVWithURL",{
-                        id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=","").replaceAll("https://youtu.be/",""),
-                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=","")
-                    })
-    
+                    });
+                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    this.room.emit("replaceTVWithURL", {
+                        id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                        identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=", ""),
+                    });
                 }
             }
             bonziTvCool = true;
-            setTimeout(function(){
+            setTimeout(function () {
                 bonziTvCool = false;
-            },20000)
+            }, 20000);
         }
     }
 
     talk(data) {
-        if (typeof data != 'object') { // Crash fix (issue #9)
+        if (typeof data != "object") {
+            // Crash fix (issue #9)
             data = {
-                text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO"
+                text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO",
             };
         }
 
+        if (typeof data.text == "undefined") return;
 
-        if (typeof data.text == "undefined")
-            return;
-
-        let text = this.private.sanitize ? sanitize(data.text,settingsSantize) : data.text;
-		if (text.match(/phncdn/gi)) {
-			data = {
-                text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO"
+        let text = this.private.sanitize ? sanitize(data.text, settingsSantize) : data.text;
+        if (text.match(/phncdn/gi)) {
+            data = {
+                text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO",
             };
-		}
-        if ((text.length <= this.room.prefs.char_limit) && (text.length > 0) && !this.cool) {
-            log.info.log('info', 'talk', {
+        }
+        if (text.length <= this.room.prefs.char_limit && text.length > 0 && !this.cool) {
+            log.info.log("info", "talk", {
                 guid: this.guid,
                 text: data.text,
                 name: this.public.name,
                 userIp: this.getIp(),
-                agent: this.getAgent()
+                agent: this.getAgent(),
             });
             // prevent more ads
             if (text.match(/best sit/gi)) {
@@ -2565,227 +2630,225 @@ class User {
             if (text.match(/ga.b/gi)) {
                 text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
             }
-			if (!text.match(/night/gi)) {
-				text = text.replace(/nig/gi,"bobba ")
-			}
-            text = text.replace(/nik/gi,"bobba ")
-            text = text.replace(/ck gu/gi,"bobba ")
-			if (!text.match(/bi/gi) && !text.match(/tri/gi) && !text.match(/twi/gi)) {
-				text = text.replace(/gger/gi," bobba ")
-			}
-			text = text.replace(/bonzi.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/bonzi. ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/bonzi . ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b onzi.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o nzi.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n zi.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z i.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z i .ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z i . ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z i . g a/gi, "bonziworldrevived.tk")
-			text = text.replace(/bonzi . ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b onzi.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o nzi.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n zi.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z i.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z i .ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z i . ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z i . g a/gi, "bonziworldrevived.tk")
-			text = text.replace(/b\u043enzi.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b \u043enzi.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b \u043e nzi.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b \u043e n zi.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b \u043e n z i.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b \u043e n z i .ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b \u043e n z i . ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b \u043e n z i . g a/gi, "bonziworldrevived.tk")
-			text = text.replace(/b \u043e n z i . g a/gi, "bonziworldrevived.tk")
-			text = text.replace(/bOnzi.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b Onzi.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b O nzi.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b O n zi.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b O n z i.ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b O n z i .ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b O n z i . ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b O n z i . g a/gi, "bonziworldrevived.tk")
-			text = text.replace(/b O n z i . g a/gi, "bonziworldrevived.tk")
-			text = text.replace(/bonzidotga/gi, "bonziworldrevived.tk")
-			text = text.replace(/bonzidot ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/bonzi dot ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b onzidotga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o nzidotga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n zidotga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z idotga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z i dotga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z i dot ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z i dot g a/gi, "bonziworldrevived.tk")
-			text = text.replace(/bonzidotga/gi, "bonziworldrevived.tk")
-			text = text.replace(/bonzidot ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/bonzi ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b onziga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o nziga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n ziga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z iga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z i ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z i  ga/gi, "bonziworldrevived.tk")
-			text = text.replace(/b o n z i  g a/gi, "bonziworldrevived.tk")
-			text = text.replace(/nïg/gi, "bobba ")
-			text = text.replace(/nijg/gi,"bobba ")
-			text = text.replace(/ninj/gi,"bobba ")
-			text = text.replace(/nijj/gi,"bobba ")
-			text = text.replace(/nii/gi,"bobba ") // ugh
-			text = text.replace(/nie/gi,"bobba ")
-			text = text.replace(/nei/gi,"bobba ")
-			text = text.replace(/nih/gi,"bobba ")
-			text = text.replace(/ni'g/gi,"bobba ")
-			text = text.replace(/n'ig/gi,"bobba ")
-			text = text.replace(/neeg/gi,"bobba ") // really crappy
-			if (!text.match(/might/gi)) {
-				text = text.replace(/mig/gi,"bobba ")
-			}
-			text = text.replace(/mijg/gi,"bobba ")
-			text = text.replace(/mijj/gi,"bobba ")
-			text = text.replace(/mii/gi,"bobba ")
-			text = text.replace(/mie/gi,"bobba ")
-			text = text.replace(/mei/gi,"bobba ")
-			text = text.replace(/mih/gi,"bobba ")
-			text = text.replace(/mi'g/gi,"bobba ")
-			text = text.replace(/m'ig/gi,"bobba ")
-			text = text.replace(/meeg/gi,"bobba ")
-            this.room.emit('talk', {
+            if (!text.match(/night/gi)) {
+                text = text.replace(/nig/gi, "bobba ");
+            }
+            text = text.replace(/nik/gi, "bobba ");
+            text = text.replace(/ck gu/gi, "bobba ");
+            if (!text.match(/bi/gi) && !text.match(/tri/gi) && !text.match(/twi/gi)) {
+                text = text.replace(/gger/gi, " bobba ");
+            }
+            text = text.replace(/bonzi.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/bonzi. ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/bonzi . ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b onzi.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o nzi.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n zi.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z i.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z i .ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z i . ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z i . g a/gi, "bonziworldrevived.tk");
+            text = text.replace(/bonzi . ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b onzi.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o nzi.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n zi.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z i.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z i .ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z i . ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z i . g a/gi, "bonziworldrevived.tk");
+            text = text.replace(/b\u043enzi.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b \u043enzi.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b \u043e nzi.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b \u043e n zi.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b \u043e n z i.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b \u043e n z i .ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b \u043e n z i . ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b \u043e n z i . g a/gi, "bonziworldrevived.tk");
+            text = text.replace(/b \u043e n z i . g a/gi, "bonziworldrevived.tk");
+            text = text.replace(/bOnzi.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b Onzi.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b O nzi.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b O n zi.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b O n z i.ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b O n z i .ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b O n z i . ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b O n z i . g a/gi, "bonziworldrevived.tk");
+            text = text.replace(/b O n z i . g a/gi, "bonziworldrevived.tk");
+            text = text.replace(/bonzidotga/gi, "bonziworldrevived.tk");
+            text = text.replace(/bonzidot ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/bonzi dot ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b onzidotga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o nzidotga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n zidotga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z idotga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z i dotga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z i dot ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z i dot g a/gi, "bonziworldrevived.tk");
+            text = text.replace(/bonzidotga/gi, "bonziworldrevived.tk");
+            text = text.replace(/bonzidot ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/bonzi ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b onziga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o nziga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n ziga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z iga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z i ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z i  ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/b o n z i  g a/gi, "bonziworldrevived.tk");
+            text = text.replace(/nïg/gi, "bobba ");
+            text = text.replace(/nijg/gi, "bobba ");
+            text = text.replace(/ninj/gi, "bobba ");
+            text = text.replace(/nijj/gi, "bobba ");
+            text = text.replace(/nii/gi, "bobba "); // ugh
+            text = text.replace(/nie/gi, "bobba ");
+            text = text.replace(/nei/gi, "bobba ");
+            text = text.replace(/nih/gi, "bobba ");
+            text = text.replace(/ni'g/gi, "bobba ");
+            text = text.replace(/n'ig/gi, "bobba ");
+            text = text.replace(/neeg/gi, "bobba "); // really crappy
+            if (!text.match(/might/gi)) {
+                text = text.replace(/mig/gi, "bobba ");
+            }
+            text = text.replace(/mijg/gi, "bobba ");
+            text = text.replace(/mijj/gi, "bobba ");
+            text = text.replace(/mii/gi, "bobba ");
+            text = text.replace(/mie/gi, "bobba ");
+            text = text.replace(/mei/gi, "bobba ");
+            text = text.replace(/mih/gi, "bobba ");
+            text = text.replace(/mi'g/gi, "bobba ");
+            text = text.replace(/m'ig/gi, "bobba ");
+            text = text.replace(/meeg/gi, "bobba ");
+            this.room.emit("talk", {
                 guid: this.guid,
                 text: text,
-                say: sanitize(text,{allowedTags: []})
+                say: sanitize(text, { allowedTags: [] }),
             });
             this.cool = true;
             var bwnzj = this;
-            
-            setTimeout(function(){
+
+            setTimeout(function () {
                 bwnzj.cool = false;
-            },1000)		
-			if (text.length < 1000 && !cool) {
-				try {
-					
-					const IMAGE_URL = 'https://bonziworldrevived.tk/img/bonzi_closeup/'+this.public.color+'.png';
-					hook.setUsername(this.public.name);
-					hook.setAvatar(IMAGE_URL);
-					
-					var txt = text.replaceAll("@","#").replaceAll(">","$").replaceAll("`","\u200B ").replaceAll(" ","\u200B ").replaceAll("http://","hgrunt/ass.wav ").replaceAll("https://","hgrunt/ass.wav ").replaceAll(" ","I'M A SKID LOL ")
-					if (this.private.runlevel < 3) {
-						txt = txt.replaceAll("<","!")
-					}
-					hook.send(txt);		
-					
-					// now for the tmafe part
-					
-					tmafehook.setUsername(this.public.name);
-					tmafehook.setAvatar(IMAGE_URL);
-					
-					tmafehook.send(txt);
+            }, 1000);
+            if (text.length < 1000 && !cool) {
+                try {
+                    const IMAGE_URL = "https://bonziworldrevived.tk/img/bonzi_closeup/" + this.public.color + ".png";
+                    hook.setUsername(this.public.name);
+                    hook.setAvatar(IMAGE_URL);
+
+                    var txt = text
+                        .replaceAll("@", "#")
+                        .replaceAll(">", "$")
+                        .replaceAll("`", "\u200B ")
+                        .replaceAll(" ", "\u200B ")
+                        .replaceAll("http://", "hgrunt/ass.wav ")
+                        .replaceAll("https://", "hgrunt/ass.wav ")
+                        .replaceAll(" ", "I'M A SKID LOL ");
+                    if (this.private.runlevel < 3) {
+                        txt = txt.replaceAll("<", "!");
+                    }
+                    hook.send(txt);
+
+                    // now for the tmafe part
+
+                    tmafehook.setUsername(this.public.name);
+                    tmafehook.setAvatar(IMAGE_URL);
+
+                    tmafehook.send(txt);
                     cool = true;
-                    setTimeout(function(){
+                    setTimeout(function () {
                         cool = false;
-                    },1500)		
-					
-				} catch(e) {
-					console.log("WTF?: "+e)
-				}
-			}
+                    }, 1500);
+                } catch (e) {
+                    console.log("WTF?: " + e);
+                }
+            }
         }
     }
 
     command(data) {
-        if (typeof data != 'object') return; // Crash fix (issue #9)
+        if (typeof data != "object") return; // Crash fix (issue #9)
 
         var command;
         var args;
-        
+
         try {
+            var list = data.list;
+            command = list[0].toLowerCase();
+            args = list.slice(1);
+            var joinedArgs = list.join(" ");
 
-                var list = data.list;
-                command = list[0].toLowerCase();
-                args = list.slice(1);
-                var joinedArgs = list.join(" ");
-    
-                if (this.private.runlevel >= (this.room.prefs.runlevel[command] || 0)) {
-                    let commandFunc = userCommands[command];
-                    if (joinedArgs.length <= this.room.prefs.char_limit) {
+            if (this.private.runlevel >= (this.room.prefs.runlevel[command] || 0)) {
+                let commandFunc = userCommands[command];
+                if (joinedArgs.length <= this.room.prefs.char_limit) {
+                    if (commandFunc == "passthrough") {
+                        if (!this.cmdCool) {
+                            log.info.log("info", command, {
+                                guid: this.guid,
+                                args: args,
+                                userIp: this.getIp(),
+                            });
 
-                        if (commandFunc == "passthrough"){
-                            if (!this.cmdCool) {
-                                log.info.log('info', command, {
-                                    guid: this.guid,
-                                    args: args,
-                                    userIp: this.getIp()
-                                });
-                                
-                                this.room.emit(command, {
-                                    "guid": this.guid
-                                });	
-                                
-                            }
+                            this.room.emit(command, {
+                                guid: this.guid,
+                            });
                         }
-                        else {
-                            if (!this.cmdCool) {
-                                log.info.log('info', command, {
-                                    guid: this.guid,
-                                    args: args,
-                                    userIp: this.getIp()
-                                });
-                                
-                                commandFunc.apply(this, args);	
-                                
-                            }
-                        }
+                    } else {
+                        if (!this.cmdCool) {
+                            log.info.log("info", command, {
+                                guid: this.guid,
+                                args: args,
+                                userIp: this.getIp(),
+                            });
 
+                            commandFunc.apply(this, args);
+                        }
                     }
-                } else
-                    this.socket.emit('commandFail', {
-                        reason: "runlevel"
-                    });
-                
-        } catch(e) {
-            log.info.log('info', 'commandFail', {
+                }
+            } else
+                this.socket.emit("commandFail", {
+                    reason: "runlevel",
+                });
+        } catch (e) {
+            log.info.log("info", "commandFail", {
                 guid: this.guid,
                 command: command,
                 args: args,
                 reason: "unknown",
-                exception: e
+                exception: e,
             });
-			console.error(e);
-            this.socket.emit('commandFail', {
-                reason: "unknown"
+            console.error(e);
+            this.socket.emit("commandFail", {
+                reason: "unknown",
             });
         }
     }
 
     disconnect() {
-		let ip = "N/A";
-		let port = "N/A";
+        let ip = "N/A";
+        let port = "N/A";
 
-		try {
-			ip = this.getIp();
-			port = this.getPort();
-		} catch(e) { 
-			log.info.log('warn', "exception", {
-				guid: this.guid,
-				exception: e
-			});
-		}
+        try {
+            ip = this.getIp();
+            port = this.getPort();
+        } catch (e) {
+            log.info.log("warn", "exception", {
+                guid: this.guid,
+                exception: e,
+            });
+        }
 
-		log.access.log('info', 'disconnect', {
-			guid: this.guid,
-			ip: ip,
-			port: port
-		});
-         
-        this.socket.broadcast.emit('leave', {
-            guid: this.guid
+        log.access.log("info", "disconnect", {
+            guid: this.guid,
+            ip: ip,
+            port: port,
         });
-        
-        this.socket.removeAllListeners('talk');
-        this.socket.removeAllListeners('command');
-        this.socket.removeAllListeners('disconnect');
+
+        this.socket.broadcast.emit("leave", {
+            guid: this.guid,
+        });
+
+        this.socket.removeAllListeners("talk");
+        this.socket.removeAllListeners("command");
+        this.socket.removeAllListeners("disconnect");
 
         this.room.leave(this);
     }

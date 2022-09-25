@@ -485,6 +485,20 @@ body.vaporwave #chat_send {
   user-select: text;
   -webkit-user-select: text; }
 
+  
+#settings {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  line-height: 125%;
+  text-align: left;
+  padding: 7px;
+  font-size: 10px;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  user-select: text;
+  -webkit-user-select: text; }
+
 .tray_btn {
   width: 16px;
   height: 16px;
