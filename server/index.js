@@ -112,8 +112,6 @@ server2.listen(443, function () {
     console.log("\nServer listening at port 443");
 });
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-var https = require("https");
-var axios = require("axios");
 app.use(express.static(__dirname + "/public"));
 // ========================================================================
 // Banning functions
