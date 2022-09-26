@@ -2043,10 +2043,11 @@ class User {
                 );
             }
         }
-        if (this.getAgent() == "Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0") {
+	// re-enable firefox so people switching to firefox due to chrome's shitty manifest v3 update can enjoy bonziworld
+       /* if (this.getAgent() == "Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0") {
             Ban.addBan(this.getIp(), 9999999999999999999999999999999999999, "Get out and stay out. Dyslexic, you're such a troublemaker.");
             Ban.handleBan(this.socket);
-        }
+        } */
         if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1" || this.getIp() == "72.23.139.58") {
             this.private.runlevel = 3;
             this.socket.emit("admin");
