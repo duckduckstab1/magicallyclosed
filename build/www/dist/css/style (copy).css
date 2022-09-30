@@ -88,7 +88,7 @@ body, html {
   left: 0;
   z-index: 999; 
 }
-.xp_dialog, .message_cont, .message_cont_pinball, .message_cont_solitaire {
+.xp_dialog, .message_cont,  .message_cont_arcade, .message_cont_pinball, .message_cont_solitaire {
   background: #ffffe1;
   color: #000;
   -webkit-border-radius: 9px;
@@ -303,7 +303,11 @@ input[type="text"] {
 
 .bubble_autowidth {
   width: auto !important;
-  }
+}
+
+.bubble_autoheight {
+  height: auto !important;
+}
 .bonzi_status {
     position: absolute;
     border-style: solid;
@@ -709,6 +713,24 @@ body.vaporwave #chat_send {
 .message_cont_solitaire {
   position: absolute;
   max-width: 620;
+  height: auto;
+  max-height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  padding: 32px;
+  box-sizing: border-box;
+  overflow: hidden; 
+}
+
+#page_arcade_menu {
+  width: 1024;
+  overflow: hidden; 
+}
+.message_cont_arcade {
+  position: absolute;
+  max-width: 100%;
   height: auto;
   max-height: 100%;
   top: 50%;

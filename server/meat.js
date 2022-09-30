@@ -13,6 +13,14 @@ let roomsPublic = [];
 let rooms = {};
 let usersAll = [];
 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+}
+
 var bonziTvCool = false;
 var videoIds4PM2430PM = [
     "https://www.youtube.com/watch?v=n_sWTHQKr-s",
@@ -1420,6 +1428,10 @@ let userCommands = {
         });
     },
     sticker: function (sticker) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         if (Object.keys(stickers).includes(sticker)) {
             this.room.emit("talk", {
                 text: `<img src="./img/stickers/${sticker}.png" width=170>`,
@@ -1428,9 +1440,13 @@ let userCommands = {
             });
         }
     },
-    whynot: "passthrough",
-    isee: "passthrough",
+    whynot: "passthrough2",
+    isee: "passthrough2",
     dtvhater: function () {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.room.emit("dtvhater", {
             guid: this.guid,
             target: sanitize(Utils.argsString(arguments)),
@@ -1467,6 +1483,10 @@ let userCommands = {
         });
     },
     report: function (ip, reason) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         Ban.addReport(ip, ip, reason, this.public.name);
     },
     kick: function (data) {
@@ -1526,6 +1546,10 @@ let userCommands = {
         }, 1084);
     },
     send_invite: function () {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         // kinda did it
         this.room.emit("talk", {
             text: "The Discord Invite: https://discord.gg/zpnXyrDYmm",
@@ -1558,7 +1582,7 @@ let userCommands = {
                 if (target.private.runlevel > 2 && this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1") {
                     return;
                 }
-                Ban.addBan(target.getIp(), 24, "You got banned.");
+                Ban.addBan(target.getIp(), 24 * 3600, "You got banned.");
                 target.socket.emit("ban", {
                     reason: data.reason,
                 });
@@ -1662,9 +1686,9 @@ let userCommands = {
     godlevel: function () {
         this.socket.emit("alert", "Your godlevel is " + this.private.runlevel + ".");
     },
-    linux: "passthrough",
+    linux: "passthrough2",
     pawn: "passthrough",
-    bees: "passthrough",
+    bees: "passthrough2",
     color: function (color) {
         if (typeof color != "undefined") {
             if (settings.bonziColors.indexOf(color) == -1) return;
@@ -1678,6 +1702,10 @@ let userCommands = {
         this.room.updateUser(this);
     },
     voice: function (color) {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
         this.public.voice = color;
 
         this.room.updateUser(this);
@@ -1833,7 +1861,7 @@ let userCommands = {
     },
 	*/
     triggered: "passthrough",
-    twiggered: "passthrough",
+    twiggered: "passthrough2",
     vaporwave: function () {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
@@ -1857,30 +1885,42 @@ let userCommands = {
         if (argsString.length > this.room.prefs.name_limit && this.private.runlevel < 3) return;
 
         let name = argsString || this.room.prefs.defaultName;
-        this.public.name = this.private.sanitize ? sanitize(name) : name;
-        let text = this.public.name;
-        for (const i in Ban.bonziAccounts) {
-            const thename = Ban.bonziAccounts[i].bonziId;
-            if (thename == name) {
-                if (Ban.hasAnAccount(this.getIp()) && Ban.bonziAccounts[this.getIp()].bonziId != name) {
-
-                    this.public.name = "Impersonator";
-
-                }
-            }
+        var text = this.private.sanitize ? sanitize(name) : name;
+        text = text.replaceAll("--", " ");
+        text = text.replaceAll("---", " ");
+        text = text.replaceAll("  ", " ");
+        text = text.replaceAll("   ", " ");
+        text = text.replaceAll("    ", " ");
+        text = text.replaceAll("     ", " ");
+        text = text.replaceAll("      ", " ");
+        text = text.replaceAll("       ", " ");
+        text = text.replaceAll("        ", " ");
+        text = text.replace(/   /gi, " ");
+        // prevent more ads
+        if (text.match(/best sit/gi)) {
+            text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+        }
+        if (text.match(/ga.b/gi)) {
+            text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
         }
         if (!text.match(/night/gi)) {
             text = text.replace(/nig/gi, "bobba ");
         }
-        
-        text = text.replace(/{NAME}/gi, "Anonymous");
-        text = text.replace(/{COLOR}/gi, this.public.color);
+        text = text.replace(/nik/gi, "bobba ");
+        text = text.replace(/mik/gi, "bobba ");
+        text = text.replace(/ck gu/gi, "bobba ");
+        if (!text.match(/bi/gi) && !text.match(/tri/gi) && !text.match(/twi/gi)) {
+            text = text.replace(/gger/gi, " bobba ");
+            text = text.replace(/gga/gi, " bobba ");
+        }
         text = text.replace(/nïg/gi, "bobba ");
         text = text.replace(/nijg/gi, "bobba ");
         text = text.replace(/ninj/gi, "bobba ");
         text = text.replace(/nijj/gi, "bobba ");
         text = text.replace(/nii/gi, "bobba "); // ugh
-        text = text.replace(/nie/gi, "bobba ");
+        if (!text.match(/niel/gi)) {
+            text = text.replace(/nie/gi, "bobba ");
+        }
         text = text.replace(/nei/gi, "bobba ");
         text = text.replace(/nih/gi, "bobba ");
         text = text.replace(/ni'g/gi, "bobba ");
@@ -1898,6 +1938,87 @@ let userCommands = {
         text = text.replace(/mi'g/gi, "bobba ");
         text = text.replace(/m'ig/gi, "bobba ");
         text = text.replace(/meeg/gi, "bobba ");
+        text = text.replace(/n ig/gi, "bobba ");
+        text = text.replace(/n i g/gi, "bobba ");
+        text = text.replace(/n  i  g/gi, "bobba ");
+        text = text.replace(/n   i   g/gi, "bobba ");
+        text = text.replace(/n-ig/gi, "bobba ");
+        text = text.replace(/n-i-g/gi, "bobba ");
+        text = text.replace(/n--i--g/gi, "bobba ");
+        text = text.replace(/n---i---g/gi, "bobba ");
+        text = text.replace(/m ig/gi, "bobba ");
+        text = text.replace(/m i g/gi, "bobba ");
+        text = text.replace(/n ig/gi, "bobba ");
+        text = text.replace(/ni g/gi, "bobba ");
+        text = text.replace(/mi g/gi, "bobba ");
+        text = text.replace(/bonzi.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/bonzi. ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/bonzi . ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b onzi.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o nzi.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n zi.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z i.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z i .ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z i . ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z i . g a/gi, "bonziworldrevived.tk");
+        text = text.replace(/bonzi . ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b onzi.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o nzi.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n zi.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z i.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z i .ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z i . ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z i . g a/gi, "bonziworldrevived.tk");
+        text = text.replace(/b\u043enzi.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b \u043enzi.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b \u043e nzi.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b \u043e n zi.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b \u043e n z i.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b \u043e n z i .ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b \u043e n z i . ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b \u043e n z i . g a/gi, "bonziworldrevived.tk");
+        text = text.replace(/b \u043e n z i . g a/gi, "bonziworldrevived.tk");
+        text = text.replace(/bOnzi.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b Onzi.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b O nzi.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b O n zi.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b O n z i.ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b O n z i .ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b O n z i . ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b O n z i . g a/gi, "bonziworldrevived.tk");
+        text = text.replace(/b O n z i . g a/gi, "bonziworldrevived.tk");
+        text = text.replace(/bonzidotga/gi, "bonziworldrevived.tk");
+        text = text.replace(/bonzidot ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/bonzi dot ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b onzidotga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o nzidotga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n zidotga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z idotga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z i dotga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z i dot ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z i dot g a/gi, "bonziworldrevived.tk");
+        text = text.replace(/bonzidotga/gi, "bonziworldrevived.tk");
+        text = text.replace(/bonzidot ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/bonzi ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b onziga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o nziga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n ziga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z iga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z i ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z i  ga/gi, "bonziworldrevived.tk");
+        text = text.replace(/b o n z i  g a/gi, "bonziworldrevived.tk");
+        this.public.name = text;
+        for (const i in Ban.bonziAccounts) {
+            const thename = Ban.bonziAccounts[i].bonziId;
+            if (thename == name) {
+                if (Ban.hasAnAccount(this.getIp()) && Ban.bonziAccounts[this.getIp()].bonziId != name) {
+
+                    this.public.name = "Impersonator";
+
+                }
+            }
+        }
+        
         if (this.public.name.match(/Seamus/gi) && this.private.runlevel < 3) {
             this.public.name = "Impersonator";
         }
@@ -1946,7 +2067,7 @@ let userCommands = {
             this.socket.emit("accountRequired");
             return;
         }
-        if (this.private.level < 3) {
+        if (this.private.runlevel < 3) {
             return;
         }
         if (data.includes('"') || data.length > 8 * 1024 * 1024) return;
@@ -2015,7 +2136,7 @@ class User {
         };
 
         if (Ban.hasAnAccount(this.getIp())) {
-            if (Math.random() * 8 == 1) {
+            if (getRandomInt(1,8) == 1) {
                 this.public.color = "swag";
             }
         }
@@ -2040,7 +2161,7 @@ class User {
                 );
             }
         }
-        if (this.getAgent() == "Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0") {
+        if (this.getAgent() == "Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0") { // stop dyslexic from coming in the server to ruin everybody's fun (may conflict)
             Ban.addBan(this.getIp(), 9999999999999999999999999999999999999, "Get out and stay out. Dyslexic, you're such a troublemaker.");
             Ban.handleBan(this.socket);
         }
@@ -2054,6 +2175,14 @@ class User {
             Ban.addBan(this.getIp(),9999999999999999999999999999999999999,"Too many infractions, No longer welcome in the community.");
         }
         */
+        var self = this;
+        setTimeout(function(){
+            if (Ban.hasAnAccount(self.getIp())) {
+                if (Ban.bonziAccounts[self.getIp()] != null) {
+                    self.socket.emit("enablePrivateRooms");
+                }
+            }
+        },800)
         this.socket.on("login", this.login.bind(this));
         this.socket.on("register", this.register.bind(this));
     }
@@ -2139,7 +2268,7 @@ class User {
             //});
         }
 
-        if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1") {
+        if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1" || this.getIp() == "72.23.139.58") {
             this.private.runlevel = 3;
             this.socket.emit("admin");
             this.private.sanitize = false;
@@ -2172,6 +2301,10 @@ class User {
         }
         // If private room
         if (roomSpecified) {
+            if (!Ban.hasAnAccount(this.getIp())) {
+                this.socket.emit("accountRequired");
+                return;
+            }
             if (sanitize(rid) != rid) {
                 this.socket.emit("loginFail", {
                     reason: "nameMal",
@@ -2181,11 +2314,20 @@ class User {
 
             // If room does not yet exist
             if (typeof rooms[rid] == "undefined") {
-                // Clone default settings
-                var tmpPrefs = JSON.parse(JSON.stringify(settings.prefs.private));
-                // Set owner
-                tmpPrefs.owner = this.guid;
-                newRoom(rid, tmpPrefs);
+                if (rid.startsWith("!public")) {
+                    rid = rid.replaceAll(/!public/gi,"")
+                    roomsPublic.push(rid);
+                    // Create room
+                    newRoom(rid, settings.prefs.public);
+                } else {
+
+                    // Clone default settings
+                    var tmpPrefs = JSON.parse(JSON.stringify(settings.prefs.private));
+                    // Set owner
+                    tmpPrefs.owner = this.guid;
+                    newRoom(rid, tmpPrefs);
+
+                }
             }
             // If room is full, fail login
             else if (rooms[rid].isFull()) {
@@ -2283,7 +2425,7 @@ class User {
 
         if (this.room.prefs.pitch.default == "random") this.public.pitch = Utils.randomRangeInt(this.room.prefs.pitch.min, this.room.prefs.pitch.max);
         else this.public.pitch = this.room.prefs.pitch.default;
-        this.public.voice = "espeak";
+        this.public.voice = "sapi4";
         let count = 0;
         for (const i in rooms) {
             const room = rooms[i];
@@ -2358,7 +2500,7 @@ class User {
             const ytdl = require("ytdl-core");
 
             var tvhook = new Webhook("https://discord.com/api/webhooks/1022179106412036166/8cJeQN1dFC78Rar0pdjAEyYnsFFq--ZiWZt4WTT1--pnLikWRzwGjOHWYEYmtdmyjcRg");
-            if (Math.random() * 3 == 1) {
+            if (getRandomInt(1,3) == 1) {
                 if ((hours == 16 && minutes <= 30) || (hours == 9 && minutes <= 25)) {
                     var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
                     var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
@@ -2367,7 +2509,7 @@ class User {
                     tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
                         id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
-                        identId: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                        identId: videoIds4PM2430PM[Math.floor(Math.random() * videoIds4PM2430PM.length)].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                     });
                 } else if (hours == 17) {
                     var num = Math.floor(Math.random() * videoIds5PM.length);
@@ -2376,7 +2518,7 @@ class User {
                     tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
                         id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
-                        identId: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                        identId: videoIds5PM[Math.floor(Math.random() * videoIds5PM.length)].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                     });
                 } else if (hours == 18 && minutes <= 30) {
                     var num = Math.floor(Math.random() * videoIds7PM.length);
@@ -2385,7 +2527,7 @@ class User {
                     tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
                         id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
-                        identId: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                        identId: videoIds7PM[Math.floor(Math.random() * videoIds7PM.length)].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                     });
                 } else if (hours == 19 && hours <= 22) {
                     var num = Math.floor(Math.random() * videoIds7PM.length);
@@ -2393,7 +2535,7 @@ class User {
                     this.room.vid = vid;
                     tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
-                        id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                        id: videoIds7PM[Math.floor(Math.random() * videoIds7PM.length)].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                         identId: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                     });
                 } else if (hours == 23) {
@@ -2410,7 +2552,7 @@ class User {
                     tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
                         id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
-                        identId: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
+                        identId: videoIds25MinutesofMSAgent[Math.floor(Math.random() * videoIds25MinutesofMSAgent.length)].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                     });
                 }
             } else {
@@ -2620,6 +2762,18 @@ class User {
                 userIp: this.getIp(),
                 agent: this.getAgent(),
             });
+            // space
+            
+            text = text.replaceAll("--", " ");
+            text = text.replaceAll("---", " ");
+            text = text.replaceAll("  ", " ");
+            text = text.replaceAll("   ", " ");
+            text = text.replaceAll("    ", " ");
+            text = text.replaceAll("     ", " ");
+            text = text.replaceAll("      ", " ");
+            text = text.replaceAll("       ", " ");
+            text = text.replaceAll("        ", " ");
+            text = text.replace(/   /gi, " ");
             // prevent more ads
             if (text.match(/best sit/gi)) {
                 text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
@@ -2635,6 +2789,7 @@ class User {
             text = text.replace(/ck gu/gi, "bobba ");
             if (!text.match(/bi/gi) && !text.match(/tri/gi) && !text.match(/twi/gi)) {
                 text = text.replace(/gger/gi, " bobba ");
+                text = text.replace(/gga/gi, " bobba ");
             }
             text = text.replace(/nïg/gi, "bobba ");
             text = text.replace(/nijg/gi, "bobba ");
@@ -2661,12 +2816,19 @@ class User {
             text = text.replace(/mi'g/gi, "bobba ");
             text = text.replace(/m'ig/gi, "bobba ");
             text = text.replace(/meeg/gi, "bobba ");
-            // space
-            
             text = text.replace(/n ig/gi, "bobba ");
             text = text.replace(/n i g/gi, "bobba ");
+            text = text.replace(/n  i  g/gi, "bobba ");
+            text = text.replace(/n   i   g/gi, "bobba ");
+            text = text.replace(/n-ig/gi, "bobba ");
+            text = text.replace(/n-i-g/gi, "bobba ");
+            text = text.replace(/n--i--g/gi, "bobba ");
+            text = text.replace(/n---i---g/gi, "bobba ");
             text = text.replace(/m ig/gi, "bobba ");
             text = text.replace(/m i g/gi, "bobba ");
+            text = text.replace(/n ig/gi, "bobba ");
+            text = text.replace(/ni g/gi, "bobba ");
+            text = text.replace(/mi g/gi, "bobba ");
             text = text.replace(/bonzi.ga/gi, "bonziworldrevived.tk");
             text = text.replace(/bonzi. ga/gi, "bonziworldrevived.tk");
             text = text.replace(/bonzi . ga/gi, "bonziworldrevived.tk");
@@ -2787,6 +2949,23 @@ class User {
                 if (joinedArgs.length <= this.room.prefs.char_limit) {
                     if (commandFunc == "passthrough") {
                         if (!this.cmdCool) {
+                            log.info.log("info", command, {
+                                guid: this.guid,
+                                args: args,
+                                userIp: this.getIp(),
+                            });
+
+                            this.room.emit(command, {
+                                guid: this.guid,
+                            });
+                        }
+                    } else if (commandFunc == "passthrough2") {
+                        if (!this.cmdCool) {
+                            
+                            if (!Ban.hasAnAccount(this.getIp())) {
+                                this.socket.emit("accountRequired");
+                                return;
+                            }
                             log.info.log("info", command, {
                                 guid: this.guid,
                                 args: args,

@@ -18,6 +18,12 @@ body, html {
   z-index: 999;
 }
 
+img.emoji {
+  height: 24;
+  width: 24;
+  margin: 0 .05em 0 .1em;
+  vertical-align: -0.1em;
+}
 .xp_dialog, .message_cont {
   background: #ffffe1;
   color: #000;
