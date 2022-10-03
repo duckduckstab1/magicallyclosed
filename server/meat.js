@@ -1021,8 +1021,9 @@ var settingsSantize = {
 // Code by ItzCrazyScout, CosmicStar98 and 'HOST'
 // Private :)
 const { Webhook, MessageBuilder } = require("discord-webhook-node");
+const { join } = require("path");
 const hook = new Webhook("https://discord.com/api/webhooks/1013912246793023520/dlxoVSs8fEOJ57cQGQxSV8ef4Ti1U_2z5oBmbmZnoYpmL9Xr4bF53VMvniCuUPcc_CDe");
-const tmafehook = new Webhook("https://discord.com/api/webhooks/1014345843521900574/u8nHAV9gniMMrVP1Xmou8vLSnTss8lPddQ26ss2DKWEGnEP8fjw4bYv06x-lq78fT_-J");
+//const ////tmafehook = new Webhook("https://discord.com/api/webhooks/1014345843521900574/u8nHAV9gniMMrVP1Xmou8vLSnTss8lPddQ26ss2DKWEGnEP8fjw4bYv06x-lq78fT_-J");
 
 var stickers = {
     sex: "the sex sticker has been removed",
@@ -1539,7 +1540,10 @@ let userCommands = {
                 });
                 setTimeout(function () {
                     target.disconnect();
-                }, 500);
+                    target.socket.emit("kick", {
+                        reason: "<video src=\"https://cdn.discordapp.com/attachments/954050025170825237/1025126830845472798/DankVideo15.mp4\" autoplay loop width=380>",
+                    });
+                }, 380);
             } else {
                 user.socket.emit("alert", "The user you are trying to dissolve left. Get dunked on nerd");
             }
@@ -1597,7 +1601,7 @@ let userCommands = {
             this.socket.emit("accountRequired");
             return;
         }
-        this.room.emit("swag", {
+        this.room.emit("swag", {    
             guid: this.guid,
         });
     },
@@ -1808,11 +1812,11 @@ let userCommands = {
         hook.setUsername(this.public.name);
         hook.setAvatar(IMAGE_URL);
 
-        tmafehook.setUsername(this.public.name);
-        tmafehook.setAvatar(IMAGE_URL);
+        //tmafehook.setUsername(this.public.name);
+        //tmafehook.setAvatar(IMAGE_URL);
 
         hook.send(this.public.name + " sent /obama: " + videoURL);
-        tmafehook.send(this.public.name + " sent /obama: " + videoURL);
+        //tmafehook.send(this.public.name + " sent /obama: " + videoURL);
         this.room.emit("video2" /*"video"*/, {
             guid: this.guid,
             vid: videoURL,
@@ -1862,6 +1866,18 @@ let userCommands = {
 	*/
     triggered: "passthrough",
     twiggered: "passthrough2",
+    bonzikill: function () {
+        this.room.emit("bonzikill", {
+            guid: this.guid,
+            rng: Math.random(),
+        });
+    },
+    bonzify: function () {
+        this.room.emit("bonzify", {
+            guid: this.guid,
+            rng: Math.random(),
+        });
+    },
     vaporwave: function () {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
@@ -2115,7 +2131,7 @@ class User {
         if (Ban.hasAnAccount(this.getIp())) {
             if (Ban.bonziAccounts[this.getIp()] != null) {
                 if (Ban.bonziAccounts[this.getIp()].name) {
-                    this.guid = Ban.bonziAccounts[this.getIp()].name.replaceAll(/ /gi, "").replaceAll(".", "_") + Math.floor(Math.random() * 1337);
+                    this.guid = Ban.bonziAccounts[this.getIp()].name.replaceAll(/ /gi, "").replaceAll(".", "_").replaceAll("&gt;", "_").replaceAll("&lt;", "_") + Math.floor(Math.random() * 1337);
                 }
             }
         }
@@ -2254,7 +2270,7 @@ class User {
             });
             return;
         }
-        this.guid = data.name.replaceAll(/ /gi, "").replaceAll(".", "_") + Math.floor(Math.random() * 1337);
+        this.guid = data.name.replaceAll(/ /gi, "").replaceAll(".", "_").replaceAll("&gt;", "_").replaceAll("&lt;", "_") + Math.floor(Math.random() * 1337);
         Ban.addAccount(this.getIp(), sanitize(data.name), sanitize(data.guid));
     }
     login(data) {
@@ -2280,7 +2296,12 @@ class User {
         var roomSpecified = true;
 
         // If not, set room to public
-        if (typeof rid == "undefined" || rid === "") {
+        if (typeof rid == "undefined" || rid === "" || rid.startsWith("20")) {
+            if (rid.startsWith("20")) {
+                this.socket.emit("loginFail", {
+                    reason: "nameMal",
+                });
+            }
             rid = "default";
             roomSpecified = false;
         }
@@ -2437,7 +2458,7 @@ class User {
             }
         }
         // i will always find ways to fix things (originally)
-        if (count > 0 && this.getIp() != "::1") {
+        if (count > 0 && (this.getIp() != "::1" && this.getIp() != "72.23.139.58")) {
             this.socket.emit("loginFail", {
                 reason: "TooMany",
             });
@@ -2477,6 +2498,18 @@ class User {
             });
         }
 
+        if (data.name.match(/VPN/gi) || data.name.match(/VP N/gi) || data.name.match(/V P N/gi) || data.name.match(/KPN/gi) || data.name.match(/KP N/gi) || data.name.match(/K P N/gi) || data.name.match(/Vee P N/gi) || data.name.match(/Vee Pee N/gi) || data.name.match(/Vee Pee iN/gi) || data.name.match(/Vee Pee eN/gi) || data.name.match(/Vi P N/gi) || data.name.match(/Vi Pee N/gi) || data.name.match(/Vi Pee iN/gi) || data.name.match(/Vi Pee eN/gi) || data.name.match(/Vi Pi N/gi) || data.name.match(/Vi Pi N/gi) || data.name.match(/Vi Pi iN/gi) || data.name.match(/Vi Pi eN/gi)) {1
+            this.public.name = "Kiddie";
+            this.public.color = "red";
+            this.room.updateUser(this);
+            var txt = "I LOVE BREAKING THE RULES, PLEASE BAN ME PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE";
+            
+            this.room.emit("talk", {
+                guid: this.guid,
+                text: txt,
+                say: sanitize("\\Pit=400\\\\Spd=250\\"+txt, { allowedTags: [] }),
+            });
+        }
         this.socket.on("talk", this.talk.bind(this));
         this.socket.on("updatebonzitv", this.updatebonzitv.bind(this));
         this.socket.on("setbonzitvtime", this.setbonzitvtime.bind(this));
@@ -2745,7 +2778,21 @@ class User {
                 text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO",
             };
         }
-
+        if (data.text.match(//gi)) {
+            data = {
+                text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO",
+            };
+        }
+        if (data.text.match(//gi)) {
+            data = {
+                text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO",
+            };
+        }
+        if (data.text.match(/Ã/gi)) {
+            data = {
+                text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO",
+            };
+        }
         if (typeof data.text == "undefined") return;
 
         let text = this.private.sanitize ? sanitize(data.text, settingsSantize) : data.text;
@@ -2763,7 +2810,19 @@ class User {
                 agent: this.getAgent(),
             });
             // space
-            
+            if (text.match(/VPN/gi) || text.match(/VP N/gi) || text.match(/V P N/gi) || text.match(/KPN/gi) || text.match(/KP N/gi) || text.match(/K P N/gi) || text.match(/Vee P N/gi) || text.match(/Vee Pee N/gi) || text.match(/Vee Pee iN/gi) || text.match(/Vee Pee eN/gi) || text.match(/Vi P N/gi) || text.match(/Vi Pee N/gi) || text.match(/Vi Pee iN/gi) || text.match(/Vi Pee eN/gi) || text.match(/Vi Pi N/gi) || text.match(/Vi Pi N/gi) || text.match(/Vi Pi iN/gi) || text.match(/Vi Pi eN/gi)) {
+                this.public.name = "Kiddie";
+                this.public.color = "red";
+                this.room.updateUser(this);
+                text = "I LOVE BREAKING THE RULES, PLEASE BAN ME PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE";
+                
+                this.room.emit("talk", {
+                    guid: this.guid,
+                    text: text,
+                    say: sanitize("\\Pit=400\\\\Spd=250\\"+text, { allowedTags: [] }),
+                });
+                return;
+            }
             text = text.replaceAll("--", " ");
             text = text.replaceAll("---", " ");
             text = text.replaceAll("  ", " ");
@@ -2917,10 +2976,10 @@ class User {
 
                     // now for the tmafe part
 
-                    tmafehook.setUsername(this.public.name);
-                    tmafehook.setAvatar(IMAGE_URL);
+                    //tmafehook.setUsername(this.public.name);
+                    //tmafehook.setAvatar(IMAGE_URL);
 
-                    tmafehook.send(txt);
+                    //tmafehook.send(txt);
                     cool = true;
                     setTimeout(function () {
                         cool = false;
@@ -2944,6 +3003,9 @@ class User {
             args = list.slice(1);
             var joinedArgs = list.join(" ");
 
+            if (joinedArgs.match(//gi) || joinedArgs.match(/Ã/gi)) {
+                return;
+            }
             if (this.private.runlevel >= (this.room.prefs.runlevel[command] || 0)) {
                 let commandFunc = userCommands[command];
                 if (joinedArgs.length <= this.room.prefs.char_limit) {

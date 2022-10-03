@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BonziWORLD Revived+</title>
+        <meta charset="utf-8" />
+        <meta content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <link rel="stylesheet" type="text/css" href="./dist/css/bonzi.world/global.css" />
+        <link rel="stylesheet" type="text/css" href="./dist/css/bonzi.world/style.css" />
+        <link rel="stylesheet" type="text/css" href="./dist/css/tabbed_readme.css" />
+        <link rel="stylesheet" type="text/css" href="./dist/css/style (copy).css" />
+		<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+        <link href="https://win98icons.alexmeub.com/win-icons.min.css" rel="stylesheet" />
+        <style id="theme"></style>
+	<meta name="theme-color" content="#6D33A0" />
+	<meta property="og:title" content="BonziWORLD: Revived+">
+        <meta property="og:description" content="Leading the industry in gorilla-based chat clients.">
+        <meta
+            name="keywords"
+            content="BonziWORLD, BonziWORLD Classic, BonziWORLD Revived+, BonziWORLD Revived+, bonziworld, bonziworld classic, bonziworld revived, BonziWORLD Revived, bonzibuddy, BonziBUDDY, BonziWORLD FE, bonziworld fe"
+        />
+        <meta
+            name="og:keywords"
+            content="BonziWORLD, BonziWORLD Revived+, BonziWORLD Revived+, BonziWORLD Classic, bonziworld, bonziworld classic, bonziworld revived, BonziWORLD Revived, bonzibuddy, BonziBUDDY, BonziWORLD FE, bonziworld fe"
+        />
+		<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+        <script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/997fe684/www-widgetapi.vflset/www-widgetapi.js" async></script>
+        <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" href="./favicons/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="./favicons/favicon-16x16.png" sizes="16x16" />
+        <link rel="manifest" href="./favicons/manifest.json" />
+        <link rel="mask-icon" href="./favicons/safari-pinned-tab.svg" color="#5bbad5" />
+        <link rel="shortcut icon" href="./favicons/favicon.ico" />
+        <meta name="msapplication-config" content="./favicons/browserconfig.xml" />
+        <script src="./js/lib/easeljs.min.js"></script>
+        <script src="./js/lib/preloadjs-0.6.2.min.js"></script>
+        <script src="./js/lib/jquery.min.js"></script>
+        <script src="./js/lib/seedrandom.min.js"></script>
+        <script src="./js/lib/socket.io-1.4.5.js"></script>
+        <script src="./js/lib/speakjs/speakClient.js"></script>
+        <script src="./js/lib/jquery.contextMenu.min.js"></script>
+	<script src="./js/lib/pwa.js"></script>
+        <script src="./cordova.js"></script>
+	<script src="./js/version_handler.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/platform.css" />
+        <script src="./js/script.min.js"></script>
+	<script src="./js/ban.js"></script>
+	<script src="./js/warning.js"></script>
+<script defer>
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then(function() { console.log("Registered Service Worker..."); });
+    }
+</script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link href="https://cdn.jsdelivr.net/npm/devicons@1.8.0/css/devicons.min.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="content">
+            <div id="room_info">
+                <br />
+                <span class="no_selection">Room ID -&#32;</span><span class="room_id">???</span><br />
+                <span id="room_public" class="no_selection">This room is public.</span><span id="room_private" class="no_selection">This room is private.</span>
+                <span id="room_owner" class="no_selection">
+                    <br />
+                    You are the owner of this room.
+                </span>
+				<span hidden><button onclick='$("#page_game1").show(); $("#game_cont").html(`<object width="270" height="270"> <param name="movie" value="tour.swf"> <param name="play" value="false"> <embed src="tour.swf" width="270" height="270" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"> </embed> </object>`)'>Games</button></span>
+            </div>
+            <canvas id="bonzi_canvas" width="100" height="100"></canvas>
+            <table id="chat_bar">
+                <tbody>
+                    <tr>
+                        <td id="chat_send" class="no_selection">send</td>
+                        <td id="chat_message_cont">
+                            <input id="chat_message" class="no_selection" type="text" placeholder="Enter a message or command...." />
+                        </td>
+                        <td id="chat_tray">
+                            <div id="show_desktop"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="page login" id="page_login">
+                <div class="app_showcase no_selection" id="login_apps"></div>
+
+                <div id="login_readme">
+			<div class="motd"></div>
+                    Make sure to check out the <a id="readme" href="/readme/" target="_blank" onclick="var audio = new Audio('THEENDISNEAR.wav'); audio.play()">ENDISMEAR</a> and <a id="readme" href="/rules/" target="_blank" onclick="var audio = new Audio('THEENDISNEAR.wav'); audio.play()">ENDISNEAR</a> before use.
+                </div>
+                <div id="login_card" class="no_selection" style="display: none;">
+                    <input id="login_name" type="text" placeholder="Nickname" />
+                    <input id="login_room" type="text" placeholder="Room ID (Optional)" />
+                    <div id="login_go" onclick="login()"></div>
+                    <div id="login_error" class="no_selection" style="display: none;"></div>
+                </div>
+                <div id="login_load" class="no_selection loading_cursor">loading</div>
+                <div id="login_social" class="no_selection">
+                    <a href="https://discord.gg/4f4GTWGQWq" target="_blank" class="icons" style="margin-right: 10px;"><i class="fab fa-discord"></i></a>
+                    <a href="https://open.spotify.com/user/exogamer_1996?si=307fd3835e2f4c83" target="_blank" class="icons" style="margin-right: 10px;"><i class="fab fa-spotify"></i></a>
+                    <a href="https://steamcommunity.com/profiles/76561199228365620" target="_blank" class="icons" style="margin-right: 10px;"><i class="fab fa-steam"></i></a>
+                    <a href="https://www.youtube.com/channel/UCa7mVLNjbJSKqlPUSTZYKLQ" target="_blank" class="icons" style="margin-right: 10px;"><i class="fab fa-youtube fa-1x" aria-hidden="true"></i></a>
+                </div>
+                <div id="login_version" class="no_selection"></div>
+            </div>
+
+            <div class="page no_selection" id="page_error" style="display: none;">
+                <div class="message_cont" id="error_cont">
+                    <img src="/img/error/logo.png" /><br />
+                    <br />
+                    <h1>BonziWORLD has encountered an error and needs to close.</h1>
+                    <br />
+                    Nah, but seriously there was an error and you got disconnected from the server. Chances are, your internet just died out for a brief moment or your device went to sleep. Otherwise the server just screwed up.<br />
+                    <br />
+                    Try and reload the page. If that doesn't work and your internet is okay, then panic. We'll probably be back up Soon™ though.<br />
+                    <br />
+                    <button class="btn" onclick="window.location.reload();">Reload?</button><br />
+                    <br />
+                    Room ID -&#32;<span class="room_id">???</span><br />
+                </div>
+            </div>
+            <div id="page_dm" class="message_cont" style="display: none;">
+                <h1>Message <span id="dm_send_to"></span></h1>
+                <br />
+                <b>Message: </b><input id="dm_input" /><br />
+                <input type="hidden" id="dm_guid" /><br />
+                <button onclick="dm_send()">Send</button>
+            </div>
+            <div class="page no_selection" id="page_ban" style="display: none;">
+                <div class="message_cont" id="ban_cont">
+                    <img src="/img/ban/logo.png" /><br />
+                    <br />
+                    <h1>You got banned!</h1>
+                    <br />
+                    <br />
+                    <b>Why?&#32;</b><span id="ban_reason"></span><br />
+                    <b>When is it over?&#32;</b><span id="ban_end"></span><br />
+                </div>
+            </div>
+            <div class="page no_selection" id="page_game1" style="display: none;">
+                <div class="message_cont" id="ban_cont">
+                    <img src="/img/ban/logo.png" /><br />
+                    <br />
+                    <h1>This is a game</h1>
+                    <br />
+                    <br />
+					<div id="game_cont"></div>
+                </div>
+            </div>
+            <div class="page no_selection" id="page_restricted_command" style="display: none;">
+                <div class="message_cont" id="ban_cont">
+                    <img src="/img/error/logo.png" /><br />
+                    <br />
+                    <h1>This command is restricted for registered users only</h1>
+                    <br />
+					Want to become registered? This is how.
+					<br>
+					Go to the home page, click on the register button in the readme bubble, <br> insert your username and Bonzi ID, and then you're good to go!
+					<br>
+					<br>
+					<button onclick='$("#page_restricted_command").hide()'>OK</button>
+                </div>
+            </div>
+            <div class="page no_selection" id="page_kick" style="display: none;">
+                <div class="message_cont" id="kick_cont">
+                    <img src="/img/ban/logo.png" /><br />
+                    <br />
+                    <h1>You got kicked!</h1>
+                    <br />
+                    <br />
+                    <b>Why?&#32;</b><span id="ban_reason"></span><br />
+                </div>
+            </div>
+            <div class="page no_selection" id="page_ie" style="display: none;">
+                <div class="message_cont" id="ie_cont">
+                    <img src="/img/icons/ie.png" /><br />
+                    <br />
+                    <h1>Internet Explorer isn't supported!</h1>
+                    <br />
+                    <br />
+                    <b>What is my IE version?&#32;</b><span id="ie_version"></span><br />
+                </div>
+            </div>
+            <div class="page no_selection" id="page_skiddie" style="display: none;">
+                <div class="message_cont" id="skid_cont">
+                    <img src="/img/error/logo2.png" /><br />
+                    <br />
+                    <h1>Script Kiddie Detected!!</h1>
+                    <br />
+                    <p>You have now been disconnected from the server...</p>
+                    <br />
+                    <br />
+                    <b>Why?&#32;</b><br />
+                    <span id="ban_reason">You have been caught using inspect element!</span><br />
+                </div>
+            </div>
+            <div class="page no_selection" id="page_unsupp" style="display: none;">
+                <div class="message_cont" id="unsupp_cont">
+                    <img src="/img/error/logo.png" /><br />
+                    <br />
+                    <h1>BonziWORLD cannot run on this platform.</h1>
+                    <br />
+                    Unfortunately, BonziWORLD cannot run in this browser for the following reasons:<br />
+                    <ul id="unsupp_reasons"></ul>
+                    You can try to download a BonziWORLD app that works on your device, or update your browser.
+                    <div class="app_showcase" id="login_apps"></div>
+                </div>
+            </div>
+        <div id="page_warning" class="page no_selection" style="display: none;">
+            <div id="warning_cont" class="message_cont">
+                <img src="./img/ban/logo.png" />
+                <br />
+                <br />
+                <h1>Warning</h1>
+                <br />
+                <br />
+                <b>Why did i get warned? </b>
+                <span id="warning_reason"></span>
+                <br />
+                <br />
+                <button onclick="hidewarning()">Hide</button>
+            </div>
+        </div>
+        <div id="page_achieve" class="page no_selection" style="display: none;">
+            <div id="achieve_cont" class="message_cont">
+                <img src="./img/ban/logo.png" />
+                <br />
+                <br />
+                <h1>You've Received Admin!</h1>
+                <br />
+                <br />
+                <b>Why did i get admin? </b>
+                <span id="achieve_reason"></span>
+                <br />
+                <br />
+                If you did not get admin, reload the page.
+                <br />
+                <br />
+                <button onclick="hideadmin()">Hide</button>
+            </div>
+        </div>
+            <div id="page_banmenu" class="page no_selection" style="display: none;">
+                <div id="ban_cont" class="message_cont">
+                    <br />
+                    <br />
+                    <h1>Ban a user</h1>
+                    <br />
+                    <br />
+                    <b>Why? </b><span>Custom</span><br />
+                    <input type="text" id="banmenu_reason" /><br />
+                    <b>Who? (IP Only for now)</b><br />
+                    <input type="text" id="banmenu_ip" /><br />
+                    <br />
+                    <b>When is it over? </b><input type="text" id="banmenu_end" /><br />
+                    <button onclick="ban()">Ban</button>
+                </div>
+            </div>
+            <div id="page_reportmenu" class="page no_selection" style="display: none;">
+                <div id="report_cont" class="message_cont">
+                    <img src="./img/error/logo2.png" /> <br />
+                    <br />
+                    <h1>Report Bonzi (Abuse will result in punishment)</h1>
+                    <br />
+                    <br />
+                    <b>Why? </b><br />
+                    <input type="text" id="reportmenu_reason" /><br />
+                    <b>Who?</b><br />
+                    <input type="text" id="reportmenu_name" /><br />
+                    <br />
+                    <b>THIS WONT WORK. DON'T TRY IT.</b><br />
+                    <button onclick="report()">Report!</button>
+                </div>
+            </div>
+            <template id="b_alert" class="page no_selection">
+                <div class="message_cont no_selection">
+                    <h1>text here afgjagoafgja</h1>
+                    <br />
+                    <p>type text here for free</p>
+                    <br />
+                    <button class="btn">OK</button>
+                </div>
+            </template>
+            <template id="b_broadcast" class="page no_selection">
+                <div class="message_cont no_selection">
+                    <h1>text here afgjagoafgja</h1>
+                    <br />
+                    <p>type text here for free</p>
+                    <br />
+                    <button class="btn">OK</button>
+                </div>
+            </template>
+        </div>
+        <div id="titlebar">
+            <div id="minimize"></div>
+            <div id="maximize"></div>
+            <div id="close"></div>
+        </div>
+    </body>
+</html>

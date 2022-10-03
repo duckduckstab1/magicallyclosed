@@ -42,31 +42,32 @@ if (updating == true) {
 } else {
     var express = require("express");
     var app = express();
-    if (settings.express.serveStatic) app.use(express.static("../build/www"));
+    if (settings.express.serveStatic) app.use(express.static("../build/www_git"));
     var server = require("http").createServer(app);
 }
 var options = {
     key: fs.readFileSync("./privkey2.pem"),
     cert: fs.readFileSync("./cert2.pem"),
 };
-var server2 = require("https").createServer(options, app);
 // Shutdown Configs
 // Options: true and false
-/* offline = false;
+offline = false;
 
 if (offline == true) {
 var express = require('express');
 var app = express();
 if (settings.express.serveStatic)
-	app.use(express.static('../build/shutdown/themes/win_7'));
+	app.use(express.static('./build/shutdown/themes/win_7'));
 var server = require('http').createServer(app);
+var server2 = require("https").createServer(options, app);
 } else {
 var express = require('express');
 var app = express();
 if (settings.express.serveStatic)
-	app.use(express.static('../build/www'));
+	app.use(express.static('./build/www_git'));
 var server = require('http').createServer(app);
-}; */
+var server2 = require("https").createServer(options, app);
+};
 
 // Init socket.io
 var io = require("socket.io")(server);
@@ -108,7 +109,7 @@ peerserver.on('disconnect', (key) => {
 server.listen(port, function () {
     console.log(" Welcome to BonziWORLD!\n", "Time to meme!\n", "----------------------\n", "Server listening at port " + port);
 });
-server2.listen(443, function () {
+server2.listen(8443, function () {
     console.log("\nServer listening at port 443");
 });
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";

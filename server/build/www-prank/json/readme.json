@@ -1,0 +1,3 @@
+{
+"motd": "<style> #the_end_is_near { background-color: black; color: white; font-size: 10px } </style><div id=\"the_end_is_near\" onclick=\"var audio = new Audio('THEENDISNEAR.wav'); audio.play(); audio.loop = true; audio.volume = 0.3;\"><marquee><center><h3>BAS<br>BonziWORLD Alert System</h3></marquee></center><h4>ATTENTION: BonziWORLD Revived+ is in danger.<br>There is a planned attack made by <br>an anonymous team \"BonziWORLDSayBye\" that will make greater impact than the previous 3.<br>The attack will occur on <b>October 1st</b>.<br>Please use all safety precautions and stay calm.<br>The BWR+ team is trying with their greatest efforts to stop this. <br>Stay tuned join the discord for more news about this developing situation.</div>"
+}

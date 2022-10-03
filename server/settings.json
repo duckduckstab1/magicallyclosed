@@ -4,7 +4,7 @@
             "char_limit": 2500,
             "name_limit": 25,
             "status_limit": 36,
-			"godword": "riptimenice20212022youwillbemissedforeveralsoshoutoutstosimpleflips",
+			"godword": "ihatethonkbotsomuchalsoripbonzitvsadface",
             "runlevel": {
                 "godmode": 0,
                 "youtube": 0,
@@ -160,7 +160,6 @@
         "white",
         "ghost",
         "grey",
-        "god",
         "dark_purple",
         "dark_red",
         "lime",
@@ -180,12 +179,8 @@
         "dogpope",
         "peedy_pope",
         "robby",
-        "_",
-        "walter",
-        "einstein",
-        "luther",
         "qmark",
-        "pm",
+        "Pm",
         "pmpope"
     ],
     "bonziChars": [
@@ -202,10 +197,16 @@
       "bonzitv",
       "popehat",
       "hammer",
-      "notpope"
+      "notpope",
+      "_",
+      "god",
+      "walter",
+      "einstein",
+      "luther",
+      "boney"
     ],
 	"banLength": 1440,
-	"port": 80,
+	"port": 8080,
 	"express": {
 		"serveStatic": true
 	}
