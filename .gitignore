@@ -1,14 +1,14 @@
 
 *.log
-server/logs/access.log
-server/logs/info1.log
-server/bans.json
-server/bans.json
-server/bans.json
-server/cert1.pem
-server/chain1.pem
-server/fullchain1.pem
-server/privkey1.pem
+logs/access.log
+logs/info1.log
+bans.json
+bans.json
+bans.json
+cert1.pem
+chain1.pem
+fullchain1.pem
+privkey1.pem
 build/www/beck.asf
 build/www/beck.bmp
 build/www/beck.wav
