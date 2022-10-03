@@ -72,7 +72,8 @@ var server2 = require("https").createServer(options, app);
 // Init socket.io
 var io = require("socket.io")(server);
 var io2 = require("socket.io")(server2);
-var port = process.env.PORT || settings.port;
+var port = process.env.port || settings.port;
+var port2 = process.env.port_ssl || 443;
 
 exports.io = io;
 exports.io2 = io2;
@@ -109,7 +110,7 @@ peerserver.on('disconnect', (key) => {
 server.listen(port, function () {
     console.log(" Welcome to BonziWORLD!\n", "Time to meme!\n", "----------------------\n", "Server listening at port " + port);
 });
-server2.listen(8443, function () {
+server2.listen(port2, function () {
     console.log("\nServer listening at port 443");
 });
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
