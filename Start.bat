@@ -3,7 +3,7 @@ cls
 title BWR+ Remake
 
 :j
-node index
+npm start
 echo Reloading BWR+
 goto j
 

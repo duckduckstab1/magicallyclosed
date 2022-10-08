@@ -2,10 +2,14 @@
   "name": "bonziworld_server",
   "version": "2.0.2",
   "description": "Server for the BonziWORLD chat client.",
-  "main": "index.js",
+  "main": "app.js",
   "author": "Joseph Judge",
   "private": true,
   "license": "MIT",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": { "node" : ">=15" },
   "dependencies": {
     "axios": "^0.27.2",
     "discord-webhook-node": "^1.1.8",

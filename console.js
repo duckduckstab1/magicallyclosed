@@ -1,6 +1,6 @@
 const Ban = require('./ban.js');
-const io = require('./index.js').io;
-const io2 = require('./index.js').io2;
+const io = require('./app.js').io;
+const io2 = require('./app.js').io2;
 let commands = {
     "ban": {
         "help": "ip [length reason]",

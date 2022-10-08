@@ -1,7 +1,7 @@
 const log = require('./log.js').log;
 const fs = require('fs-extra');
 const settings = require("./settings.json");
-const io = require('./index.js').io;
+const io = require('./app.js').io;
 const sanitize = require('sanitize-html');
 
 let bans;
