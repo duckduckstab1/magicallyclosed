@@ -74,13 +74,11 @@ var io = require("socket.io")(server, {
     cors: {
        origin: '*'
     },
-   transports: ['websocket']
 });
 var io2 = require("socket.io")(server2, {
     cors: {
        origin: '*'
     },
-   transports: ['websocket']
 });
 var port = process.env.port || settings.port;
 var port2 = process.env.port_ssl || 8443;

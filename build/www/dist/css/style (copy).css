@@ -514,7 +514,7 @@ body.vaporwave #chat_send {
 
 #page_login {
   background-color: #e86d56;
-  background-image: url("/img/logon/logo.png"), url("/img/logon/halloween/top.png"), url("/img/logon/halloween/bottom.png"), url("/img/logon/halloween/topleft.png"), url("/img/logon/halloween/divider.png");
+  background-image: url("/img/logon/logo.png"), url("/img/logon/top.png"), url("/img/logon/bottom.png"), url("/img/logon/topleft.png"), url("/img/logon/divider.png");
   background-position: center, top, bottom, top left, center;
   background-size: auto, 100% 100px, 100% 122px, auto, 1px 100%;
   background-repeat: no-repeat; }
