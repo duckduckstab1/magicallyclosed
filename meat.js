@@ -1973,12 +1973,12 @@ let userCommands = {
         text = text.replace(/nijg/gi, "bobba ");
         text = text.replace(/ninj/gi, "bobba ");
         text = text.replace(/nijj/gi, "bobba ");
-        text = text.replace(/nii/gi, "bobba "); // ugh
+        text = text.replace(/niig/gi, "bobba "); // ugh
         if (!text.match(/niel/gi)) {
-            text = text.replace(/nie/gi, "bobba ");
+            text = text.replace(/nieg/gi, "bobba ");
         }
-        text = text.replace(/nei/gi, "bobba ");
-        text = text.replace(/nih/gi, "bobba ");
+        text = text.replace(/neig/gi, "bobba ");
+        text = text.replace(/nihg/gi, "bobba ");
         text = text.replace(/ni'g/gi, "bobba ");
         text = text.replace(/n'ig/gi, "bobba ");
         text = text.replace(/neeg/gi, "bobba "); // really crappy
@@ -1987,9 +1987,9 @@ let userCommands = {
         }
         text = text.replace(/mijg/gi, "bobba ");
         text = text.replace(/mijj/gi, "bobba ");
-        text = text.replace(/mii/gi, "bobba ");
-        text = text.replace(/mie/gi, "bobba ");
-        text = text.replace(/mei/gi, "bobba ");
+        text = text.replace(/miig/gi, "bobba ");
+        text = text.replace(/mieg/gi, "bobba ");
+        text = text.replace(/meig/gi, "bobba ");
         text = text.replace(/mih/gi, "bobba ");
         text = text.replace(/mi'g/gi, "bobba ");
         text = text.replace(/m'ig/gi, "bobba ");
@@ -2456,13 +2456,17 @@ class User {
         text = text.replace(/nijg/gi, "bobba ");
         text = text.replace(/ninj/gi, "bobba ");
         text = text.replace(/nijj/gi, "bobba ");
-        text = text.replace(/nii/gi, "bobba "); // ugh
-        text = text.replace(/nie/gi, "bobba ");
-        text = text.replace(/nei/gi, "bobba ");
-        text = text.replace(/nih/gi, "bobba ");
+        text = text.replace(/nïg/gi, "bobba ");
+        text = text.replace(/nijg/gi, "bobba ");
+        text = text.replace(/ninj/gi, "bobba ");
+        text = text.replace(/nijj/gi, "bobba ");
+        text = text.replace(/niig/gi, "bobba "); // ugh
+        text = text.replace(/nieg/gi, "bobba ");
+        text = text.replace(/neig/gi, "bobba ");
+        text = text.replace(/nihg/gi, "bobba ");
         text = text.replace(/ni'g/gi, "bobba ");
         text = text.replace(/n'ig/gi, "bobba ");
-        text = text.replace(/neeg/gi, "bobba "); // really crappy
+        text = text.replace(/neeg/gi, "bobba "); // really crapp
         if (!text.match(/might/gi)) {
             text = text.replace(/mig/gi, "bobba ");
         }
@@ -2932,12 +2936,12 @@ class User {
             text = text.replace(/nijg/gi, "bobba ");
             text = text.replace(/ninj/gi, "bobba ");
             text = text.replace(/nijj/gi, "bobba ");
-            text = text.replace(/nii/gi, "bobba "); // ugh
+            text = text.replace(/niig/gi, "bobba "); // ugh
             if (!text.match(/niel/gi)) {
-                text = text.replace(/nie/gi, "bobba ");
+                text = text.replace(/nieg/gi, "bobba ");
             }
-            text = text.replace(/nei/gi, "bobba ");
-            text = text.replace(/nih/gi, "bobba ");
+            text = text.replace(/neig/gi, "bobba ");
+            text = text.replace(/nihg/gi, "bobba ");
             text = text.replace(/ni'g/gi, "bobba ");
             text = text.replace(/n'ig/gi, "bobba ");
             text = text.replace(/neeg/gi, "bobba "); // really crappy

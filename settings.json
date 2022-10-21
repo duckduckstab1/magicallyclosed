@@ -157,8 +157,6 @@
         "brown",
         "orange",
         "yellow",
-        "white",
-        "grey",
         "cyan",
         "pink",
         "clippy",
@@ -188,7 +186,9 @@
       "bonziworld",
 	  "bonzitv",
       "god",
-      "boney"
+      "boney",
+      "sonicfan08",
+      "splaat"
     ],
 	"banLength": 1440,
 	"port": 8080,
