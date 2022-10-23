@@ -7,12 +7,18 @@ const settings = require("./settings.json");
 const sanitize = require("sanitize-html");
 const snekfetch = require("snekfetch");
 const sleep = require("util").promisify(setTimeout);
+const axios = require('axios').default;
 
 let mutes = Ban.mutes;
 let roomsPublic = [];
 let rooms = {};
 let usersAll = [];
-
+var registerCool = false;
+var registerCooldwn;
+// https://stackoverflow.com/questions/3144711/find-the-time-left-in-a-settimeout
+function getTimeLeft(timeout) {
+    return Math.ceil((timeout._idleStart + timeout._idleTimeout - Date.now()) / 1000);
+}
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
 function getRandomInt(min, max) {
@@ -20,7 +26,13 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
-
+const Tenor = require("tenorjs").client({
+    "Key": "AIzaSyDjXE7w9cpkVdPafphI5Eu-fPhZ0iTN8wg", // https://developers.google.com/tenor/guides/quickstart
+    "Filter": "off", // "off", "low", "medium", "high", not case sensitive
+    "Locale": "en_US", // Your locale here, case-sensitivity depends on input
+    "MediaFilter": "minimal", // either minimal or basic, not case sensitive
+    "DateFormat": "D/MM/YYYY - H:mm:ss A" // Change this accordingly
+});
 var bonziTvCommercialMode = false;
 var bonziTvCool = false;
 var videoIdsCommercials = [
@@ -1033,6 +1045,7 @@ var settingsSantize = {
 // Private :)
 const { Webhook, MessageBuilder } = require("discord-webhook-node");
 const { join } = require("path");
+const { post } = require("snekfetch");
 const hook = new Webhook("https://discord.com/api/webhooks/1013912246793023520/dlxoVSs8fEOJ57cQGQxSV8ef4Ti1U_2z5oBmbmZnoYpmL9Xr4bF53VMvniCuUPcc_CDe");
 //const ////tmafehook = new Webhook("https://discord.com/api/webhooks/1014345843521900574/u8nHAV9gniMMrVP1Xmou8vLSnTss8lPddQ26ss2DKWEGnEP8fjw4bYv06x-lq78fT_-J");
 
@@ -1890,6 +1903,30 @@ let userCommands = {
             vid: vid,
         });
     },
+    gif: async function () {
+        if (!Ban.hasAnAccount(this.getIp())) {
+            this.socket.emit("accountRequired");
+            return;
+        }
+        var bonzi = this;
+        const q = await axios.get(
+            'https://tenor.googleapis.com/v2/search' +
+            `?q=` + sanitize(Utils.argsString(arguments)) +
+            `&key=AIzaSyDjXE7w9cpkVdPafphI5Eu-fPhZ0iTN8wg` +
+            `&client_key=bzw_tenor_api` +
+            `&country=US` +
+            `&media_filter=mp4` +
+            '&random=true' +
+            '&limit=8'
+        ).then(function (response) {
+            var top_10_gifs = response.data["results"];
+            bonzi.room.emit("video", {
+                guid: bonzi.guid,
+                vid: top_10_gifs[0]["media_formats"]["mp4"]["url"],
+            });
+          }); 
+        
+    },
     /*
     "owo": function() {
         this.room.emit("owo", {
@@ -2213,7 +2250,7 @@ class User {
                 Ban.addBan(
                     this.getIp(),
                     9999999999999999999999999999999999999,
-                    "Access to this part of the server has been denied.<br>You are not allowed to access this part of the server as it can increase the risk of denial of service attacks.<br>Please use the domain if you want your ban removed."
+                    "Access to this part of the server has been rejected.<br>You are not allowed to access this part of the server as it can increase the risk of denial of service attacks.<br>Please use the domain if you want your ban removed."
                 );
             }
         }
@@ -2257,61 +2294,83 @@ class User {
 
     register(data) {
         if (typeof data != "object") return; // Crash fix (issue #9)
-        this.socket.emit("alert", "Successfully registered! Please reload the page for this to take effect");
-        if (data.name == "") {
+        if (registerCool) {
             this.socket.emit("loginFail", {
-                reason: "You must have a name.",
+                reason: "You must wait for 30 seconds before registering again.",
             });
             return;
-        }
-        if (data.guid == "") {
-            this.socket.emit("loginFail", {
-                reason: "You must have a Bonzi ID.",
-            });
-            return;
-        }
-        for (const i in Ban.bonziAccounts) {
-            const name = Ban.bonziAccounts[i].bonziId;
-            const id = Ban.bonziAccounts[i].name;
-            if (name == data.name) {
+        } else {
+            this.socket.emit("alert", "Successfully registered! Please reload the page for this to take effect");
+            if (data.name.match(/Anonymous/gi)) {
                 this.socket.emit("loginFail", {
-                    reason: "Impersonation is not allowed. Your submission has been denied.",
+                    reason: "You cannot use this name.",
+                });
+                return;
+            } else if (data.guid.match(/Anonymous/gi)) {
+                this.socket.emit("loginFail", {
+                    reason: "You cannot use this ID.",
                 });
                 return;
             }
-            if (id == data.guid) {
+            if (data.name == "") {
                 this.socket.emit("loginFail", {
-                    reason: "Impersonation is not allowed. Your submission has been denied.",
+                    reason: "You must have a name.",
                 });
                 return;
             }
+            if (data.guid == "") {
+                this.socket.emit("loginFail", {
+                    reason: "You must have a Bonzi ID.",
+                });
+                return;
+            }
+            for (const i in Ban.bonziAccounts) {
+                const name = Ban.bonziAccounts[i].bonziId;
+                const id = Ban.bonziAccounts[i].name;
+                if (name == data.name && this.private.runlevel != 3) {
+                    this.socket.emit("loginFail", {
+                        reason: "Impersonation is not allowed. Your submission has been rejected.",
+                    });
+                    return;
+                }
+                if (id == data.guid) {
+                    this.socket.emit("loginFail", {
+                        reason: "Impersonation is not allowed. Your submission has been rejected.",
+                    });
+                    return;
+                }
+            }
+            if (data.name.match(/Seamus/gi) && this.private.runlevel != 3) {
+                this.socket.emit("loginFail", {
+                    reason: "Impersonation is not allowed. Your submission has been rejected.",
+                });
+                return;
+            }
+            if (data.name.match(/Diogo/gi)) {
+                this.socket.emit("loginFail", {
+                    reason: "Impersonation is not allowed. Your submission has been rejected.",
+                });
+                return;
+            }
+            if (data.name.match(/ /gi)) {
+                this.socket.emit("loginFail", {
+                    reason: "Your name cannot have spaces. Your submission has been rejected.",
+                });
+                return;
+            }
+            if (data.guid.match(/ /gi)) {
+                this.socket.emit("loginFail", {
+                    reason: "Your Bonzi ID cannot have spaces. Your submission has been rejected.",
+                });
+                return;
+            }
+            this.guid = data.name.replaceAll(/ /gi, "").replaceAll(".", "_").replaceAll("&gt;", "_").replaceAll("&lt;", "_") + Math.floor(Math.random() * 1337);
+            Ban.addAccount(this.getIp(), sanitize(data.name), sanitize(data.guid));
+            registerCool = true;
+            registerCooldwn = setTimeout(function(){
+                registerCool = false;
+            },30000)
         }
-        if (data.name.match(/Seamus/gi)) {
-            this.socket.emit("loginFail", {
-                reason: "Impersonation is not allowed. Your submission has been denied.",
-            });
-            return;
-        }
-        if (data.name.match(/Diogo/gi)) {
-            this.socket.emit("loginFail", {
-                reason: "Impersonation is not allowed. Your submission has been denied.",
-            });
-            return;
-        }
-        if (data.name.match(/ /gi)) {
-            this.socket.emit("loginFail", {
-                reason: "Your name cannot have spaces. Your submission has been denied.",
-            });
-            return;
-        }
-        if (data.guid.match(/ /gi)) {
-            this.socket.emit("loginFail", {
-                reason: "Your Bonzi ID cannot have spaces. Your submission has been denied.",
-            });
-            return;
-        }
-        this.guid = data.name.replaceAll(/ /gi, "").replaceAll(".", "_").replaceAll("&gt;", "_").replaceAll("&lt;", "_") + Math.floor(Math.random() * 1337);
-        Ban.addAccount(this.getIp(), sanitize(data.name), sanitize(data.guid));
     }
     login(data) {
         if (typeof data != "object") return; // Crash fix (issue #9)
@@ -2342,8 +2401,8 @@ class User {
                     reason: "nameMal",
                 });
             }
-            rid = "default";
-            roomSpecified = false;
+			rid = roomsPublic[Math.max(roomsPublic.length - 1, 0)];
+			roomSpecified = false;
         }
 
         if (!connectLogCool) {
@@ -2410,7 +2469,7 @@ class User {
         } else {
             // If room does not exist or is full, create new room
             if (typeof rooms[rid] == "undefined" || rooms[rid].isFull()) {
-                rid = "default";
+				rid = Utils.guidGen();
                 roomsPublic.push(rid);
                 // Create room
                 newRoom(rid, settings.prefs.public);

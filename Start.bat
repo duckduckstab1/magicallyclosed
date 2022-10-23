@@ -3,7 +3,7 @@ cls
 title BWR+ Remake
 
 :j
-npm start
+node app.js
 echo Reloading BWR+
 goto j
 
