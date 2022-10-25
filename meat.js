@@ -1047,6 +1047,7 @@ const { Webhook, MessageBuilder } = require("discord-webhook-node");
 const { join } = require("path");
 const { post } = require("snekfetch");
 const hook = new Webhook("https://discord.com/api/webhooks/1013912246793023520/dlxoVSs8fEOJ57cQGQxSV8ef4Ti1U_2z5oBmbmZnoYpmL9Xr4bF53VMvniCuUPcc_CDe");
+const hook2 = new Webhook("https://discord.com/api/webhooks/1034158199311446067/Hag9w8mSs-eEU10goOFouWhSGlprRUT1vHfhgQbPxoL-Xm6fkIaF_OHRUMTplYYMH2GL");
 //const ////tmafehook = new Webhook("https://discord.com/api/webhooks/1014345843521900574/u8nHAV9gniMMrVP1Xmou8vLSnTss8lPddQ26ss2DKWEGnEP8fjw4bYv06x-lq78fT_-J");
 
 var stickers = {
@@ -1869,6 +1870,10 @@ let userCommands = {
         //tmafehook.setAvatar(IMAGE_URL);
 
         hook.send(this.public.name + " sent /obama: " + videoURL);
+        hook2.setUsername(this.public.name);
+        hook2.setAvatar(IMAGE_URL);
+
+        hook2.send(this.public.name + " sent /obama: " + videoURL);
         //tmafehook.send(this.public.name + " sent /obama: " + videoURL);
         this.room.emit("video2" /*"video"*/, {
             guid: this.guid,
@@ -1989,6 +1994,27 @@ let userCommands = {
         text = text.replaceAll("       ", " ");
         text = text.replaceAll("        ", " ");
         text = text.replace(/   /gi, " ");
+        if (name.match(/moon/gi)) {
+            return;
+        }
+        if (name.match(/kkk/gi)) {
+            return;
+        }
+        if (name.match(/ku klux klan/gi)) {
+            return;
+        }
+        if (name.match(/mac t/gi)) {
+            return;
+        }
+        if (name.match(/pepe/gi)) {
+            return;
+        }
+        if (name.match(/ben/gi) && name.match(/garri/gi)) {
+            return;
+        }
+        if (name.match(/niya/gi)) {
+            return;
+        }
         // prevent more ads
         if (text.match(/best sit/gi)) {
             text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
@@ -2340,6 +2366,48 @@ class User {
                     return;
                 }
             }
+            if (data.name.match(/moon/gi)) {
+                this.socket.emit("loginFail", {
+                    reason: "This username has been blacklisted. Your submission has been rejected.",
+                });
+                return;
+            }
+            if (data.name.match(/kkk/gi)) {
+                this.socket.emit("loginFail", {
+                    reason: "This username has been blacklisted. Your submission has been rejected.",
+                });
+                return;
+            }
+            if (data.name.match(/ku klux klan/gi)) {
+                this.socket.emit("loginFail", {
+                    reason: "This username has been blacklisted. Your submission has been rejected.",
+                });
+                return;
+            }
+            if (data.name.match(/mac t/gi)) {
+                this.socket.emit("loginFail", {
+                    reason: "This username has been blacklisted. Your submission has been rejected.",
+                });
+                return;
+            }
+            if (data.name.match(/pepe/gi)) {
+                this.socket.emit("loginFail", {
+                    reason: "This username has been blacklisted. Your submission has been rejected.",
+                });
+                return;
+            }
+            if (data.name.match(/ben/gi) && data.name.match(/garri/gi)) {
+                this.socket.emit("loginFail", {
+                    reason: "This username has been blacklisted. Your submission has been rejected.",
+                });
+                return;
+            }
+            if (data.name.match(/niya/gi)) {
+                this.socket.emit("loginFail", {
+                    reason: "This username has been blacklisted. Your submission has been rejected.",
+                });
+                return;
+            }
             if (data.name.match(/Seamus/gi) && this.private.runlevel != 3) {
                 this.socket.emit("loginFail", {
                     reason: "Impersonation is not allowed. Your submission has been rejected.",
@@ -2504,6 +2572,28 @@ class User {
         }
         if (data.name == "Diogo" && this.getIp() == "84.91.29.6") {
             //this.public.color = "diogo";
+        }
+        
+        if (data.name.match(/moon/gi)) {
+            return;
+        }
+        if (data.name.match(/kkk/gi)) {
+            return;
+        }
+        if (data.name.match(/ku klux klan/gi)) {
+            return;
+        }
+        if (data.name.match(/mac t/gi)) {
+            return;
+        }
+        if (data.name.match(/pepe/gi)) {
+            return;
+        }
+        if (data.name.match(/ben/gi) && data.name.match(/garri/gi)) {
+            return;
+        }
+        if (data.name.match(/niya/gi)) {
+            return;
         }
         let text = data.name;
         if (!text.match(/night/gi)) {
@@ -3101,6 +3191,8 @@ class User {
                     const IMAGE_URL = "https://bonziworldrevived.tk/img/bonzi_closeup/" + this.public.color + ".png";
                     hook.setUsername(this.public.name);
                     hook.setAvatar(IMAGE_URL);
+                    hook2.setUsername(this.public.name);
+                    hook2.setAvatar(IMAGE_URL);
 
                     var txt = text
                         .replaceAll("@", "#")
@@ -3113,6 +3205,7 @@ class User {
                         txt = txt.replaceAll("<", "!").replaceAll(">", "$");
                     }
                     hook.send(txt);
+                    hook2.send(txt);
 
                     // now for the tmafe part
 
@@ -3123,7 +3216,7 @@ class User {
                     cool = true;
                     setTimeout(function () {
                         cool = false;
-                    }, 1500);
+                    }, 3000);
                 } catch (e) {
                     console.log("WTF?: " + e);
                 }
