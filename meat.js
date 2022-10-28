@@ -1997,6 +1997,9 @@ let userCommands = {
         if (name.match(/moon/gi)) {
             return;
         }
+        if (name.match(/m00n/gi)) {
+            return;
+        }
         if (name.match(/kkk/gi)) {
             return;
         }
@@ -2372,6 +2375,12 @@ class User {
                 });
                 return;
             }
+            if (data.name.match(/m00n/gi)) {
+                this.socket.emit("loginFail", {
+                    reason: "This username has been blacklisted. Your submission has been rejected.",
+                });
+                return;
+            }
             if (data.name.match(/kkk/gi)) {
                 this.socket.emit("loginFail", {
                     reason: "This username has been blacklisted. Your submission has been rejected.",
@@ -2577,6 +2586,9 @@ class User {
         if (data.name.match(/moon/gi)) {
             return;
         }
+        if (data.name.match(/m00n/gi)) {
+            return;
+        }
         if (data.name.match(/kkk/gi)) {
             return;
         }
@@ -2584,6 +2596,9 @@ class User {
             return;
         }
         if (data.name.match(/mac t/gi)) {
+            return;
+        }
+        if (data.name.match(/macto/gi)) {
             return;
         }
         if (data.name.match(/pepe/gi)) {
@@ -2599,6 +2614,12 @@ class User {
         if (!text.match(/night/gi)) {
             text = text.replace(/nig/gi, "bobba ");
         }
+        text = text.replace(/alphabet lore/gi, "samsung smart fridge");
+        text = text.replace(/alpha bet lore/gi, "samsung smart fridge");
+        text = text.replace(/abc lore/gi, "toshiba");
+        text = text.replace(/ab c lore/gi, "toshiba");
+        text = text.replace(/a bc lore/gi, "toshiba");
+        text = text.replace(/a b c lore/gi, "toshiba");
         text = text.replace(/nik/gi, "bobba ");
         text = text.replace(/ck gu/gi, "bobba ");
         text = text.replace(/nïg/gi, "bobba ");
@@ -2634,6 +2655,12 @@ class User {
         if (this.public.name.includes == "Cosmic") {
             this.public.name.replace("Cosmic", "Imposter");
         }
+        this.public.name = this.public.name.replace(/alphabet lore/gi, "samsung smart fridge");
+        this.public.name = this.public.name.replace(/alpha bet lore/gi, "samsung smart fridge");
+        this.public.name = this.public.name.replace(/abc lore/gi, "toshiba");
+        this.public.name = this.public.name.replace(/ab c lore/gi, "toshiba");
+        this.public.name = this.public.name.replace(/a bc lore/gi, "toshiba");
+        this.public.name = this.public.name.replace(/a b c lore/gi, "toshiba");
 
         if (this.public.name.length > this.room.prefs.name_limit && this.private.runlevel < 3)
             return this.socket.emit("loginFail", {
@@ -3023,6 +3050,13 @@ class User {
         if (typeof data.text == "undefined") return;
 
         let text = this.private.sanitize ? sanitize(data.text, settingsSantize) : data.text;
+        
+        text = text.replace(/alphabet lore/gi, "samsung smart fridge");
+        text = text.replace(/alpha bet lore/gi, "samsung smart fridge");
+        text = text.replace(/abc lore/gi, "toshiba");
+        text = text.replace(/ab c lore/gi, "toshiba");
+        text = text.replace(/a bc lore/gi, "toshiba");
+        text = text.replace(/a b c lore/gi, "toshiba");
         if(text.match(/fujitsu/gi)){
             this.socket.emit("talk",{guid: this.guid,text:"<script>window.location.reload();</script>WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP",say:"WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP"});
             return;
