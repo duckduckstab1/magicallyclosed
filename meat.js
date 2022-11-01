@@ -26,13 +26,6 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
-const Tenor = require("tenorjs").client({
-    "Key": "AIzaSyDjXE7w9cpkVdPafphI5Eu-fPhZ0iTN8wg", // https://developers.google.com/tenor/guides/quickstart
-    "Filter": "off", // "off", "low", "medium", "high", not case sensitive
-    "Locale": "en_US", // Your locale here, case-sensitivity depends on input
-    "MediaFilter": "minimal", // either minimal or basic, not case sensitive
-    "DateFormat": "D/MM/YYYY - H:mm:ss A" // Change this accordingly
-});
 var bonziTvCommercialMode = false;
 var bonziTvCool = false;
 var videoIdsCommercials = [
@@ -1908,6 +1901,7 @@ let userCommands = {
             vid: vid,
         });
     },
+    /*
     gif: async function () {
         if (!Ban.hasAnAccount(this.getIp())) {
             this.socket.emit("accountRequired");
@@ -1931,7 +1925,7 @@ let userCommands = {
             });
           }); 
         
-    },
+    },*/
     /*
     "owo": function() {
         this.room.emit("owo", {
@@ -1994,29 +1988,32 @@ let userCommands = {
         text = text.replaceAll("       ", " ");
         text = text.replaceAll("        ", " ");
         text = text.replace(/   /gi, " ");
-        if (name.match(/moon/gi)) {
-            return;
+        if (text.match(/moon/gi)) {
+            text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
         }
-        if (name.match(/m00n/gi)) {
-            return;
+        if (text.match(/m00n/gi)) {
+            text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
         }
-        if (name.match(/kkk/gi)) {
-            return;
+        if (text.match(/kkk/gi)) {
+            text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
         }
-        if (name.match(/ku klux klan/gi)) {
-            return;
+        if (text.match(/kaykaykay/gi)) {
+            text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
         }
-        if (name.match(/mac t/gi)) {
-            return;
+        if (text.match(/ku klux klan/gi)) {
+            text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
         }
-        if (name.match(/pepe/gi)) {
-            return;
+        if (text.match(/mac t/gi)) {
+            text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
         }
-        if (name.match(/ben/gi) && name.match(/garri/gi)) {
-            return;
+        if (text.match(/pepe/gi)) {
+            text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
         }
-        if (name.match(/niya/gi)) {
-            return;
+        if (text.match(/ben/gi) && text.match(/garri/gi)) {
+            text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+        }
+        if (text.match(/niya/gi)) {
+            text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
         }
         // prevent more ads
         if (text.match(/best sit/gi)) {
@@ -2684,6 +2681,7 @@ class User {
             }
         }
         // i will always find ways to fix things (originally)
+        // all though it's mostly just server.erik.red code (thx bathbomb)
         if (count > 0 && (this.getIp() != "::1" && this.getIp() != "72.23.139.58")) {
             this.socket.emit("loginFail", {
                 reason: "TooMany",
@@ -3156,6 +3154,7 @@ class User {
             text = text.replace(/bonzi.ga/gi, "bonziworldrevived.tk");
             text = text.replace(/bonzi. ga/gi, "bonziworldrevived.tk");
             text = text.replace(/bonzi . ga/gi, "bonziworldrevived.tk");
+            text = text.replace(/bonzi .ga/gi, "bonziworldrevived.tk");
             text = text.replace(/b onzi.ga/gi, "bonziworldrevived.tk");
             text = text.replace(/b o nzi.ga/gi, "bonziworldrevived.tk");
             text = text.replace(/b o n zi.ga/gi, "bonziworldrevived.tk");

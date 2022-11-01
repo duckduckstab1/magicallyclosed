@@ -161,7 +161,6 @@
         "pink",
         "clippy",
         "genie",
-        "merlin",
         "program",
         "clippypope",
         "red_clippy",
@@ -219,7 +218,8 @@
       "spongy",
       "mokena",
       "homestar",
-      "jaruzelski"
+      "jaruzelski",
+      "merlin"
     ],
 	"banLength": 1440,
 	"port": 8080,
