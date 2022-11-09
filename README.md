@@ -13,9 +13,9 @@ Please refrain from using malicious/annoying bots on BonziWORLD Revived+ as it c
 <br>
 <a href="SETUP.md">Server Setup</a>
 <br>
-<a href="Project Serenity.md">Project Serenity</a>
+<!-- <a href="Project Serenity.md">Project Serenity</a>
 <br>
-<a href="Project Serenity Docs.md">Project Serenity Docs</a>
+<a href="Project Serenity Docs.md">Project Serenity Docs</a> !>
 
 
 <hr>
