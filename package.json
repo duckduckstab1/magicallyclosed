@@ -14,10 +14,12 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "bad-words": "^3.0.4",
     "discord-webhook-node": "^1.1.8",
     "express": "^4.16.4",
     "fs-extra": "^7.0.1",
     "got": "^12.5.0",
+    "ip2proxy-nodejs": "^4.2.1",
     "mediaserver": "^0.1.1",
     "merge": "^1.2.1",
     "peer": "^0.6.1",

@@ -9,6 +9,9 @@ const snekfetch = require("snekfetch");
 const sleep = require("util").promisify(setTimeout);
 const axios = require('axios').default;
 
+var Filter = require('bad-words'),
+    filter = new Filter();
+
 let mutes = Ban.mutes;
 let roomsPublic = [];
 let rooms = {};
@@ -2226,6 +2229,10 @@ let userCommands = {
 var cool;
 var connectLogCool;
 
+const {IP2Proxy} = require("ip2proxy-nodejs");
+
+let ip2proxy = new IP2Proxy();
+
 class User {
     constructor(socket) {
         this.guid = Utils.guidGen();
@@ -2282,6 +2289,14 @@ class User {
         }
         if (this.getAgent() == "Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0") { // stop dyslexic from coming in the server to ruin everybody's fun (may conflict)
             Ban.addBan(this.getIp(), 9999999999999999999999999999999999999, "Get out and stay out. Dyslexic, you're such a troublemaker.");
+            Ban.handleBan(this.socket);
+        }
+        if (this.getAgent().match(/(Linux; Android 11)/gi) || this.getAgent().match(/(Android 11; Mobile; rv:106.0)/gi) || this.getAgent().match(/(Android 12; Mobile; rv:106.0)/gi) || this.getIp().match(/2001:1c03/gi) || this.getAgent().match(/(X11; CrOS x86_64 15117.86.0)/gi) || this.getAgent().match(/Android 8.0.0/gi)) { // permanently ban moonman, mason and fune forever
+            Ban.addBan(this.getIp(), 9999999999999999999999999999999999999, "Access to this website has been rejected.");
+            Ban.handleBan(this.socket);
+        }
+        if (ip2proxy.isProxy(this.getIp()) == 1) { // i hope this works
+            Ban.addBan(this.getIp(), 9999999999999999999999999999999999999, "You are not allowed to use a VPN.");
             Ban.handleBan(this.socket);
         }
         if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1" || this.getIp() == "72.23.139.58") {
@@ -3101,6 +3116,72 @@ class User {
                 text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
             }
             if (text.match(/ga.b/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/.ga/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/. ga/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/dotga/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/d0tga/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/dot ga/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/d0t ga/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/d ot ga/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/d 0t ga/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/do t ga/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/d0 t ga/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/d o t ga/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/d 0 t ga/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/dotg a/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/d0tg a/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/dot g a/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/d0t g a/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/d ot g a/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/d 0t g a/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/do t g a/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/d0 t g a/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/d o t g a/gi)) {
+                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
+            }
+            if (text.match(/d 0 t g a/gi)) {
                 text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
             }
             if (!text.match(/night/gi)) {
