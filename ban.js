@@ -317,7 +317,7 @@ exports.isBanned = function(ip) {
     return Object.keys(bans).indexOf(ip) != -1;
 };
 exports.hasAnAccount = function(ip) {
-    return Object.keys(accounts).indexOf(ip) != -1;
+    return true;
 };
 
 exports.isHardwareBanned = function(ip,agent) {
