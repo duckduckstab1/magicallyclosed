@@ -1233,10 +1233,7 @@ function newRoom(rid, prefs) {
 
 let userCommands = {
     godmode: function (word) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         let success = word == this.room.prefs.godword;
         if (success) {
             this.private.runlevel = 3;
@@ -1250,10 +1247,7 @@ let userCommands = {
         });
     },
     sanitize: function () {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         let sanitizeTerms = ["false", "off", "disable", "disabled", "f", "no", "n"];
         let argsString = Utils.argsString(arguments);
         this.private.sanitize = !sanitizeTerms.includes(argsString.toLowerCase());
@@ -1272,10 +1266,7 @@ let userCommands = {
     },
     youtube: function (vidRaw) {
         if (this.room.rid == "bonzi_tv") return;
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
         this.room.emit("youtube", {
             guid: this.guid,
@@ -1285,10 +1276,7 @@ let userCommands = {
 
     setbonzitvvid: function (vidRaw) {
         if (this.room.rid != "bonzi_tv") return;
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
 
         const date = new Date();
         const hours = date.getHours();
@@ -1428,10 +1416,7 @@ let userCommands = {
 
     setbonzitvvid2: function (vidRaw) {
         if (this.room.rid != "bonzi_tv") return;
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
 
         var vidId = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
         this.room.vid = vidId;
@@ -1442,10 +1427,7 @@ let userCommands = {
     },
     setbonzitvvid3: function (vidRaw) {
         if (this.room.rid != "bonzi_tv") return;
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
 
         var bonziTvIdent = ["https://www.youtube.com/watch?v=l_F7ZyzufPg", "https://www.youtube.com/watch?v=GCA5CB5uUyA", "https://www.youtube.com/watch?v=rBPKOZNd7mA", "https://www.youtube.com/watch?v=VJs_VALzi_8"];
         var ident = Math.floor(Math.random() * bonziTvIdent.length);
@@ -1457,10 +1439,7 @@ let userCommands = {
         });
     },
     scratch: function (vidRaw) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
         this.room.emit("scratch", {
             guid: this.guid,
@@ -1468,10 +1447,7 @@ let userCommands = {
         });
     },
     sticker: function (sticker) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         if (Object.keys(stickers).includes(sticker)) {
             this.room.emit("talk", {
                 text: `<img src="./img/stickers/${sticker}.png" width=170>`,
@@ -1483,10 +1459,7 @@ let userCommands = {
     whynot: "passthrough2",
     isee: "passthrough2",
     dtvhater: function () {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.room.emit("dtvhater", {
             guid: this.guid,
             target: sanitize(Utils.argsString(arguments)),
@@ -1496,10 +1469,7 @@ let userCommands = {
     // nevermind
     /*
     wtf: function (text) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
 		this.socket.emit("nofuckoff",{
 			guid: this.guid
 		});
@@ -1512,10 +1482,7 @@ let userCommands = {
         },1084);
     },*/
     toppestjej: function () {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.room.emit("talk", {
             text: `<img src="./img/misc/topjej.png">`,
             guid: this.guid,
@@ -1523,10 +1490,7 @@ let userCommands = {
         });
     },
     report: function (ip, reason) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         Ban.addReport(ip, ip, reason, this.public.name);
     },
     kick: function (data) {
@@ -1534,10 +1498,7 @@ let userCommands = {
             this.socket.emit("alert", "This command requires administrator privileges");
             return;
         }
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         let pu = this.room.getUsersPublic()[data];
         if (pu && pu.color) {
             let target;
@@ -1559,10 +1520,7 @@ let userCommands = {
             this.socket.emit("alert", "This command requires administrator privileges");
             return;
         }
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
 
         this.room.emit("nofuckoff", {
             guid: data,
@@ -1589,10 +1547,7 @@ let userCommands = {
         }, 1084);
     },
     send_invite: function () {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         // kinda did it
         this.room.emit("talk", {
             text: "The Discord Invite: https://discord.gg/zpnXyrDYmm",
@@ -1605,10 +1560,7 @@ let userCommands = {
             this.socket.emit("alert", "This command requires administrator privileges");
             return;
         }
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         let pu = this.room.getUsersPublic()[data];
         if (pu && pu.color) {
             let target;
@@ -1636,92 +1588,62 @@ let userCommands = {
         }
     },
     swag: function (swag) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.room.emit("swag", {    
             guid: this.guid,
         });
     },
     earth: function (swag) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.room.emit("earth", {
             guid: this.guid,
         });
     },
     grin: function (swag) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.room.emit("grin", {
             guid: this.guid,
         });
     },
     clap: function (swag) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.room.emit("clap", {
             guid: this.guid,
         });
     },
     wave: function (swag) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.room.emit("wave", {
             guid: this.guid,
         });
     },
     shrug: function (swag) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.room.emit("shrug", {
             guid: this.guid,
         });
     },
     praise: function (swag) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.room.emit("praise", {
             guid: this.guid,
         });
     },
     backflip: function (swag) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.room.emit("backflip", {
             guid: this.guid,
             swag: swag == "swag",
         });
     },
     sad: function (swag) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.room.emit("sad", {
             guid: this.guid,
         });
     },
     think: function (swag) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.room.emit("think", {
             guid: this.guid,
         });
@@ -1745,19 +1667,13 @@ let userCommands = {
         this.room.updateUser(this);
     },
     voice: function (color) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.public.voice = color;
 
         this.room.updateUser(this);
     },
     char: function (color) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         if (typeof color != "undefined") {
             if (settings.bonziChars.indexOf(color) == -1) return;
 
@@ -1769,10 +1685,7 @@ let userCommands = {
         this.room.updateUser(this);
     },
     pope: function () {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.public.color = "pope";
         this.room.updateUser(this);
     },
@@ -1783,17 +1696,14 @@ let userCommands = {
         }
     },
     asshole: function () {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.room.emit("asshole", {
             guid: this.guid,
             target: sanitize(Utils.argsString(arguments)),
         });
     },
     triggereas: function() {
-        if (!Ban.hasAnAccount(this.getIp()) || this.private.runlevel != 3) {
+        if (this.private.runlevel != 3) {
             return;
         }
         io.emit("eas",{
@@ -1804,10 +1714,7 @@ let userCommands = {
         });
     },
     video: function (vidRaw) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         if (this.private.level < 3) {
             return;
         }
@@ -1818,10 +1725,7 @@ let userCommands = {
         });
     },
     obama: async function (args) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         // not original code, i took it from hgrunt and then changed some things
         const arg = sanitize(Utils.argsString(arguments));
         const words = arg.split(" ").join(" ");
@@ -1877,10 +1781,7 @@ let userCommands = {
         });
     },
     audio: function (vidRaw) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         if (this.private.level < 3) {
             return;
         }
@@ -1891,10 +1792,7 @@ let userCommands = {
         });
     },
     image: function (vidRaw) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         if (this.private.level < 3) {
             return;
         }
@@ -1906,10 +1804,7 @@ let userCommands = {
     },
     /*
     gif: async function () {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         var bonzi = this;
         const q = await axios.get(
             'https://tenor.googleapis.com/v2/search' +
@@ -1958,10 +1853,7 @@ let userCommands = {
         });
     },
     vaporwave: function () {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.socket.emit("vaporwave");
         this.room.emit("youtube", {
             guid: this.guid,
@@ -1969,10 +1861,7 @@ let userCommands = {
         });
     },
     unvaporwave: function () {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         this.socket.emit("unvaporwave");
     },
     name: function () {
@@ -2130,16 +2019,6 @@ let userCommands = {
         text = text.replace(/b o n z i  ga/gi, "bonziworldrevived.tk");
         text = text.replace(/b o n z i  g a/gi, "bonziworldrevived.tk");
         this.public.name = text;
-        for (const i in Ban.bonziAccounts) {
-            const thename = Ban.bonziAccounts[i].bonziId;
-            if (thename == name) {
-                if (Ban.hasAnAccount(this.getIp()) && Ban.bonziAccounts[this.getIp()].bonziId != name) {
-
-                    this.public.name = "Impersonator";
-
-                }
-            }
-        }
         
         if (this.public.name.match(/Seamus/gi) && this.private.runlevel < 3) {
             this.public.name = "Impersonator";
@@ -2185,10 +2064,7 @@ let userCommands = {
         this.guid = data;
     },
     imageapi: function (data) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         if (this.private.runlevel < 3) {
             return;
         }
@@ -2196,10 +2072,7 @@ let userCommands = {
         this.room.emit("talk", { guid: this.guid, text: `<img alt="assume png" src="data:image/png;base64,${data}"/>`, say: "-e" });
     },
     dm2: function (data) {
-        if (!Ban.hasAnAccount(this.getIp())) {
-            this.socket.emit("accountRequired");
-            return;
-        }
+        
         if (typeof data != "object") return;
         let pu = this.room.getUsersPublic()[data.target];
         if (pu && pu.color) {
@@ -2238,13 +2111,6 @@ class User {
         this.guid = Utils.guidGen();
         this.socket = socket;
         // Handle ban
-        if (Ban.hasAnAccount(this.getIp())) {
-            if (Ban.bonziAccounts[this.getIp()] != null) {
-                if (Ban.bonziAccounts[this.getIp()].name) {
-                    this.guid = Ban.bonziAccounts[this.getIp()].name.replaceAll(/ /gi, "").replaceAll(".", "_").replaceAll(">", "_").replaceAll("<", "_").replaceAll("&gt;", "_").replaceAll("@", "_").replaceAll("&lt;", "_") + Math.floor(Math.random() * 1337);
-                }
-            }
-        }
         if (Ban.isBanned(this.getIp())) {
             Ban.handleBan(this.socket);
         }
@@ -2261,11 +2127,9 @@ class User {
             color: settings.bonziColors[Math.floor(Math.random() * settings.bonziColors.length)],
         };
 
-        if (Ban.hasAnAccount(this.getIp())) {
             if (getRandomInt(1,8) == 1) {
                 this.public.color = "swag";
             }
-        }
         if (!connectLogCool) {
             log.access.log("info", "connect", {
                 guid: this.guid,
@@ -2311,11 +2175,7 @@ class User {
         */
         var self = this;
         setTimeout(function(){
-            if (Ban.hasAnAccount(self.getIp())) {
-                if (Ban.bonziAccounts[self.getIp()] != null) {
-                    self.socket.emit("enablePrivateRooms");
-                }
-            }
+            self.socket.emit("enablePrivateRooms");
         },800)
         this.socket.on("login", this.login.bind(this));
     }
@@ -2387,10 +2247,6 @@ class User {
                 });
                 return;
             }
-            if (!Ban.hasAnAccount(this.getIp())) {
-                this.socket.emit("accountRequired");
-                return;
-            }
             if (sanitize(rid) != rid) {
                 this.socket.emit("loginFail", {
                     reason: "nameMal",
@@ -2437,28 +2293,6 @@ class User {
         }
 
         this.room = rooms[rid];
-
-        if (Ban.hasAnAccount(this.getIp())) {
-            if (Ban.bonziAccounts[this.getIp()].name != null) {
-                if (data.name == "") {
-
-                    data.name = sanitize(Ban.bonziAccounts[this.getIp()].bonziId);
-
-                }
-            }
-        }
-        // Check name
-        
-        for (const i in Ban.bonziAccounts) {
-            const thename = Ban.bonziAccounts[i].bonziId;
-            if (thename == data.name) {
-                if (Ban.hasAnAccount(this.getIp()) && Ban.bonziAccounts[this.getIp()].bonziId != data.name) {
-
-                    this.public.name = "Impersonator";
-
-                }
-            }
-        }
         if (data.name.match(/Seamus/gi) && this.private.runlevel < 3) {
             data.name = "Impersonator";
         }
@@ -3241,11 +3075,6 @@ class User {
                         }
                     } else if (commandFunc == "passthrough2") {
                         if (!this.cmdCool) {
-                            
-                            if (!Ban.hasAnAccount(this.getIp())) {
-                                this.socket.emit("accountRequired");
-                                return;
-                            }
                             log.info.log("info", command, {
                                 guid: this.guid,
                                 args: args,
