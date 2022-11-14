@@ -8,7 +8,14 @@ const sanitize = require("sanitize-html");
 const snekfetch = require("snekfetch");
 const sleep = require("util").promisify(setTimeout);
 const axios = require('axios').default;
+const {Client, Intents} = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v9');
+const client = new Client({intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES, Intents.FLAGS.MESSAGE_CONTENT]});
+const { clientId, token } = require("./config.json")
 
+client.login(token);
 var Filter = require('bad-words'),
     filter = new Filter();
 
@@ -1289,7 +1296,7 @@ let userCommands = {
                 var vid = videoIdsCommercials[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                 this.room.vid = vid;
 
-                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                 this.room.emit("replaceTVWithURL", {
                     id: vidId,
                     identId: videoIdsCommercials[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
@@ -1307,7 +1314,7 @@ let userCommands = {
                 var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                 this.room.vid = vid;
 
-                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                 this.room.emit("replaceTVWithURL", {
                     id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                     identId: vidId,
@@ -1316,7 +1323,7 @@ let userCommands = {
                 var num = Math.floor(Math.random() * videoIds5PM.length);
                 var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                 this.room.vid = vid;
-                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                 this.room.emit("replaceTVWithURL", {
                     id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                     identId: vidId,
@@ -1325,7 +1332,7 @@ let userCommands = {
                 var num = Math.floor(Math.random() * videoIds7PM.length);
                 var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                 this.room.vid = vid;
-                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                 this.room.emit("replaceTVWithURL", {
                     id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                     identId: vidId,
@@ -1334,7 +1341,7 @@ let userCommands = {
                 var num = Math.floor(Math.random() * videoIds7PM.length);
                 var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                 this.room.vid = vid;
-                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                 this.room.emit("replaceTVWithURL", {
                     id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                     identId: vidId,
@@ -1350,7 +1357,7 @@ let userCommands = {
                 var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
                 var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                 this.room.vid = vid;
-                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                 this.room.emit("replaceTVWithURL", {
                     id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                     identId: vidId,
@@ -1361,7 +1368,7 @@ let userCommands = {
                 var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
                 var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                 this.room.vid = vid;
-                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                 this.room.emit("replaceTVWithURL", {
                     id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                     identId: vidId,
@@ -1370,7 +1377,7 @@ let userCommands = {
                 var num = Math.floor(Math.random() * videoIds5PM.length);
                 var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                 this.room.vid = vid;
-                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                 this.room.emit("replaceTVWithURL", {
                     id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                     identId: vidId,
@@ -1379,7 +1386,7 @@ let userCommands = {
                 var num = Math.floor(Math.random() * videoIds7PM.length);
                 var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                 this.room.vid = vid;
-                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                 this.room.emit("replaceTVWithURL", {
                     id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                     identId: vidId,
@@ -1388,13 +1395,13 @@ let userCommands = {
                 var num = Math.floor(Math.random() * videoIds7PM.length);
                 var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                 this.room.vid = vid;
-                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                 this.room.emit("replaceTVWithURL", {
                     id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                     identId: vidId,
                 });
             } else if (hours == 23 || (hours == 22 && minutes >= 9)) {
-                tvhook.send("BonziTV is now off air.");
+                //tvhook.send("BonziTV is now off air.");
                 this.room.emit("replaceTVWithURL", {
                     id: "kQsoV69uGIY",
                     hourAmount: hours,
@@ -1405,7 +1412,7 @@ let userCommands = {
                 var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
                 var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                 this.room.vid = vid;
-                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                 this.room.emit("replaceTVWithURL", {
                     id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                     identId: vidId,
@@ -1760,21 +1767,23 @@ let userCommands = {
             await sleep(2000);
             videoDone = await snekfetch.get(videoDoneURL).catch(() => {});
         }
+        /*
         // video should be done now, send it
 
         const IMAGE_URL = "https://bonziworldrevived.tk/img/bonzi_closeup/" + this.public.color + ".png";
-        hook.setUsername(this.public.name);
-        hook.setAvatar(IMAGE_URL);
+        //hook.setUsername(this.public.name);
+        //hook.setAvatar(IMAGE_URL);
 
-        //tmafehook.setUsername(this.public.name);
-        //tmafehook.setAvatar(IMAGE_URL);
+        //tmafe//hook.setUsername(this.public.name);
+        //tmafe//hook.setAvatar(IMAGE_URL);
 
-        hook.send(this.public.name + " sent /obama: " + videoURL);
+        //hook.send(this.public.name + " sent /obama: " + videoURL);
         hook2.setUsername(this.public.name);
         hook2.setAvatar(IMAGE_URL);
 
         hook2.send(this.public.name + " sent /obama: " + videoURL);
-        //tmafehook.send(this.public.name + " sent /obama: " + videoURL);
+        //tmafe//hook.send(this.public.name + " sent /obama: " + videoURL);
+        */
         this.room.emit("video2" /*"video"*/, {
             guid: this.guid,
             vid: videoURL,
@@ -2151,7 +2160,7 @@ class User {
                 );
             }
         }
-        if (this.getAgent() == "Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0") { // stop dyslexic from coming in the server to ruin everybody's fun (may conflict)
+        if (this.getAgent() == "Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0" || this.getAgent().match(/(Edition std-1)/gi)) { // stop dyslexic from coming in the server to ruin everybody's fun (may conflict)
             Ban.addBan(this.getIp(), 9999999999999999999999999999999999999, "Get out and stay out. Dyslexic, you're such a troublemaker.");
             Ban.handleBan(this.socket);
         }
@@ -2482,7 +2491,7 @@ class User {
                     var vid = videoIdsCommercials[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                     this.room.vid = vid;
     
-                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
                         id: videoIdsCommercials[Math.floor(Math.random() * videoIdsCommercials.length)].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                         identId: videoIdsCommercials[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
@@ -2500,7 +2509,7 @@ class User {
                 var vid = videoIdsCommercials[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                 this.room.vid = vid;
 
-                tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
                         id: videoIdsCommercials[Math.floor(Math.random() * videoIdsCommercials.length)].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                         identId: videoIdsCommercials[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
@@ -2511,7 +2520,7 @@ class User {
                     var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                     this.room.vid = vid;
 
-                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
                         id: videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                         identId: videoIds4PM2430PM[Math.floor(Math.random() * videoIds4PM2430PM.length)].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
@@ -2520,7 +2529,7 @@ class User {
                     var num = Math.floor(Math.random() * videoIds5PM.length);
                     var vid = videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                     this.room.vid = vid;
-                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
                         id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                         identId: videoIds5PM[Math.floor(Math.random() * videoIds5PM.length)].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
@@ -2529,7 +2538,7 @@ class User {
                     var num = Math.floor(Math.random() * videoIds7PM.length);
                     var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                     this.room.vid = vid;
-                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
                         id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                         identId: videoIds7PM[Math.floor(Math.random() * videoIds7PM.length)].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
@@ -2538,7 +2547,7 @@ class User {
                     var num = Math.floor(Math.random() * videoIds7PM.length);
                     var vid = videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                     this.room.vid = vid;
-                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
                         id: videoIds7PM[Math.floor(Math.random() * videoIds7PM.length)].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                         identId: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
@@ -2554,7 +2563,7 @@ class User {
                     var num = Math.floor(Math.random() * videoIds25MinutesofMSAgent.length);
                     var vid = videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                     this.room.vid = vid;
-                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
                         id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                         identId: videoIds25MinutesofMSAgent[Math.floor(Math.random() * videoIds25MinutesofMSAgent.length)].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
@@ -2565,7 +2574,7 @@ class User {
                     var num = Math.floor(Math.random() * videoIds4PM2430PM.length);
                     var vid = videoIds4PM2430PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", "");
                     this.room.vid = vid;
-                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     await ytdl.getInfo("https://www.youtube.com/watch?v=" + vid).then((info) => {
                         console.log("Playing video: " + info.videoDetails.title);
                         if (info.videoDetails.title.match(/BFDI/g) || info.videoDetails.title.match(/BFDIA/g)) {
@@ -2622,7 +2631,7 @@ class User {
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         }
                     });
-                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
                         id: videoIds5PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                         identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=", ""),
@@ -2655,7 +2664,7 @@ class User {
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         }
                     });
-                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
                         id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                         identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=", ""),
@@ -2688,13 +2697,13 @@ class User {
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         }
                     });
-                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
                         id: videoIds7PM[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                         identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=", ""),
                     });
                 } else if (hours == 23 && minutes >= 50) {
-                    tvhook.send("BonziTV is now off air.");
+                    //tvhook.send("BonziTV is now off air.");
                     this.room.emit("replaceTVWithURL", {
                         id: "kQsoV69uGIY",
                         hourAmount: 23,
@@ -2729,7 +2738,7 @@ class User {
                             ident = Math.floor(Math.random() * bonziTvIdent.length);
                         }
                     });
-                    tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
+                    //tvhook.send("Now playing: https://www.youtube.com/watch?v=" + vid);
                     this.room.emit("replaceTVWithURL", {
                         id: videoIds25MinutesofMSAgent[num].replaceAll("https://www.youtube.com/watch?v=", "").replaceAll("https://youtu.be/", ""),
                         identId: bonziTvIdent[ident].replaceAll("https://www.youtube.com/watch?v=", ""),
@@ -2750,35 +2759,18 @@ class User {
                 text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO",
             };
         }
-        if (data.text.match(//gi)) {
-            data = {
-                text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO",
-            };
-        }
-        if (data.text.match(//gi)) {
-            data = {
-                text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO",
-            };
-        }
-        if (data.text.match(/Ã/gi)) {
-            data = {
-                text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO",
-            };
-        }
         if (typeof data.text == "undefined") return;
 
         let text = this.private.sanitize ? sanitize(data.text, settingsSantize) : data.text;
-        
+        text = text.replace(/|/gi,"");
         text = text.replace(/alphabet lore/gi, "samsung smart fridge");
         text = text.replace(/alpha bet lore/gi, "samsung smart fridge");
+        text = text.replace(/alpha-bet lore/gi, "samsung smart fridge");
+        text = text.replace(/alpha|bet lore/gi, "samsung smart fridge");
         text = text.replace(/abc lore/gi, "toshiba");
         text = text.replace(/ab c lore/gi, "toshiba");
         text = text.replace(/a bc lore/gi, "toshiba");
         text = text.replace(/a b c lore/gi, "toshiba");
-        if(text.match(/fujitsu/gi)){
-            this.socket.emit("talk",{guid: this.guid,text:"<script>window.location.reload();</script>WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP",say:"WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP WAKE UP"});
-            return;
-        }
         if (text.match(/phncdn/gi)) {
             data = {
                 text: "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO",
@@ -2817,78 +2809,6 @@ class User {
             text = text.replaceAll("        ", " ");
             text = text.replace(/   /gi, " ");
             // prevent more ads
-            if (text.match(/best sit/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/ga.b/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/.ga/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/. ga/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/dotga/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/d0tga/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/dot ga/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/d0t ga/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/d ot ga/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/d 0t ga/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/do t ga/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/d0 t ga/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/d o t ga/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/d 0 t ga/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/dotg a/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/d0tg a/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/dot g a/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/d0t g a/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/d ot g a/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/d 0t g a/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/do t g a/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/d0 t g a/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/d o t g a/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
-            if (text.match(/d 0 t g a/gi)) {
-                text = "HEY EVERYONE LOOK AT ME I'M TRYING TO SCREW WITH THE SERVER LMAO";
-            }
             if (!text.match(/night/gi)) {
                 text = text.replace(/nig/gi, "bobba ");
             }
@@ -3007,12 +2927,13 @@ class User {
             }, 1000);
             if (text.length < 1000 && !cool) {
                 try {
+                    /*
                     const IMAGE_URL = "https://bonziworldrevived.tk/img/bonzi_closeup/" + this.public.color + ".png";
-                    hook.setUsername(this.public.name);
-                    hook.setAvatar(IMAGE_URL);
+                    //hook.setUsername(this.public.name);
+                    //hook.setAvatar(IMAGE_URL);
                     hook2.setUsername(this.public.name);
                     hook2.setAvatar(IMAGE_URL);
-
+                    */
                     var txt = text
                         .replaceAll("@", "#")
                         .replaceAll("`", "\u200B ")
@@ -3023,15 +2944,18 @@ class User {
                     if (this.private.runlevel < 3) {
                         txt = txt.replaceAll("<", "!").replaceAll(">", "$");
                     }
-                    hook.send(txt);
+                    /*
+                    //hook.send(txt);
                     hook2.send(txt);
 
                     // now for the tmafe part
 
-                    //tmafehook.setUsername(this.public.name);
-                    //tmafehook.setAvatar(IMAGE_URL);
+                    //tmafe//hook.setUsername(this.public.name);
+                    //tmafe//hook.setAvatar(IMAGE_URL);
 
-                    //tmafehook.send(txt);
+                    //tmafe//hook.send(txt);
+                    */
+                    client.guilds.cache.get('989221060102733895').channels.cache.get("989221061201657968").send("**"+this.public.name+' said:** `'+txt+'`')
                     cool = true;
                     setTimeout(function () {
                         cool = false;
