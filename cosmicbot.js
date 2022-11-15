@@ -895,31 +895,31 @@ var commands_boombot = {
     },
 	audio(txt){
 		console.group();
-		console.log("Played an audio file." + " - bwr")
+		console.log("Played an audio file." + dash + network)
 		console.log('URL:' + txt + '')
 		console.groupEnd();
 		socket.emit('command', {list:['audio',txt]})
     },
 	b_audio(txt){
 		console.group();
-		console.log("Broadcasted an audio file." + " - bwr")
+		console.log("Broadcasted an audio file." + dash + network)
 		console.log('URL:' + txt + '')
 		console.groupEnd();
 		socket.emit('command', {list:['broadcast',"<audio controls autoplay loop><source src=" + txt + " type='audio/mp3'></audio>"]})
     },
 	video(txt){
 		console.group();
-		console.log("Played an mp4 video file." + " - bwr")
+		console.log("Played an mp4 video file." + dash + network)
 		console.log('URL:' + txt + '')
 		console.groupEnd();
 		socket.emit('command', {list:['video',txt]})
     },
 	b_video(txt){
 		console.group();
-		console.log("Broadcasted an mp4 video file." + " - bwr")
+		console.log("Broadcasted an mp4 video file." + dash + network)
 		console.log('URL:' + txt + '')
 		console.groupEnd();
-		socket.emit('command', {list:['broadcast',"<video controls autoplay loop><source src=" + txt + " type='video/mp4'></video>"]})
+		socket.emit('command', {list:['broadcast',"<video controls height='270' autoplay loop><source src=" + txt + " type='video/mp4'></video>"]})
     },
 	logo_old(txt){
 	if(txt.startsWith(prefix_bb)){
