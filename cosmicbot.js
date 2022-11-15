@@ -488,7 +488,7 @@ var commands = {
         }
 		console.log('Loaded hub menu.' + dash + network)
 		cmdcount++
-		return '- - <h3>' + bot_name + '</h3><br /><h5>⌬ Developed by: ' + developer + ' ⌬</h5> <hr /><b>✰Commands:✰</b><hr /> <li>' + prefix + 'cmds</li><br /> <li>' + prefix_bb + 'cmds (BoomBOT)</li><br /> <li>' + prefix + 'changelog</li><br /> <li>c#aboutme</li><br /> <li>' + prefix + 'links</li><br /> <hr /><h6>Hub.</h6><hr />'
+		return '- - <h3>' + bot_name + '</h3><br /><h5>⌬ Developed by: ' + developer + ' ⌬</h5> <hr /><b>✰Commands:✰</b><hr /> <li>' + prefix + 'cmds</li><br /> <li>' + prefix_bb + 'cmds (BoomBOT)</li><br /> <li>' + prefix + 'changelog</li><br /> <li>' + prefix + 'aboutme</li><br /> <li>' + prefix + 'links</li><br /> <hr /><h6>Hub.</h6><hr />'
 	},
 	links(txt){
 		if(txt.startsWith(prefix)){
