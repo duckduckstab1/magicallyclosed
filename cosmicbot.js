@@ -191,9 +191,9 @@ const prefix = "c#";
 const prefix_bb = "b#";
 const developer = "Cosmic";
 const co_developer = "";
-const version = one_Times_New_Roman_bold + dot + eight_Times_New_Roman_bold + dot + zero_Times_New_Roman_bold;
+const version = one_Times_New_Roman_bold + dot + eight_Times_New_Roman_bold + dot + one_Times_New_Roman_bold;
 const version_utf8 = "1.8.0";
-const version_bb = one_Times_New_Roman_bold + dot + zero_Times_New_Roman_bold + dot + one_Times_New_Roman_bold;
+const version_bb = one_Times_New_Roman_bold + dot + zero_Times_New_Roman_bold + dot + two_Times_New_Roman_bold;
 const bot_name = "𝘾𝙤𝙨𝙢𝙞𝙘𝐁𝐎𝐓";
 const bot_name_bb = "𝓑𝓸𝓸𝓶𝔹𝕆𝕋";
 const bot_name_bb_extended = " 🅴🆇🆃🅴🅽🅳🅴🅳";
@@ -480,7 +480,7 @@ var commands = {
 	changelog(txt){
 		console.log('Loaded changelog menu.' + dash + network)
 		cmdcount++
-		return '- - <h3>' + bot_name + '</h3><h5>⌬ Developed by: ' + developer + ' ⌬</h5> <hr /><li>' + prefix + 'hub</li> <hr /><b>✰' + version + ' Changelog:✰</b><hr /> <li>Updated to <b>' + version + '</b></li><br /> <li>Made some tweaks specifically for bonziverse</li><br /> <hr /><h6>Changelog.</h6><hr />'
+		return '- - <h3>' + bot_name + '</h3><h5>⌬ Developed by: ' + developer + ' ⌬</h5> <hr /><li>' + prefix + 'hub</li> <hr /><b>✰' + version + ' Changelog:✰</b><hr /> <li>Updated to <b>' + version + '</b></li><br /> <li>Re-wrote parts of the bot</li><br /> <li>Merged BoomBOT with CosmicBOT</li><br /> <li>Ported some commands from BonziBOT to CosmicBOT</li><br /> <hr /><h6>Changelog.</h6><hr />'
 	},
 	hub(txt){
 		if(txt.startsWith(prefix)){
@@ -1048,20 +1048,20 @@ var commands = {
 	
 var commands_boombot = {
 	cmds:function(){
-		console.log('Loaded commands menu.' + dash + network)
+		console.log('Loaded BoomBOT commands menu.' + dash + network)
 		cmdcount++
 		return "- - <h3>" + bot_name_bb + "</h3><h5>⌬ Developed by: " + developer + " ⌬</h5> <hr /><li>" + prefix_bb +"hub</li> <hr /><b>✰Commands:✰</b><hr /><li>" + prefix_bb +"audio [URL]</li><br /> <li>" + prefix_bb +"video [URL]</li><br /> <li>" + prefix_bb +"b_audio [URL]</li><br /> <li>" + prefix_bb +"b_video [URL]</li><br /> <li>" + prefix_bb +"yt [URL/Video ID]</li><br /> <hr /><h6>BoomBOT Commands.</h6><hr />"
 	},
 	changelog(txt){
 		console.log('Loaded BoomBOT changelog menu.' + dash + network)
 		cmdcount++
-		return '- - <h3>' + bot_name_bb + '</h3><h5>⌬ Developed by: ' + developer + ' ⌬</h5> <hr /><li>' + prefix_bb + 'hub</li> <hr /><b>✰' + version_bb + ' Changelog:✰</b><hr /> <li>Nothing. this is the first version u retard.</li><br /> <hr /><h6>Changelog.</h6><hr />'
+		return '- - <h3>' + bot_name_bb + '</h3><h5>⌬ Developed by: ' + developer + ' ⌬</h5> <hr /><li>' + prefix_bb + 'hub</li> <hr /><b>✰' + version_bb + ' Changelog:✰</b><hr /> <li>Fixed some bugs</li><br /> <li>Merged with CosmicBOT</li><br /> <hr /><h6>BoomBOT Changelog.</h6><hr />'
 	},
 	hub(txt){
 		if(txt.startsWith(prefix_bb)){
 	return "jajajajaa cool command lmao hahaha shut the fuck up"
         }
-		console.log('Loaded hub menu.' + dash + network)
+		console.log('Loaded BoomBOT hub menu.' + dash + network)
 		cmdcount++
 		return '- - <h3>' + bot_name_bb + '</h3><br /><h5>⌬ Developed by: ' + developer + ' ⌬</h5> <hr /><b>✰Commands:✰</b><hr /> <li>' + prefix_bb + 'cmds</li><br /> <li>' + prefix + 'cmds (CosmicBOT)</li><br /> <li>' + prefix_bb + 'changelog</li><br /> <li>' + prefix_bb + 'aboutme</li><br /> <li>' + prefix_bb + 'links</li><br /> <hr /><h6>BoomBOT Hub.</h6><hr />'
 	},
@@ -1069,7 +1069,7 @@ var commands_boombot = {
 		if(txt.startsWith(prefix_bb)){
 	return "hahahaha nice command lmao hahaha fuck you"
         }
-		console.log('Loaded links menu.' + dash + network)
+		console.log('Loaded BoomBOT links menu.' + dash + network)
 		cmdcount++
 		return '- - <hr /><h4>⚜My Discord Server:</h4> <br /><h5>' + discord_url + '</h5><br /><hr /> <h4>📝My Pastebin Profile:</h4> <br /><h5>' + pastebin_url + '</h5><br /><hr /> <h4>🌐My Github Profile:</h4> <br /><h5>' + github_url + '</h5><br /><hr /> <h6>Links.</h6><hr />'
 	},
@@ -1077,7 +1077,7 @@ var commands_boombot = {
 		if(txt.startsWith(prefix_bb)){
 	return "hahahaha nice command lmao hahaha fuck you"
         }
-		console.log('Loaded aboutme menu.' + dash + network)
+		console.log('Loaded BoomBOT aboutme menu.' + dash + network)
 		cmdcount++
 		return '- - <h3>' + bot_name_bb + '</h3><div><h4>Version ' + version_bb + '</h4><br><hr>Hello, I am <b>' + bot_name_bb + '</b>! If you are ready to party, please begin by using <b>' + prefix_bb + 'hub</b>. <hr><div><h5>⌬ Developed by: ' + developer + ' ⌬</h5></div></p>'
 	},
