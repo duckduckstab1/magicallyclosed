@@ -378,7 +378,7 @@ var commands = {
         }
 		console.log('Loaded colors menu.' + dash + network)
 		cmdcount++
-		return '- - <h3>' + bot_name + '</h3><h5>⌬ Developed by: ' + developer + ' ⌬</h5> <hr /><b>✰Colors:✰</b><hr /><li>' + prefix + 'red</li><br /> <li>' + prefix + 'green</li><br /> <li>' + prefix + 'blue</li><br /> <li>' + prefix + 'purple</li><br /> <li>' + prefix + 'pink</li><br /> <li>' + prefix + 'black</li><br /> <li>' + prefix + 'brown</li><br /> <li><del>' + prefix + 'pope</del></li><br /> <hr /><h6>Color Picker.</h6><hr />'
+		return '- - <h3>' + bot_name + '</h3><h5>⌬ Developed by: ' + developer + ' ⌬</h5> <hr /><b>✰Colors:✰</b><hr /> <li>' + prefix + 'red</li><br /> <li>' + prefix + 'orange</li><br /> <li>' + prefix + 'yellow</li><br /> <li>' + prefix + 'green</li><br /> <li>' + prefix + 'blue</li><br /> <li>' + prefix + 'purple</li><br /> <li>' + prefix + 'pink</li><br /> <li>' + prefix + 'black</li><br /> <li>' + prefix + 'brown</li><br /> <li><del>' + prefix + 'pope</del></li><br /> <hr /><h6>Color Picker.</h6><hr />'
 	},
 	emotes(txt){
 		if(txt.startsWith(prefix)){
@@ -386,7 +386,7 @@ var commands = {
         }
 		console.log('Loaded emotes menu.' + dash + network)
 		cmdcount++
-		return '- - <h3>' + bot_name + '</h3><h5>⌬ Developed by: ' + developer + ' ⌬</h5> <hr /><b>✰Emotes:✰</b><hr /><li>' + prefix + 'backflip</li><br /> <li>' + prefix + 'swagflip</li><br /> <hr /><h6>Emote Picker.</h6><hr />'
+		return '- - <h3>' + bot_name + '</h3><h5>⌬ Developed by: ' + developer + ' ⌬</h5> <hr /><b>✰Emotes:✰</b><hr /><li>' + prefix + 'backflip</li><br /> <li>' + prefix + 'swagflip</li><br /> <li>' + prefix + 'swag</li><br /> <li>' + prefix + 'clap</li><br /> <li>' + prefix + 'praise</li><br /> <li>' + prefix + 'think</li><br /> <li>' + prefix + 'sad</li><br /> <li>' + prefix + 'shrug</li><br /> <li>' + prefix + 'grin</li><br /> <li>' + prefix + 'earth</li><br /> <hr /><h6>Emote Picker.</h6><hr />'
 	},
 	skiddie(txt){
 		cmdcount++
@@ -432,6 +432,7 @@ var commands = {
 		cmdcount++
 		return 'HEY, EVERYONE LOOK AT THIS IDIOT WHO IS TRYING TO GET POPE IN A PUBLIC ROOM HAHAHAHHAAA!! LMAO' 
 	},
+
 	red(txt){
 		if(txt.startsWith(prefix)){
             return "hahahaha nice color lmao hahaha fuck you"
@@ -439,6 +440,22 @@ var commands = {
 		console.log('Changed the bot color to red.' + dash + network)
 		cmdcount++
         socket.emit('command', {list:['color','red','this.userPublic.name']})
+	},
+	orange(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice color lmao hahaha fuck you"
+        }
+		console.log('Changed the bot color to orange.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['color','orange','this.userPublic.name']})
+	},
+	yellow(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice color lmao hahaha fuck you"
+        }
+		console.log('Changed the bot color to yellow.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['color','yellow','this.userPublic.name']})
 	},
 	green(txt){
 		if(txt.startsWith(prefix)){
@@ -488,7 +505,120 @@ var commands = {
 		cmdcount++
         socket.emit('command', {list:['color','brown','this.userPublic.name']})
     },
+	
+	swag(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('Played swag animation.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['swag','this.userPublic.name']})
+    },
+	cool(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('Played swag animation.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['swag','this.userPublic.name']})
+    },
+	praise(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('All hail the lord, Jesus Christ.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['praise','this.userPublic.name']})
+    },
+	sad(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('Played depression animation.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['sad','this.userPublic.name']})
+    },
+	frown(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('Played depression animation.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['sad','this.userPublic.name']})
+    },
+	clap(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('Played clapping animation.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['clap','this.userPublic.name']})
+    },
+	earth(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('Played globe spin animation.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['earth','this.userPublic.name']})
+    },
+	globe(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('Played globe spin animation.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['earth','this.userPublic.name']})
+    },
+	grin(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('Played grin animation.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['grin','this.userPublic.name']})
+    },
+	smirk(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('Played grin animation.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['grin','this.userPublic.name']})
+    },
+	smile(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('Played grin animation.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['grin','this.userPublic.name']})
+    },
+	think(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('Played thinking animation.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['think','this.userPublic.name']})
+    },
+	shrug(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('Played shrug animation.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['shrug','this.userPublic.name']})
+    },
 	backflip(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('Played backflip animation.' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['backflip','this.userPublic.name']})
+    },
+	back_flip(txt){
 		if(txt.startsWith(prefix)){
             return "hahahaha nice emote lmao hahaha fuck you"
         }
@@ -504,6 +634,23 @@ var commands = {
 		cmdcount++
         socket.emit('command', {list:['backflip','swag','this.userPublic.name']})
     },
+	backflip_swag(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('Played swagflip animation' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['backflip','swag','this.userPublic.name']})
+    },
+	swag_backflip(txt){
+		if(txt.startsWith(prefix)){
+            return "hahahaha nice emote lmao hahaha fuck you"
+        }
+		console.log('Played swagflip animation' + dash + network)
+		cmdcount++
+        socket.emit('command', {list:['backflip','swag','this.userPublic.name']})
+    },
+	
 	cyberpunk(txt){
 	if(txt.startsWith(prefix)){
         return "hahahaha nice copypasta lmao hahaha fuck you"
