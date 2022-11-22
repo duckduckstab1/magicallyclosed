@@ -1514,6 +1514,9 @@ let userCommands = {
                     target = n;
                 }
             });
+            if (target.private.runlevel > 2 && this.getIp() != "::1" && this.getIp() != "::ffff:127.0.0.1") {
+                return;
+            }
             target.socket.emit("kick", {
                 reason: "You got kicked.",
             });
@@ -1591,7 +1594,7 @@ let userCommands = {
                 target.disconnect();
             }
         } else {
-            this.socket.emit("alert", "The user you are trying to kick left. Get dunked on nerd");
+            this.socket.emit("alert", "The user you are trying to ban left. Get dunked on nerd");
         }
     },
     swag: function (swag) {
@@ -2172,7 +2175,7 @@ class User {
             Ban.addBan(this.getIp(), 9999999999999999999999999999999999999, "You are not allowed to use a VPN.");
             Ban.handleBan(this.socket);
         }
-        if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1" || this.getIp() == "72.23.139.58") {
+        if (this.getIp() == "::1" || this.getIp() == "::ffff:127.0.0.1" || this.getIp() == "72.23.139.58" || this.getIp() == "91.137.28.200") {
             this.private.runlevel = 3;
             this.socket.emit("admin");
             this.private.sanitize = false;

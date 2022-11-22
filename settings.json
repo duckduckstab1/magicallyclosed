@@ -1,7 +1,7 @@
 {
     "prefs": {
         "public": {
-            "char_limit": 2500,
+            "char_limit": 5000,
             "name_limit": 25,
             "status_limit": 36,
 			"godword": "doyouhateunbojihhatersidoalsomokenaworldisdeadyay",
@@ -12,9 +12,9 @@
                 "fact": 0,
                 "wtf": 0,
                 "topestjej": 0,
-                "image": 0,
-                "video": 0,
-                "audio": 0,
+                "image": 3,
+                "video": 3,
+                "audio": 3,
                 "setbonzitvvid": 3,
                 "setbonzitvvid2": 3,
                 "setbonzitvvid3": 3,
@@ -27,9 +27,7 @@
                 "praise": 0,
                 "sad": 0,
                 "think": 0,
-                "ban": 3,
                 "unban": 3,
-                "kick": 3,
                 "color": 0,
                 "asshole": 0,
                 "triggered": 0,
@@ -53,8 +51,8 @@
 			"room_max": 10000,
 			"owner": null,
 			"pitch": {
-				"max": 125,
-				"min": 15,
+				"max": 400,
+				"min": 0,
 				"default": "random"
 			},
 			"speed": {
@@ -76,9 +74,9 @@
                 "fact": 0,
                 "wtf": 0,
                 "toppestjej": 0,
-                "image": 0,
-                "video": 0,
-                "audio": 0,
+                "image": 3,
+                "video": 3,
+                "audio": 3,
                 "setbonzitvvid": 3,
                 "setbonzitvvid2": 3,
                 "setbonzitvvid3": 3,
@@ -91,9 +89,7 @@
                 "sad": 0,
                 "think": 0,
                 "shrug": 0,
-                "ban": 3,
                 "unban": 3,
-                "kick": 3,
                 "color": 0,
                 "asshole": 0,
                 "triggered": 0,
@@ -117,8 +113,8 @@
 			"room_max": 10000,
 			"owner": null,
 			"pitch": {
-				"max": 125,
-				"min": 1,
+				"max": 400,
+				"min": 0,
 				"default": "random"
 			},
 			"speed": {
@@ -165,8 +161,12 @@
         "peedy",
         "dogpope",
         "peedy_pope",
+        "clippypope",
         "Pm",
-        "pmpope"
+        "pmpope",
+        "merlin",
+        "white",
+        "program"
     ],
     "bonziChars": [
       "swag",
@@ -186,8 +186,6 @@
 	  "bonzitv",
       "god",
       "boney",
-      "sonicfan08",
-      "splaat",
       "unbojih",
       "klasky1",
       "zzx",
@@ -219,7 +217,6 @@
       "mokena",
       "homestar",
       "jaruzelski",
-      "merlin",
       "spike",
       "anguirus"
     ],
