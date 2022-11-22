@@ -1,7 +1,9 @@
 <hr>
 
 ## TODO LIST
-- [ ] Complete Project Serenity
+- [ ] Optimize this bloated piece of shit
+- [ ] Rewrite stolen and old bonzi.world code from scratch so it's cleaner
+- [ ] Migrate all MSAgent Colors to different sprite sheet and animations
 - [ ] Re add old bwr+ from March 2022 commands and colors
 - [x] Fix ban command
 - [ ] Make a way to load a list of popes from json (meat.js)
